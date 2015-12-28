@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  $Id: APPLICATION_SqlMap.xml 6898 2010-12-28 03:56:52Z yhwang $
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+
+<sqlMap namespace="StoreInfo">
+	<typeAlias alias="storeInfoP" type="cn.vstore.appserver.model.StoreInfo"/>
+  	
+  	<resultMap class="cn.vstore.appserver.model.StoreInfo" id="storeInfo">
+  		<result property="id" jdbcType="BIGINT" column="ID"/>
+  		<result property="storePkgName" jdbcType="VARCHAR" column="store_pkg_name"/>
+  		<result property="storeName" jdbcType="VARCHAR" column="store_name"/>
+  		<result property="pubKeyBase64" jdbcType="TEXT" column="pub_key_base64"/>
+  		<result property="pwdResetUrl" jdbcType="VARCHAR" column="pwd_reset_url"/>
+  		<result property="clientDownloadUrl" jdbcType="VARCHAR" column="client_download_url"/>
+  		<result column="IS_APPROVED" jdbcType="DECIMAL" property="isApproved" />
+        <result column="IS_LOGIN" jdbcType="DECIMAL" property="isLogin" />
+        <result column="IS_DOWNLOAD" jdbcType="DECIMAL" property="isDownload" />
+  	</resultMap>
+<!--   	<resultMap class="cn.vstore.appserver.model.RecommenderApkList" id="recommenderApkList"> -->
+<!--   		<result property="provider" jdbcType="VARCHAR" column="CP_TITLE"/> -->
+<!--   		<result property="recommendMemo" jdbcType="VARCHAR" column="RECOMMEND_MEMO"/> -->
+<!--   		<result property="pkg" jdbcType="VARCHAR" column="APP_ID"/> -->
+<!--   		<result property="title" jdbcType="VARCHAR" column="APP_TITLE"/> -->
+<!--   		<result property="icon" jdbcType="VARCHAR" column="PHONE_ICON_PIC"/> -->
+<!--   		<result property="price" jdbcType="DECIMAL" column="PRICE"/> -->
+<!--   		<result property="currency" jdbcType="VARCHAR" column="CURRENCY"/> -->
+<!--   		<result property="priceType" jdbcType="VARCHAR" column="PRICE_TYPE"/> -->
+<!--   		<result property="totalRank" jdbcType="DECIMAL" column="TOTAL_RANK"/> -->
+<!--   		<result property="ratingTimes" jdbcType="DECIMAL" column="TOTAL_RANK_TIMES"/> -->
+<!--   		<result property="downloadTimes" jdbcType="DECIMAL" column="TOTAL_DOWNLOAD_TIMES"/> -->
+<!--   		<result property="lastVersion" jdbcType="DECIMAL" column="LAST_VERSION"/> -->
+<!--   	</resultMap> -->
+<!-- Select StoreInfo : 取得StoreInfo資訊，條件為 storePkgName-->
+<select id="getStoreInfo" resultMap="storeInfo">
+<![CDATA[
+select ID,STORE_PKG_NAME,STORE_NAME,PUB_KEY_BASE64,PWD_RESET_URL, CLIENT_DOWNLOAD_URL, IS_APPROVED, IS_LOGIN, IS_DOWNLOAD
+from STORE_INFO
+where STORE_PKG_NAME=#pkg#
+]]>
+</select>
+<!-- Select StoreInfo : 取得STORE_PKG_NAME，條件為 storeId-->
+<select id="getStorePkgName" resultClass="java.lang.String">
+<![CDATA[
+select STORE_PKG_NAME from STORE_INFO where id = #storeId#
+]]>
+</select>
+
+</sqlMap>

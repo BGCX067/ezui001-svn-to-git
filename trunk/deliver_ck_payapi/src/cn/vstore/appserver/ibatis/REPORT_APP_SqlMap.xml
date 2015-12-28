@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  $Id: REPORT_APP_SqlMap.xml 6761 2010-12-20 08:51:09Z yhwang $
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+
+<sqlMap namespace="ReportApp">
+
+    <typeAlias alias="reportAppVO" type="cn.vstore.appserver.model.ReportApp"/>
+
+    <resultMap id="reportApp" class="reportAppVO">
+        <result column="REPORT_ID" jdbcType="DECIMAL" property="reportId" nullValue="0"/>
+        <result column="USER_ID" jdbcType="VARCHAR" property="userId" />
+        <result column="APP_ID" jdbcType="VARCHAR" property="appId" />
+        <result column="USER_UID" jdbcType="VARCHAR" property="userUid" />
+    </resultMap>
+
+<!-- Select USER_APK_BEHAVIOR : 取出ReportApp，條件為USER_UID/APP_ID -->
+<select id="getReportApp" resultMap="reportApp">
+    select a.* from (
+         select APP_ID,REPORT_ID,USER_ID,REPORT_DATE,USER_UID 
+         from USER_APK_BEHAVIOR 
+         where upper(USER_UID)=upper(#userUid:VARCHAR#) and APP_ID=#pkgId:VARCHAR# and STORE_ID=#storeId#
+    ) a limit 1
+</select>
+<!-- Select USER_APK_BEHAVIOR : 取出ReportApp，條件為USER_UID/APP_ID -->
+<select id="getReportAppByImeiMac" resultClass="int">
+    select REPORT_ID 
+    from USER_REPORT_LOG 
+    where STORE_ID=#storeId# and APP_ID=#pkgId:VARCHAR#
+	<isNotNull prepend="AND" property="imei">
+	  IMEI = #imei#
+	</isNotNull>
+	<isNotNull prepend="AND" property="mac">
+	  MAC = #mac#
+	</isNotNull>
+	limit 1
+</select>
+
+<!-- Update USER_APK_BEHAVIOR : 更新ReportApp資訊 -->
+<update id="updateReportApp" parameterClass="reportAppVO">
+update USER_APK_BEHAVIOR 
+set REPORT_ID=#reportId#,REPORT_DATE=NOW(),USER_ID=#userId# where upper(USER_UID)=upper(#userUid#) and APP_ID=#appId# and STORE_ID=#storeId#
+</update>
+
+<!-- Insert USER_APK_BEHAVIOR : 儲存ReportApp資訊 -->
+<insert id="insertReportApp" parameterClass="reportAppVO">  
+insert into USER_APK_BEHAVIOR 
+(REPORT_ID,USER_ID,APP_ID,REPORT_DATE,USER_UID, STORE_ID) values 
+(#reportId#,#userId#,#appId#,NOW(),#userUid#, #storeId#)
+</insert>
+
+<!-- Insert USER_APK_BEHAVIOR : 儲存ReportApp資訊 -->
+<insert id="insertReportAppLog" parameterClass="reportAppVO">  
+insert into USER_REPORT_LOG 
+(APP_ID,VERSION_ID,REPORT_ID,IMEI,MAC,USER_ID,ICCID,REPORT_TIME,USER_UID, STORE_ID) values 
+(#appId#,#versionId#,#reportId#,#imei#,#mac#,#userId#,#iccid#,NOW(),#userUid#, #storeId#)
+</insert>
+    
+</sqlMap>

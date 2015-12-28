@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+    android:background="#a64200">
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+    <RelativeLayout
+		style="@style/iPay_HeaderLayout">
+    	<TextView
+    		style="@style/iPay_HeaderText" />
+    	<ImageView
+			style="@style/iPay_HeaderIcon" />
+    </RelativeLayout>
+    
+    <LinearLayout
+		style="@style/iPay_ContextLayout">
+    	<LinearLayout
+    		style="@style/iPay_TitleLayout">
+    		<ImageView
+    			style="@style/iPay_TitleIcon" />
+		    <TextView
+		    	style="@style/iPay_TitleText"
+		    	android:text="設定i-pay付款" />
+    	</LinearLayout>
+
+    	<ImageView style="@style/iPay_TitleLine" />
+
+	    <TextView
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:text="選擇一個預設付款方式" />
+		<RadioGroup
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content">
+			<RadioButton android:id="@+id/method_bill"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="遠傳電信帳單" />
+    		<ImageView android:id="@+id/method_line1"
+    			style="@style/iPay_Line" />
+    		<!-- CC -->
+			<RadioButton android:id="@+id/method_cc"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="信用卡" />
+			<LinearLayout
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="-40px"
+				android:gravity="right">
+			    <Button android:id="@+id/method_cc_action"
+			    	android:layout_width="wrap_content"
+			    	android:layout_height="wrap_content"
+			    	android:background="@drawable/ipay_cc_setup" />
+			</LinearLayout>
+		    <TextView android:id="@+id/method_cc_info"
+		    	android:layout_width="wrap_content"
+		    	android:layout_height="wrap_content"
+		    	android:paddingLeft="44px" />
+    		<ImageView style="@style/iPay_Line"
+		    	android:visibility="gone" />
+    		<!-- VA -->
+			<RadioButton android:id="@+id/method_va"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+		    	android:visibility="gone"
+				android:text="虛擬帳戶" />
+		    <TextView android:id="@+id/method_va_action"
+		    	android:layout_width="wrap_content"
+		    	android:layout_height="wrap_content"
+		    	android:visibility="gone"
+		    	android:text="開啟/儲值" />
+		    <TextView android:id="@+id/method_va_info"
+		    	android:layout_width="wrap_content"
+		    	android:layout_height="wrap_content"
+		    	android:visibility="gone"
+		    	android:text="餘額 999" />
+		</RadioGroup>
+
+	    <LinearLayout
+	    	style="@style/iPay_ButtonLayout">
+		    <Button android:id="@+id/submit"
+		    	style="@style/iPay_Button"
+				android:text="確定" />
+		    <Button android:id="@+id/cancel"
+		    	style="@style/iPay_Button"
+				android:text="回付款" />
+	    </LinearLayout>
+    </LinearLayout>
+    
+    <TextView style="@style/iPay_Copyright" />
+    
+</LinearLayout>
+</ScrollView>

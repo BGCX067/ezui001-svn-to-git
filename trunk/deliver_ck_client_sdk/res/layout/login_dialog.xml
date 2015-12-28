@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content">
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:paddingLeft="5px"
+    android:paddingRight="5px" >
+
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:orientation="horizontal"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent" >
+		<TextView
+		    android:layout_width="wrap_content" 
+		    android:layout_height="wrap_content"
+	    	android:textAppearance="?android:attr/textAppearanceLarge"
+		    android:text="@string/account"/>
+		<EditText 
+			android:id="@+id/login_userid"
+			android:layout_width="fill_parent"
+			android:layout_weight="1"
+			android:singleLine="true"
+			android:layout_height="wrap_content" />
+	</LinearLayout>
+
+
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:orientation="horizontal"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent" >
+		<TextView
+		    android:layout_width="wrap_content" 
+		    android:layout_height="wrap_content" 
+	    	android:textAppearance="?android:attr/textAppearanceLarge"
+		    android:text="@string/password"/>
+		<EditText 
+			android:id="@+id/login_password" 
+			android:layout_width="fill_parent"
+			android:layout_weight="1"
+			android:singleLine="true"
+			android:password="true"
+			android:layout_height="wrap_content" />
+	</LinearLayout>
+
+	<CheckBox 
+		android:id="@+id/login_auto"
+	    android:layout_width="wrap_content" 
+	    android:layout_height="wrap_content"
+		android:text="@string/next_auto_login" />
+	
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textSize="13sp"
+		android:textColor="#FF6600"
+		android:text="註：" />
+		
+	<TextView android:id="@+id/reg_link"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:linksClickable="true"
+		android:textSize="13sp"
+		android:text="@string/login_dialog_info_text" />
+</LinearLayout>	
+</ScrollView>

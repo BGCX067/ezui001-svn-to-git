@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="otherAppStat">
+
+	<typeAlias alias="otherappparams" type="cn.vstore.appserver.model.OtherAppUserParameter"/>
+
+  <resultMap id="otherAppUserParameter" class="otherappparams">
+    <result column="id" jdbcType="Long" property="id" />
+    <result column="packageName" jdbcType="VARCHAR" property="packageName" />
+    <result column="aver" jdbcType="VARCHAR" property="aver" />
+    <result column="arel" jdbcType="VARCHAR" property="arel" />
+    <result column="cpu" jdbcType="VARCHAR" property="cpu" />
+    <result column="brand" jdbcType="VARCHAR" property="brand" />
+    <result column="cver" jdbcType="VARCHAR" property="cver" />
+    <result column="lang" jdbcType="VARCHAR" property="lang" />
+    <result column="imei" jdbcType="VARCHAR" property="imei" />
+    <result column="mac" jdbcType="VARCHAR" property="mac" />
+    <result column="imsi" jdbcType="VARCHAR" property="imsi" />
+    <result column="iccid" jdbcType="VARCHAR" property="iccid" />
+    <result column="dvc" jdbcType="VARCHAR" property="dvc" />
+    <result column="snum" jdbcType="VARCHAR" property="snum" />
+  </resultMap>
+  
+  <!-- 参数表 -->
+  <insert id="insertOpen" parameterClass="otherappparams">
+    insert into v_boutique_app_stat (packageName, aver, arel, cpu,
+      brand, cver, lang, imei, mac, imsi, iccid, dvc,type,create_time,snum)
+    values (#packageName:VARCHAR#, #aver:VARCHAR#,
+      #arel:VARCHAR#,  #cpu:VARCHAR#, #brand:VARCHAR#, #cver:VARCHAR#,
+      #lang:VARCHAR#, #imei:VARCHAR#, #mac:VARCHAR#,#imsi:VARCHAR#, 
+      #iccid:VARCHAR#, #dvc:VARCHAR#,#type:VARCHAR#,#create_time:TIMESTAMP#,#snum:VARCHAR#)
+    <selectKey keyProperty="id" resultClass="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+  </insert>
+ 
+</sqlMap>

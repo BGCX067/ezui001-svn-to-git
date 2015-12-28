@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <LinearLayout
+    	android:layout_width="fill_parent"
+    	android:layout_height="fill_parent"
+    	android:orientation="vertical"
+    	android:gravity="center">
+    	
+    	<TextView style="@style/ActTitleText"
+    		android:text="@string/title_login" />
+
+	    <LinearLayout
+	    	android:layout_width="fill_parent"
+	    	android:layout_height="wrap_content"
+			android:layout_marginTop="18dp"
+	    	android:gravity="center">
+	    	<TextView style="@style/EditTextLabel"
+				android:text="@string/unique" />
+				
+			<TextView style="@style/EditTextLabel"
+				android:text="@string/account" />
+			<EditText android:id="@id/account"
+				android:layout_width="200dp"
+				android:layout_height="wrap_content"
+				android:singleLine="true" />
+	    </LinearLayout>
+
+	    <LinearLayout
+	    	android:layout_width="fill_parent"
+	    	android:layout_height="wrap_content"
+			android:layout_marginTop="10dp"
+	    	android:gravity="center">
+	    	<TextView style="@style/EditTextLabel"
+				android:text="@string/unique" />
+				
+			<TextView style="@style/EditTextLabel"
+				android:text="@string/password" />
+			<EditText android:id="@id/password"
+				android:layout_width="200dp"
+				android:layout_height="wrap_content"
+				android:password="true"
+				android:singleLine="true" />
+	    </LinearLayout>
+
+		<CheckBox android:id="@+id/auto_login"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:checked="true"
+			android:text="@string/next_auto_login" />
+
+		<Button android:id="@id/submit"
+			style="@style/Button"
+			android:layout_marginTop="10dp"
+			android:layout_marginBottom="18dp"
+			android:text="@string/login" />
+
+		<View style="@style/Line" />
+		
+		<TextView android:id="@+id/reg_link"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="18dp"
+			android:paddingLeft="24dp"
+			android:paddingRight="24dp"
+			android:textSize="@dimen/text_size_small"
+			android:text="@string/login_info_text" />
+		
+		<Button android:id="@+id/submit_register"
+			style="@style/Button"
+			android:layout_marginTop="10dp"
+			android:layout_marginBottom="18dp"
+			android:text="@string/register" />
+		
+<!--		<TextView android:id="@+id/reg_link"-->
+<!--			android:layout_width="fill_parent"-->
+<!--			android:layout_height="wrap_content"-->
+<!--			android:layout_marginTop="18dp"-->
+<!--			android:paddingLeft="24dp"-->
+<!--			android:paddingRight="24dp"-->
+<!--			android:textSize="@dimen/text_size_small"-->
+<!--			android:text="@string/login_info_text_1" />-->
+			
+    </LinearLayout>
+</ScrollView>

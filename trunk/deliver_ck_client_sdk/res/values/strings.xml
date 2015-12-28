@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">网讯安卓</string>
+    <string name="welcome">Beta</string>
+    <string name="title_login">登入VStore</string>
+    <string name="title_eula">登入VStore</string>
+    <string name="account">帐号</string>
+    <string name="password">密码</string>
+    <string name="next_auto_login">下次自动登入</string>
+    <string name="login">登录</string>
+     <string name="register">注册</string>
+    <string name="login_now_dot">登入中...</string>
+    <string name="register_now_dot">注册中...</string>
+	<string name="relogin">重新登入</string>
+	<string name="reRegister">重新注册</string>
+	<string name="loading_dot">读取中...</string>
+	<string name="login_info_text">请您以VStore会员身份登 入，若您还不是VStore会员，您可以按下面的按钮注册。</string>
+	<string name="login_dialog_info_text">请您以VStore会员身份登入如尚未注册成为会员请先至http://vstore.vtion.com官网进行注册</string>
+	<string name="login_info_text_1">若您忘记密码, 请查看(<a href="http://">忘记密码</a>)</string>
+	<string name="pricetype_free">免费</string>
+	<string name="pricetype_paid">付费</string>
+	<string name="pricetype_new">最新</string>
+	<string name="pricetype_all">全部</string>
+	<string name="apps_empty">无资料</string>
+	<string name="home">首页</string>
+	<string name="logout">登出</string>
+	<string name="logout_successed">您已登出...</string>
+	<string name="search">搜索</string>
+	<string name="setting">关于</string>
+	<string name="list_item_loading">读取资料中...</string>
+	<string name="sendind_dot">传送中...</string>
+	<string name="all_comments">所有评论</string>
+	<string name="search_hint">搜索应用程序</string>
+	<string name="update">更新</string>
+	<string name="search_alert_message">请输入欲搜索之关键字</string>
+	<!-- Tab -->
+	<string name="tab_item_title_feature">推荐</string>
+	<string name="tab_item_title_class">分类</string>
+	<string name="tab_item_title_search">搜索</string>
+	<string name="tab_item_title_download">下载</string>
+	<!-- My Download -->
+	<string name="my_download_title">下载</string>
+	<!-- App Detail -->
+	<string name="introduction">介绍:</string>
+	<string name="graph">截图:</string>
+	<string name="donwload_progress">下载进度</string>
+	<string name="donwload_progress_pct">下载%1$d\%</string>
+	<string name="comments">评论:</string>
+	<string name="my_comment">发表我的评论</string>
+	<string name="about">关于:</string>
+	<string name="view_all_comments">观看全部</string>
+	<string name="comment_header">%1$s( %2$s )</string>
+	<string name="provider_apps">此开发者的其他程序</string>
+	<string name="provider_web_site">浏览开发者的网站</string>
+	<string name="provider_contact">联络开发者</string>
+	<string name="report_app">举报此程序</string>
+	<string name="action_download">下载</string>
+	<string name="action_open">打开</string>
+	<string name="action_uninstall">卸载</string>
+	<string name="action_update">下载更新</string>
+	<string name="action_buy">购买</string>
+	<string name="action_subscribe">订阅</string>
+	<string name="action_unsubscribe">取消订阅</string>
+	<string name="unsubscribe_now_dot">取消订阅中...</string>
+	<string name="unable_to_contact_provider">无法联络开发者</string>
+	<string name="unable_to_browse_provider_website">开发者网站无法浏览</string>
+	<string name="plz_insert_memory_card">请插入记忆卡</string>
+	<string name="plz_enable_allow_install_non_market_apps">请您先至手机的 「设定 / 应用程序」启动「未知的来源」，才能安装VStore提供的软件</string>
+	<string name="plz_forward_to_allow_install_non_market_apps_youself">无法自动导向设定画面，请您自行到手机的 「设定 / 应用程序」启动「未知的来源」</string>
+	<string name="unable_to_launch_app">此程序无法直接启动，若此软件为桌面小工具(Widget)，请长按手机桌面空白处，于弹出视窗点选小工具(Widget)后，选择此软件名称</string>
+	<string name="unsubscribe_confirm">确定取消订阅？</string>
+	<string name="toast_download_Status">您可到我的下载查看您的安装进度</string>
+	<!-- Dialog -->
+	<string name="dlg_no_network">网络信号\n请先启动您的网络连线</string>
+	<string name="dlg_login_fail">登入失败</string>
+	<string name="dlg_register_fail">注册失败</string>
+	<string name="dlg_invalid_account">未输入帐号或者\n不是合法的email格式</string>
+	<string name="dlg_invalid_account_null">未输入帐号</string>
+	<string name="dlg_invalid_account_length">帐号的长度必须小于100个字母</string>	
+	<string name="user_already_exist">使用者名称已存在</string>
+	<string name="dlg_invalid_pwd">密码长度必须在6~20个字之间</string>
+	<string name="dlg_invalid_cpwd">密码确认长度必须在6~20个字之间</string>
+	<string name="dlg_invalid_confirm_pwd">两次输入的密码不一致</string>
+	<string name="dlg_invalid_nickName">未输入昵稱或者长度超过20个字母</string>
+	<string name="dlg_conntect_to_server_fail">无法与服务器取得连线</string>
+	<string name="dlg_invalid_signature">个性签名超过10个字</string>
+	<string name="dlg_invalid_agreement">未同意注册须知无法提交资料</string>
+	<!-- Cancel Msg -->
+	<string name="cnl_msg_login">您已取消登入</string>
+	<!-- Uninstall Reason Application -->
+	<string name="uninstall_reason_title">请您让我们了解&lt;font color=\"#DA5915\"&gt;卸载的原因&lt;/font&gt;</string>
+	<string name="uninstall_reason_option_01">我不需要或用不到了</string>
+	<string name="uninstall_reason_option_02">我需要清出电话的空间</string>
+	<string name="uninstall_reason_option_03">这个程序有问题</string>
+	<string name="uninstall_reason_option_04">我不想说</string>
+	<string name="select_empty_msg">请先选择以下的任一选项</string>
+	<!-- Report Application -->
+	<string name="report_title">请您让我们了解&lt;font color=\"#DA5915\"&gt;要反应的问题&lt;/font&gt;</string>
+	<string name="report_option_01">内容不恰当(性暗示、暴力等)</string>
+	<string name="report_option_02">此为恶意程序</string>
+	<string name="report_option_03">有可能对手机、资料造成伤害</string>
+	<string name="report_option_04">其它不适当原因</string>
+	<!-- Alert Message for Rate and Report Application-->
+	<string name="rate_empty_msg">请先进行评分</string>
+	<string name="rate_alert_msg">评论最多500个字</string>
+	<!-- Button -->
+	<string name="submit">确定</string>
+	<string name="cancel">取消</string>
+	<string name="back">返回</string>
+	<string name="agree">同意</string>
+	<string name="refuse">拒绝</string>
+	<string name="close">关闭</string>
+	<string name="yes">是</string>
+	<string name="no">否</string>
+	<string name="retry">重试</string>
+	<string name="exit">离开</string>
+	<!-- Menu setting -->
+	<string name="about_s_mart">关于网讯安卓</string>
+	<string name="copyright">Copyright @%1$s\nVtion Co., Ltd.\nAll Rights Reserved.</string>
+	<string name="filter_title">软件下载设定</string>
+	<string name="filter_off">全部显示</string>
+	<string name="filter_on">依照手机属性筛选</string>
+	<string name="filter_text">您的手机属性如下:</string>
+	<string name="filter_os">Android OS版本: &lt;font color=\"#FF0000\"&gt;%1$s&lt;/font&gt;</string>
+	<string name="filter_matrix">屏幕解析度: &lt;font color=\"#FF0000\"&gt;%1$s x %2$s&lt;/font&gt;</string>
+	<string name="filter_note">注意:若选许确定则VStore将会立即被重启</string>
+
+	<!-- Client Update Notification -->
+	<string name="noti_download_client_complete">VStore更新下载完成</string>
+	<string name="noti_download_client_ticker">VStore更新下载</string>
+	<string name="noti_downloading">VStore更新下载中...</string>
+	<string name="noti_download_client_error_ticker">VStore更新下载失败</string>
+	<string name="noti_download_client_error_file">可能网络中断或档案写入失败</string>
+	<string name="noti_download_client_error_network">网络无法连接</string>
+	<!-- Client Update Download Dialog -->
+	<string name="dlg_sd_unmounted">请插入记忆卡在下载</string>
+	<string name="dlg_sd_space_full">记忆卡容量不足</string>
+	<!-- App Update Notification -->
+	<string name="noti_check_app_ticker">应用程序更新通知</string>
+	<string name="noti_check_app_content_title">应用程序更新通知</string>
+	<string name="noti_check_app_content_context">%1$s个应用程序有新版本 请按此进行更新</string>
+	<!-- Download App -->
+	<string name="download">下载</string>
+	<string name="dl_fail_sd_card_unavailable">下载失败，记忆卡未安装</string>
+	<string name="dl_fail_device_unsupport">下载失败，手机无法支援</string>
+	<string name="dl_fail_network_connect">下载失败，网络无法连接</string>
+	<string name="dl_fail_file_write">下载失败，记忆卡写入档案失败</string>
+	<string name="dl_fail_file_write_or_network_disconnected">下载失败，网路中断或记忆卡写入档案失败</string>
+
+	<!-- Old Version Client -->
+	<string name="licenseManager">VStore - 授权管理员</string>
+	<string name="btn_checkout">确定购买</string>
+	<string name="btn_update">下载更新</string>
+	<string name="btn_license">授权管理中心</string>
+	<string name="btn_back">回上页</string>
+	<string name="app_service_termination">已停止服务。您可自行移除本程序，感谢您的使用。</string>
+	<string name="dialog_paying">您的付款资料正在处理中</string>
+	
+	<string name="dialog_network_failed">网络无法连接</string>
+	<string name="please_login">请登入VStore</string>
+	<string name="aquire_authorization">取得授权中...</string>
+	<string name="dialog_aquire_license_packageName">应用程序名称</string>
+	<string name="dialog_aquire_license_packageTitle">应用程序名称</string>
+	
+	<string name="dialog_data_loading">处理中...</string>
+	<string name="dialog_aquring_data">资料取得中...</string>
+	<string name="dialog_no_network">无网络信号\n请先开启您的无线网络</string>
+	<string name="dialog_unable_to_conntect_to_server">无法与服务器取得连线</string>
+	
+	<string name="dialog_cost_is_greater_five_thousand">很抱歉您本次购买的金额已超过VStore每个月可使用额度，每月额度为5000元(含月租及单次收費)</string>
+	<string name="dialog_login_fail_msg">登入失敗，请确认您的账号密码</string>
+	<string name="dialog_autologin_fail_msg">请重新登入</string>
+	
+	<string name="dialog_set_email_fail_msg">系统忙碌中，请稍候再试，或请用电脑连线至至VStore网页 (http://) 登入您的e-mail地址</string>
+	<string name="dialog_invalid_email">请确认您的e-mail格式</string>
+	
+	<string name="dialog_pay_new_verision">有新版本(必须付费)须下载更新</string>
+	<string name="dialog_new_verision">有新版本须下载更新</string>
+	
+	<string name="dialog_check_your_pay_data">正在确认您上次的付款资料</string>
+	<string name="dialog_pay_data_processing">您上次的付款资料尚在处理中</string>
+	<string name="dialog_your_pay_is_success">您上次的付款已成功，您可以顺利使用本软件</string>
+	
+	<string name="dialog_auth_fail">授权失敗</string>
+	<string name="dialog_auth_fail_msg">无法取得授权</string>
+	<string name="dialog_auth_fail_msg_for_version">此版本尚未经VStore软件审核通过，故无法取得授权</string>
+	<string name="dialog_app_not_publish_yet">尚未经VStore软件审核通过，故无法取得授权</string>
+	
+	<string name="app_termination_msg">应用程序「{0}」将于{1}停止服务</string>
+
+	<!-- IPay -->
+	<string name="ipay_title">确认付款</string>
+	<string name="app_monthly_pay">月租费</string>
+	<string name="credit_card">信用卡</string>
+	<string name="data_sending">资料传送中...</string>
+	<string name="credit_card_invalid_number">请确认信用卡卡号</string>
+	<string name="credit_card_invalid_expdate">请输入有效月年</string>
+	<string name="credit_card_invalid_security">请输入验证码</string>
+	<string name="credit_card_setup_fail">请确认您的信用卡资料是否正确</string>
+	<string name="fetnet_bill_payment">电信账单</string>
+	<string name="alert_setup_credit_card">请点选[变更/设定]建立信用卡资料</string>
+	<string name="alert_choose_payment_method">请点选[变更/设定]选择付款方式。</string>
+	<string name="pay_transaction_fail">交易失败。</string>
+	<string name="pay_transaction_processing">您的交易资料正在处理中，请稍候再启动此购买的应用程序以确认付款状况</string>
+	<string name="pay_transaction_success">交易完成。</string>
+	<string name="please_login_smart_app">登陆</string>
+
+	<string name="dialog_free_userDate">免费使用期限为{0}年{1}月{2}日，到期后将无法使用。</string>
+	<string name="dialog_free_userDate_oldLicense">使用期限已于{0}年{1}月{2}日到期。您可自行移除本程序，感謝您的使用。</string>
+		
+	<string name="unique">＊</string>
+	<string name="register_account">帐　　号</string>
+    <string name="register_password">密　　码</string>
+	<string name="nickname">昵　　称</string>
+    <string name="password_confirm">密码確認</string>
+	<string name="register_agreement">我同意</string>
+	<string name="signature">　个性签名</string>
+	<string name="unique_text">注：＊为必填内容</string>
+	<string name="register_text">注册须知：</string>
+	
+	
+	
+	<!-- 支付寶 -->
+	<string name="payment_title">支付宝</string>
+	<string name="activity_remote_service_binding">AppDemo4</string>
+	<string name="remote_call_failed">Failure calling remote service</string>
+       
+	<string name="partnerHint">partner</string>
+	<string name="sellerHint">seller</string>
+	<string name="out_trade_noHint">out_trade_no</string>
+	<string name="subjectHint">subject</string>
+	<string name="bodyHint">body</string>
+	<string name="total_feeHint">total_fee</string>
+	<string name="notify_urlHint">notify_url</string>
+	<string name="charsetHint">charset</string>
+	<string name="signTypeHint">signType</string>
+	
+	<string name="confirm_install_hint">安装提示</string>	
+	<string name="confirm_install">为保证您的交易安全，需要您安装支付宝安全支付服务，才能进行付款。\n\n点击[确定]，立即安装。</string>
+	
+	
+	<string name="Ensure">确定</string>
+	<string name="Cancel">取消</string> 
+	
+	<string name="partner">"2088501902645082"</string>
+	<string name="seller">"alipay@vtion.com.cn"</string>
+</resources>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  $Id: APPLICATION_SqlMap.xml 6898 2010-12-28 03:56:52Z yhwang $
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+
+<sqlMap namespace="News">
+	<typeAlias alias="newsP" type="cn.vstore.appserver.model.News"/>
+  	
+  	<resultMap class="cn.vstore.appserver.model.News" id="news">
+  		<result property="newsUid" jdbcType="BIGINT" column="NEWS_UID"/>
+  		<result property="title" jdbcType="VARCHAR" column="TITLE"/>
+  		<result property="url" jdbcType="VARCHAR" column="URL"/>
+  		<result property="content" jdbcType="LONGTEXT" column="CONTENT"/>
+  		<result property="realEffDate" jdbcType="DATETIME" column="REAL_EFF_DATE"/>
+  		<result property="realExpDate" jdbcType="DATETIME" column="REAL_EXP_DATE"/>
+  		<result property="createDate" jdbcType="DATETIME" column="CREATE_DATE"/>
+  		<result property="createBy" jdbcType="VARCHAR" column="CREATE_BY"/>
+  		<result property="lastUpdateDate" jdbcType="DATETIME" column="LAST_UPDATE_DATE"/>
+  		<result property="lastUpdateBy" jdbcType="VARCHAR" column="LAST_UPDATE_BY"/>
+  		<result property="createName" jdbcType="VARCHAR" column="CREATE_NAME"/>
+  		<result property="lastUpdateName" jdbcType="VARCHAR" column="LAST_UPDATE_NAME"/>
+  		<result property="storeId" jdbcType="BIGINT" column="STORE_ID"/>
+  	</resultMap>
+<!-- 取出recommender_apk列表 -->
+<select id="getNews" resultMap="news">
+<![CDATA[
+select a.* from (
+	select * from news where store_id=#storeId#
+	) a
+limit #startNo# , #endNo#
+]]>
+</select>
+<!-- 取出recommender_apk總筆數 -->
+<select id="getNewsCount" resultClass="int">
+<![CDATA[
+select count(NEWS_UID) from news where store_id=#storeId#
+]]>
+</select>
+
+</sqlMap>

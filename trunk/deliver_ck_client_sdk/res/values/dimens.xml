@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="text_size_small">14sp</dimen>
+    <dimen name="text_size_medium">18sp</dimen>
+    <dimen name="text_size_large">22sp</dimen>
+
+    <dimen name="title_bar_height">45dip</dimen>
+    <dimen name="tab_box_height">46dp</dimen>
+    <dimen name="tab_border_box_height">48dp</dimen>
+
+    <dimen name="btn_box_height">48dp</dimen>
+    <dimen name="dot_box_height">25dp</dimen>
+
+    <dimen name="app_detail_padding">8dp</dimen>
+    <dimen name="app_detail_info_title_height">28dp</dimen>
+    <dimen name="app_detail_text_line_spacing">5dp</dimen>
+
+    <dimen name="list_item_padding">5dp</dimen>
+    <dimen name="list_item_height">70dp</dimen>
+    
+    <!-- iPay -->
+    <dimen name="pay_login_txt_margin">18dp</dimen>
+    <dimen name="pay_title_line_margin_btm">19dp</dimen>
+    <dimen name="pay_cc_num_width">60dp</dimen>
+</resources>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  $Id: CATEGORY_SqlMap.xml 6719 2010-12-16 05:51:33Z yhwang $
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+
+<sqlMap namespace="user_install_log">
+
+    <typeAlias alias="userInstallLog" type="cn.vstore.appserver.model.UserInstallLog"/>
+    
+    <resultMap id="userInstallLog" class="userInstallLog">
+        <result column="LOG_UID" jdbcType="BIGINT" property="logUid" />
+		<result column="USER_ID" jdbcType="VARCHAR" property="userId" />
+		<result column="IMEI" jdbcType="VARCHAR" property="imei" />
+		<result column="ICCID" jdbcType="VARCHAR" property="iccid" />
+		<result column="INSTALL_DATE" jdbcType="TIMESTAMP" property="installDate" />
+		<result column="DOWNLOAD_TYPE" jdbcType="VARCHAR" property="downloadType" />
+		<result column="INSTALL_STATUS" jdbcType="DOUBLE" property="installStatus" />
+		<result column="MSISDN" jdbcType="VARCHAR" property="msisdn" />
+		<result column="APP_ID" jdbcType="VARCHAR" property="appId" />
+		<result column="VERSION_ID" jdbcType="INTEGER" property="versionId" />
+		<result column="DOWNLOAD_ID" jdbcType="BIGINT" property="downloadId" />
+		<result column="MODEL_NAME" jdbcType="VARCHAR" property="modelName"/>
+		<result column="FAIL_CODE" jdbcType="DOUBLE" property="failCode" />
+		<result column="USER_UID" jdbcType="VARCHAR" property="userUid"/>
+		<result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+		<result column="STORE_ID" jdbcType="BIGINT" property="storeId" /> 
+    </resultMap>
+    
+    <!-- Select USER_INSTALL_LOG : 取得USER_INSTALL_APK，以DOWNLOAD_ID為條件 -->
+	<select id="getUserInstallLog" parameterClass="userInstallLog" resultMap="userInstallLog">
+	<![CDATA[
+	select * from USER_INSTALL_LOG where upper(USER_ID)=upper(#userId#) and ICCID=#iccid# and IMEI=#imei# and APP_ID=#appId# and INSTALL_DATE=#installDate# and INSTALL_STATUS=#installStatus# and VERSION_ID=#versionId# and DOWNLOAD_TYPE='mobile' and store_id=#storeId#
+	]]>
+	</select>
+	
+	<!-- Insert USER_INSTALL_LOG : 儲存安裝資訊 -->
+	<insert id="insertUserInstallLog" parameterClass="userInstallLog">  
+	<![CDATA[
+	 insert into USER_INSTALL_LOG (USER_ID,ICCID,IMEI,MAC,INSTALL_DATE,DOWNLOAD_TYPE,INSTALL_STATUS,MSISDN,APP_ID,VERSION_ID,DOWNLOAD_ID,MODEL_NAME,FAIL_CODE,USER_UID,CREATE_TIME,STORE_ID,SNUM,IP) 
+	 values (#userId#,#iccid#,#imei#,#mac#,#installDate#,#downloadType#,#installStatus#,#msisdn#,#appId#,#versionId#,#downloadId#,#modelName#,#failCode#,#userUid#,NOW(),#storeId#,#snum#,#IP#)
+	]]>
+	</insert>
+	
+	<delete id="deleteBy" parameterClass="java.util.HashMap" >
+    	delete from USER_INSTALL_LOG where APP_ID=#appId# and upper(USER_ID)=upper(#userId#) and IMEI=imei and INSTALL_STATUS=#installStatus# and DOWNLOAD_ID>=#downloadId# and store_id=#storeId#
+  	</delete>
+	
+    
+    
+</sqlMap>

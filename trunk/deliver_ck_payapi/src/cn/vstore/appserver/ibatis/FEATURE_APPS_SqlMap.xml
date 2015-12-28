@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  $Id: FEATURE_APPS_SqlMap.xml 6830 2010-12-22 10:55:43Z yhwang $
+  modify by Raymond at 2012-06-06 
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+
+<sqlMap namespace="FeatureApps">
+    
+    <typeAlias alias="featureAppsVO" type="cn.vstore.appserver.model.FeatureApplication"/>
+    
+    <resultMap id="featureApps" class="featureAppsVO">
+        <result column="APP_ID" jdbcType="VARCHAR" property="pkg" />
+        <result column="VERSION_ID" jdbcType="DECIMAL" property="version" />
+        <result column="APP_TITLE" jdbcType="VARCHAR" property="title" />
+        <result column="PHONE_ICON_PIC" jdbcType="VARCHAR" property="icon" />
+        <result column="CP_TITLE" jdbcType="VARCHAR" property="provider" />
+        <result column="TOTAL_RANK" jdbcType="DECIMAL" property="totalRank" />
+        <result column="TOTAL_RANK_TIMES" jdbcType="DECIMAL" property="rankTimes" />
+        <result column="PRICE" jdbcType="DECIMAL" property="price" />
+        <result column="PRICE_TYPE" jdbcType="VARCHAR" property="priceType" />
+        <result column="F_SORT" jdbcType="DECIMAL" property="fSort" />
+        <result column="MIN_SUPPORT_VERSION_ID" jdbcType="VARCHAR" property="supportSDK" />
+        <result column="SUPPORT_DPI" jdbcType="VARCHAR" property="supportScreen" />
+        <result column="FILE_SIZE" jdbcType="DECIMAL" property="fileSize" />
+        <result column="FILE_PATH" jdbcType="VARCHAR" property="filePath" />
+        <result column="TOTAL_DOWNLOAD_TIMES" jdbcType="DECIMAL" property="totalDownloadTimes" />
+        <result column="APP_VERSION" jdbcType="VARCHAR" property="versionName" />
+    </resultMap>
+ 
+<!-- Select APPLICATION/CONTENT_PROVIDER/APPLICATION_VERSIONS : 找出猜你喜歡的應用 ，給你同分類的前10名-->
+<select id="getGuessYourLikes" resultMap="featureApps">
+select 
+apv.APP_ID,
+apv.FILE_SIZE,
+apv.FILE_PATH,
+apv.APP_VERSION,
+sa.TOTAL_DOWNLOAD_TIMES,
+apv.PRICE,
+apv.PHONE_ICON_PIC,
+apv.PRICE_TYPE,
+apv.VERSION_ID,
+apv.MIN_SUPPORT_VERSION_ID,
+apv.SUPPORT_DPI,
+sa.F_SORT, sa.TOTAL_RANK,
+sa.TOTAL_RANK_TIMES,
+sa.STORE_ID,cp.CP_TITLE,
+sa.APP_TITLE APP_TITLE
+from 
+STORE_APPLICATION sa,
+APPLICATION_VERSIONS apv,
+app_category_mapping acm,
+CONTENT_PROVIDER cp
+where sa.ON_USE=1 and sa.STORE_ID = #storeID#
+and acm.STORE_ID = #storeID#
+and acm.APP_ID = apv.APP_ID
+and acm.CATEGORY_ID = 
+	(
+		select acm1.CATEGORY_ID 
+			from app_category_mapping acm1 
+			where acm1.APP_ID = #pkg#
+			and acm1.store_id = #storeID#
+			LIMIT 1
+	)
+and sa.APP_VER_ID=apv.ID
+and apv.CP_ID=cp.CP_ID
+limit #plots:INTEGER#
+</select> 
+    
+<!-- Select APPLICATION/CONTENT_PROVIDER/APPLICATION_VERSIONS : 找出1-30的排名 -->
+<select id="getFeatureAppsByFsort" resultMap="featureApps">
+select 
+apv.APP_ID,
+apv.APP_VERSION,
+apv.FILE_SIZE,
+apv.FILE_PATH,
+sa.TOTAL_DOWNLOAD_TIMES,
+apv.PRICE,
+apv.PHONE_ICON_PIC,
+apv.PRICE_TYPE,
+apv.VERSION_ID,
+apv.MIN_SUPPORT_VERSION_ID,
+apv.SUPPORT_DPI,
+sa.F_SORT, sa.TOTAL_RANK,
+sa.TOTAL_RANK_TIMES,
+sa.STORE_ID,cp.CP_TITLE,
+sa.APP_TITLE APP_TITLE
+from 
+STORE_APPLICATION sa,
+APPLICATION_VERSIONS apv,
+CONTENT_PROVIDER cp
+where sa.ON_USE=1 and sa.STORE_ID = #storeID# and sa.F_SORT>0 and sa.F_SORT
+<![CDATA[<=]]> #plots:INTEGER#
+and sa.APP_VER_ID=apv.ID
+and apv.CP_ID=cp.CP_ID
+order by sa.F_SORT asc limit #plots:INTEGER#
+</select>
+
+<!-- Select APPLICATION/CONTENT_PROVIDER/APPLICATION_VERSIONS : 排名不滿 30，則找出最新前 30 筆 -->
+<select id="getFeatureAppsByLatest" resultMap="featureApps">
+select 
+apv.APP_ID,
+apv.APP_VERSION,
+apv.FILE_PATH,
+apv.FILE_SIZE,
+apv.PRICE,
+apv.PHONE_ICON_PIC,
+apv.PRICE_TYPE,
+apv.VERSION_ID,
+apv.MIN_SUPPORT_VERSION_ID,
+apv.SUPPORT_DPI,
+sa.F_SORT, 
+sa.TOTAL_DOWNLOAD_TIMES,
+sa.TOTAL_RANK, 
+sa.TOTAL_RANK_TIMES,
+sa.STORE_ID,cp.CP_TITLE,
+sa.APP_TITLE APP_TITLE
+from 
+STORE_APPLICATION sa,APPLICATION_VERSIONS apv, CONTENT_PROVIDER cp
+where sa.ON_USE=1 and sa.STORE_ID = #storeID# and (sa.F_SORT is null or sa.F_SORT> #plots:INTEGER# or sa.F_SORT<![CDATA[<=]]>0)
+and sa.APP_VER_ID=apv.ID
+and apv.CP_ID=cp.CP_ID
+order by sa.Last_update_date desc limit #plots:INTEGER#
+</select>
+    
+</sqlMap>

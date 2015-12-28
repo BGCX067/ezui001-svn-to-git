@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  $Id: CLIENT_SqlMap.xml 7437 2011-03-03 06:26:58Z yellow $
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+
+<sqlMap namespace="ClinetVersion">
+
+    <typeAlias alias="clinetVersionVO" type="cn.vstore.appserver.model.ClinetVersion"/>
+
+    <resultMap id="clinetVersion" class="clinetVersionVO">
+        <result column="VERSION_ID" jdbcType="DECIMAL" property="versionId" />
+        <result column="FILE_SIZE" jdbcType="DECIMAL" property="fileSize" />
+        <result column="DOWNLOAD_URL" jdbcType="VARCHAR" property="download" />
+        <result column="RELEASE_DESC" jdbcType="VARCHAR" property="release_desc" />
+        <result column="VERSION_NAME" jdbcType="VARCHAR" property="versionName" />
+    </resultMap>
+    
+    <resultMap id="clinetVersionBySNum" class="clinetVersionVO">
+        <result column="VERSION_ID" jdbcType="VARCHAR" property="versionIdBySnum" />
+        <result column="FILE_SIZE" jdbcType="DECIMAL" property="fileSize" />
+        <result column="RELEASE_DESC" jdbcType="VARCHAR" property="release_desc" />
+        <result column="DOWNLOAD_URL" jdbcType="VARCHAR" property="download" />
+    </resultMap>
+
+<!-- Select STORE_CLIENT_VERSION : 取出ClinetVersion -->
+<select id="getClinetVersion"  resultMap="clinetVersion">
+<!--select * from (-->
+	select a.* from (
+	    select VERSION_ID, FILE_SIZE, DOWNLOAD_URL,RELEASE_DESC,VERSION_NAME 
+	    from STORE_CLIENT_VERSION where store_id=(SELECT id FROM store_info where store_pkg_name =#store# ) and RELEASE_DATE <![CDATA[<= NOW() ]]>
+	    and snum = #snum#
+	    order by VERSION_ID desc
+	) a LIMIT 1
+<!--) b where b.r>0 and b.r<![CDATA[<]]>=1-->
+
+</select>
+
+<select id="getClinetVersionBySNum" parameterClass="String" resultMap="clinetVersionBySNum">
+	SELECT version_id,store_client_version.FILE_SIZE,store_client_version.RELEASE_DESC,store_client_version.DOWNLOAD_URL
+	FROM store_client_version
+	where store_client_version.snum = #snum# 
+order by VERSION_ID DESC
+LIMIT 1
+</select>
+
+<!-- Insert store_client_install_log : 儲存client apk的下載记录 -->
+<insert id="insertStoreClientInstallLog" parameterClass="cn.vstore.appserver.model.StoreClientInstallLog">  
+<![CDATA[
+ insert into store_client_install_log
+ (STORE_ID, VERSION_ID, IMEI, ICCID, MAC, SNUM, IP, DOWNLOAD_TYPE, CREATE_DATE)
+  values
+ (#storeId#, #appVersion#, #imei#, #iccid#, #mac#, #snum#, #IP#, 'mobile', NOW())
+]]>
+</insert>
+
+<!-- Insert v_feedback : 存储客户端反馈记录 -->
+<insert id="insertClientFeedback" parameterClass="java.util.Map">  
+<![CDATA[
+ insert into v_feedback
+ (STOREID, FEEDBOOKTEXT, EMAIL,IMEI,CREATETIME)
+  values
+ (#storeId#, #feedbackText#, #contactText#,#imei#, NOW())
+]]>
+</insert>
+</sqlMap>

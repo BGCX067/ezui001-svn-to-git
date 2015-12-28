@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  $Id: sql-map-config.xml 7437 2011-03-03 06:26:58Z yellow $
+-->
+<!DOCTYPE sqlMapConfig PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+
+
+<sqlMapConfig>
+    <settings useStatementNamespaces="true" />
+    <sqlMap resource="cn/vstore/appserver/ibatis/AUTH_SqlMap.xml"/>
+    <sqlMap resource="cn/vstore/appserver/ibatis/FEATURE_APPS_SqlMap.xml"/> 
+    <sqlMap resource="cn/vstore/appserver/ibatis/GAMEPAY_SqlMap.xml"/> 
+    <sqlMap resource="cn/vstore/appserver/ibatis/IPAY_USER_GAMEPAY_LOG_SqlMap.xml"/> 
+    <sqlMap resource="cn/vstore/appserver/ibatis/PAYMENT_SqlMap.xml"/> 
+    <sqlMap resource="cn/vstore/appserver/ibatis/CATEGORY_SqlMap.xml"/> 
+    <sqlMap resource="cn/vstore/appserver/ibatis/APPLICATION_SqlMap.xml"/>
+    <sqlMap resource="cn/vstore/appserver/ibatis/COMMENT_SqlMap.xml"/> 
+    <sqlMap resource="cn/vstore/appserver/ibatis/CLIENT_SqlMap.xml"/>  
+    <sqlMap resource="cn/vstore/appserver/ibatis/REPORT_APP_SqlMap.xml"/>
+    <sqlMap resource="cn/vstore/appserver/ibatis/RATE_SqlMap.xml"/>
+    <sqlMap resource="cn/vstore/appserver/ibatis/MY_DOWNLOAD_SqlMap.xml"/>
+    <sqlMap resource="cn/vstore/appserver/ibatis/CONTENT_PROVIDER_SqlMap.xml"/>
+    <sqlMap resource="cn/vstore/appserver/ibatis/CLIENT_BEHAVIOR_LOG_SqlMap.xml"/>
+    <sqlMap resource="cn/vstore/appserver/ibatis/USER_APK_BEHAVIOR_SqlMap.xml"/>
+    <sqlMap resource="cn/vstore/appserver/ibatis/USER_SUBSCRIBE_SqlMap.xml"/>
+    <sqlMap resource="cn/vstore/appserver/ibatis/CONSTANT_MAPPING_SqlMap.xml"/>
+    <sqlMap resource="cn/vstore/appserver/ibatis/USER_INSTALL_APK_SqlMap.xml"/>
+    <sqlMap resource="cn/vstore/appserver/ibatis/USER_GET_APPVERSION_LOG_SqlMap.xml"/>
+    <sqlMap resource="cn/vstore/appserver/ibatis/PAYMENT_SESSION_SqlMap.xml"/>
+    <sqlMap resource="cn/vstore/appserver/apilog/API_LOG_SqlMap.xml"/>
+    <sqlMap resource="cn/vstore/appserver/ibatis/RECOMMENDER_SqlMap.xml"/>
+    <sqlMap resource="cn/vstore/appserver/ibatis/NEWS_SqlMap.xml"/>
+    <sqlMap resource="cn/vstore/appserver/ibatis/LICENSE_SqlMap.xml"/>
+    <sqlMap resource="cn/vstore/appserver/ibatis/STORE_INFO_SqlMap.xml"/>
+    
+    <sqlMap resource="cn/vstore/appserver/ibatis/USER_INSTALL_LOG_SqlMap.xml"/>
+    <sqlMap resource="cn/vstore/appserver/ibatis/USER_UNINSTALL_APK_REASON_SqlMap.xml"/>
+    <sqlMap resource="cn/vstore/appserver/ibatis/USER_BEHAVIOR_LOG_SqlMap.xml"/>
+    <sqlMap resource="cn/vstore/appserver/ibatis/IPAY_USER_PAYMENT_LOG_SqlMap.xml"/>
+    <sqlMap resource="cn/vstore/appserver/ibatis/SOTRE_CLIENT_BEHAVIOR_LOG_SqlMap.xml"/>
+    <!-- 以下為工具產生的sqlmap -->
+    <sqlMap resource="cn/vstore/core/model/sql/account_SqlMap.xml"/>
+    <sqlMap resource="cn/vstore/core/model/sql/store_payee_info_SqlMap.xml"/>
+    <sqlMap resource="cn/vstore/core/model/sql/order_gamepay_info_log_SqlMap.xml"/>
+    <sqlMap resource="cn/vstore/core/model/sql/order_pay_info_log_SqlMap.xml"/>
+    <sqlMap resource="cn/vstore/core/model/sql/api_common_SqlMap.xml"/>
+    
+    <!-- 2012-06-07 by Raymond 开始增加1207手机客户端新版本所需SQLMAP -->
+    <sqlMap resource="cn/vstore/appserver/ibatis/HOME_ADVERTISEMENT_SqlMap.xml"/>
+    <sqlMap resource="cn/vstore/appserver/ibatis/SPACE_SqlMap.xml"/>
+        <sqlMap resource="cn/vstore/appserver/ibatis/OTHER_APP_STAT_SqlMap.xml"/>
+    
+    <!-- 手机客户端用户行为反馈sqlmap -->
+    <sqlMap resource="cn/vstore/appserver/ibatis/USER_FEEDBACK_BEHAVIOR_SqlMap.xml"/>
+    
+    <sqlMap resource="cn/vstore/appserver/ibatis/USER_COLLECT_SqlMap.xml"/>
+    
+    <!-- 会员信息 -->
+    <sqlMap resource="cn/vstore/appserver/ibatis/v_mem_download_info_SqlMap.xml"/>
+    <sqlMap resource="cn/vstore/appserver/ibatis/v_member_info_SqlMap.xml"/>
+    
+    <!-- 会员订单支付 -->
+    <sqlMap resource="cn/vstore/appserver/ibatis/v_order_pay_info_SqlMap.xml"/>
+    
+</sqlMapConfig>
+

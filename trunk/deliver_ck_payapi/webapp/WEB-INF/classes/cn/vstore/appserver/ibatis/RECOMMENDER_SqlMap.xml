@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  $Id: APPLICATION_SqlMap.xml 6898 2010-12-28 03:56:52Z yhwang $
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+
+<sqlMap namespace="Recommender">
+	<typeAlias alias="recommenderP" type="cn.vstore.appserver.model.Recommender"/>
+	<typeAlias alias="recommenderApkListP" type="cn.vstore.appserver.model.RecommenderApkList"/>
+  	
+  	<resultMap class="cn.vstore.appserver.model.Recommender" id="recommender">
+  		<result property="id" jdbcType="BIGINT" column="ID"/>
+  		<result property="recommenderTitle" jdbcType="VARCHAR" column="RECOMMENDER_TITLE"/>
+  		<result property="recommenderIcon" jdbcType="VARCHAR" column="RECOMMENDER_ICON"/>
+  		<result property="recommenderDESC" jdbcType="TEXT" column="RECOMMENDER_DESC"/>
+  		<result property="lastUpdateDate" jdbcType="DATETIME" column="LAST_UPDATE_DATE"/>
+  		<result property="webPic1" jdbcType="VARCHAR" column="WEB_PIC_1"/>
+  		<result property="webPic2" jdbcType="VARCHAR" column="WEB_PIC_2"/>
+  		<result property="createTime" jdbcType="DATETIME" column="CREATE_TIME"/>
+  		<result property="upDate" jdbcType="DATETIME" column="UP_DATE"/>
+  		<result property="webDESC" jdbcType="LONGTEXT" column="WEB_DESC"/>
+  	</resultMap>
+  	<resultMap class="cn.vstore.appserver.model.RecommenderApkList" id="recommenderApkList">
+  		<result property="provider" jdbcType="VARCHAR" column="CP_TITLE"/>
+  		<result property="recommendMemo" jdbcType="VARCHAR" column="RECOMMEND_MEMO"/>
+  		<result property="pkg" jdbcType="VARCHAR" column="APP_ID"/>
+  		<result property="title" jdbcType="VARCHAR" column="APP_TITLE"/>
+  		<result property="icon" jdbcType="VARCHAR" column="PHONE_ICON_PIC"/>
+  		<result property="price" jdbcType="DECIMAL" column="PRICE"/>
+  		<result property="currency" jdbcType="VARCHAR" column="CURRENCY"/>
+  		<result property="priceType" jdbcType="VARCHAR" column="PRICE_TYPE"/>
+  		<result property="totalRank" jdbcType="DECIMAL" column="TOTAL_RANK"/>
+  		<result property="ratingTimes" jdbcType="DECIMAL" column="TOTAL_RANK_TIMES"/>
+  		<result property="downloadTimes" jdbcType="DECIMAL" column="TOTAL_DOWNLOAD_TIMES"/>
+  		<result property="lastVersion" jdbcType="DECIMAL" column="LAST_VERSION"/>
+  	</resultMap>
+  	
+<select id="getRecommender" resultMap="recommender">
+<![CDATA[
+select * 
+from (
+        select a.* 
+        from (  select * 
+                from RECOMMENDER 
+                where DATE_FORMAT(UP_DATE,'%Y-%m-%d 00:00:00')<=DATE_FORMAT(now(),'%Y-%m-%d 00:00:00')
+                order by ID desc) a
+    ) b 
+where id=#id# and store_id=#storeId#
+]]>
+</select>
+
+<select id="getRecommenderNoId" resultMap="recommender">
+<![CDATA[
+select * 
+from (
+        select a.* 
+        from (  select * 
+                from RECOMMENDER 
+                where DATE_FORMAT(UP_DATE,'%Y-%m-%d 00:00:00')<=DATE_FORMAT(now(),'%Y-%m-%d 00:00:00')
+                order by ID desc) a
+    ) b 
+where id=(SELECT MIN(ID) FROM RECOMMENDER where store_id=#storeId#)
+]]>
+</select>
+<!-- 取出recommender_apk列表 -->
+<select id="getRecommenderApkList" resultMap="recommenderApkList">
+<![CDATA[
+select b.* from (
+        		select 
+                    a.CP_TITLE,a.RECOMMEND_MEMO,a.APP_ID,a.APP_TITLE,a.PHONE_ICON_PIC,a.PRICE,a.CURRENCY,
+                    a.PRICE_TYPE,a.TOTAL_RANK,a.TOTAL_RANK_TIMES,a.TOTAL_DOWNLOAD_TIMES,a.LAST_VERSION
+                from (
+                		select 
+	                        ap.CP_TITLE,ap.RECOMMEND_MEMO, ap.APP_ID,av.APP_TITLE,av.PHONE_ICON_PIC,av.PRICE,av.CURRENCY,
+	                        av.PRICE_TYPE,av.VERSION_ID,ap.TOTAL_RANK,ap.TOTAL_RANK_TIMES,ap.TOTAL_DOWNLOAD_TIMES,ap.LAST_VERSION 
+                      	from (
+                                select  cp.CP_TITLE,RA.RECOMMEND_MEMO,APP.APP_ID,APP.TOTAL_RANK,APP.TOTAL_RANK_TIMES
+                                ,APP.TOTAL_DOWNLOAD_TIMES,fn_getSTOREAppLastValidVersion(app.APP_ID, #storeId#) LAST_VERSION,ra.RECOMMEND_ORDER 
+                                from RECOMMENDER_APK ra,APPLICATION app,CONTENT_PROVIDER cp 
+                                where ra.APP_ID=APP.APP_ID 
+	                                  and RECOMMEND_ORDER IS NOT NULL 
+	                                  and RECOMMEND_ORDER > 0 
+	                                  and cp.CP_ID=app.CP_ID
+	                                  and ra.store_id = #storeId#
+									  and app.store_id = #storeId#
+                       		) ap,APPLICATION_VERSIONS av 
+		                where 	ap.LAST_VERSION>0 
+			               		and ap.LAST_VERSION=av.VERSION_ID 
+				               	and ap.APP_ID=av.APP_ID 
+				               	and av.store_id = #storeId#
+				               	order by ap.RECOMMEND_ORDER asc, ap.TOTAL_DOWNLOAD_TIMES desc, av.ID desc
+                	) a 
+       		) b
+limit #startNo# , #endNo#
+]]>
+</select>
+<!-- 取出recommender_apk總筆數 -->
+<select id="getRecommenderApkListCount" resultClass="int">
+<![CDATA[
+select count(a.APP_ID) 
+from (
+		select 
+         ap.CP_TITLE,ap.RECOMMEND_MEMO, ap.APP_ID,av.APP_TITLE,av.PHONE_ICON_PIC,av.PRICE,av.CURRENCY,
+         av.PRICE_TYPE,av.VERSION_ID,ap.TOTAL_RANK,ap.TOTAL_RANK_TIMES,ap.TOTAL_DOWNLOAD_TIMES,ap.LAST_VERSION 
+      	from (
+                select  cp.CP_TITLE,RA.RECOMMEND_MEMO,APP.APP_ID,APP.TOTAL_RANK,APP.TOTAL_RANK_TIMES
+                ,APP.TOTAL_DOWNLOAD_TIMES,fn_getSTOREAppLastValidVersion(app.APP_ID, #storeId#) LAST_VERSION,ra.RECOMMEND_ORDER 
+                from RECOMMENDER_APK ra,APPLICATION app,CONTENT_PROVIDER cp 
+                where  ra.APP_ID=APP.APP_ID 
+	                   and RECOMMEND_ORDER IS NOT NULL 
+	                   and RECOMMEND_ORDER > 0 
+	                   and cp.CP_ID=app.CP_ID
+	                   and ra.store_id = #storeId#
+                       and app.store_id = #storeId#
+       		) ap,APPLICATION_VERSIONS av 
+where 	ap.LAST_VERSION>0 
+ 		and ap.LAST_VERSION=av.VERSION_ID 
+	  	and ap.APP_ID=av.APP_ID 
+	  	and av.store_id = #storeId#
+) a 
+]]>
+</select>
+
+</sqlMap>

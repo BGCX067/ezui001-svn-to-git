@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  $Id: APPLICATION_SqlMap.xml 6898 2010-12-28 03:56:52Z yhwang $
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+
+<sqlMap namespace="License">
+	<typeAlias alias="storeInfoP" 		type="cn.vstore.appserver.model.StoreInfo"/>
+	<typeAlias alias="appvP" 			type="cn.vstore.appserver.model.Appv"/>
+	<typeAlias alias="appLicenseP" 		type="cn.vstore.appserver.model.AppLicense"/>
+  	
+  	<resultMap class="cn.vstore.appserver.model.StoreInfo" id="storeInfo">
+  		<result property="id" 					jdbcType="BIGINT" 	column="ID"/>
+  		<result property="storePkgName" 		jdbcType="VARCHAR" 	column="store_pkg_name"/>
+  		<result property="storeName" 			jdbcType="VARCHAR" 	column="store_name"/>
+  		<result property="pubKeyBase64" 		jdbcType="TEXT" 	column="pub_key_base64"/>
+  		<result property="pwdResetUrl" 			jdbcType="VARCHAR" 	column="pwd_reset_url"/>
+  		<result property="clientDownloadUrl" 	jdbcType="VARCHAR" 	column="client_download_url"/>
+  	</resultMap>
+  	<resultMap class="cn.vstore.appserver.model.Appv" id="appv">
+  		<result property="priceType" 			jdbcType="VARCHAR" 	column="PRICE_TYPE"/>
+		<result property="testingBeginDate" 	jdbcType="DATETIME" column="TESTING_BEGIN_DATE"/>
+  		<result property="testingEndDate" 		jdbcType="DATETIME" column="TESTING_END_DATE"/>
+  		<result property="price" 				jdbcType="DOUBLE" 	column="PRICE"/>
+  		<result property="onUse" 				jdbcType="DECIMAL" 	column="ON_USE"/>
+  		<result property="versionId" 				jdbcType="DECIMAL" 	column="VERSION_ID"/>
+  	</resultMap>
+	<resultMap class="cn.vstore.appserver.model.AppLicense" id="appLicense">
+  		<result property="licenseType" 		jdbcType="DOUBLE" 	column="LICENSE_TYPE"/>
+		<result property="expDate" 			jdbcType="DATETIME" column="EXP_DATE"/>
+  		<result property="effDate" 			jdbcType="DATETIME" column="EFF_DATE"/>
+  		<result property="createDate" 		jdbcType="DATETIME" column="CREATE_DATE"/>
+  		<result property="licensedByImei" 	jdbcType="VARCHAR" 	column="LICENSED_BY_IMEI"/>
+  		<result property="licensedByImsi" 	jdbcType="VARCHAR" 	column="LICENSED_BY_IMSI"/>
+  		<result property="licensedByUser" 	jdbcType="VARCHAR" 	column="LICENSED_BY_USER"/>
+  		<result property="licensedTimes" 	jdbcType="DOUBLE" 	column="LICENSED_TIMES" nullValue="0"/>
+  	</resultMap>
+
+<!-- 取出Max(id)+1 -->
+<select id="getMaxIdFromProsumerAppLicense" resultClass="java.math.BigDecimal">
+<![CDATA[
+SELECT max(id)+1 FROM prosumer_app_license
+]]>
+</select>
+
+<select id="getAppInfo" resultMap="appv">
+<![CDATA[
+select sa.ON_USE,appv.PRICE_TYPE, appv.TESTING_BEGIN_DATE, appv.TESTING_END_DATE, appv.PRICE,appv.VERSION_ID
+from STORE_APPLICATION sa,APPLICATION_VERSIONS appv
+where appv.APP_ID=#pkg#
+      and sa.APP_VER_ID=appv.ID
+      and sa.STORE_ID=#storeId#
+limit 1
+]]>
+</select>
+
+<select id="getAppLicenseInfo" parameterClass="java.util.Map" resultMap="appLicense" >
+<![CDATA[
+select LICENSE_TYPE, EXP_DATE, EFF_DATE, CREATE_DATE, LICENSED_BY_IMEI, LICENSED_BY_IMSI, LICENSED_BY_USER, LICENSED_TIMES
+from APP_LICENSE 
+where   APP_ID=#pkg# and VERSION_ID=#versionId# and ON_USE='Y' 
+        and (
+                EXP_DATE is null 
+                or DATE_FORMAT(EXP_DATE,'%Y-%m-%d 00:00:00') >= DATE_FORMAT(NOW(),'%Y-%m-%d 00:00:00')
+            ) 
+]]>
+</select>
+<!-- 	取得使用期限(迄) -->
+<select id="getExpDate" resultClass="java.util.Date">
+<![CDATA[
+select a.* from 
+(
+	select EXP_DATE 
+	from APP_LICENSE 
+	where   EXP_DATE is not null 
+	        and APP_ID=#pkg#
+	        and VERSION_ID=#version#
+	        and STORE_ID=#storeId#
+	        order by EXP_DATE desc
+) a limit 1
+]]>
+</select>
+<!--  -->
+<insert id="insertProsumerAppLicense">
+<![CDATA[
+insert into PROSUMER_APP_LICENSE
+(
+    ID,USER_ID,APP_ID,LICENSE_TYPE,LICENSED_BY_IMEI,LICENSED_BY_IMSI,LICENSED_BY_USER,
+    USER_IMEI,USER_IMSI,LICENSED_TIMES,EFF_DATE,EXP_DATE,DATA,SIGN,LICENSE_EXPIRE,
+    SOURCE_FROM,VERSION_ID,PAYMENT_AVAILABLE,CREATE_DATE,FOR_TESTING,USER_UID, STORE_ID
+) 
+values 
+(
+	#licenseId#,#userId#,#appPackageId#,#licenseType#,#licensedByIMEI#,#licensedByIMSI#,#licensedByUser#,
+	#userImei#,#userImsi#,#licensedTimes#,#effDate#,#expDate#,#data#,#sign#,#licenseExpire#,
+	#sourceFrom#,#versionId#,#paymentAvailable#,NOW(),#forTesting#,#userUid#,#storeId#
+)
+]]>
+</insert>
+<!-- 	update PROSUMER_APP_LICENSE的憑證為過期, 
+		LICENSE_EXPIRE: 憑證是否逾期，Y：過期/N：未過期, SOURCE_FROM: 1=from template 11=from charge -->
+<update id="updateProsumerAppLicense">
+<![CDATA[
+	update PROSUMER_APP_LICENSE set LICENSE_EXPIRE='Y' where upper(USER_UID)=upper(#userUid#) and APP_ID=#pkg# and STORE_ID=#storeId#
+]]>
+</update>
+
+
+</sqlMap>

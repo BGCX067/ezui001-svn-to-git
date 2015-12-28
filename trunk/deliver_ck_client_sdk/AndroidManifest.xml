@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="cn.com.vapk.vstore.client"
+      android:versionCode="10000900" android:versionName="Beta V0.12">
+
+	<uses-permission android:name="cn.com.vapk.vstore.client.permission.ACCESS_STORE_CLIENT" />
+	<uses-permission android:name="cn.com.vapk.vstore.client.permission.CLOSE_CLIENT" />
+	<uses-permission android:name="cn.com.vapk.vstore.client.permission.LOGIN_EVENT_SUCCESS" />
+	<uses-permission android:name="cn.com.vapk.vstore.client.permission.RECEIVER_APP_STATUS" />
+	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.RESTART_PACKAGES" />
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+	<permission
+		android:name="cn.com.vapk.vstore.client.permission.LOGIN_EVENT_SUCCESS"
+        android:protectionLevel="signature" />
+	<permission
+		android:name="cn.com.vapk.vstore.client.permission.CLOSE_CLIENT"
+        android:protectionLevel="signature" />
+    <permission
+		android:name="cn.com.vapk.vstore.client.permission.RECEIVER_APP_STATUS"
+        android:protectionLevel="signature" />
+    <permission
+    	android:name="cn.com.vapk.vstore.client.permission.ACCESS_STORE_CLIENT"
+        android:protectionLevel="signature" />
+
+    <uses-sdk android:targetSdkVersion="9" android:minSdkVersion="3" />
+
+    <supports-screens 
+    	android:smallScreens="true" android:normalScreens="true"
+		android:largeScreens="true" android:anyDensity="true" />
+
+    <application android:icon="@drawable/icon" android:label="@string/app_name">
+
+		<activity android:name=".Splash"  
+                  android:label="@string/app_name"
+                  android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+                  android:configChanges="orientation|keyboardHidden|navigation|locale|uiMode|keyboard">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity> 
+        
+        <activity android:name="cn.com.vapk.vstore.client.ASC"
+                  android:label="@string/app_name"
+                  android:theme="@style/Theme.Smart.List"
+                  android:configChanges="orientation|keyboardHidden|navigation|locale|uiMode|keyboard">
+            <!--intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter-->
+            <!-- phone browser URI -->
+            <intent-filter>
+            	<action android:name="android.intent.action.VIEW" />
+            	<category android:name="android.intent.category.DEFAULT" />
+            	<category android:name="android.intent.category.BROWSABLE" />
+            	<data android:scheme="smart" android:host="search" />
+            </intent-filter>
+            <intent-filter>
+            	<action android:name="android.intent.action.VIEW" />
+            	<category android:name="android.intent.category.DEFAULT" />
+            	<category android:name="android.intent.category.BROWSABLE" />
+            	<data android:scheme="smart" android:host="details" />
+            </intent-filter>
+            <intent-filter>
+            	<action android:name="android.intent.action.VIEW" />
+            	<category android:name="android.intent.category.DEFAULT" />
+            	<category android:name="android.intent.category.BROWSABLE" />
+            	<data android:scheme="smart" android:host="category" />
+            </intent-filter>
+            <!-- phone browser URI -->
+            <intent-filter android:priority="100">
+            	<action android:name="android.intent.action.VIEW" />
+            	<category android:name="android.intent.category.DEFAULT" />
+            	<category android:name="android.intent.category.BROWSABLE" />
+            	<data android:scheme="http" android:host="vstore.vapk.com.cn" android:path="/details" />
+            </intent-filter>
+            <intent-filter android:priority="100">
+            	<action android:name="android.intent.action.VIEW" />
+            	<category android:name="android.intent.category.DEFAULT" />
+            	<category android:name="android.intent.category.BROWSABLE" />
+            	<data android:scheme="http" android:host="vstore.vapk.com.cn" android:path="/search" />
+            </intent-filter>
+            <intent-filter android:priority="100">
+            	<action android:name="android.intent.action.VIEW" />
+            	<category android:name="android.intent.category.DEFAULT" />
+            	<category android:name="android.intent.category.BROWSABLE" />
+            	<data android:scheme="http" android:host="vstore.vapk.com.cn" android:path="/category" />
+            </intent-filter>
+        </activity>
+		<!--<activity android:name=".CreateShortcutActivity"
+                  android:label="@string/app_name">
+			<intent-filter>
+                <action android:name="android.intent.action.CREATE_SHORTCUT" />
+                <category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>-->
+		
+		<activity android:name="cn.com.vapk.vstore.client.RegisterActivity" android:exported="false"
+                  android:label="@string/app_name"
+                  android:theme="@style/Theme.Smart"
+                  android:configChanges="orientation|keyboardHidden|navigation|locale|uiMode|keyboard">
+		</activity>
+        <activity android:name="cn.com.vapk.vstore.client.IPLoginActivity" android:exported="false"
+                  android:label="@string/app_name"
+                  android:theme="@android:style/Theme.Light"
+                  android:configChanges="orientation|keyboardHidden|navigation|locale|uiMode|keyboard">
+        </activity>
+        <activity android:name="cn.com.vapk.vstore.client.LoginActivity" android:exported="false"
+                  android:label="@string/app_name"
+                  android:theme="@style/Theme.Smart"
+                  android:configChanges="orientation|keyboardHidden|navigation|locale|uiMode|keyboard">
+        </activity>
+        <activity android:name="cn.com.vapk.vstore.client.AutoLoginActivity" android:exported="false"
+                  android:label="@string/app_name"
+                  android:theme="@android:style/Theme.Light"
+                  android:configChanges="orientation|keyboardHidden|navigation|locale|uiMode|keyboard">
+        </activity>
+        <activity android:name="cn.com.vapk.vstore.client.EulaActivity" android:exported="false"
+                  android:label="@string/app_name"
+                  android:theme="@style/Theme.Smart"
+                  android:configChanges="orientation|keyboardHidden|navigation|locale|uiMode|keyboard">
+        </activity>
+        <activity android:name="cn.com.vapk.vstore.client.FeatureAppsActivity" android:exported="false"
+                  android:label="@string/app_name"
+                  android:theme="@style/Theme.Smart.List"
+                  android:configChanges="orientation|keyboardHidden|navigation|locale|uiMode|keyboard">
+        </activity>
+        <activity android:name="cn.com.vapk.vstore.client.CategoriesActivity" android:exported="false"
+                  android:label="@string/app_name"
+                  android:theme="@style/Theme.Smart.List"
+                  android:configChanges="orientation|keyboardHidden|navigation|locale|uiMode|keyboard">
+        </activity>
+        <activity android:name="cn.com.vapk.vstore.client.CategoryAppsActivity" android:exported="false"
+                  android:label="@string/app_name"
+                  android:theme="@style/Theme.Smart.List"
+                  android:configChanges="orientation|keyboardHidden|navigation|locale|uiMode|keyboard">
+        </activity>
+        <activity android:name="cn.com.vapk.vstore.client.MyDownloadActivity" android:exported="false"
+                  android:label="@string/app_name"
+                  android:theme="@style/Theme.Smart.List"
+                  android:configChanges="orientation|keyboardHidden|navigation|locale|uiMode|keyboard">
+        </activity>
+        <activity android:name="cn.com.vapk.vstore.client.SearchActivity" android:exported="false"
+                  android:label="@string/app_name"
+                  android:theme="@style/Theme.Smart.List"
+                  android:configChanges="orientation|keyboardHidden|navigation|locale|uiMode|keyboard">
+        </activity>
+        <activity android:name="cn.com.vapk.vstore.client.SearchResultActivity" android:exported="false"
+                  android:label="@string/app_name"
+                  android:theme="@style/Theme.Smart.List"
+                  android:configChanges="orientation|keyboardHidden|navigation|locale|uiMode|keyboard">
+        </activity>   
+        <activity android:name="cn.com.vapk.vstore.client.AppDetailActivity" android:exported="false"
+                  android:label="@string/app_name"
+                  android:theme="@style/Theme.Smart"
+                  android:configChanges="orientation|keyboardHidden|navigation|locale|uiMode|keyboard">
+        </activity>
+        <activity android:name="cn.com.vapk.vstore.client.AppCommentsActivity" android:exported="false"
+                  android:label="@string/app_name"
+                  android:theme="@style/Theme.Smart.List"
+                  android:configChanges="orientation|keyboardHidden|navigation|locale|uiMode|keyboard">
+        </activity>
+		<activity android:name="cn.com.vapk.vstore.client.ReportAppActivity" android:exported="false"
+                  android:label="@string/app_name"
+                  android:theme="@style/Theme.Smart"
+                  android:configChanges="orientation|keyboardHidden|navigation|locale|uiMode|keyboard">
+        </activity>
+        <activity android:name="cn.com.vapk.vstore.client.UninstallReasonActivity" android:exported="false"
+                  android:label="@string/app_name"
+                  android:theme="@style/Theme.Smart"
+                  android:configChanges="orientation|keyboardHidden|navigation|locale|uiMode|keyboard">
+        </activity>
+        <activity android:name="cn.com.vapk.vstore.client.RateAppActivity" android:exported="false"
+                  android:label="@string/app_name"
+                  android:theme="@style/Theme.Smart"
+                  android:configChanges="orientation|keyboardHidden|navigation|locale|uiMode|keyboard">
+        </activity>
+        <activity android:name="cn.com.vapk.vstore.client.CPAppsActivity" android:exported="false"
+                  android:label="@string/app_name"
+                  android:theme="@style/Theme.Smart.List"
+                  android:configChanges="orientation|keyboardHidden|navigation|locale|uiMode|keyboard">
+        </activity>
+        <activity android:name="cn.com.vapk.vstore.client.SettingActivity" android:exported="false"
+                  android:label="@string/app_name"
+                  android:theme="@style/Theme.Smart.List"
+                  android:configChanges="orientation|keyboardHidden|navigation|locale|uiMode|keyboard">
+        </activity>
+        <activity android:name="cn.com.vapk.vstore.client.ScreenShotActivity" android:exported="false"
+                  android:label="@string/app_name"
+                  android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+                  android:configChanges="orientation|keyboardHidden|navigation|locale|uiMode|keyboard">
+        </activity>
+
+    	<provider android:name="cn.com.vapk.vstore.client.search.SearchSuggestionProvider"
+    			  android:authorities="cn.com.vapk.vstore.client.provider.SuggestionProvider"/>
+
+		<!-- =================================================== -->
+		<!-- Client Usage Log									 -->
+		<!-- =================================================== -->
+		<service android:name="cn.com.vapk.vstore.client.usage.ClientUsageService" android:exported="false" />
+		<receiver android:name="cn.com.vapk.vstore.client.usage.ClientUsageReceiver">
+			<intent-filter>
+				<action android:name="android.intent.action.BOOT_COMPLETED" />
+				<action android:name="cn.com.vapk.vstore.client.action.CLIENT_USAGE" />
+        	</intent-filter>
+		</receiver>
+    	<provider android:name="cn.com.vapk.vstore.client.usage.ClientUsageProvider"
+    			  android:authorities="cn.com.vapk.vstore.client.provider.ClientUsageProvider" />
+
+		<!-- =================================================== -->
+		<!-- Check Client Version								 -->
+		<!-- =================================================== -->
+        <activity android:name="cn.com.vapk.vstore.client.update.NewClientAlertDialogActivity" android:exported="false"
+                  android:configChanges="orientation|keyboardHidden|navigation|locale|uiMode|keyboard"
+                  android:launchMode="singleInstance"
+                  android:theme="@android:style/Theme.Dialog" />
+		<service android:name="cn.com.vapk.vstore.client.update.CheckClientVersionService" android:exported="false" />
+		<service android:name="cn.com.vapk.vstore.client.update.DownloadClientService" android:exported="false" />
+		<receiver android:name="cn.com.vapk.vstore.client.update.CheckClientVersionReceiver">
+			<intent-filter>
+				<action android:name="android.intent.action.BOOT_COMPLETED" />
+				<action android:name="cn.com.vapk.vstore.client.action.CHECK_CLIENT_VERSION" />
+        	</intent-filter>
+			<intent-filter>
+				<action android:name="android.intent.action.PACKAGE_REPLACED" />
+				<data android:scheme="package" />
+        	</intent-filter>
+		</receiver>
+
+		<!-- =================================================== -->
+		<!-- Check Application Version							 -->
+		<!-- =================================================== -->
+		<service android:name="cn.com.vapk.vstore.client.update.CheckAppsVersionService" android:exported="false" />
+		<receiver android:name="cn.com.vapk.vstore.client.update.CheckAppsVersionReceiver">
+			<intent-filter>
+				<action android:name="android.intent.action.BOOT_COMPLETED" />
+				<action android:name="cn.com.vapk.vstore.client.action.CHECK_APPS_VERSION" />
+        	</intent-filter>
+        	<intent-filter>
+				<action android:name="android.intent.action.PACKAGE_REPLACED" />
+				<data android:scheme="package" />
+        	</intent-filter>
+		</receiver>
+
+		<!-- =================================================== -->
+		<!-- Install App										 -->
+		<!-- =================================================== -->
+		<service android:name="cn.com.vapk.vstore.client.installapp.DownloadAppService" android:exported="false" />
+        <service android:name="cn.com.vapk.vstore.client.installapp.InstallLogSenderService" android:exported="false" />
+        <receiver android:name="cn.com.vapk.vstore.client.installapp.AppInstallLogReceiver">
+        	<intent-filter>
+				<action android:name="android.intent.action.PACKAGE_ADDED" />
+				<action android:name="android.intent.action.PACKAGE_REMOVED" />
+				<action android:name="android.intent.action.PACKAGE_REPLACED" />
+				<data android:scheme="package" /> 
+        	</intent-filter>
+        </receiver>
+		<provider android:name="cn.com.vapk.vstore.client.installapp.DownloadStatusProvider"
+			android:authorities="cn.com.vapk.vstore.client.provider.DownloadStatus"
+			android:permission="cn.com.vapk.vstore.client.permission.ACCESS_STORE_CLIENT" />
+		<provider android:name="cn.com.vapk.vstore.client.installapp.InstallLogProvider"
+			android:authorities="cn.com.vapk.vstore.client.provider.InstallLog"
+			android:permission="cn.com.vapk.vstore.client.permission.ACCESS_STORE_CLIENT" />
+
+		<!-- =================================================== -->
+		<!-- Old Version Client									 -->
+		<!-- =================================================== -->
+		<activity android:name="AppLicenseManager" 
+				  android:label="@string/licenseManager" 
+				  android:screenOrientation="nosensor"
+                  android:configChanges="orientation|keyboardHidden|navigation|locale|uiMode|keyboard">
+			<intent-filter>
+				<action android:name="cn.com.vapk.vstore.client.action.LICENSE" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<activity android:name="cn.com.vapk.vstore.client.sdk.AppSelfPurchaseLicenseActivity" 
+				  android:label="@string/licenseManager"
+				  android:screenOrientation="nosensor"
+                  android:configChanges="orientation|keyboardHidden|navigation|locale|uiMode|keyboard">
+			<intent-filter>
+				<action android:name="cn.com.vapk.vstore.client.action.APP_SELF_PURCHASE" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<activity android:name="cn.com.vapk.vstore.client.sdk.ServerProductPurchaseActivity" 
+				  android:screenOrientation="nosensor"
+                  android:configChanges="orientation|keyboardHidden|navigation|locale|uiMode|keyboard">
+			<intent-filter>
+				<action android:name="cn.com.vapk.vstore.client.action.SERVER_PROD_PURCHASE" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<!-- Payment -->
+<!--		<activity android:name="cn.com.vapk.vstore.client.payment.LoginActivity" android:theme="@style/iPayTheme" android:exported="false" -->
+<!--                  android:launchMode="singleTop" android:configChanges="orientation|keyboardHidden|navigation|locale|uiMode|fontScale|screenLayout|keyboard|mcc|mnc">-->
+<!--			<intent-filter>-->
+<!--				<action android:name="cn.com.vapk.vstore.client.action.PAYMENT" />-->
+<!--				<category android:name="android.intent.category.DEFAULT"/>-->
+<!--			</intent-filter>-->
+<!--		</activity>-->
+<!--		<activity android:name="cn.com.vapk.vstore.client.payment.EmailActivity" android:theme="@style/iPayTheme" android:exported="false"-->
+<!--			android:launchMode="singleTop" android:configChanges="orientation|keyboardHidden|navigation|locale|uiMode|fontScale|screenLayout|keyboard|mcc|mnc"/>-->
+		<activity android:name="cn.com.vapk.vstore.client.payment.GPayActivity" 
+		    android:theme="@style/iPayTheme" 
+		    android:exported="false"
+			android:launchMode="singleInstance" 
+			android:configChanges="orientation|keyboardHidden|navigation|locale|uiMode|fontScale|screenLayout|keyboard|mcc|mnc">
+			<intent-filter>
+			    <action android:name="cn.com.vapk.vstore.client.action.PAYRESULT" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+<!--		<activity android:name="cn.com.vapk.vstore.client.payment.StoreActivity" android:theme="@style/iPayTheme" android:exported="false"-->
+<!--			android:launchMode="singleTop" android:configChanges="orientation|keyboardHidden|navigation|locale|uiMode|fontScale|screenLayout|keyboard|mcc|mnc"/>-->
+<!--		<activity android:name="cn.com.vapk.vstore.client.payment.PayMethodActivity" android:theme="@style/iPayTheme" android:exported="false"-->
+<!--			android:launchMode="singleTop" android:configChanges="orientation|keyboardHidden|navigation|locale|uiMode|fontScale|screenLayout|keyboard|mcc|mnc"/>-->
+<!--		<activity android:name="cn.com.vapk.vstore.client.payment.CreditCardSetupActivity" android:theme="@style/iPayTheme" android:exported="false"-->
+<!--			android:launchMode="singleTop" android:configChanges="orientation|keyboardHidden|navigation|locale|uiMode|fontScale|screenLayout|keyboard|mcc|mnc"/>-->
+<!--		<activity android:name="cn.com.vapk.vstore.client.payment.VirtualAccountOpenActivity" android:theme="@style/iPayTheme" android:exported="false"-->
+<!--			android:launchMode="singleTop" android:configChanges="orientation|keyboardHidden|navigation|locale|uiMode|fontScale|screenLayout|keyboard|mcc|mnc"/>-->
+<!--		<activity android:name="cn.com.vapk.vstore.client.payment.VirtualAccountStoredActivity" android:theme="@style/iPayTheme" android:exported="false"-->
+<!--			android:launchMode="singleTop" android:configChanges="orientation|keyboardHidden|navigation|locale|uiMode|fontScale|screenLayout|keyboard|mcc|mnc"/>-->
+		<!-- SDK -->
+<!--		<activity android:name="cn.com.vapk.vstore.client.sdk.AppTerminatNotificationActivity" android:theme="@android:style/Theme.Dialog"-->
+<!--			android:configChanges="orientation|keyboardHidden|navigation|locale|uiMode|keyboard">-->
+<!--			<intent-filter>-->
+<!--				<action android:name="android.intent.action.VIEW" />-->
+<!--				<category android:name="android.intent.category.DEFAULT" />-->
+<!--			</intent-filter>-->
+<!--		</activity>-->
+
+		<!-- Provider -->
+<!--		<provider android:name="cn.com.vapk.vstore.client.contentprovider.LicenseForReadProvider"-->
+<!--			android:authorities="cn.com.vapk.vstore.client.provider.license" />-->
+			
+<!--		<provider android:name="tw.com.sti.clientsdk.provider.CheckAppStoreProvider" -->
+<!--			android:authorities="cn.com.vapk.vstore.client.sdk.provider.CheckAppStoreProvider"/>-->
+
+<!--		<provider android:name="cn.com.vapk.vstore.client.contentprovider.LicenseProvider"-->
+<!--			android:authorities="cn.com.vapk.vstore.client.provider.license.storeclient"-->
+<!--			android:permission="cn.com.vapk.vstore.client.permission.ACCESS_STORE_CLIENT" />-->
+
+<!--		<provider android:name="cn.com.vapk.vstore.client.contentprovider.DeviceInfoProvider"-->
+<!--			android:authorities="cn.com.vapk.vstore.client.provider.DeviceInfo" />-->
+
+		<!-- for SDK P1 -->
+<!--		<provider android:name="cn.com.vapk.vstore.client.contentprovider.PackageUsageProvider"-->
+<!--			android:authorities="cn.com.vapk.vstore.client.provider.PackageUsage" />-->
+
+		<!-- Read PaymentInfo for SDK -->
+<!--		<provider android:name="cn.com.vapk.vstore.client.contentprovider.PackagePaymentProvider"-->
+<!--			android:authorities="cn.com.vapk.vstore.client.provider.PackagePayment" />-->
+
+		<!-- Read LicenseManager cancel for SDK -->
+<!--		<provider android:name="cn.com.vapk.vstore.client.contentprovider.SdkProcessProvider"-->
+<!--			android:authorities="cn.com.vapk.vstore.client.provider.SdkProcess"-->
+<!--			android:writePermission="cn.com.vapk.vstore.client.permission.ACCESS_STORE_CLIENT" />-->
+
+		<!-- for SDK -->
+<!--		<provider android:name="cn.com.vapk.vstore.client.contentprovider.SdkAppTerminatNotificationProvider"-->
+<!--			android:authorities="cn.com.vapk.vstore.client.provider.SdkAppTerminatNotification" />-->
+
+		<!-- for SDK -->
+<!--		<provider android:name="cn.com.vapk.vstore.client.contentprovider.LoginCheckProvider"-->
+<!--			android:authorities="cn.com.vapk.vstore.client.provider.LoginCheckProvider"/>-->
+
+		<!-- for SDK -->
+<!--		<provider android:name="cn.com.vapk.vstore.client.contentprovider.BehaviorProvider"-->
+<!--			android:authorities="cn.com.vapk.vstore.client.provider.Behavior" />-->
+
+		<!-- for SDK , Client v160/2.3.0 for sdk 2.3.0 -->
+		<provider android:name="cn.com.vapk.vstore.client.sdk.StoreProvider"
+			android:authorities="cn.com.vapk.vstore.client.sdk.provider.StoreProvider"
+			android:writePermission="cn.com.vapk.vstore.client.permission.ACCESS_STORE_CLIENT"
+			/>
+		
+<!-- 		注册银联插件包 -->
+<!-- 		<activity android:name="com.unionpay.upomp.lthj.plugin.ui.MainActivity" -->
+<!-- 			android:label="@string/upomp_lthj_app_name" -->
+<!-- 			android:screenOrientation="portrait"> -->
+<!-- 			<action android:name="com.unionpay.upomp.lthj.android.appstock.plugin.test" /> -->
+<!-- 			<category android:name="android.intent.category.DEFAULT" /> -->
+<!-- 		</activity> -->
+		
+<!-- 		<activity android:name="com.unionpay.upomp.lthj.plugin.ui.IndexActivity" -->
+<!-- 			android:launchMode="singleInstance" android:screenOrientation="portrait"></activity> -->
+<!-- 		<activity android:name="com.unionpay.upomp.lthj.plugin.ui.TradeManagerActivity" -->
+<!-- 			android:launchMode="singleInstance" android:screenOrientation="portrait"> -->
+<!-- 		</activity> -->
+<!-- 		<activity android:name="com.unionpay.upomp.lthj.plugin.ui.AccountManagerActivity" -->
+<!-- 			android:launchMode="singleInstance" android:screenOrientation="portrait"> -->
+<!-- 		</activity> -->
+<!-- 		<activity android:name="com.unionpay.upomp.lthj.plugin.ui.BankManagerActivity" -->
+<!-- 			android:launchMode="singleInstance" android:screenOrientation="portrait"> -->
+<!-- 		</activity> -->
+<!-- 		<activity android:name="com.unionpay.upomp.lthj.plugin.ui.UserProtocalActivity" -->
+<!-- 			android:screenOrientation="portrait"> -->
+<!-- 		</activity> -->
+	</application>
+</manifest>

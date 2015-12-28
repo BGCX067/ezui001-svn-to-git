@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:padding="@dimen/app_detail_padding">
+	<ImageView style="@style/AppIcon"
+		android:src="@drawable/def_app_icon"/>
+	<TextView style="@style/AppTitle"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="5dp"
+		android:layout_toRightOf="@id/app_icon" />
+	<TextView style="@style/AppProvider"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_toRightOf="@id/app_icon"
+		android:layout_below="@id/app_title"
+		android:layout_marginLeft="5dp" />
+	<RatingBar style="@style/AppRating"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_toRightOf="@id/app_icon"
+		android:layout_marginLeft="5dp"
+		android:layout_below="@id/app_provider" />
+</RelativeLayout>

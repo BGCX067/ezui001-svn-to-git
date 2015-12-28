@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  $Id: CONSTANT_MAPPING_SqlMap.xml 6717 2010-12-16 03:25:58Z yhwang $
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+
+<sqlMap namespace="ConstanMapping">
+
+    <typeAlias alias="supportVersionO" type="cn.vstore.appserver.model.SupportVersion"/>
+    
+    <resultMap id="supportVersion" class="supportVersionO"> 
+        <result column="CONSTANT_PARAM" jdbcType="VARCHAR" property="param"/>
+        <result column="CONSTANT_VALUE" jdbcType="VARCHAR" property="value" />
+    </resultMap>
+
+<!-- Select CONSTANT_MAPPING : 取得Android版本，條件 CONSTANT_PARAM即前端傳進來的aver-->
+<select id="getConstantMappingVersion" resultMap="supportVersion">
+select CONSTANT_PARAM,CONSTANT_VALUE from CONSTANT_MAPPING where CONSTANT_KEY = 'androidVersionMapping'
+</select>
+    
+</sqlMap>

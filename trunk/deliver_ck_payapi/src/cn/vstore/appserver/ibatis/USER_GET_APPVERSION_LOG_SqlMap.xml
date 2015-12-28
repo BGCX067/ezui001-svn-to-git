@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  $Id: USER_GET_APPVERSION_LOG_SqlMap.xml 6776 2010-12-21 02:06:33Z yhwang $
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+
+<sqlMap namespace="GetAppversionLog">
+
+<!-- 更新USER_GET_APPVERSION_LOG的downloadId -->
+<update id="updateGetAppvLog" >
+<![CDATA[
+ update USER_GET_APPVERSION_LOG set DOWNLOAD_ID=#downloadId# where ID=#vlogId#
+]]>
+</update>
+    
+</sqlMap>

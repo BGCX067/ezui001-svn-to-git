@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  $Id: RATE_SqlMap.xml 6909 2010-12-28 10:40:34Z yellow $
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+
+<sqlMap namespace="RateApp">
+
+    <typeAlias alias="rateAppVO" type="cn.vstore.appserver.model.RateApp"/>
+
+    <resultMap id="rateApp" class="rateAppVO">
+        <result column="USER_RANK" jdbcType="DECIMAL" property="userRank" nullValue="0"/>
+        <result column="USER_UID" jdbcType="VARCHAR" property="userUid" />
+    </resultMap>
+
+<!-- Select USER_APK_BEHAVIOR : 取出ReportApp，條件為USER_UID/APP_ID -->
+<select id="getRateApp" resultMap="rateApp">
+    select USER_RANK, USER_UID from USER_APK_BEHAVIOR where upper(USER_UID)=upper(#userUid#) and APP_ID=#pkgId# and STORE_ID=#storeId#
+    limit 1
+</select>
+<select id="getRateAppByImeiMac" resultClass="int">
+    select USER_RANK from user_rank_log where APP_ID=#pkgId# and STORE_ID=#storeId# and USER_RANK>0
+	<isNotNull prepend="AND" property="imei">
+	  IMEI = #imei#
+	</isNotNull>
+	<isNotNull prepend="AND" property="mac">
+	  MAC = #mac#
+	</isNotNull>
+    limit 1
+</select>
+
+<!-- Update USER_APK_BEHAVIOR : 更新RateApp，包含評分和評論 -->
+<update id="updateRateAppByRatingAndComment" parameterClass="rateAppVO">
+update USER_APK_BEHAVIOR 
+set USER_RANK=#userRank#, USER_RANK_DATE=NOW(), LAST_APP_COMMENT=#lastAppComment#, LAST_COMMENT_DATE=NOW(), USER_ID=#userId# 
+where upper(USER_UID)=upper(#userUid#) and APP_ID=#appId# and STORE_ID=#storeId#
+</update>
+
+<!-- Update USER_APK_BEHAVIOR : 更新RateApp，只包含評論 -->
+<update id="updateRateAppByComment" parameterClass="rateAppVO">
+update USER_APK_BEHAVIOR 
+set LAST_APP_COMMENT=#lastAppComment#, LAST_COMMENT_DATE=NOW(),USER_ID=#userId# 
+where upper(USER_UID)=upper(#userUid#) and APP_ID=#appId# and STORE_ID=#storeId#
+</update>
+
+<!-- Insert USER_APK_BEHAVIOR : 儲存RateApp資訊 -->
+<insert id="insertRateApp" parameterClass="rateAppVO">  
+insert into USER_APK_BEHAVIOR 
+(USER_RANK,USER_RANK_DATE,LAST_APP_COMMENT,LAST_COMMENT_DATE,USER_ID,APP_ID,USER_UID, STORE_ID) values 
+(#userRank#,NOW(),#lastAppComment#,NOW(),#userId#,#appId#,#userUid#, #storeId#) 
+</insert>
+
+<!-- Insert USER_RANK_LOG : 儲存RateAppLog資訊 -->
+<insert id="insertRateAppLog" parameterClass="rateAppVO">  
+insert into USER_RANK_LOG 
+(USER_ID, APP_ID, USER_RANK, APP_COMMENT, RANK_DATE, VERSION_ID, IMEI, MAC, ICCID, IS_DELETE, USER_UID, STORE_ID, SNUM, IP, STATUS) values 
+(#userId#, #appId#, #userRank#, #lastAppComment#, NOW(), #versionId#, #imei#, #mac#, #iccid#,0, #userUid#, #storeId#, #snum#, #IP#, #status#) 
+</insert>
+<update id="deleteRateAppLog" parameterClass="rateAppVO">
+update USER_RANK_LOG set IS_DELETE=1
+    where APP_ID=#appId:VARCHAR# and STORE_ID=#storeId#
+	and IMEI = #imei# and MAC = #mac#
+</update>
+</sqlMap>

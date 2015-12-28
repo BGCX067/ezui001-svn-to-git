@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical">
+
+	<include layout="@layout/app_title_bar"/>
+	
+	<TextView style="@style/ActTitleText"
+		android:text="@string/my_comment"/>
+	
+	<LinearLayout 
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:background="@color/bg_btn_box">
+		<RatingBar android:id="@+id/rating"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:max="5"
+			android:stepSize="1"
+			android:isIndicator="false" />
+	</LinearLayout>
+	
+	<EditText android:id="@+id/comment_text"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:layout_weight="1"
+		android:layout_margin="@dimen/app_detail_padding"
+		android:gravity="top" />
+		
+	<ImageView style="@style/ButtonBoxShadow" />
+	<LinearLayout style="@style/ButtonBox">
+		<Button android:id="@id/submit"
+			style="@style/Button"
+			android:text="@string/submit" />
+		<Button android:id="@id/cancel"
+			style="@style/Button"
+			android:text="@string/cancel"/>
+	</LinearLayout>
+</LinearLayout>

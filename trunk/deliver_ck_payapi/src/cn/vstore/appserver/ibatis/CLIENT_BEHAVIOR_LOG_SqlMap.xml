@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  $Id: CLIENT_BEHAVIOR_LOG_SqlMap.xml 6909 2010-12-28 10:40:34Z yellow $
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+
+<sqlMap namespace="StoreClientBehaviorLog">
+    
+<!-- Select STORE_CLIENT_BEHAVIOR_LOG : 取出LOG_UID筆數 -->
+<select id="getClientBehaviorLogUidCount" resultClass="int">
+        select count(LOG_UID) from STORE_CLIENT_BEHAVIOR_LOG where ICCID=#iccid# and IMEI=#imei# and APP_ID=#appId# and VERSION_ID=#versionId# and OPEN_TIME=#openTime:TimeStamp#
+        <dynamic>
+        	<isNotEmpty prepend="and" property="userId"> upper(USER_ID)=upper(#userId#)</isNotEmpty>
+        </dynamic>
+</select>
+
+<!-- Insert USER_APK_BEHAVIOR : 儲存client usage log -->
+<insert id="insertClientBehaviorLog">  
+insert into STORE_CLIENT_BEHAVIOR_LOG 
+(USER_ID,ICCID,IMEI,APP_ID,VERSION_ID,OPEN_TIME,MODEL_NAME,LOG_DATE,USER_UID,MSISDN,IS_FIRST_TIME,SNUM,IP) 
+values 
+(#userId#,#iccid#,#imei#,#appId#,#versionId#,#openTime#,#modelName#,NOW(),#userUid#,#msisd#,#isFirstTime#,#snum#,#IP#)
+</insert>
+    
+</sqlMap>

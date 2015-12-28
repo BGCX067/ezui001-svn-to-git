@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  $Id: API_LOG_SqlMap.xml 7437 2011-03-03 06:26:58Z yellow $
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+
+<sqlMap namespace="ApiLog">
+    <typeAlias alias="apiLogVO" type="cn.vstore.appserver.apilog.ApiLog"/>
+    <resultMap id="apiLog" class="apiLogVO">
+        <result column="ID"				 	jdbcType="NUMBER"		property="id" />
+        <result column="USER_ID"			jdbcType="VARCHAR"		property="userId" />
+        <result column="USER_UID" 		 	jdbcType="VARCHAR"		property="userUid" />
+        <result column="TOKEN"			 	jdbcType="VARCHAR"		property="token" />
+        <result column="ICCID"			 	jdbcType="VARCHAR"		property="iccid" />
+        <result column="IMEI"			 	jdbcType="VARCHAR"		property="imei" />
+        <result column="MODEL_NAME" 	 	jdbcType="VARCHAR"		property="model" />
+        <result column="ANDROID_API_LEVEL"	jdbcType="NUMBER"		property="androidApiLevel" />
+        <result column="CLIENT_VER" 	 	jdbcType="NUMBER"		property="clientVersion" />
+        <result column="API_NAME"		 	jdbcType="VARCHAR"		property="apiName" />
+        <result column="CHANNEL"		 	jdbcType="VARCHAR"		property="channel" />
+        <result column="INPUT_PARAMETER" 	jdbcType="VARCHAR"		property="inputParameters" />
+        <result column="RET_CODE"	 	 	jdbcType="VARCHAR"		property="returnCode" />
+        <result column="RES_TIME"	 	 	jdbcType="NUMBER"		property="responseTime" />
+        <result column="CREATE_TIME" 	 	jdbcType="TIMESTAMP"	property="createTime" />
+    </resultMap>
+
+<insert id="insertApiLog" parameterClass="apiLogVO">
+insert into APP_STORESERVER_LOG (
+USER_ID, USER_UID, TOKEN, ICCID, IMEI, MODEL_NAME, ANDROID_API_LEVEL, CLIENT_VER, API_NAME, CHANNEL, INPUT_PARAMETER, RET_CODE, RES_TIME, CREATE_TIME
+)
+values (
+  #userId#, #userUid#, #token#, #iccid#, #imei#, #model#, #androidApiLevel#, #clientVersion#, #apiName#, #channel#, #inputParameters#, #returnCode#, #responseTime#, #createTime#
+)
+</insert>
+
+<select id="getCategoryListApiLevelName" parameterClass="String" resultClass="String">
+	select constant_value from constant_mapping 
+	where constant_key = 'categoryListApiLevelName' and constant_param = #categoryLevel#
+</select>
+
+</sqlMap>

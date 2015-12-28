@@ -1,0 +1,19 @@
+. 修改 Server 的 RUNTIME 參數
+
+. 複製 environment 內的 AndroidManifest.xml 內容
+
+. AndroidManifest.xml, DataSource 的 VERSION_CODE 參數
+
+. cn.com.vapk.vstore.client.util.Logger.LOGABLE = false;
+
+
+打包三種版本，寄給Ann, Eric, Clover
+
+[Monkey Test]
+# adb shell monkey -p cn.com.vapk.vstore.client --throttle 100 -v 50000
+need to close:
+1. UI: ActionController.logout(activity);
+
+
+[SSL Test] (內網)
+* 修改 Server 的 httpsTest 參數  to true

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background">#F6F6F7</color>
+    <color name="background_list">#FFF</color>
+    <color name="text_color_info">#585858</color>
+    <color name="text_color_highlight">#CB6204</color>
+    <color name="bg_btn_box">#D4D4D4</color>
+    <color name="bg_dot_box">#D4D4D4</color>
+    <color name="bg_list_item_even">#30cccccc</color>
+    
+    <color name="bg_pressed">#FBBE60</color>
+    <color name="bg_focused">#FFDD33</color>
+</resources>

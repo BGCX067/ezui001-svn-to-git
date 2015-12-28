@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  $Id: AUTH_SqlMap.xml 6705 2010-12-15 10:07:20Z yhwang $
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+
+<sqlMap namespace="Auth">
+
+    <typeAlias alias="oProsumer" type="cn.vstore.appserver.model.Prosumer"/>
+    <typeAlias alias="oAccount" type="cn.vstore.appserver.model.Account"/>
+    
+    <resultMap id="account" class="oAccount">
+        <result column="TOKEN" jdbcType="VARCHAR" property="token" />
+        <result column="ICCID" jdbcType="VARCHAR" property="iccid" />
+        <result column="IMEI" jdbcType="VARCHAR" property="imei"/>
+    </resultMap>
+    
+    <resultMap id="prosumer" class="oProsumer">
+    	<result column="ID" jdbcType="BIGINT" property="id" />
+        <result column="USER_ID" jdbcType="VARCHAR" property="userId" />
+        <result column="USER_NAME" jdbcType="VARCHAR" property="userName" />
+        <result column="TOKEN" jdbcType="VARCHAR" property="token" />
+        <result column="ICCID" jdbcType="VARCHAR" property="iccid" />
+        <result column="IMEI" jdbcType="VARCHAR" property="imei" />
+        <result column="LOGIN_TIME" jdbcType="DATE" property="loginTime" />
+        <result column="BLANK_TYPE" jdbcType="DECIMAL" property="blankType" />
+        <result column="USER_UID" jdbcType="VARCHAR" property="userUid" />
+        <result column="IS_SIM" jdbcType="DECIMAL" property="isSim" />
+        <result column="REGISTER_SERVICE" jdbcType="DECIMAL" property="registerService"  nullValue="0"/>
+        <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
+        <result column="STORE_ID" jdbcType="DECIMAL" property="storeId" />
+        <result column="STATUS" jdbcType="INT" property="status" />
+        <result column="SNUM" jdbcType="VARCHAR" property="snum" />
+        <result column="IP" jdbcType="VARCHAR" property="IP" />
+    </resultMap>
+    <resultMap id="storeInfo" class="cn.vstore.appserver.model.StoreInfo">
+        <result column="ID" jdbcType="DECIMAL" property="id" />
+        <result column="STORE_PKG_NAME" jdbcType="VARCHAR" property="storePkgName" />
+        <result column="STORE_NAME" jdbcType="VARCHAR" property="storeName" />
+        <result column="PUB_KEY_BASE64" jdbcType="VARCHAR" property="pubKeyBase64"/>
+        <result column="PWD_RESET_URL" jdbcType="VARCHAR" property="pwdResetUrl" />
+        <result column="CLIENT_DOWNLOAD_URL" jdbcType="VARCHAR" property="clientDownloadUrl" />
+        <result column="IS_APPROVED" jdbcType="DECIMAL" property="isApproved" />
+        <result column="IS_LOGIN" jdbcType="DECIMAL" property="isLogin" />
+        <result column="IS_DOWNLOAD" jdbcType="DECIMAL" property="isDownload" />
+    </resultMap>
+<!-- Select StoreInfo : 取得StoreInfo資訊，條件為 storePkgName-->
+<select id="getStore" parameterClass="java.util.HashMap" resultMap="storeInfo">
+<![CDATA[
+ select ID,STORE_PKG_NAME,STORE_NAME,PUB_KEY_BASE64,PWD_RESET_URL,CLIENT_DOWNLOAD_URL, IS_APPROVED, IS_LOGIN, IS_DOWNLOAD
+ from STORE_INFO
+ where STORE_PKG_NAME=#storePkgName:VARCHAR#
+]]>
+</select>
+<!-- Select StoreInfo : 取得StoreInfo資訊，條件為 PACKAGE_NAME, VERSION_ID-->
+<select id="getStoreByPkgVer" parameterClass="java.util.HashMap" resultMap="storeInfo">
+select 
+	si.*
+from 
+  	STORE_INFO si,STORE_APPLICATION sa
+where 
+	si.ID=sa.STORE_ID 
+    and sa.APP_VER_ID in 
+    (
+    select ID from APPLICATION_VERSIONS 
+    where APP_ID = #PACKAGE_NAME# and VERSION_ID <![CDATA[>=]]> #VERSION_ID#
+    )
+order by sa.ON_USE desc,sa.STORE_ID
+</select>
+
+<!-- Select PROSUMER :  取得PROSUMER資訊，條件為resetToken -->
+<select id="getProsumerByResetToken" parameterClass="java.util.HashMap" resultMap="prosumer">
+<![CDATA[
+ select *
+ from PROSUMER
+ where PWD_RESET_TOKEN=#PwdResetToken# and STORE_ID=#StoreId# and USER_ID=#UserId#
+]]>
+</select>
+    
+<!-- Select PROSUMER :  取得PROSUMER資訊，條件為token -->
+<select id="getProsumerByToken" parameterClass="oAccount" resultMap="prosumer">
+<![CDATA[
+ select *
+ from PROSUMER
+ where TOKEN=#token:VARCHAR# limit 1
+]]>
+</select>
+
+<!-- Select PROSUMER :  取得PROSUMER資訊，條件為user_id= imei, user_uid=imei, user_name=imei, imei=imei / login_time != null / token != null-->
+<select id="getProsumerByImeiForVpad" resultMap="prosumer">
+<![CDATA[
+ select a.* from (
+ select *
+ from PROSUMER where USER_ID=#imei:VARCHAR# 
+ and USER_NAME=#imei:VARCHAR# 
+ and imei=#imei:VARCHAR# 
+ and USER_UID=#imei:VARCHAR# 
+ and TOKEN is not null
+ and login_time is not null order by LOGIN_TIME desc
+ ) a limit 1
+]]>
+</select>
+
+<!-- Select PROSUMER : 取得PROSUMER資訊，條件為 Nickname -->
+<select id="getProsumerByNickname" resultMap="prosumer">
+<![CDATA[
+ select *
+ from PROSUMER
+ where upper(NICKNAME)=upper(#nickname:VARCHAR#) limit 1
+]]>
+</select>
+
+<!-- Select PROSUMER : 取得PROSUMER資訊，條件為 UserId, Password-->
+<select id="getProsumerByUserIdAndPassword" resultMap="prosumer">
+<![CDATA[
+ select *
+ from PROSUMER
+ where upper(USER_ID)=upper(#userId:VARCHAR#) and PASSWORD=#password:VARCHAR#
+]]>
+</select>
+
+<!-- Select PROSUMER : 取得PROSUMER資訊，條件為 UserId, Password, StoreId-->
+<select id="getProsumerByUserIdAndPasswordAndStoreId" resultMap="prosumer">
+<![CDATA[
+ select *
+ from PROSUMER
+ where upper(USER_ID)=upper(#userId:VARCHAR#) and PASSWORD=#password:VARCHAR# and store_id=#storeId#
+]]>
+</select>
+
+<!-- Select PROSUMER : 取得PROSUMER資訊，條件為 UserId-->
+<select id="getProsumerByUserId" resultMap="prosumer">
+<![CDATA[
+ select *
+ from PROSUMER
+ where upper(USER_ID)=upper(#userId:VARCHAR#)
+]]>
+</select>
+
+<!-- Select PROSUMER : 取得PROSUMER資訊，條件為 UserId-->
+<select id="getProsumerByUserIdAndStoreId" parameterClass="java.util.HashMap" resultMap="prosumer">
+<![CDATA[
+ select *
+ from PROSUMER
+ where upper(USER_ID)=upper(#USERID:VARCHAR#) and STORE_ID=#STOREID:VARCHAR#
+]]>
+</select>
+
+<!-- Select PROSUMER_BLANKLIST : 取得白名單資訊 -->
+<select id="getUserBlankListByUserId"
+        parameterClass="java.lang.String"
+        resultClass="int">
+<![CDATA[
+ select BLANK_TYPE from PROSUMER_BLANKLIST
+ where upper(USER_ID)=upper(#userId:VARCHAR#) and BEGIN_DATE is not null
+ and trunc(BEGIN_DATE)<=trunc(NOW()) and (END_DATE is null or trunc(END_DATE)>=trunc(NOW()))
+]]>
+</select>
+
+<!-- Select PROSUMER_BLANKLIST : 取得白名單資訊，以Token為條件 -->
+<select id="getUserBlankListByToken"
+        parameterClass="java.lang.String"
+        resultClass="int">
+<![CDATA[
+ select pb.BLANK_TYPE from PROSUMER_BLANKLIST pb left join PROSUMER p on pb.user_id = p.user_id
+ where upper(p.token)=upper(#token:VARCHAR#) and pb.BEGIN_DATE is not null
+ and trunc(pb.BEGIN_DATE)<=trunc(NOW()) and (pb.END_DATE is null or trunc(pb.END_DATE)>=trunc(NOW()))
+]]>
+</select>
+
+<!-- Insert PROSUMER_REGISTER_LOG : 儲存註冊資訊 -->
+<insert id="insertProsumerRegisterLog" parameterClass="java.util.Map">
+<![CDATA[
+ insert into PROSUMER_REGISTER_LOG (
+	RET_CODE,RET_MSG,USER_ID,ICCID,IMEI,USER_UID,REGISTER_DATE
+ )
+ values (
+  #retCode#,#retMsg#,#userid#,#iccid#,#imei#,#userUid#,NOW()
+ )
+]]>
+</insert>
+
+<!-- Insert PROSUMER for register : 儲存PROSUMER資訊 -->
+<insert id="insertProsumerForRegister" parameterClass="oProsumer">
+<![CDATA[
+ insert into PROSUMER (
+   TOKEN,USER_ID,ICCID,IMEI,USER_NAME,LOGIN_TIME,BLANK_TYPE,USER_UID,IS_SIM,REGISTER_SERVICE,PASSWORD,NICKNAME,CREATE_TIME,store_id,signature,SNUM,IP
+ ) values (
+   #token#,#userId#,#iccid#,#imei#,#userName#,now(),#blankType#,
+   #userUid#,#isSim#,#registerService#,#password#,#nickName#,now(),#storeId#,#signature#,#snum#,#IP#
+ )
+]]>
+<selectKey keyProperty="id">
+	select last_insert_id() as id from PROSUMER limit 1
+</selectKey>
+</insert>
+
+<!-- Insert PROSUMER : 儲存PROSUMER資訊 -->
+<insert id="insertProsumer" parameterClass="oProsumer">
+<![CDATA[
+ insert into PROSUMER (
+   TOKEN,USER_ID,ICCID,IMEI,USER_NAME,LOGIN_TIME,BLANK_TYPE,USER_UID,IS_SIM,REGISTER_SERVICE,CREATE_TIME
+ ) values (
+   #token#,#userId#,#iccid#,#imei#,#userName#,now(),#blankType#,
+   #userUid#,#isSim#,#registerService#,now()
+ ) 
+]]>
+</insert>
+
+<!-- Update PROSUMER : 更新PROSUMER資訊 -->
+<update id="updateProsumer" parameterClass="oProsumer">
+<![CDATA[
+ update PROSUMER set TOKEN=#token#,iccid=#iccid#,imei=#imei#,LOGIN_TIME=#loginTime#,
+   BLANK_TYPE=#blankType#,USER_UID=#userUid#,REGISTER_SERVICE=#registerService#,PWD_RESET_TOKEN=#pwdResetToken#,
+   SNUM=#snum#, IP=#IP#
+ where upper(USER_ID)=upper(#userId#)
+]]>
+</update>
+
+<!-- Update PROSUMER : 更新密碼及ResetToken資訊 -->
+<update id="updatePwdAndPwdResetToken" parameterClass="oProsumer">
+<![CDATA[
+ update PROSUMER set password=#password#,PWD_RESET_TOKEN=#pwdResetToken#
+ where upper(USER_ID)=upper(#userId#)
+]]>
+</update>
+
+<!-- Update PROSUMER_LOG IS_DELETE = 1 : 把之前PROSUMER_LOG資料IS_DELETE = 1 -->
+<update id="updateProsumerLogIsDelete" parameterClass="java.util.HashMap">
+<![CDATA[
+ update PROSUMER_LOG
+ set IS_DELETE=1
+ where upper(USER_UID)=upper(#userUid#) and (IS_DELETE is null or IS_DELETE=0)
+]]>
+</update>
+
+<!-- Insert PROSUMER_LOG && IS_DELETE = 0 : 儲存PROSUMER_LOG資訊, IS_DELETE為0(成功) -->
+<insert id="insertProsumerLog" parameterClass="java.util.Map">
+<![CDATA[
+ insert into PROSUMER_LOG (
+   RET_CODE,RET_MSG,USER_ID,USER_NAME,TOKEN,ICCID,IMEI,LOGIN_TIME,
+   IS_DELETE,BLANK_TYPE,USER_UID,REGISTER_SERVICE
+ ) values (
+   #code#,#des#,#userId#,#username#,#token#,#iccid#,
+   #imei#,NOW(),0,#blankType#,#userUid#,#registerService#
+ ) 
+]]>
+</insert>
+    
+<!-- Update PROSUMER LOGIN_TIME,BLANK_TYPE,REGISTER_SERVICE,TOKEN : 更新PROSUMER中LOGIN_TIME,BLANK_TYPE,REGISTER_SERVICE,TOKEN值 -->
+<update id="updateProsumerAutoLoginData" parameterClass="oProsumer">
+<![CDATA[
+ update PROSUMER
+ set LOGIN_TIME=NOW(),BLANK_TYPE=#blankType#,REGISTER_SERVICE=#registerService#,TOKEN=#token#
+ where upper(USER_ID)=upper(#userId#)
+]]>
+</update>
+    
+<select id="getBlankType" resultClass="java.lang.Double">
+<![CDATA[
+select BLANK_TYPE from PROSUMER_BLANKLIST 
+where   upper(USER_ID)=upper(#userId#) 
+        and BEGIN_DATE is not null 
+        and DATE_FORMAT(BEGIN_DATE,'%Y-%m-%d 00:00:00')<=DATE_FORMAT(NOW(),'%Y-%m-%d 00:00:00')
+        and (
+                END_DATE is null 
+                or DATE_FORMAT(END_DATE,'%Y-%m-%d 00:00:00')>=DATE_FORMAT(NOW(),'%Y-%m-%d 00:00:00')
+            )
+        and BLANK_TYPE >= 30
+]]>
+</select>
+
+<!-- Select StoreInfo : 當version = testVersionCode，取得所有StoreInfo資訊-->
+<select id="getAllStore" resultMap="storeInfo">
+<![CDATA[
+select 
+	ID, STORE_NAME, STORE_PKG_NAME, PUB_KEY_BASE64 ,PWD_RESET_URL , CLIENT_DOWNLOAD_URL, IS_APPROVED, IS_LOGIN, IS_DOWNLOAD
+from 
+  	STORE_INFO
+]]>
+</select>
+
+</sqlMap>

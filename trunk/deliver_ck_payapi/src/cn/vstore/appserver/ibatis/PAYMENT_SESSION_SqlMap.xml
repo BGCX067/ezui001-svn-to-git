@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  $Id: PAYMENT_SESSION_SqlMap.xml 7437 2011-03-03 06:26:58Z yellow $
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+
+<sqlMap namespace="PaymentSession">
+<typeAlias alias="paymentSessionVO" type="cn.vstore.appserver.model.PaymentSession"/>
+<resultMap id="paymentSession" class="paymentSessionVO">
+    <result column="ID"				jdbcType="NUMBER"		property="id" />
+    <result column="IPAY_TOKEN"		jdbcType="VARCHAR"		property="token" />
+    <result column="USER_ID" 		jdbcType="VARCHAR"		property="userId" />
+    <result column="IMEI"			jdbcType="VARCHAR"		property="imei" />
+    <result column="ICCID"			jdbcType="VARCHAR"		property="iccid" />
+    <result column="LOGIN_TIME"		jdbcType="DATE"			property="loginTime" />
+    <result column="IPAY_USER_ID"	jdbcType="VARCHAR"		property="ipayUserId" />
+    <result column="SESSION_ID"		jdbcType="NUMBER"		property="sessionId" />
+    <result column="BLANK_TYPE"		jdbcType="NUMBER"		property="blankType" />
+    <result column="USER_UID"		jdbcType="VARCHAR"		property="userUid" />
+    <result column="USER_TYPE"		jdbcType="NUMBER"		property="userType" />
+    <result column="IS_SIM"			jdbcType="NUMBER"		property="sim" />
+</resultMap>
+
+<!-- Select STORE_CLIENT_BEHAVIOR_LOG : 取出LOG_UID筆數 -->
+<select id="getPaymentSessionForAuth" resultMap="paymentSession">
+<![CDATA[
+select ID, IPAY_TOKEN, USER_ID, IMEI, ICCID, LOGIN_TIME, IPAY_USER_ID, SESSION_ID, BLANK_TYPE, USER_UID, USER_TYPE, IS_SIM 
+from IPAY_SESSION 
+where IPAY_TOKEN=#token:VARCHAR# and ICCID=#iccid:VARCHAR# and IMEI=#imei:VARCHAR# and LOGIN_TIME+1>NOW()
+]]>
+</select>
+<select id="getPaymentSession" resultMap="paymentSession">
+<![CDATA[
+select * from IPAY_SESSION 
+where IPAY_TOKEN=#token:VARCHAR# and ICCID=#iccid:VARCHAR# and IMEI=#imei:VARCHAR#
+]]>
+</select>
+    
+</sqlMap>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  $Id: COMMENT_SqlMap.xml 6909 2010-12-28 10:40:34Z yellow $
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+
+<sqlMap namespace="CommentOfApp">
+
+    <typeAlias alias="comment" type="cn.vstore.appserver.model.Comment"/>
+    <typeAlias alias="posterComment" type="cn.vstore.appserver.model.PosterComment"/>
+    
+    <resultMap id="commentOfApp" class="posterComment">
+        <result column="ID" jdbcType="DECIMAL" property="id" />
+        <result column="USER_NICKNAME" jdbcType="VARCHAR" property="poster" />
+        <result column="LAST_COMMENT_DATE" jdbcType="DATE" property="date" />
+        <result column="USER_RANK" jdbcType="DECIMAL" property="rating" />
+        <result column="LAST_APP_COMMENT" jdbcType="VARCHAR" property="content" />
+        <result column="REPORT_ID" jdbcType="DECIMAL" property="reportId" />
+    </resultMap>
+    
+    <resultMap id="commentByUserIdOfApp" class="comment">
+        <result column="ID" jdbcType="DECIMAL" property="id" />
+        <result column="USER_RANK" jdbcType="DECIMAL" property="rating" />
+        <result column="LAST_APP_COMMENT" jdbcType="VARCHAR" property="content" />
+        <result column="LAST_COMMENT_DATE" jdbcType="DATE" property="date" />
+        <result column="REPORT_ID" jdbcType="DECIMAL" property="reportId" />
+    </resultMap>
+
+<!-- Select USER_APK_BEHAVIOR/Portal_user : 取出Comment列表，以pkgId為條件 -->
+<!-- <select id="getComments" resultMap="commentOfApp"> -->
+<!--     select  ub.id ID, ps.NICKNAME USER_NICKNAME, ub.LAST_COMMENT_DATE LAST_COMMENT_DATE, ub.USER_RANK USER_RANK, ub.LAST_APP_COMMENT LAST_APP_COMMENT, ub.REPORT_ID as REPORT_ID   -->
+<!--     from USER_APK_BEHAVIOR ub Left join prosumer ps on ps.USER_UID = ub.USER_UID  -->
+<!--     where ub.APP_ID=#pkgId:VARCHAR# and ub.LAST_APP_COMMENT is not null and ub.STORE_ID=#storeId# -->
+<!--     order by ub.LAST_COMMENT_DATE desc -->
+<!--     limit #startNo:INTEGER# , #endNo:INTEGER# -->
+<!-- </select> -->
+<select id="getComments" resultMap="commentOfApp">
+    select  ub.USER_RANK_UID ID, ps.NICKNAME USER_NICKNAME, ub.RANK_DATE LAST_COMMENT_DATE, ub.USER_RANK USER_RANK, ub.APP_COMMENT LAST_APP_COMMENT, 0 as REPORT_ID  
+    from USER_RANK_LOG ub Left join prosumer ps on ps.USER_UID = ub.USER_UID 
+	where ub.STORE_ID=#storeId# and ub.APP_ID=#pkgId:VARCHAR#
+	<dynamic>
+		<isNotEmpty prepend="and" property="isApproved">
+		 (ub.status = 1 
+		 <isNotEmpty prepend="or" property="userId"> ub.user_id = #userId#</isNotEmpty>
+		 <isNotEmpty prepend="or" property="imei"> ub.imei = #imei#</isNotEmpty>
+		 <isNotEmpty prepend="or" property="mac"> ub.mac = #mac#</isNotEmpty>
+		 )
+		</isNotEmpty>
+	</dynamic>
+    order by ub.USER_RANK_UID desc
+    limit #startNo:INTEGER# , #endNo:INTEGER#
+</select>
+
+<!-- Select USER_APK_BEHAVIOR/Portal_user : 取出Comment列表，以UserId為條件 -->
+<select id="getCommentByUserId" resultMap="commentByUserIdOfApp">
+<!--select * from (-->
+<!--    select a.*,rownum r from (-->
+		select a.* from (
+        select id, USER_RANK as USER_RANK, LAST_APP_COMMENT as LAST_APP_COMMENT , LAST_COMMENT_DATE as LAST_COMMENT_DATE, REPORT_ID as REPORT_ID
+        from USER_APK_BEHAVIOR as usb
+        where APP_ID=#pkgId:VARCHAR# and upper(user_id) = upper(#userId:VARCHAR#) and usb.STORE_ID=#storeId#
+    ) a limit 1
+<!--) b where b.r>0 and b.r<![CDATA[<]]>=1-->
+</select>
+<select id="getCommentByImeiMac" resultMap="commentByUserIdOfApp">
+    select USER_RANK_UID as ID, USER_RANK as USER_RANK, APP_COMMENT as LAST_APP_COMMENT , RANK_DATE as LAST_COMMENT_DATE, 0 as REPORT_ID
+    from user_rank_log as usb
+    where STORE_ID=#storeId# and APP_ID=#pkgId:VARCHAR#
+	<isNotNull prepend="AND" property="imei">
+	  IMEI = #imei#
+	</isNotNull>
+	<isNotNull prepend="AND" property="mac">
+	  MAC = #mac#
+	</isNotNull>
+    order by USER_RANK_UID desc
+	limit 1
+</select>
+<select id="getReportByImeiMac" resultClass="int">
+    select REPORT_ID
+    from user_report_log as usb
+    where STORE_ID=#storeId# and APP_ID=#pkgId:VARCHAR#
+	<isNotNull prepend="AND" property="imei">
+	  IMEI = #imei#
+	</isNotNull>
+	<isNotNull prepend="AND" property="mac">
+	  MAC = #mac#
+	</isNotNull>
+	limit 1
+</select>
+
+<!-- Select USER_APK_BEHAVIOR/Portal_user : 取出Comment總筆數，以pkgId為條件 -->
+<!-- <select id="getCommentsCount" resultClass="int"> -->
+<!-- select count(ub.id)  -->
+<!-- from USER_APK_BEHAVIOR ub Left join prosumer ps on upper(ps.USER_ID) = upper(ub.USER_UID)  -->
+<!-- where APP_ID=#pkgId:VARCHAR# and ub.LAST_APP_COMMENT is not null and ub.STORE_ID=#storeId# -->
+<!-- </select> -->
+<select id="getCommentsCount" resultClass="int">
+select count(1) 
+from USER_RANK_LOG
+where STORE_ID=#storeId# and APP_ID=#pkgId:VARCHAR#
+<dynamic>
+	<isNotEmpty prepend="and" property="isApproved">
+	 (status = 1 
+	 <isNotEmpty prepend="or" property="userId"> user_id = #userId#</isNotEmpty>
+	 <isNotEmpty prepend="or" property="imei"> imei = #imei#</isNotEmpty>
+	 <isNotEmpty prepend="or" property="mac"> mac = #mac#</isNotEmpty>
+	 )
+	</isNotEmpty>
+</dynamic>
+</select>
+</sqlMap>

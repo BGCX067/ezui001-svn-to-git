@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Smart" parent="android:style/Theme.Light.NoTitleBar">
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:windowBackground">@color/background</item>
+        <item name="android:buttonStyle">@style/Widget.Button</item>
+        <item name="android:ratingBarStyle">@style/Widget.RatingBar</item>
+        <item name="android:ratingBarStyleSmall">@style/Widget.RatingBar.Small</item>
+        <item name="android:listViewStyle">@style/Widget.ListView.White</item>
+        <item name="android:listDivider">@drawable/divider_horizontal_bright</item>
+    </style>
+    <style name="Theme.Smart.List" parent="Theme.Smart">
+        <item name="android:windowBackground">@color/background_list</item>
+    </style>
+</resources>

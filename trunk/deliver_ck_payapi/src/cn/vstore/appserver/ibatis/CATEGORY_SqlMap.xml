@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  $Id: CATEGORY_SqlMap.xml 6719 2010-12-16 05:51:33Z yhwang $
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+
+<sqlMap namespace="ApplicationCategory">
+
+    <typeAlias alias="appsCategory" type="cn.vstore.appserver.model.ApplicationCategory"/>
+    
+    <resultMap id="applicationCategory" class="appsCategory">
+        <result column="CATEGORY_ID" jdbcType="DECIMAL" property="id" />
+        <result column="CATEGORY_NAME" jdbcType="DECIMAL" property="title" />
+        <result column="ICON_URL" jdbcType="VARCHAR" property="icon" />
+        <result column="NEW_APP" jdbcType="DECIMAL" property="newAppCount" nullValue="0"/>
+    </resultMap>
+    
+<!-- Select CATEGORY : 取出Category列表 -->
+<select id="getCategories" resultMap="applicationCategory">
+<![CDATA[
+select CATEGORY_ID, CATEGORY_NAME, ICON_URL , NEW_APP
+from CATEGORY 
+where PARENT_CATEGORY_ID=#parentCategoryId# and ON_USE='Y' and STORE_ID=#storeId#
+order by SORT_SEQ
+]]>
+</select>
+    
+</sqlMap>

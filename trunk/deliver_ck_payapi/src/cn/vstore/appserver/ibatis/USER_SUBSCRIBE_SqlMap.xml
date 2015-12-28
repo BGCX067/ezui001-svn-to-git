@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  $Id: USER_SUBSCRIBE_SqlMap.xml 6776 2010-12-21 02:06:33Z yhwang $
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+
+<sqlMap namespace="UserSubscribe">
+
+    <typeAlias alias="userSubscribeO" type="cn.vstore.appserver.model.UserSubscribe"/>
+    <typeAlias alias="userSubscribeLogO" type="cn.vstore.appserver.model.UserSubscribeLog"/>
+    
+    <resultMap id="userSubscribe" class="userSubscribeO">
+        <result column="ID" jdbcType="DECIMAL" property="subscribeId" />
+        <result column="SERVICE_ID" jdbcType="VARCHAR" property="serviceId" />
+        <result column="BEGIN_TIME" jdbcType="DATE" property="beginTime" />
+        <result column="IS_CANCELED" jdbcType="DECIMAL" property="isCanceled" />
+        <result column="END_TIME" jdbcType="DATE" property="endTime" />
+    </resultMap>
+<!--     <resultMap id="userSubscribeAll" class="userSubscribeO"> -->
+<!--         <result column="ID" jdbcType="DECIMAL" property="subscribeId" /> -->
+<!--         <result column="USER_ID" jdbcType="VARCHAR" property="userId" /> -->
+<!--         <result column="APP_ID" jdbcType="VARCHAR" property="appId" /> -->
+<!--         <result column="ORDER_ID" jdbcType="DOUBLE" property="orderId" /> -->
+<!--         <result column="VERSION_ID" jdbcType="INT" property="versionId" /> -->
+<!--         <result column="LAST_VERSION_ID" jdbcType="INT" property="lastVersionId" /> -->
+<!--         <result column="USER_UID" jdbcType="VARCHAR" property="userUid" /> -->
+<!--         <result column="IMEI" jdbcType="VARCHAR" property="imei" /> -->
+<!--         <result column="SUBSCRIBE_ID" jdbcType="INT" property="subscribeId" /> -->
+<!--         <result column="CANCEL_SRC_TYPE" jdbcType="DOUBLE" property="cancelSrcType" /> -->
+<!--         <result column="CANCEL_DESC" jdbcType="VARCHAR" property="cancelDesc" /> -->
+<!--         <result column="SUBSCRIBE_TIME" jdbcType="DATETIME" property="subscribeTime" /> -->
+<!--         <result column="STORE_ID" jdbcType="BIGINT" property="storeId" /> -->
+<!--         <result column="SERVICE_ID" jdbcType="VARCHAR" property="serviceId" /> -->
+<!--         <result column="BEGIN_TIME" jdbcType="DATE" property="beginTime" /> -->
+<!--         <result column="IS_CANCELED" jdbcType="DECIMAL" property="isCanceled" /> -->
+<!--         <result column="END_TIME" jdbcType="DATE" property="endTime" /> -->
+<!--     </resultMap> -->
+
+<!-- Select USER_SUBSCRIBE : 取出IS_CANCELED/END_TIME -->
+<select id="getIsCanceledAndEndTime" resultMap="userSubscribe">
+<![CDATA[
+ select ID,BEGIN_TIME,SERVICE_ID,IS_CANCELED,END_TIME from USER_SUBSCRIBE
+ where upper(USER_UID)=upper(#userUid#) and APP_ID=#appId# and STORE_ID=#storeId#
+]]>
+</select>
+
+<!-- Select USER_SUBSCRIBE : 取得有效付款的ServiceId和endTime資訊 -->
+<select id="getUserSubcribeOfNotCancel" resultMap="userSubscribe">
+<![CDATA[
+ select ID, BEGIN_TIME, SERVICE_ID, IS_CANCELED, END_TIME from USER_SUBSCRIBE
+ where upper(USER_UID) = upper(#userUid#) and APP_ID = #appId# and (IS_CANCELED = 0 or IS_CANCELED is NULL)
+]]>
+</select>
+
+<!-- Select USER_SUBSCRIBE : 取出SubcribeId -->
+<select id="getSubcribeId" resultClass="java.lang.Long">
+<![CDATA[    
+ select USER_SUBSCRIBE_LOG_SEQ.nextval from dual
+]]>            
+</select>
+
+<!-- Update USER_SUBSCRIBE : 更新USER_SUBSCRIBE -->
+<update id="updateSubcribe" parameterClass="userSubscribeO">
+<![CDATA[    
+ update USER_SUBSCRIBE
+ set IS_CANCELED=0, END_TIME=null,ORDER_ID=#orderId#,VERSION_ID=#versionId#,LAST_VERSION_ID=#versionId#,
+    USER_ID=upper(#userId#),SERVICE_ID=#serviceId#,IMEI=#imei#,SUBSCRIBE_TIME=NOW(),BEGIN_TIME=NOW()
+ where upper(USER_UID)=upper(#userUid#) and APP_ID=#appId#
+]]> 
+</update>
+
+<!-- Update USER_SUBSCRIBE : 更新LAST_VERSION_ID，條件為APP_ID/USER_UID -->
+<update id="updateLastVersionId">
+<![CDATA[    
+ update USER_SUBSCRIBE set LAST_VERSION_ID=#lastVersionId# 
+ where (IS_CANCELED=0 or IS_CANCELED is null or IS_CANCELED=2 or 
+       (IS_CANCELED=1 and DATE_FORMAT(END_TIME,'%Y-%m-%d 00:00:00')>=DATE_FORMAT(NOW(),'%Y-%m-%d 00:00:00'))) and APP_ID=#appId# and upper(USER_UID)=upper(#userUid#) 
+       and STORE_ID=#storeId#
+]]> 
+</update>
+
+<!-- Insert USER_SUBSCRIBE : 儲存USER_SUBSCRIBE資訊 -->
+<insert id="insertSubcribe" parameterClass="userSubscribeO">
+<![CDATA[     
+ insert into USER_SUBSCRIBE
+ (ID,USER_ID,APP_ID,BEGIN_TIME,IS_CANCELED,ORDER_ID,VERSION_ID,LAST_VERSION_ID,USER_UID,SERVICE_ID,IMEI,SUBSCRIBE_TIME) values
+ (USER_SUBSCRIBE_SEQ.nextval,upper(#userId#),#appId#,NOW(),0,#orderId#,#versionId#,#versionId#,#userUid#,#serviceId#,#imei#,NOW())
+]]>
+</insert>
+
+<!-- Update USER_SUBSCRIBE : 更新USER_SUBSCRIBE -->
+<update id="updateSubcribeId">
+<![CDATA[    
+ update USER_SUBSCRIBE set SUBSCRIBE_ID=#subcribeId#
+ where upper(USER_UID)=upper(#userUid#) and APP_ID=#appId#
+]]> 
+</update>
+
+<!-- Insert USER_SUBSCRIBE_LOG : 新增USER_SUBSCRIBE_LOG資訊 -->
+<insert id="insertSubcribeLog" parameterClass="userSubscribeLogO">
+<![CDATA[    
+ insert into USER_SUBSCRIBE_LOG (ID,USER_ID,APP_ID,BEGIN_TIME,LAST_END_TIME,SUBSCRIBE_TIME,VERSION_ID,SUBSCRIBE_ID,ORDER_ID,USER_UID,SERVICE_ID,IMEI) values
+ (#id#,upper(#userId#),#appId#,NOW(),#lastEndTime#,NOW(),#versionId#,#subscribId#,#orderId#,#userUid#,#serviceId#,#imei#)
+]]> 
+</insert>
+
+<!-- Insert USER_SUBSCRIBE_LOG : 新增USER_SUBSCRIBE_LOG資訊For 下載APK時用 -->
+<insert id="insertUserSubcribeForDownloadApk">
+<![CDATA[    
+ insert into USER_SUBSCRIBE
+ (ID,USER_ID,APP_ID,BEGIN_TIME,END_TIME,IS_CANCELED,VERSION_ID,LAST_VERSION_ID,IMEI,SUBSCRIBE_TIME,USER_UID, STORE_ID)
+ values
+ (USER_SUBSCRIBE_SEQ.nextval,upper(#userId#),#appId#,NOW(),#endTime#,#isCanceled#,#versionId#,#lastVersionId#,#imei#,NOW(),#userUid#, #storeId#)
+]]> 
+</insert>
+
+<!-- Update USER_SUBSCRIBE : 更新USER_SUBSCRIBE中的IS_CANCELED/END_TIME/CANCEL_SRC_TYPE -->
+<update id="updateUnSubcribe">
+<![CDATA[    
+update USER_SUBSCRIBE set IS_CANCELED = #isCanceled#,END_TIME=#endTime#,CANCEL_SRC_TYPE=1 where ID = #subscribeId#
+]]>  
+</update>
+
+<!-- Update USER_SUBSCRIBE : 更新USER_SUBSCRIBE中的IS_CANCELED/END_TIME=null -->
+<update id="updateIsCanceledWithUserUidAndAppId">
+<![CDATA[    
+update USER_SUBSCRIBE set IS_CANCELED=#isCanceled#, END_TIME=null where upper(USER_UID)=upper(#userUid#) and APP_ID=#appId# and STORE_ID=#storeId#
+]]>  
+</update>
+
+<!-- Update USER_SUBSCRIBE_LOG : 更新USER_SUBSCRIBE_LOG中的CANCEL_TIME/END_TIME/CANCEL_SRC_TYPE -->
+<update id="updateUnSubcribeLog">
+<![CDATA[    
+ update USER_SUBSCRIBE_LOG
+ set CANCEL_TIME = NOW(),END_TIME=#endTime#,CANCEL_SRC_TYPE=1
+ where upper(USER_UID) = upper(#userUid#) and APP_ID = #pkgId# and (CANCEL_TIME is NULL)
+]]>  
+</update>
+
+<select id="getBeginTime" resultMap="userSubscribe">
+<![CDATA[
+select ID, BEGIN_TIME, SERVICE_ID, IS_CANCELED, END_TIME from USER_SUBSCRIBE 
+where   upper(USER_UID)=upper(#userUid#) 
+        and APP_ID=#pkg# 
+        and (   IS_CANCELED=0 or IS_CANCELED is null 
+                or (    IS_CANCELED=1 and END_TIME is not null 
+                        and DATE_FORMAT(END_TIME,'%Y-%m-%d 00:00:00')>=DATE_FORMAT(NOW(),'%Y-%m-%d 00:00:00')
+                    )
+            ) 
+        and store_id=#storeId#
+]]>
+</select>
+
+<update id="updateIsCanceledWithUserIdAndAppId" parameterClass="java.util.HashMap">
+<![CDATA[    
+update USER_SUBSCRIBE set IS_CANCELED=1,END_TIME=#endTime# where upper(USER_ID)=upper(#userId#) and APP_ID=#appId# and IS_CANCELED=2 and store_id=#storeId#
+]]>  
+</update>
+
+<update id="updateIsCanceledBy" parameterClass="java.util.HashMap">
+<![CDATA[    
+update USER_SUBSCRIBE set IS_CANCELED=2 where upper(USER_ID)=upper(#userId#) and APP_ID=#appId# and IS_CANCELED=1 and DATE_FORMAT(END_TIME,'%Y-%m-%d 00:00:00')<DATE_FORMAT(NOW(),'%Y-%m-%d 00:00:00') and store_id=#storeId#
+]]>  
+</update>
+
+
+</sqlMap>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:id="@+id/screen_buttons_layout">
+    <ImageView android:id="@+id/preview_previous"
+		android:background="@drawable/btn_previous"
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:layout_alignParentLeft="true"
+    	android:layout_centerVertical="true"
+    	android:clickable="true"
+    	android:focusable="true"/>
+   	<ImageView android:id="@+id/preview_next"
+		android:background="@drawable/btn_next"
+    	android:layout_width="wrap_content" 
+    	android:layout_height="wrap_content" 
+    	android:layout_alignParentRight="true"
+    	android:layout_centerVertical="true"
+    	android:clickable="true"
+    	android:focusable="true"/>
+    <LinearLayout android:id="@+id/dotLayout"
+		android:layout_width="fill_parent"
+		android:layout_height="@dimen/dot_box_height"
+		android:paddingBottom="0dp"
+		android:gravity="center"
+		android:layout_alignParentBottom="true"
+		android:layout_centerHorizontal="true">
+    	<ImageView  android:id="@+id/preview_dot_y"
+    		android:src="@drawable/screen_shot_dot_pressed"
+			android:layout_width="wrap_content" 
+    	 	android:layout_height="wrap_content"
+    	 	android:visibility="invisible"/>
+    </LinearLayout>
+<!--    <RelativeLayout style="@style/ButtonBox"-->
+<!--    	android:layout_alignParentBottom="true">-->
+<!--    	<Button android:id="@+id/backBtn"-->
+<!--			style="@style/Button"-->
+<!--    		android:text="@string/back" />-->
+<!--    </RelativeLayout>-->
+	<ImageView style="@style/ButtonBoxShadow"
+		android:layout_above="@id/button_box"
+		android:layout_alignParentBottom="false" />
+</RelativeLayout>

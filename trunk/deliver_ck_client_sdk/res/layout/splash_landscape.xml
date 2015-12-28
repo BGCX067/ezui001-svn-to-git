@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:background="@drawable/splashbg">
+  
+  <LinearLayout
+  android:id="@+id/none"
+  android:layout_width="fill_parent"
+  android:layout_height="20px">
+  </LinearLayout>
+  
+  <LinearLayout
+  android:id="@+id/top"
+  android:layout_width="fill_parent"
+  android:layout_height="wrap_content"
+  android:layout_below="@id/none">
+  <ImageView
+  android:id="@+id/splash"
+  android:src="@drawable/splash_small"
+  android:layout_width="fill_parent"
+  android:layout_height="wrap_content"
+  android:layout_gravity="center" 
+  />
+  </LinearLayout>
+  
+  <TextView
+  android:id="@+id/welcome"
+  android:text="@string/welcome"
+  android:layout_width="fill_parent"
+  android:layout_height="wrap_content"
+  android:gravity="center_horizontal"
+  android:textColor="@color/text_color_info"
+  android:layout_below="@id/top"
+  />
+  
+  <LinearLayout
+  android:id="@+id/heap"
+  android:layout_width="fill_parent"
+  android:layout_height="10px"
+  android:layout_below="@id/welcome">
+  <ImageView
+  android:id="@+id/loading"
+  android:layout_width="fill_parent"
+  android:layout_height="wrap_content"/>
+  </LinearLayout>
+  
+  <TextView
+  android:id="@+id/info"
+  android:text=""
+  android:layout_width="fill_parent"
+  android:layout_height="wrap_content"
+  android:layout_marginRight="5px"
+  android:gravity="bottom|right"
+  android:textColor="@color/text_color_info"
+  android:layout_below="@id/heap"
+  />
+  
+   
+</RelativeLayout>

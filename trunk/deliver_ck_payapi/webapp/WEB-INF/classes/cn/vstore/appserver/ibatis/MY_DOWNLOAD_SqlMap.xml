@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  $Id: MY_DOWNLOAD_SqlMap.xml 6776 2010-12-21 02:06:33Z yhwang $
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+
+<sqlMap namespace="MyDownLoadApp">
+
+    <typeAlias alias="appsMyDownload" type="cn.vstore.appserver.model.MyDownloadApplication"/>
+    
+    <resultMap id="application" class="appsMyDownload">
+        <result column="APP_ID" jdbcType="VARCHAR" property="pkg" />
+        <result column="VERSION_ID" jdbcType="DECIMAL" property="version" />
+        <result column="APP_TITLE" jdbcType="VARCHAR" property="title" />
+        <result column="PHONE_ICON_PIC" jdbcType="VARCHAR" property="icon" />
+        <result column="CP_TITLE" jdbcType="VARCHAR" property="provider" />
+        <result column="TOTAL_RANK" jdbcType="DECIMAL" property="totalRank" />
+        <result column="TOTAL_RANK_TIMES" jdbcType="DECIMAL" property="rankTimes" />
+        <result column="PRICE" jdbcType="DECIMAL" property="price" nullValue="0"/>
+        <result column="PRICE_TYPE" jdbcType="VARCHAR" property="priceType" />
+        <result column="DOWN_TIME" jdbcType="TIMESTAMP" property="sortTime" />
+    </resultMap>
+    
+    <resultMap id="applicationSub" class="appsMyDownload">
+        <result column="APP_ID" jdbcType="VARCHAR" property="pkg" />
+        <result column="VERSION_ID" jdbcType="DECIMAL" property="version" />
+        <result column="APP_TITLE" jdbcType="VARCHAR" property="title" />
+        <result column="PHONE_ICON_PIC" jdbcType="VARCHAR" property="icon" />
+        <result column="CP_TITLE" jdbcType="VARCHAR" property="provider" />
+        <result column="TOTAL_RANK" jdbcType="DECIMAL" property="totalRank" />
+        <result column="TOTAL_RANK_TIMES" jdbcType="DECIMAL" property="rankTimes" />
+        <result column="PRICE" jdbcType="DECIMAL" property="price" nullValue="0"/>
+        <result column="PRICE_TYPE" jdbcType="VARCHAR" property="priceType" />
+        <result column="STATUS" jdbcType="DECIMAL" property="payStatus" />
+        <result column="RIGHT_END_DATE" jdbcType="DATE" property="endTime" />
+        <result column="PAY_TIME" jdbcType="TIMESTAMP" property="sortTime" />
+    </resultMap>
+
+<!-- Select APPLICATION/USER_SUBSCRIBE/APPLICATION_VERSIONS/CONTENT_PROVIDER : 取出MyDownLoad的Application列表，以月租(priceType=2)條件下 -->
+<select id="getMyBuiedApps" resultMap="applicationSub">
+select  appv.APP_ID,appv.VERSION_ID,appv.PHONE_ICON_PIC,appv.PRICE,appv.PRICE_TYPE
+,app.CP_TITLE,app.STATUS,app.RIGHT_END_DATE,app.PAY_TIME
+,sa.TOTAL_RANK,sa.TOTAL_RANK_TIMES
+,sa.APP_TITLE as APP_TITLE
+from(
+    select cp.CP_TITLE,app1.APP_ID, 
+             p.RIGHT_END_DATE,p.VERSION_ID PAY_VERSION_ID,p.PAY_TIME,p.STATUS,p.ID
+    from APPLICATION app1,
+    (
+        select * from 
+        IPAY_USER_PAYMENT_LOG where STORE_ID=#storeId# and USER_UID = #userUid:VARCHAR#
+        and
+        ( 
+            (STATUS=2 and (MY_PRICE_TYPE=1 or MY_PRICE_TYPE=3))
+            or
+            (MY_PRICE_TYPE=2 and (STATUS=5 or STATUS=2) and (RIGHT_END_DATE is null or DATE_FORMAT(RIGHT_END_DATE,'%Y-%m-%d 00:00:00')>=DATE_FORMAT(now(),'%Y-%m-%d 00:00:00')))
+        )
+    ) p
+    ,CONTENT_PROVIDER cp 
+    where p.APP_ID=app1.APP_ID and cp.CP_ID=app1.CP_ID 
+    ) app
+left join APPLICATION_VERSIONS appv on appv.APP_ID=app.APP_ID
+left join STORE_APPLICATION sa on appv.ID=sa.APP_VER_ID
+where sa.STORE_ID=#storeId#
+and sa.ON_USE=1
+order by app.ID
+</select>
+
+<!-- Select USER_INSTALL_APK/APPLICATION/APPLICATION_VERSIONS/CONTENT_PROVIDER : 取出MyDownLoad的Application列表，以 "非" 月租(priceType<>2)條件下 -->
+<select id="getMyDownloadApps" resultMap="application">
+select c.CP_TITLE,sa.TOTAL_RANK,sa.TOTAL_RANK_TIMES,
+	   av.APP_ID, av.VERSION_ID, 
+	   av.PHONE_ICON_PIC,av.PRICE, av.PRICE_TYPE, c.DOWN_TIME,
+       sa.APP_TITLE as APP_TITLE
+from (
+		select cp.CP_TITLE,app.APP_ID,uia.DOWNLOAD_ID,
+        uia.VERSION_ID DOWN_VERSION_ID,
+        uia.DOWN_TIME
+		from USER_INSTALL_APK uia,APPLICATION app,CONTENT_PROVIDER cp 
+		where upper(uia.USER_UID)=upper(#userUid:VARCHAR#) and uia.IMEI=#imei:VARCHAR# and 
+			  (uia.STATUS=0 or uia.STATUS=2) and uia.DOWNLOAD_TYPE='mobile' and 
+			  uia.IS_DELETE=0 and uia.APP_ID=app.APP_ID and cp.CP_ID=app.CP_ID and uia.STORE_ID=#storeId#
+) c,APPLICATION_VERSIONS av,STORE_APPLICATION sa 
+where c.APP_ID=av.APP_ID and av.ID=sa.APP_VER_ID and sa.ON_USE=1 and sa.STORE_ID=#storeId#
+<isNotNull prepend="AND" property="freeapps">
+      (av.PRICE_TYPE = '0' or av.PRICE_TYPE = '3' or av.PRICE_TYPE = '4')
+</isNotNull> 
+<isNotNull prepend="AND" property="paidapps">
+      (av.PRICE_TYPE = '1' or av.PRICE_TYPE = '3')
+</isNotNull>
+<!-- <isNotNull prepend="AND" property="allapps"> -->
+<!--       (av.PRICE_TYPE<![CDATA[<]]>>'2') -->
+<!-- </isNotNull> -->
+</select>
+<select id="getMyDownloadAppsByImeiMac" resultMap="application">
+select c.CP_TITLE,sa.TOTAL_RANK,sa.TOTAL_RANK_TIMES,
+	   av.APP_ID, av.VERSION_ID, 
+	   av.PHONE_ICON_PIC,av.PRICE, av.PRICE_TYPE, c.DOWN_TIME,
+       sa.APP_TITLE as APP_TITLE
+from (
+		select cp.CP_TITLE,uia.APP_ID,
+        max(uia.DOWN_TIME) DOWN_TIME
+		from USER_INSTALL_APK uia,APPLICATION app,CONTENT_PROVIDER cp 
+		where (uia.STATUS=0 or uia.STATUS=2) and uia.DOWNLOAD_TYPE='mobile' and 
+			  uia.IS_DELETE=0 and uia.APP_ID=app.APP_ID and cp.CP_ID=app.CP_ID and uia.STORE_ID=#storeId#
+	<isNotNull prepend="AND" property="imei">
+	  uia.IMEI = #imei#
+	</isNotNull>
+	<isNotNull prepend="AND" property="mac">
+	  uia.MAC = #mac#
+	</isNotNull>
+	group by uia.APP_ID,cp.CP_TITLE
+) c,(select * from STORE_APPLICATION where ON_USE=1 and STORE_ID=#storeId# ) sa,APPLICATION_VERSIONS av
+where c.APP_ID=av.APP_ID and av.ID=sa.APP_VER_ID
+</select>
+</sqlMap>

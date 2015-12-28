@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#393939" >
+    
+    <TextView
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:textAppearance="?android:attr/textAppearanceLarge"
+    	android:text="儲值到i-pay 虛擬帳戶" />
+    <TextView
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:textAppearance="?android:attr/textAppearanceLarge"
+    	android:text="(餘額 $4,999)" />
+    <TableLayout
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content">
+    	<TableRow>
+		    <TextView
+		    	android:layout_width="wrap_content"
+		    	android:layout_height="wrap_content"
+		    	android:textAppearance="?android:attr/textAppearanceLarge"
+		    	android:text="銀行名稱" />
+		    <Spinner android:id="@+id/bank"
+		    	android:layout_width="fill_parent"
+		    	android:layout_height="wrap_content"
+		    	android:layout_weight="1" />
+    	</TableRow>
+    	<TableRow>
+		    <TextView
+		    	android:layout_width="wrap_content"
+		    	android:layout_height="wrap_content"
+		    	android:textAppearance="?android:attr/textAppearanceLarge"
+		    	android:gravity="right"
+		    	android:text="帳號" />
+		    <EditText android:id="@+id/bank_account"
+		    	android:layout_width="fill_parent"
+		    	android:layout_height="wrap_content"
+		    	android:inputType="number"
+		    	android:layout_weight="1" />
+    	</TableRow>
+    	<TableRow>
+		    <TextView
+		    	android:layout_width="wrap_content"
+		    	android:layout_height="wrap_content"
+		    	android:textAppearance="?android:attr/textAppearanceLarge"
+		    	android:text="儲值金額" />
+		    <EditText android:id="@+id/store_amount"
+		    	android:layout_width="fill_parent"
+		    	android:layout_height="wrap_content"
+		    	android:inputType="number"
+		    	android:layout_weight="1" />
+    	</TableRow>
+    </TableLayout>
+    <LinearLayout
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content">
+	    <Button android:id="@+id/cancel"
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:textAppearance="?android:attr/textAppearanceLarge"
+			android:text="取消" />
+	    <Button android:id="@+id/submit"
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:textAppearance="?android:attr/textAppearanceLarge"
+			android:text="儲值" />
+    </LinearLayout>
+</LinearLayout>

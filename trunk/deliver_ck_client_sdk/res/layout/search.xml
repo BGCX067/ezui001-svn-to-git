@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+	<LinearLayout style="@style/TabBox">
+		<include layout="@layout/tab_item_feature_unselect" />
+		<View style="@style/TabItemSeparator" />
+		<include layout="@layout/tab_item_category_unselect" />
+		<include layout="@layout/tab_item_search_selected" />
+		<include layout="@layout/tab_item_download_unselect" />
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="43dp"
+		android:background="@drawable/search_bar_bg"
+		android:gravity="center_vertical"
+		android:paddingLeft="16dp"
+		android:paddingRight="16dp">
+		<EditText android:id="@+id/search_text"
+			android:layout_width="fill_parent"
+			android:layout_height="35dp"
+			android:layout_weight="1"
+			android:background="@drawable/editbox_background"
+			android:singleLine="true"
+			android:textSize="@dimen/text_size_medium" />
+		<ImageButton android:id="@+id/search_btn"
+			android:layout_width="40dp"
+			android:layout_height="35dp"
+			android:layout_marginLeft="8dp"
+			android:background="@drawable/search_btn" />
+		<ImageButton android:id="@+id/voice_search_btn"
+			android:layout_width="40dp"
+			android:layout_height="35dp"
+			android:layout_marginLeft="8dp"
+			android:visibility="gone"
+			android:background="@drawable/speak_btn" />
+	</LinearLayout>
+
+    <ListView android:id="@android:id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
+</LinearLayout>

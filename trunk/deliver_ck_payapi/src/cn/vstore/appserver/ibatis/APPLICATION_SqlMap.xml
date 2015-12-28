@@ -1,0 +1,865 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  $Id: APPLICATION_SqlMap.xml 6898 2010-12-28 03:56:52Z yhwang $
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+
+<sqlMap namespace="Application">
+
+    <typeAlias alias="apps" type="cn.vstore.appserver.model.Application"/>
+    <typeAlias alias="appDetail" type="cn.vstore.appserver.model.ApplictionDetail"/>
+    <typeAlias alias="userSearchLog" type="cn.vstore.appserver.model.UserSearchLog"/>
+    <typeAlias alias="amount" type="cn.vstore.appserver.model.Amount"/>
+    <typeAlias alias="apkInfo" type="cn.vstore.appserver.model.ApkInfo"/>
+    <typeAlias alias="paymentInformation" type="cn.vstore.appserver.model.PaymentInformation"/>
+    <typeAlias alias="sdkAppInfo" type="cn.vstore.appserver.model.SdkAppInfo"/>
+     <typeAlias alias="top3" type="cn.vstore.appserver.model.Top3OfCategory"/>
+     <typeAlias alias="upAppInfo" type="cn.vstore.appserver.model.UpAppInfo"/>
+     
+     <resultMap id="upAppInfo" class="upAppInfo">
+        <result column="APP_ID" jdbcType="VARCHAR" property="pkg" />
+        <result column="APP_VERSION" jdbcType="VARCHAR" property="versionName" />
+        <result column="VERSION_ID" jdbcType="DECIMAL" property="versionId" />
+         <result column="PHONE_ICON_PIC" jdbcType="VARCHAR" property="iconPath" />
+          <result column="APP_TITLE" jdbcType="VARCHAR" property="title" />
+     </resultMap>
+    
+    <resultMap id="appAmount" class="amount">
+        <result column="APP_ID" jdbcType="VARCHAR" property="pkg" />
+        <result column="VERSION_ID" jdbcType="DECIMAL" property="version" />
+        <result column="PRICE" jdbcType="DECIMAL" property="price" nullValue="0"/>
+    </resultMap>
+    
+    <!-- 增加分类前三名 -->
+    <resultMap id="categorytop3" class="top3">
+        <result column="APP_TITLE" jdbcType="VARCHAR" property="appTitle" />
+        <result column="PHONE_ICON_PIC" jdbcType="VARCHAR" property = "icon" />
+        <result column="TOTAL_DOWNLOAD_TIMES" jdbcType="DECIMAL" property="totalDownloadTimes" />
+    </resultMap>
+    
+    <resultMap id="application" class="apps">
+        <result column="APP_ID" jdbcType="VARCHAR" property="pkg" />
+        <result column="VERSION_ID" jdbcType="DECIMAL" property="version" />
+        <result column="APP_TITLE" jdbcType="VARCHAR" property="title" />
+        <result column="PHONE_ICON_PIC" jdbcType="VARCHAR" property="icon" />
+        <!-- result column="CP_TITLE" jdbcType="VARCHAR" property="provider" / -->
+        <result column="TOTAL_RANK" jdbcType=" " property="totalRank" />
+        <result column="TOTAL_RANK_TIMES" jdbcType="DECIMAL" property="rankTimes" />
+        <result column="PRICE" jdbcType="DECIMAL" property="price" nullValue="0"/>
+        <result column="PRICE_TYPE" jdbcType="VARCHAR" property="priceType" />
+        <result column="MONTHLY_CYCLE" jdbcType="DECIMAL" property="monthlyCycle" nullValue="0"/>
+        <result column="APP_VERSION" jdbcType="VARCHAR" property="versionName" />
+        <result column="FILE_SIZE" jdbcType="VARCHAR" property="fileSize" />
+        <result column="TOTAL_DOWNLOAD_TIMES" jdbcType="VARCHAR" property="totalDownloadTimes" />
+        <result column="FILE_PATH" jdbcType="VARCHAR" property="filePath" />
+    </resultMap>
+    
+    <resultMap id="application2" class="apps">
+        <result column="APP_ID" jdbcType="VARCHAR" property="pkg" />
+<!--         <result column="APP_TITLE" jdbcType="VARCHAR" property="title" /> -->
+<!--         <result column="PHONE_ICON_PIC" jdbcType="VARCHAR" property="icon" /> -->
+<!--         <result column="CP_TITLE" jdbcType="VARCHAR" property="provider" /> -->
+<!--         <result column="TOTAL_RANK" jdbcType=" " property="totalRank" /> -->
+<!--         <result column="TOTAL_RANK_TIMES" jdbcType="DECIMAL" property="rankTimes" /> -->
+<!--         <result column="PRICE" jdbcType="DECIMAL" property="price" nullValue="0"/> -->
+<!--         <result column="PRICE_TYPE" jdbcType="VARCHAR" property="priceType" /> -->
+    </resultMap>
+    
+    <resultMap id="applicationDetail" class="appDetail">
+        <result column="APP_ID" jdbcType="VARCHAR" property="pkg" />
+        <result column="VERSION_ID" jdbcType="DECIMAL" property="version" nullValue="0"/>
+        <result column="APP_TITLE" jdbcType="VARCHAR" property="title" />
+        <result column="PHONE_ICON_PIC" jdbcType="VARCHAR" property="icon" />
+        <result column="CP_TITLE" jdbcType="VARCHAR" property="provider" />
+        <result column="TOTAL_RANK" jdbcType="DECIMAL" property="totalRank" nullValue="0"/>
+        <result column="TOTAL_RANK_TIMES" jdbcType="DECIMAL" property="rankTimes" nullValue="0"/>
+        <result column="PRICE" jdbcType="DECIMAL" property="price" nullValue="0"/>
+        <result column="PRICE_TYPE" jdbcType="VARCHAR" property="priceType" />
+        <result column="TOTAL_DOWNLOAD_TIMES" jdbcType="DECIMAL" property="downloadTimes" nullValue="0"/>
+        <result column="TOTAL_RANK_TIMES" jdbcType="DECIMAL" property="ratingTimes" nullValue="0"/>
+        <result column="APP_DESC" jdbcType="CLOB" property="introduction" />
+        <result column="WEB_PIC_1" jdbcType="VARCHAR" property="webPic1" />
+        <result column="WEB_PIC_2" jdbcType="VARCHAR" property="webPic2" />
+        <result column="WEB_PIC_3" jdbcType="VARCHAR" property="webPic3" />
+        <result column="WEB_PIC_4" jdbcType="VARCHAR" property="webPic4" />
+        <result column="WEB_PIC_5" jdbcType="VARCHAR" property="webPic5" />
+        <result column="APP_VERSION" jdbcType="VARCHAR" property="versionName" />
+        <result column="FILE_SIZE" jdbcType="DECIMAL" property="apkSize" nullValue="0"/>
+        <result column="SUPPORT_LANG" jdbcType="VARCHAR" property="supportLang" />
+        <result column="MIN_SUPPORT_VERSION_ID" jdbcType="VARCHAR" property="supportSDK" />
+        <result column="SUPPORT_DPI" jdbcType="VARCHAR" property="supportScreen" />
+        <result column="CP_ID" jdbcType="VARCHAR" property="providerID" />
+        <result column="DEVELOPER_SITE" jdbcType="VARCHAR" property="providerSite" />
+        <result column="CONTACT_EMAIL" jdbcType="VARCHAR" property="providerEmail" />
+        <result column="LAST_UPDATE_DATE" jdbcType="VARCHAR" property="lastUpdate" />
+    </resultMap>
+    
+    <resultMap id="apkInformation" class="apkInfo">
+        <result column="FILE_PATH" jdbcType="VARCHAR" property="filepath" />
+        <result column="PRICE_TYPE" jdbcType="VARCHAR" property="priceType" />
+    </resultMap>
+    
+     <resultMap id="paymentInfo" class="paymentInformation">
+     	 <result column="ID" jdbcType="DECIMAL" property="id" />
+        <result column="APP_ID" jdbcType="VARCHAR" property="pkg" />
+        <result column="IMEI" jdbcType="VARCHAR" property="imei" />
+        <result column="USER_ID" jdbcType="VARCHAR" property="userUid" />
+        <result column="PAYMENT_TYPE" jdbcType="DECIMAL" property="paymentType" />
+        <result column="AMOUNT" jdbcType="DECIMAL" property="amount" nullValue="0"/>
+        <result column="IPAY_TOKEN" jdbcType="VARCHAR" property="token" />
+        <result column="MY_PRICE_TYPE" jdbcType="VARCHAR" property="myPriceType" />
+        <result column="STATUS" jdbcType="DECIMAL" property="status"/>
+        <result column="VERSION_ID" jdbcType="DECIMAL" property="versionId" />
+        <result column="ORDER_NO" jdbcType="VARCHAR" property="orderNo" />
+        <result column="PAY_TIME" jdbcType="TIMESTAMP" property="payTime" />
+        <result column="RIGHT_START_DATE" jdbcType="TIMESTAMP" property="rightStartDate" />
+        <result column="RIGHT_END_DATE" jdbcType="TIMESTAMP" property="rightEndDate" />
+        <result column="MONTHLY_CYCLE" jdbcType="DECIMAL" property="monthlyCycle" />
+        <result column="ORDER_REFUND_HISTORY_ID" jdbcType="DECIMAL" property="orderRefundHistoryId" />
+    </resultMap>
+    
+     <resultMap id="sdkAppInfo" class="sdkAppInfo">
+        <result column="APP_ID" jdbcType="VARCHAR" property="pkg" />
+        <result column="APP_TITLE" jdbcType="VARCHAR" property="title" />
+        <result column="PHONE_ICON_PIC" jdbcType="VARCHAR" property="icon" />
+        <result column="PRICE" jdbcType="DECIMAL" property="price" nullValue="0"/>
+        <result column="PRICE_TYPE" jdbcType="VARCHAR" property="priceType" />
+        <result column="VERSION_ID" jdbcType="DECIMAL" property="version" nullValue="0"/>
+<!--         <result column="FILE_SIZE" jdbcType="DECIMAL" property="apkSize" nullValue="0"/> -->
+        <result column="CP_TITLE" jdbcType="VARCHAR" property="provider" />
+        <result column="TOTAL_RANK" jdbcType="DECIMAL" property="totalRank" nullValue="0"/>
+        <result column="TOTAL_RANK_TIMES" jdbcType="DECIMAL" property="rankTimes" nullValue="0"/>
+        <result column="TOTAL_RANK_TIMES" jdbcType="DECIMAL" property="ratingTimes" nullValue="0"/>
+        <result column="ON_USE" jdbcType="DECIMAL" property="onUse" />
+    </resultMap>
+  
+
+ <!-- 查询所有app的版本信息sql -->
+ <select id="getUpAppInfo" resultMap="upAppInfo">
+select apv.APP_ID,
+	apv.VERSION_ID,
+	sa.APP_TITLE,
+	apv.PHONE_ICON_PIC,
+	apv.APP_VERSION
+from 
+store_application sa,
+application_versions apv
+where 
+sa.APP_VER_ID= apv.ID
+and sa.STORE_ID = #storeId#
+AND sa.ON_USE = 1
+and apv.APP_ID = #pkg#
+
+</select>
+
+ <!-- 增加查询分类前三名的sql -->
+ <select id="getTop3OfCategory" resultMap="categorytop3">
+ select sa.APP_TITLE,av.PHONE_ICON_PIC,sa.TOTAL_DOWNLOAD_TIMES,acm.CATEGORY_ID from 
+store_application sa,
+application_versions av,
+app_category_mapping acm
+where sa.APP_VER_ID = av.ID
+and sa.STORE_ID = #storeId#
+and acm.STORE_ID = #storeId#
+and av.APP_ID = acm.APP_ID
+and sa.ON_USE = 1
+and acm.CATEGORY_ID = #categoryId#
+order by sa.TOTAL_DOWNLOAD_TIMES desc
+LIMIT 3
+</select>
+
+ <!-- 增加查询专区前三名的sql -->
+ <select id="getTop3OfSapce" resultMap="categorytop3">
+ select sa.APP_TITLE,av.PHONE_ICON_PIC,sa.TOTAL_DOWNLOAD_TIMES from 
+store_application sa,
+application_versions av,
+v_space_app_mapping vsam
+where sa.STORE_ID = #storeID#
+and sa.APP_VER_ID = av.ID
+and sa.ON_USE = 1
+and sa.ID = vsam.appId
+and vsam.spaceId = #spaceID#
+order by sa.TOTAL_DOWNLOAD_TIMES desc
+LIMIT 3
+
+</select>
+    
+ <select id="getUserPaymentIsOrdered" resultMap="paymentInfo">
+select * from (
+SELECT 
+*
+FROM ipay_user_payment_log where
+store_id= #storeId#
+and APP_ID=#appId#
+and upper(USER_UID)=upper(#userUid#)
+and
+(
+	(
+		STATUS=1
+	) or
+	(
+		STATUS=2 and (MY_PRICE_TYPE=1 or MY_PRICE_TYPE=3)
+	) or 
+		((STATUS=5 or STATUS=2) and MY_PRICE_TYPE=2 and (RIGHT_END_DATE is null or DATE_FORMAT(RIGHT_END_DATE,'%Y-%m-%d 00:00:00')<![CDATA[>=]]>DATE_FORMAT(now(),'%Y-%m-%d 00:00:00'))
+	)
+)
+order by id desc
+) a limit 1
+</select>
+
+<!-- Select Application : 取得Application，以appPid為條件  -->
+<select id="getApplication" resultMap="application2" parameterClass="java.util.HashMap">
+<![CDATA[
+ select * from APPLICATION where APP_ID=#appId:VARCHAR#
+]]>
+<!--  ,appv.SERVICE_ID -->
+</select>
+
+<!-- Select APPLICATION : 取得Application，以app_id為條件 -->
+<select id="getApplicationByAppId" resultMap="application">
+ 	select 	appv.APP_ID ,
+			sa.APP_TITLE, 
+			appv.PHONE_ICON_PIC, 
+			appv.PRICE, 
+			appv.CURRENCY, 
+			appv.PRICE_TYPE, 
+			appv.VERSION_ID,
+			appv.APP_VERSION,  
+        	appv.FILE_PATH,
+			appv.FILE_SIZE,
+			appv.MONTHLY_CYCLE,
+			cp.CP_TITLE,
+			cp.CP_ID,
+			sa.TOTAL_RANK as TOTAL_RANK, 
+			sa.TOTAL_RANK_TIMES,
+			sa.TOTAL_DOWNLOAD_TIMES
+	 from 
+		STORE_APPLICATION sa,APPLICATION_VERSIONS appv,CONTENT_PROVIDER cp 
+		where sa.STORE_ID=#storeId# 
+		and appv.APP_ID=#appId#
+		and sa.APP_VER_ID=appv.ID
+		and cp.CP_ID=appv.CP_ID
+
+</select>
+<!-- and am.PRIORITY = 1  -->
+<!-- Select CATEGORY/APP_CATEGORY_MAPPING/APPLICATION_VERSIONS : 取出Application列表，以categoryId為條件 -->
+<select id="getApplications" resultMap="application">
+select 
+appv.APP_ID,appv.MIN_SUPPORT_VERSION_ID,appv.SUPPORT_DPI,appv.VERSION_ID,
+appv.APP_VERSION,appv.FILE_SIZE,appv.FILE_PATH,sa.TOTAL_DOWNLOAD_TIMES
+,appv.PHONE_ICON_PIC,appv.PRICE,appv.PRICE_TYPE
+ ,sa.APP_TITLE
+ ,sa.TOTAL_RANK, sa.TOTAL_RANK_TIMES,sa.ID , appv.CP_ID
+, appv.MONTHLY_CYCLE
+from APP_CATEGORY_MAPPING am,APPLICATION_VERSIONS appv,STORE_APPLICATION sa
+where am.CATEGORY_ID=#categoryId:INTEGER# and am.STORE_ID = #storeId# and am.APP_ID=appv.APP_ID and appv.ID=sa.APP_VER_ID and sa.ON_USE=1 and sa.STORE_ID = #storeId#
+<isNotNull prepend="AND" property="supportVersion">
+  <![CDATA[appv.MIN_SUPPORT_VERSION_ID <= #supportVersion#]]>
+</isNotNull>
+<isNotNull prepend="AND" property="supportDPI">
+  <![CDATA[appv.SUPPORT_DPI like CONCAT('%',#supportDPI#,'%')]]>
+</isNotNull>
+<!-- am.PRIORITY = 1  -->
+order by sa.CREATE_DATE desc
+limit #startNo:INTEGER# , #endNo:INTEGER#
+</select>
+
+<!-- 20121016 (海信）对外提供接口，排除盗版和ASC : 取出Application列表，以categoryId為條件 -->
+<select id="getLegalApplications" resultMap="application">
+select 
+appv.APP_ID,appv.MIN_SUPPORT_VERSION_ID,appv.SUPPORT_DPI,appv.VERSION_ID,
+appv.APP_VERSION,appv.FILE_SIZE,appv.FILE_PATH,sa.TOTAL_DOWNLOAD_TIMES
+,appv.PHONE_ICON_PIC,appv.PRICE,appv.PRICE_TYPE
+ ,sa.APP_TITLE
+ ,sa.TOTAL_RANK, sa.TOTAL_RANK_TIMES,sa.ID , appv.CP_ID
+, appv.MONTHLY_CYCLE
+from APP_CATEGORY_MAPPING am,APPLICATION_VERSIONS appv,STORE_APPLICATION sa
+where am.CATEGORY_ID=#categoryId:INTEGER#  and  am.STORE_ID = #storeId# and am.APP_ID=appv.APP_ID and appv.ID=sa.APP_VER_ID and  appv.IS_PIRATE = 1 and appv.CP_ID!='tech@vtion.com.cn' and sa.ON_USE=1 and sa.STORE_ID = #storeId#
+<isNotNull prepend="AND" property="supportVersion">
+  <![CDATA[appv.MIN_SUPPORT_VERSION_ID <= #supportVersion#]]>
+</isNotNull>
+<isNotNull prepend="AND" property="supportDPI">
+  <![CDATA[appv.SUPPORT_DPI like CONCAT('%',#supportDPI#,'%')]]>
+</isNotNull>
+order by sa.CREATE_DATE desc
+limit #startNo:INTEGER# , #endNo:INTEGER#
+</select>
+
+
+<!-- 某分类下最热应用 -->
+<select id="getHotApplications" resultMap="application">
+select 
+appv.APP_ID,appv.MIN_SUPPORT_VERSION_ID,appv.SUPPORT_DPI,appv.VERSION_ID
+,appv.PHONE_ICON_PIC,appv.PRICE,appv.PRICE_TYPE,
+appv.APP_VERSION,appv.FILE_SIZE,appv.FILE_PATH,sa.TOTAL_DOWNLOAD_TIMES
+ ,sa.APP_TITLE
+ ,sa.TOTAL_RANK, sa.TOTAL_RANK_TIMES,sa.ID , appv.CP_ID
+, appv.MONTHLY_CYCLE
+from APP_CATEGORY_MAPPING am,APPLICATION_VERSIONS appv,STORE_APPLICATION sa
+where am.CATEGORY_ID=#categoryId:INTEGER# and am.STORE_ID = #storeId# and am.APP_ID=appv.APP_ID and appv.ID=sa.APP_VER_ID and sa.ON_USE=1 and sa.STORE_ID = #storeId#
+<isNotNull prepend="AND" property="supportVersion">
+  <![CDATA[appv.MIN_SUPPORT_VERSION_ID <= #supportVersion#]]>
+</isNotNull>
+<isNotNull prepend="AND" property="supportDPI">
+  <![CDATA[appv.SUPPORT_DPI like CONCAT('%',#supportDPI#,'%')]]>
+</isNotNull>
+order by sa.TOTAL_DOWNLOAD_TIMES desc
+limit #startNo:INTEGER# , #endNo:INTEGER#
+</select>
+
+<!-- 应用分类下最新排行 -->
+<select id="getAPPRanking" resultMap="application">
+
+select appv.APP_ID,sa.TOTAL_DOWNLOAD_TIMES,appv.MIN_SUPPORT_VERSION_ID,appv.SUPPORT_DPI,appv.VERSION_ID
+,appv.PHONE_ICON_PIC,appv.PRICE,appv.PRICE_TYPE,
+appv.APP_VERSION,appv.FILE_SIZE,appv.FILE_PATH
+,sa.APP_TITLE
+,sa.TOTAL_RANK, sa.TOTAL_RANK_TIMES,sa.ID , appv.CP_ID
+,appv.MONTHLY_CYCLE
+from APP_CATEGORY_MAPPING am,
+APPLICATION_VERSIONS appv,
+STORE_APPLICATION sa
+where 
+sa.STORE_ID = #storeId#
+and sa.APP_VER_ID = appv.ID
+and sa.ON_USE = 1
+and am.STORE_ID = #storeId#
+and am.CATEGORY_ID in (
+select c1.CATEGORY_ID from category c1
+where c1.PARENT_CATEGORY_ID = #categoryId:INTEGER#
+and c1.ON_USE = 'Y'
+and c1.STORE_ID = #storeId#
+)
+and am.APP_ID = appv.APP_ID
+group by appv.APP_ID
+order by sa.TOTAL_DOWNLOAD_TIMES desc
+</select>
+
+<!-- 总下最新排行 -->
+<select id="getAllRanking" resultMap="application">
+select appv.APP_ID,sa.TOTAL_DOWNLOAD_TIMES,appv.MIN_SUPPORT_VERSION_ID,appv.SUPPORT_DPI,appv.VERSION_ID
+,appv.PHONE_ICON_PIC,appv.PRICE,appv.PRICE_TYPE,
+appv.APP_VERSION,appv.FILE_SIZE,appv.FILE_PATH,sa.TOTAL_DOWNLOAD_TIMES
+,sa.APP_TITLE
+,sa.TOTAL_RANK, sa.TOTAL_RANK_TIMES,sa.ID , appv.CP_ID
+,appv.MONTHLY_CYCLE
+from APPLICATION_VERSIONS appv,
+STORE_APPLICATION sa
+where 
+appv.ID=sa.APP_VER_ID 
+and sa.ON_USE=1 
+and sa.STORE_ID = #storeId#
+group by sa.APP_TITLE
+order by sa.TOTAL_DOWNLOAD_TIMES desc
+</select>
+
+<!-- 总下最新排行 -->
+<select id="getAllRankingForSearch" resultMap="application">
+select appv.APP_ID,sa.TOTAL_DOWNLOAD_TIMES,appv.MIN_SUPPORT_VERSION_ID,appv.SUPPORT_DPI,appv.VERSION_ID
+,appv.PHONE_ICON_PIC,appv.PRICE,appv.PRICE_TYPE,
+appv.APP_VERSION,appv.FILE_SIZE,appv.FILE_PATH,sa.TOTAL_DOWNLOAD_TIMES
+,sa.APP_TITLE
+,sa.TOTAL_RANK, sa.TOTAL_RANK_TIMES,sa.ID , appv.CP_ID
+,appv.MONTHLY_CYCLE
+from APPLICATION_VERSIONS appv,
+STORE_APPLICATION sa
+where 
+appv.ID=sa.APP_VER_ID 
+and sa.ON_USE=1 
+and sa.STORE_ID = #storeId#
+group by sa.APP_TITLE
+order by sa.TOTAL_DOWNLOAD_TIMES desc
+limit #startNo:INTEGER# , #endNo:INTEGER#
+</select>
+
+
+<!-- Select CATEGORY : 取出Application總比數，以categoryId為條件 -->
+<select id="getApplicationCount" resultClass="int">
+<![CDATA[
+select count(1)
+ from  APP_CATEGORY_MAPPING  catapp,
+ APPLICATION_VERSIONS appv,STORE_APPLICATION sa
+ where 
+ catapp.CATEGORY_ID=#categoryId:INTEGER# 
+ and catapp.STORE_ID = #storeId#
+ and appv.ID=sa.APP_VER_ID 
+ and sa.ON_USE=1 
+ and sa.STORE_ID = #storeId#
+ and appv.APP_ID=catapp.APP_ID
+]]>
+<!-- and catapp.PRIORITY = 1  -->
+<isNotNull prepend="AND" property="supportVersion">
+  <![CDATA[appv.MIN_SUPPORT_VERSION_ID <= #supportVersion#]]>
+</isNotNull>
+<isNotNull prepend="AND" property="supportDPI">
+  <![CDATA[appv.SUPPORT_DPI like CONCAT('%',#supportDPI#,'%')]]>
+</isNotNull>
+</select>
+
+<!-- Select CATEGORY : 取出正版Application總比數，排除盗版和ASC，以categoryId為條件 -->
+<select id="getLegalApplicationCount" resultClass="int">
+<![CDATA[
+select count(1)
+ from  APP_CATEGORY_MAPPING  catapp,
+ APPLICATION_VERSIONS appv,STORE_APPLICATION sa
+ where 
+ catapp.CATEGORY_ID=#categoryId:INTEGER# 
+ and catapp.STORE_ID = #storeId#
+ and appv.ID=sa.APP_VER_ID 
+ and appv.IS_PIRATE = 1 
+ and appv.CP_ID!='tech@vtion.com.cn'  
+ and sa.ON_USE=1 
+ and sa.STORE_ID = #storeId#
+ and appv.APP_ID=catapp.APP_ID 
+]]>
+<isNotNull prepend="AND" property="supportVersion">
+  <![CDATA[appv.MIN_SUPPORT_VERSION_ID <= #supportVersion#]]>
+</isNotNull>
+<isNotNull prepend="AND" property="supportDPI">
+  <![CDATA[appv.SUPPORT_DPI like CONCAT('%',#supportDPI#,'%')]]>
+</isNotNull>
+</select>
+
+<!-- Select SPACE : 取出Application總比數，以spaceId為條件 -->
+<select id="getSpaceApplicationCount" resultClass="int">
+<![CDATA[
+select count(1)
+ from  
+ v_space_app_mapping vsam,
+ STORE_APPLICATION sa
+ where 
+ vsam.spaceId = #spaceID#
+ and vsam.storeId = #storeID#
+ and vsam.appId=sa.ID 
+ and sa.ON_USE=1 
+ and sa.STORE_ID = #storeID#
+]]>
+</select>
+
+<!-- Select CATEGORY : 取出Application總比數，以categoryId為條件 -->
+<select id="getTopApplicationCount" resultClass="int">
+<![CDATA[
+select count(1) from (
+select sa.APP_VER_ID avid
+ from  APP_CATEGORY_MAPPING  catapp,
+ APPLICATION_VERSIONS appv,
+ category c,
+ STORE_APPLICATION sa
+ where 
+ c.STORE_ID = #storeId#
+ and c.ON_USE= 'Y'
+ and catapp.CATEGORY_ID=c.CATEGORY_ID
+ and c.PARENT_CATEGORY_ID =  #categoryId:INTEGER#
+ and catapp.STORE_ID = #storeId#
+ and appv.ID=sa.APP_VER_ID and sa.ON_USE=1 and sa.STORE_ID = #storeId#
+ and appv.APP_ID=catapp.APP_ID
+]]>
+<isNotNull prepend="AND" property="supportVersion">
+  <![CDATA[appv.MIN_SUPPORT_VERSION_ID <= #supportVersion#]]>
+</isNotNull>
+<isNotNull prepend="AND" property="supportDPI">
+  <![CDATA[appv.SUPPORT_DPI like CONCAT('%',#supportDPI#,'%')]]>
+</isNotNull>
+group by sa.APP_VER_ID ) a
+</select>
+
+<!-- Select CATEGORY : 取出Application總比數，无条件 -->
+<select id="getAllApplicationCount" resultClass="int">
+<![CDATA[
+select count(1)
+ from  APP_CATEGORY_MAPPING  catapp,
+ APPLICATION_VERSIONS appv,STORE_APPLICATION sa
+ where 
+ catapp.STORE_ID = #storeId#
+ and appv.ID=sa.APP_VER_ID and sa.ON_USE=1 and sa.STORE_ID = #storeId#
+ and appv.APP_ID=catapp.APP_ID
+]]>
+<isNotNull prepend="AND" property="supportVersion">
+  <![CDATA[appv.MIN_SUPPORT_VERSION_ID <= #supportVersion#]]>
+</isNotNull>
+<isNotNull prepend="AND" property="supportDPI">
+  <![CDATA[appv.SUPPORT_DPI like CONCAT('%',#supportDPI#,'%')]]>
+</isNotNull>
+</select>
+
+<!-- Select APPLICATION_VERSIONS : 檢查是否有Apk，以app_id和VERSION_ID為條件，不判斷最新版本和是否上下架 -->
+<select id="hasApplication" resultClass="int">
+<![CDATA[
+ select count(id) from APPLICATION_VERSIONS
+ where app_id = #pkgId#
+]]>
+</select>
+
+<!-- Select APPLICATION_VERSIONS : 取得Apk金額，以app_id為條件 -->
+<select id="getAppAmount" resultMap="appAmount">
+<![CDATA[
+    select apv.APP_ID,apv.PRICE,apv.VERSION_ID
+    from APPLICATION_VERSIONS apv,STORE_APPLICATION sa
+    where apv.app_id=#pkgId# and sa.STORE_ID=#storeId# and apv.ID=sa.APP_VER_ID
+]]>
+</select>
+<!-- Select APPLICATION_VERSIONS : 取得AppVersion，以app_id為條件 -->
+<select id="getAppVersion" resultClass="int">
+<![CDATA[
+   select apv.VERSION_ID
+   from APPLICATION_VERSIONS apv,STORE_APPLICATION sa where apv.ID=sa.APP_VER_ID and apv.app_id = #appId# and sa.STORE_ID=#storeId#
+]]>
+</select>
+
+<!-- Select APPLICATION_VERSIONS : 取得SERVICE_ID，以APP_ID/VERSION_ID為條件 -->
+<select id="getServiceId" resultClass="java.lang.String">
+ <![CDATA[ select SERVICE_ID from APPLICATION_VERSIONS where APP_ID = #pkgId# and VERSION_ID = #versionId#]]>
+</select>
+
+<!-- Select APPLICATION/CONTENT_PROVIDER/APPLICATION_VERSIONS : 取出ApplicationDetail，以appId為條件 -->
+<select id="getApplicationDetail" resultMap="applicationDetail">
+<![CDATA[
+	select app.APP_ID, app.CP_TITLE,app.CP_ID,
+    sa.APP_TITLE,
+    sa.APP_DESC,
+	  sa.TOTAL_RANK, sa.TOTAL_RANK_TIMES,sa.TOTAL_DOWNLOAD_TIMES,appv.LAST_UPDATE_DATE,
+	  appv.PHONE_ICON_PIC, appv.VERSION_ID,appv.PRICE, appv.PRICE_TYPE,appv.CONTACT_EMAIL, appv.DEVELOPER_SITE,
+	  appv.APP_VERSION, appv.FILE_SIZE,appv.SUPPORT_LANG, appv.MIN_SUPPORT_VERSION_ID, appv.SUPPORT_DPI,
+	  appv2.WEB_PIC_1, appv2.WEB_PIC_2, appv2.WEB_PIC_3, appv2.WEB_PIC_4, appv2.WEB_PIC_5	  
+	 from (
+	  select cp.CP_TITLE,app1.CP_ID,app1.APP_ID
+	  from APPLICATION app1,CONTENT_PROVIDER cp where app1.APP_ID=#appId# and cp.CP_ID=app1.CP_ID
+	 ) app
+	 left join APPLICATION_VERSIONS appv on appv.APP_ID=app.APP_ID
+	 left join APPLICATION_VERSIONS2 appv2 on appv.ID=appv2.APP_VER_ID
+     left join STORE_APPLICATION sa on sa.APP_VER_ID=appv.ID
+	 where sa.STORE_ID=#storeId#
+]]>
+</select>
+
+<!-- Select APP_CATEGORY_MAPPING/APPLICATION_VERSIONS : 取出Application列表，以搜尋相同APP_TITLE/APP_DESC/APP_KEYWORD/CP_TITLE的KEYWORD為條件 -->
+<!-- <select id="getApplicationsByKeyWord" resultMap="application"> -->
+<!-- select apps.APP_ID, apps.VERSION_ID, apps.APP_TITLE,apps.PHONE_ICON_PIC, -->
+<!--       apps.TOTAL_RANK ,apps.TOTAL_RANK_TIMES,apps.PRICE, apps.PRICE_TYPE -->
+<!--       ,catapp.MONTHLY_CYCLE, catapp.CP_TITLE -->
+<!--  from  -->
+<!--  ( -->
+<!--  select appv.APP_ID,appv.MIN_SUPPORT_VERSION_ID,appv.SUPPORT_DPI,appv.PRICE_TYPE,appv.VERSION_ID -->
+<!--  ,appv.PHONE_ICON_PIC,sa.TOTAL_RANK ,sa.TOTAL_RANK_TIMES,appv.PRICE,sa.ID -->
+<!--  ,sa.APP_TITLE as APP_TITLE -->
+<!--  ,sa.APP_DESC as APP_DESC -->
+<!--  ,sa.APP_KEYWORD as APP_KEYWORD -->
+<!--  from -->
+<!--  APPLICATION_VERSIONS appv,STORE_APPLICATION sa -->
+<!--  where appv.ID=sa.APP_VER_ID and sa.ON_USE=1 and sa.STORE_ID = #storeId# -->
+<!--   and  -->
+<!--  ( -->
+<!--   (sa.APP_TITLE is null and appv.APP_TITLE like CONCAT('%',#keyword#,'%') or sa.APP_TITLE like CONCAT('%',#keyword#,'%')) -->
+<!--   or (sa.APP_KEYWORD is null and appv.APP_KEYWORD like CONCAT('%',#keyword#,'%') or sa.APP_KEYWORD like CONCAT('%',#keyword#,'%')) -->
+<!--   ) -->
+<!--   <isNotNull prepend="AND" property="supportVersion"> -->
+<!-- 	<![CDATA[appv.MIN_SUPPORT_VERSION_ID <= #supportVersion#]]> -->
+<!--   </isNotNull> -->
+<!--   <isNotNull prepend="AND" property="supportDPI"> -->
+<!-- 	<![CDATA[appv.SUPPORT_DPI like CONCAT('%',#supportDPI#,'%')]]> -->
+<!--   </isNotNull> -->
+<!--   order by sa.Id desc -->
+<!-- limit #startNo:INTEGER# , #endNo:INTEGER# -->
+<!--  ) apps, -->
+<!-- ( -->
+<!--     select app.APP_ID,app.MONTHLY_CYCLE,cp.CP_TITLE -->
+<!--     from APPLICATION app,CONTENT_PROVIDER cp -->
+<!--     where cp.CP_ID=app.CP_ID  -->
+<!--  ) catapp -->
+<!-- where apps.APP_ID=catapp.APP_ID -->
+<!-- order by apps.ID desc -->
+<!-- </select> -->
+<select id="getApplicationsByKeyWord" resultMap="application">
+select 
+appv.APP_VERSION,
+appv.FILE_PATH,
+appv.FILE_SIZE,
+sa.TOTAL_DOWNLOAD_TIMES,
+appv.APP_ID,
+appv.PRICE_TYPE,
+appv.VERSION_ID,
+appv.PHONE_ICON_PIC,
+sa.TOTAL_RANK ,
+sa.TOTAL_RANK_TIMES,
+appv.PRICE,
+sa.APP_TITLE,
+appv.MONTHLY_CYCLE, 
+cp.CP_TITLE
+ from
+ APPLICATION_VERSIONS appv,STORE_APPLICATION sa,CONTENT_PROVIDER cp
+ where appv.ID=sa.APP_VER_ID and sa.ON_USE=1 and sa.STORE_ID = #storeId#
+  and 
+ (
+  sa.APP_TITLE like CONCAT('%',#keyword#,'%')
+  )
+  <isNotNull prepend="AND" property="supportVersion">
+    <![CDATA[appv.MIN_SUPPORT_VERSION_ID <= #supportVersion#]]>
+  </isNotNull>
+  <isNotNull prepend="AND" property="supportDPI">
+    <![CDATA[appv.SUPPORT_DPI like CONCAT('%',#supportDPI#,'%')]]>
+  </isNotNull>
+  and cp.CP_ID=appv.CP_ID
+  order by sa.TOTAL_DOWNLOAD_TIMES desc
+limit #startNo:INTEGER# , #endNo:INTEGER#
+</select>
+
+<!-- Select APP_CATEGORY_MAPPING/APPLICATION_VERSIONS : 取出Application總比數，以搜尋相同APP_TITLE/APP_DESC/APP_KEYWORD/CP_TITLE的KEYWORD為條件 -->
+<!-- <select id="getApplicationsByKeyWordCount" resultClass="int"> -->
+<!-- <![CDATA[ -->
+<!--  select count(1) -->
+<!--  from -->
+<!--  APPLICATION_VERSIONS appv,STORE_APPLICATION sa -->
+<!--  where appv.ID=sa.APP_VER_ID and sa.ON_USE=1 and sa.STORE_ID = #storeId# -->
+<!--   and  -->
+<!--  ( -->
+<!--   (sa.APP_TITLE is null and appv.APP_TITLE like CONCAT('%',#keyword#,'%') or sa.APP_TITLE like CONCAT('%',#keyword#,'%')) -->
+<!--   or (sa.APP_KEYWORD is null and appv.APP_KEYWORD like CONCAT('%',#keyword#,'%') or sa.APP_KEYWORD like CONCAT('%',#keyword#,'%')) -->
+<!--   ) -->
+<!-- ]]> -->
+<!-- <isNotNull prepend="AND" property="supportVersion"> -->
+<!--   <![CDATA[appv.MIN_SUPPORT_VERSION_ID <= #supportVersion#]]> -->
+<!-- </isNotNull> -->
+<!-- <isNotNull prepend="AND" property="supportDPI"> -->
+<!--   <![CDATA[appv.SUPPORT_DPI like CONCAT('%',#supportDPI#,'%')]]> -->
+<!-- </isNotNull> -->
+<!-- </select> -->
+<select id="getApplicationsByKeyWordCount" resultClass="int">
+<![CDATA[
+ select count(1)
+ from
+ APPLICATION_VERSIONS appv,STORE_APPLICATION sa,CONTENT_PROVIDER cp
+ where appv.ID=sa.APP_VER_ID and sa.ON_USE=1 and sa.STORE_ID = #storeId#
+  and 
+ (
+  sa.APP_TITLE like CONCAT('%',#keyword#,'%')
+  )
+  and cp.CP_ID=appv.CP_ID
+]]>
+<isNotNull prepend="AND" property="supportVersion">
+  <![CDATA[appv.MIN_SUPPORT_VERSION_ID <= #supportVersion#]]>
+</isNotNull>
+<isNotNull prepend="AND" property="supportDPI">
+  <![CDATA[appv.SUPPORT_DPI like CONCAT('%',#supportDPI#,'%')]]>
+</isNotNull>
+</select>
+
+<!-- Select APP_CATEGORY_MAPPING/APPLICATION_VERSIONS : 取出Application列表，以搜尋相同CpId為條件 -->
+<select id="getApplicationsByCpId" resultMap="application">
+<![CDATA[
+select 
+apps.APP_VERSION,apps.FILE_PATH,apps.FILE_SIZE,apps.TOTAL_DOWNLOAD_TIMES,
+apps.APP_ID, apps.VERSION_ID,apps.APP_TITLE
+    ,apps.PHONE_ICON_PIC,
+    cp.CP_TITLE,
+    apps.TOTAL_RANK, apps.TOTAL_RANK_TIMES,
+    apps.PRICE, apps.PRICE_TYPE,apps.MONTHLY_CYCLE
+ from 
+ content_provider as cp
+,
+ (
+ select
+appv.APP_VERSION,appv.FILE_PATH,appv.FILE_SIZE,sa.TOTAL_DOWNLOAD_TIMES,
+ appv.APP_ID,appv.MIN_SUPPORT_VERSION_ID,appv.SUPPORT_DPI,appv.VERSION_ID,appv.PHONE_ICON_PIC,appv.PRICE,appv.PRICE_TYPE
+ ,sa.APP_TITLE
+ ,sa.TOTAL_RANK, sa.TOTAL_RANK_TIMES,sa.ID, appv.MONTHLY_CYCLE, appv.CP_ID
+ from
+ APPLICATION_VERSIONS appv,
+STORE_APPLICATION sa
+ where appv.ID=sa.APP_VER_ID and sa.ON_USE=1 and sa.STORE_ID = #storeId#
+ ) apps
+ where cp.CP_ID = #cpId# and apps.CP_ID = cp.CP_ID
+]]>
+<isNotNull prepend="AND" property="supportVersion">
+  <![CDATA[apps.MIN_SUPPORT_VERSION_ID <= #supportVersion#]]>
+</isNotNull>
+<isNotNull prepend="AND" property="supportDPI">
+  <![CDATA[apps.SUPPORT_DPI like CONCAT('%',#supportDPI#,'%')]]>
+</isNotNull>
+<isNotNull prepend="AND" property="freeapps">
+  <![CDATA[(apps.PRICE_TYPE = '0' or apps.PRICE_TYPE = '3' or apps.PRICE_TYPE = '4')]]>
+</isNotNull>
+<isNotNull prepend="AND" property="paidapps">
+  <![CDATA[(apps.PRICE_TYPE = '1' or apps.PRICE_TYPE = '2')]]>
+</isNotNull>
+<isNotNull property="allapps">
+</isNotNull>
+ order by apps.ID desc limit #startNo:INTEGER# , #endNo:INTEGER#
+</select>
+
+<!-- Select APP_CATEGORY_MAPPING/APPLICATION_VERSIONS : 取出Application總比數，以搜尋相同CpId為條件 -->
+<select id="getApplicationsByCpIdCount" resultClass="int">
+<![CDATA[
+select count(apps.APP_ID)
+ from 
+content_provider as cp
+,
+ (
+ select
+ appv.APP_ID,appv.MIN_SUPPORT_VERSION_ID,appv.SUPPORT_DPI,appv.VERSION_ID,appv.PHONE_ICON_PIC,appv.PRICE,appv.PRICE_TYPE
+ ,sa.APP_TITLE
+ ,sa.TOTAL_RANK, sa.TOTAL_RANK_TIMES,sa.ID, appv.MONTHLY_CYCLE, appv.CP_ID
+ from
+ APPLICATION_VERSIONS appv,STORE_APPLICATION sa
+ where appv.ID=sa.APP_VER_ID and sa.ON_USE=1 and sa.STORE_ID = #storeId#
+ ) apps
+ where cp.CP_ID = #cpId# and apps.CP_ID = cp.CP_ID
+]]>
+<isNotNull prepend="AND" property="supportVersion">
+  <![CDATA[apps.MIN_SUPPORT_VERSION_ID <= #supportVersion#]]>
+</isNotNull>
+<isNotNull prepend="AND" property="supportDPI">
+  <![CDATA[apps.SUPPORT_DPI like CONCAT('%',#supportDPI#,'%')]]>
+</isNotNull>
+<isNotNull prepend="AND" property="freeapps">
+   <![CDATA[(apps.PRICE_TYPE = '0' or apps.PRICE_TYPE = '3' or apps.PRICE_TYPE = '4')]]>
+</isNotNull>
+<isNotNull prepend="AND" property="paidapps">
+   <![CDATA[(apps.PRICE_TYPE = '1' or apps.PRICE_TYPE = '2')]]>
+</isNotNull>
+<isNotNull property="allapps"/>
+</select>
+
+<!-- Select APPLICATION_VERSIONS : 取得AppVersion，以app_id為條件 -->
+<select id="getApkInfo" resultMap="apkInformation">
+<![CDATA[
+ select av.FILE_PATH,av.PRICE_TYPE from APPLICATION a,APPLICATION_VERSIONS av,STORE_APPLICATION sa
+ where a.APP_ID=av.APP_ID and a.APP_ID=#appId# and av.ID=sa.APP_VER_ID
+ and sa.ON_USE=1 and sa.STORE_ID=#storeId#
+]]>
+</select>
+
+<!-- Select APPLICATION_VERSIONS : 取得AppVersion，以app_id為條件 -->
+<select id="getApkInfo2" resultMap="apkInformation">
+<![CDATA[
+select atemp.FILE_PATH,atemp.PRICE_TYPE 
+from APPLICATION_TEMP atemp
+ where 
+ atemp.APP_ID=#appId# and atemp.VERSION_ID=#versionId#
+]]>
+</select>
+
+<!-- WebDownloadApp 後台帶審核時，下載apk -->
+<select id="getApkInfo2ForWebDownload" resultMap="apkInformation">
+<![CDATA[
+select appt.FILE_PATH,appt.PRICE_TYPE 
+from APPLICATION_TEMP appt
+ where 
+ appt.APP_ID=#appId# and appt.VERSION_ID=#versionId#
+]]>
+</select>
+
+<!-- Update APPLICATION : 累加APPLICATION內評分數(TOTAL_RANK)，以及評分次數(TOTAL_RANK_TIMES) -->
+<update id="addAppTotalRank" parameterClass="java.util.Map">
+<![CDATA[
+update STORE_APPLICATION  set TOTAL_RANK=(TOTAL_RANK+#userRank:INTEGER#),TOTAL_RANK_TIMES=TOTAL_RANK_TIMES+1 
+where STORE_ID=#storeId#
+and APP_VER_ID in (select ID from APPLICATION_VERSIONS where APP_ID=#appId#)
+]]>
+</update>
+
+<!-- Update APPLICATION_VERSIONS : 累加APPLICATION_VERSIONS內評分數(VERSION_RANK)，以及評分次數(RANK_TIMES) -->
+<update id="addAppVersionTotalRank" parameterClass="java.util.Map">
+<![CDATA[
+ update APPLICATION_VERSIONS
+ set VERSION_RANK=(VERSION_RANK+#userRank:INTEGER#),RANK_TIMES=RANK_TIMES+1
+ where APP_ID=#appId# and VERSION_ID=#versionId:INTEGER#
+]]>
+</update>
+
+<!-- Update APPLICATION_VERSIONS : 累加APPLICATION內總下載次數TOTAL_DOWNLOAD_TIMES -->
+<update id="updateAppTotalDownload">
+<![CDATA[
+update STORE_APPLICATION  set TOTAL_DOWNLOAD_TIMES=TOTAL_DOWNLOAD_TIMES+1 
+where STORE_ID=#storeId#
+and APP_VER_ID in (select ID from APPLICATION_VERSIONS where APP_ID=#appId#)
+]]>
+</update>
+
+<!-- Update APPLICATION_VERSIONS : 累加APPLICATION_VERSIONS內總下載次數TOTAL_DOWNLOAD_TIMES -->
+<update id="updateAppVersionTotalDownload">
+<![CDATA[
+ update APPLICATION_VERSIONS set DOWNLOAD_TIMES=DOWNLOAD_TIMES+1 where APP_ID=#appId# and VERSION_ID=#versionId#
+]]>
+</update>
+
+<!-- Insert USER_SEARCH_LOG : 儲存USER_SEARCH_LOG資訊 -->
+<insert id="insertUserSearchLog" parameterClass="userSearchLog">  
+<![CDATA[
+ insert into USER_SEARCH_LOG (USER_ID,USER_UID,IMEI,ICCID,KEYWORD,SEARCH_TIME,SRC_TYPE)
+ values (#userId#,#userUid#,#imei#,#iccid#,#keyword#,NOW(),1)
+]]>
+</insert>
+    
+<select id="getNewSdkAppInfo" resultMap="sdkAppInfo">
+<![CDATA[
+	select 	appv.APP_ID,
+			sa.APP_TITLE, 
+			appv.PHONE_ICON_PIC, 
+			appv.PRICE, 
+			appv.CURRENCY, 
+			appv.PRICE_TYPE, 
+			appv.VERSION_ID, 
+			appv.FILE_SIZE,
+			cp.CP_TITLE, 
+			sa.TOTAL_RANK, 
+			sa.TOTAL_RANK_TIMES,
+			sa.ON_USE
+	 from 
+        STORE_APPLICATION sa,APPLICATION_VERSIONS appv,CONTENT_PROVIDER cp 
+        where sa.STORE_ID=#storeId# 
+        and appv.APP_ID=#pkg# 
+        and sa.APP_VER_ID=appv.ID
+        and cp.CP_ID=appv.CP_ID
+]]>
+</select>
+
+<select id="getNowSdkAppInfo" resultMap="sdkAppInfo">
+<![CDATA[
+	select 	appv.APP_ID as APP_ID, 
+	appv.APP_TITLE as APP_TITLE, 
+	appv.PHONE_ICON_PIC as PHONE_ICON_PIC, 
+	appv.PRICE as PRICE, 
+	appv.CURRENCY as CURRENCY, 
+	appv.PRICE_TYPE as PRICE_TYPE, 
+	appv.VERSION_ID as VERSION_ID, 
+	appv.FILE_SIZE,
+	cp.CP_TITLE, 
+	app.TOTAL_RANK as TOTAL_RANK, 
+	app.TOTAL_RANK_TIMES 
+ from APPLICATION app, CONTENT_PROVIDER cp ,APPLICATION_VERSIONS appv
+ where 	app.APP_ID = #pkg# 
+	and cp.CP_ID=app.CP_ID 
+	and APPV.APP_ID=app.APP_ID 
+	and APPV.VERSION_ID = #version#
+	and app.STORE_ID = #storeId#
+	and appv.STORE_ID = #storeId#
+
+]]>
+</select>
+
+<insert id="insertUserGetAppversionLog" parameterClass="cn.vstore.appserver.model.SdkAppInfo">  
+<![CDATA[
+insert into USER_GET_APPVERSION_LOG 
+(IMEI,ICCID,APP_ID,LOG_TIME,USER_ID,VERSION_ID,OLD_VERSION_ID,IS_FIRST_TIME,USER_UID,MODEL_NAME) 
+values (#imei#,#iccid#,#pkg#,NOW(),#userId#,#newVersion#,#version#,#isFirstTime#,#userUid#,#devmodel#)
+]]>
+
+<selectKey keyProperty="id">
+select last_insert_id() as id from USER_GET_APPVERSION_LOG limit 1
+</selectKey>
+</insert>
+
+<update id="updateUserInstallApkOfGetVersionId" parameterClass="cn.vstore.appserver.model.SdkAppInfo">
+<![CDATA[
+update USER_INSTALL_APK 
+set GET_VERSION_ID=#id#
+where IMEI=#imei#
+	and APP_ID=#pkg#
+	and VERSION_ID=#version#
+	and GET_VERSION_ID is null 
+	and IS_DELETE=0
+	and STORE_ID=#storeId#
+]]>
+</update>
+
+</sqlMap>

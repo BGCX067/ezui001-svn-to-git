@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+	<LinearLayout style="@style/TabBox">
+		<include layout="@layout/tab_item_feature_unselect" />
+		<View style="@style/TabItemSeparator" />
+		<include layout="@layout/tab_item_category_unselect" />
+		<View style="@style/TabItemSeparator" />
+		<include layout="@layout/tab_item_search_unselect" />
+		<View style="@style/TabItemSeparator" />
+		<include layout="@layout/tab_item_download_unselect" />
+	</LinearLayout>
+
+	<RelativeLayout android:id="@+id/progressing"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent">
+		<include layout="@layout/progressing" />
+		<ImageView style="@style/TabBoxShadow" />
+	</RelativeLayout>
+
+	<RelativeLayout
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:layout_weight="1">
+		<ScrollView
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent">
+			<LinearLayout
+				android:layout_width="fill_parent"
+				android:layout_height="fill_parent"
+				android:orientation="vertical">
+				<!-- 應用程式 Icon, title, provider, donwload times, rating times, rating -->
+				<RelativeLayout
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:paddingLeft="@dimen/app_detail_padding"
+					android:paddingRight="@dimen/app_detail_padding">
+					<ImageView style="@style/AppIcon"
+						android:layout_marginTop="10dp"
+						android:src="@drawable/def_app_icon" />
+					<TextView style="@style/AppTitle"
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="5dp"
+						android:layout_toRightOf="@id/app_icon"
+						android:layout_marginLeft="5dp" />
+					<TextView style="@style/AppProvider"
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						android:layout_below="@id/app_title"
+						android:layout_alignLeft="@id/app_title" />
+					<TextView android:id="@+id/download_times"
+						style="@style/AppInfo"
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						android:layout_below="@id/app_provider"
+						android:layout_alignLeft="@id/app_title" />
+					<TextView android:id="@+id/rating_times"
+						style="@style/AppInfo"
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						android:layout_below="@id/download_times"
+						android:layout_alignLeft="@id/app_title" />
+					<TextView style="@style/AppStatus"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_below="@id/app_provider"
+				    	android:layout_alignParentRight="true" />
+					<RatingBar style="@style/AppRating"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_alignTop="@id/rating_times"
+				    	android:layout_alignParentRight="true"
+						android:layout_marginTop="3dp" />
+				</RelativeLayout>
+				<!-- 下載進度 -->
+				<ViewStub android:id="@+id/stub_app_detail_download_progress"
+					android:layout="@layout/app_detail_download_progress"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content" />
+				<!-- 介紹 -->
+				<TextView style="@style/ActDetailTitleText"
+					android:text="@string/introduction" />
+				<TextView android:id="@+id/introduction"
+					style="@style/AppDetailInfoText"
+					android:lineSpacingExtra="@dimen/app_detail_text_line_spacing" />
+				<!-- 圖片 -->
+				<TextView style="@style/ActDetailTitleText"
+					android:text="@string/graph" />
+				<RelativeLayout
+					android:layout_width="fill_parent"
+					android:layout_height="340dp"
+					android:background="#cacaca">
+					<ImageButton android:id="@+id/screen_shot"
+						android:layout_width="217dp"
+						android:layout_height="320dp"
+						android:layout_centerHorizontal="true"
+						android:scaleType="fitCenter"
+						android:background="@drawable/screen_shot_bg" />
+					<Button android:id="@+id/previous"
+						android:layout_width="26dp"
+						android:layout_height="77dp"
+						android:layout_centerVertical="true"
+						android:layout_alignParentLeft="true"
+						android:background="@drawable/btn_previous" />
+					<Button android:id="@+id/next"
+						android:layout_width="26dp"
+						android:layout_height="77dp"
+						android:layout_centerVertical="true"
+						android:layout_alignParentRight="true"
+						android:background="@drawable/btn_next" />
+					<LinearLayout android:id="@+id/screen_shot_dots"
+						android:layout_width="fill_parent"
+						android:layout_height="20dp"
+						android:layout_alignParentBottom="true"
+						android:gravity="center">
+					</LinearLayout>
+				</RelativeLayout>
+				<!-- 評論 -->
+				<ViewStub android:id="@+id/stub_app_detail_comments"
+					android:inflatedId="@+id/app_detail_comments"
+					android:layout="@layout/app_detail_comments"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content" />
+				<!-- 我的評論 -->
+				<ViewStub android:id="@+id/stub_app_detail_my_rating"
+					android:layout="@layout/app_detail_my_rating"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content" />
+				<!-- 關於 -->
+				<TextView style="@style/ActDetailTitleText"
+					android:text="@string/about" />
+				<TextView android:id="@+id/about"
+					style="@style/AppDetailInfoText"
+					android:lineSpacingExtra="@dimen/app_detail_text_line_spacing" />
+				<!-- 開發者其他程式  -->
+				<ImageView style="@style/DividerLine" />
+				<LinearLayout android:id="@+id/link_provider_apps"
+					style="@style/AppDetailLinkBox">
+					<TextView style="@style/AppDetailLinkText"
+						android:text="@string/provider_apps" />
+				</LinearLayout>
+				<!-- 瀏覽開發者的網站  -->
+				<ImageView style="@style/DividerLine" />
+				<LinearLayout android:id="@+id/link_provider_web_site"
+					style="@style/AppDetailLinkBox">
+					<TextView style="@style/AppDetailLinkText"
+						android:text="@string/provider_web_site" />
+				</LinearLayout>
+				<!-- 聯絡開發者  -->
+				<ImageView style="@style/DividerLine" />
+				<LinearLayout android:id="@+id/link_provider_contact"
+					style="@style/AppDetailLinkBox">
+					<TextView style="@style/AppDetailLinkText"
+						android:text="@string/provider_contact" />
+				</LinearLayout>
+				<!-- 檢舉此程式  -->
+				<ImageView style="@style/DividerLine" />
+				<LinearLayout android:id="@+id/link_report_app"
+					style="@style/AppDetailLinkBox"
+					android:visibility="gone">
+					<TextView style="@style/AppDetailLinkText"
+						android:text="@string/report_app" />
+				</LinearLayout>
+			</LinearLayout>
+		</ScrollView>
+		<ImageView style="@style/TabBoxShadow" />
+		<ImageView style="@style/ButtonBoxShadow" />
+	</RelativeLayout>
+	
+	<LinearLayout style="@style/ButtonBox">
+		<Button android:id="@+id/button1" style="@style/Button" />
+		<Button android:id="@+id/button2" style="@style/Button" />
+	</LinearLayout>
+
+</LinearLayout>

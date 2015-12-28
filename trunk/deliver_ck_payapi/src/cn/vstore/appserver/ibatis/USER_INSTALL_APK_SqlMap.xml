@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  $Id: USER_INSTALL_APK_SqlMap.xml 6909 2010-12-28 10:40:34Z yellow $
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+
+<sqlMap namespace="UserInstallApp">
+
+<typeAlias alias="userInstallApp" type="cn.vstore.appserver.model.UserInstallApp"/>
+
+<!-- Select USER_INSTALL_APK : 取得USER_INSTALL_APK，以DOWNLOAD_ID為條件 -->
+<select id="getDownloadId" parameterClass="java.util.HashMap" resultClass="java.lang.Long">
+<![CDATA[
+select DOWNLOAD_ID from USER_INSTALL_APK where APP_ID=#pkgId# and upper(USER_ID)=upper(#userId#) and IMEI=#imei# and IS_DELETE=0 and store_id=#storeId# order by DOWNLOAD_ID desc
+]]>
+</select>
+
+<!-- Select USER_INSTALL_APK : 取得USER_INSTALL_APK，以DOWNLOAD_ID為條件 -->
+<select id="getUserInstallAppByDownloadId" parameterClass="java.util.HashMap" resultClass="userInstallApp">
+<![CDATA[
+select * from USER_INSTALL_APK where DOWNLOAD_ID=#downloadId# 
+]]>
+</select>
+
+<!-- Select CATEGORY : 取出安裝App總筆數，以pkg和userId為條件 -->
+<select id="getInstallAppCount" resultClass="int">
+<![CDATA[
+select count(download_id) from USER_INSTALL_APK as uia where upper(user_id) = upper(#userId:VARCHAR#) and app_id = #pkgId:VARCHAR# and uia.STORE_ID=#storeId#
+]]>
+</select>
+<select id="getInstallAppCountByImeiMac" resultClass="int">
+select count(1) from USER_INSTALL_LOG as uia where app_id = #pkgId:VARCHAR# and uia.STORE_ID=#storeId#
+	<isNotNull prepend="AND" property="imei">
+	  IMEI = #imei#
+	</isNotNull>
+	<isNotNull prepend="AND" property="mac">
+	  MAC = #mac#
+	</isNotNull>
+</select>
+    
+<!-- Select USER_INSTALL_APK : 取出InstallApkId -->
+<select id="getInstallApkId" resultClass="java.lang.Long">
+<!--select USER_INSTALL_APK_SEQ.nextval from dual-->
+<![CDATA[
+select MAX(DOWNLOAD_ID)+1 from USER_INSTALL_APK
+]]>
+</select>
+
+<!-- Update USER_INSTALL_APK : 把userUid/imei使用者的App下載紀錄刪除(IS_DELETE=1)，條件為AppId/iccid/imei -->
+<update id="updateIsDeleteInstallApp" >
+<![CDATA[
+ update USER_INSTALL_APK set IS_DELETE=1 where APP_ID=#appId# and upper(USER_UID)=upper(#userUid#) and IMEI=#imei# and MAC=#mac# and IS_DELETE=0 and STORE_ID=#storeId#
+]]>
+</update>
+
+<!-- Insert USER_INSTALL_APK : 儲存下載資訊 -->
+<insert id="insertUserInstallApp" parameterClass="userInstallApp">  
+<![CDATA[
+ insert into USER_INSTALL_APK
+ (DOWNLOAD_ID,APP_ID,USER_ID,IMEI,MAC,ICCID,STATUS,IS_DELETE,VERSION_ID,SOURCE_CAT_ID,DOWNLOAD_TYPE,DOWN_TIME,TOKEN,USER_VERSION_ID,USER_UID, STORE_ID) values
+ (#downloadId#,#appId#,#userId#,#imei#,#mac#,#iccid#,0,0,#appVersion#,#categoryId#,'mobile',NOW(),#token#,#lappv#,#userUid#, #storeId#)
+]]>
+</insert>
+
+<!-- Insert USER_INSTALL_APK : 儲存下載資訊 -->
+<insert id="insertUserInstallAppLog" parameterClass="userInstallApp">  
+<![CDATA[
+ insert into USER_INSTALL_LOG
+ (USER_ID,ICCID,IMEI,MAC,INSTALL_DATE,DOWNLOAD_TYPE,INSTALL_STATUS,APP_ID,VERSION_ID,DOWNLOAD_ID,USER_UID,MODEL_NAME,CREATE_TIME, STORE_ID, SNUM, IP)
+  values
+ (#userId#,#iccid#,#imei#,#mac#,NOW(),'mobile',0,#appId#,#appVersion#,#downloadId#,#userUid#,#dvc#,NOW(), #storeId#, #snum#, #IP#)
+]]>
+</insert>
+
+<!-- Update USER_INSTALL_APK : 更新USER_INSTALL_APK的PRICE_TYPE，條件為DOWNLOAD_ID -->
+<update id="updateInstallAppOfPriceType" >
+<![CDATA[
+ update USER_INSTALL_APK set PRICE_TYPE=#priceType# where DOWNLOAD_ID=#downloadId#
+]]>
+</update>
+
+<update id="updateInstallAppOfStatusByDownloadId" parameterClass="java.util.HashMap">
+<![CDATA[
+ update USER_INSTALL_APK set STATUS=#status# where DOWNLOAD_ID=#downloadId# 
+]]>
+</update>
+
+<update id="updateStatus" parameterClass="java.util.HashMap">
+<![CDATA[
+ update USER_INSTALL_APK set STATUS=#status#,IS_DELETE=1 where APP_ID=#appId# and upper(USER_ID)=upper(#userId#) and IMEI=#imei# and IS_DELETE=0 and DOWNLOAD_ID<#downloadId# 
+]]>
+</update>
+
+<update id="updateStatusByDownloadEquals" parameterClass="java.util.HashMap">
+<![CDATA[
+update USER_INSTALL_APK set STATUS=#status# where APP_ID=#appId# and upper(USER_ID)=upper(#userId#) and IMEI=#imei# and IS_DELETE=0 and DOWNLOAD_ID=#downloadId# 
+]]>
+</update>
+
+<update id="updateReasonIdByDownloadId" parameterClass="java.util.HashMap">
+<![CDATA[
+ update USER_INSTALL_APK set REASON_ID=#reasonId# where DOWNLOAD_ID=#downloadId# 
+]]>
+</update>
+
+<update id="updateStatusAndDelete" parameterClass="java.util.HashMap">
+<![CDATA[
+update USER_INSTALL_APK set STATUS=#status#,IS_DELETE=0 where APP_ID=#appId# and upper(USER_ID)=upper(#userId#) and IMEI=#imei# and DOWNLOAD_ID>=#downloadId# 
+]]>
+</update>
+
+
+</sqlMap>

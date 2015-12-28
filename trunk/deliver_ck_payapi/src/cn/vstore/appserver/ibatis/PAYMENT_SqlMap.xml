@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  $Id: PAYMENT_SqlMap.xml 6917 2010-12-29 03:28:37Z yhwang $
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+
+<sqlMap namespace="Payment">
+
+    <typeAlias alias="paymentInformationO" type="cn.vstore.appserver.model.PaymentInformation"/>
+    
+    <resultMap id="paymentInfo" class="paymentInformationO"> 
+        <result column="ID" jdbcType="DECIMAL" property="id"/>
+        <result column="APP_ID" jdbcType="VARCHAR" property="pkg" />
+        <result column="STATUS" jdbcType="DECIMAL" property="status" />
+        <result column="MY_PRICE_TYPE" jdbcType="VARCHAR" property="myPriceType" />
+		<result column="VERSION_ID" jdbcType="DECIMAL" property="versionId" />
+		<result column="LAST_VERSION_ID" jdbcType="DECIMAL" property="lastVersionId" />
+		<result column="USER_UID" jdbcType="VARCHAR" property="userUid" />
+		<result column="PAYMENT_TYPE" jdbcType="DECIMAL" property="paymentType" />
+		<result column="AMOUNT" jdbcType="DECIMAL" property="amount" />
+        <result column="RIGHT_START_DATE" jdbcType="DATE" property="rightStartDate" />
+        <result column="RIGHT_END_DATE" jdbcType="DATE" property="rightEndDate" />
+        <result column="STORE_ID" jdbcType="DECIMAL" property="storeId"/>
+        <result column="MONTHLY_CYCLE" jdbcType="DECIMAL" property="monthlyCycle"/>
+        <result column="RET_MSG" jdbcType="TEXT" property="retMsg"/>
+    </resultMap>
+    <!-- Xiandong 2011-12-05 透過訂單號碼獲取訂單 -->
+    <select id="getOrderByOrderNo" resultMap="paymentInfo">
+    	select * from IPAY_USER_PAYMENT_LOG where ORDER_NO=#orderNo:VARCHAR#
+    </select>
+    <select id="getOrderByOrderId" resultMap="paymentInfo">
+    	select * from IPAY_USER_PAYMENT_LOG where ID=#orderId#
+    </select>
+    <select id="hasUnapprovedOrderRefundHistoryByOrderId" resultClass="java.lang.Long">
+    	select count(*) from order_refund_history where (approved_status=0 or approved_status=1) and order_id=#orderId#
+    </select>
+    <insert id="insertOrderRefundHistory" parameterClass="cn.vstore.appserver.model.OrderRefundHistory">
+	    insert into order_refund_history
+	    <dynamic prepend="(" >
+	      <isNotNull prepend="," property="orderId" >
+	        order_id
+	      </isNotNull>
+	      <isNotNull prepend="," property="applyRefundDate" >
+	        apply_refund_date
+	      </isNotNull>
+	      <isNotNull prepend="," property="applyRefundReason" >
+	        apply_refund_reason
+	      </isNotNull>
+	      <isNotNull prepend="," property="approvedStatus" >
+	        approved_status
+	      </isNotNull>
+	      <isNotNull prepend="," property="approvedDate" >
+	        approved_date
+	      </isNotNull>
+	      <isNotNull prepend="," property="approvedUid" >
+	        approved_uid
+	      </isNotNull>
+	      <isNotNull prepend="," property="approvedReason" >
+	        approved_reason
+	      </isNotNull>
+	      <isNotNull prepend="," property="refundAmount" >
+	        refund_amount
+	      </isNotNull>
+	      <isNotNull prepend="," property="refundMonth" >
+	        refund_month
+	      </isNotNull>
+	      <isNotNull prepend="," property="oldRightEnddate" >
+	        old_right_enddate
+	      </isNotNull>
+	      <isNotNull prepend="," property="newRightEnddate" >
+	        new_right_enddate
+	      </isNotNull>
+	      <isNotNull prepend="," property="transferDate" >
+	        transfer_date
+	      </isNotNull>
+	      <isNotNull prepend="," property="transferAmount" >
+	        transfer_amount
+	      </isNotNull>
+	      <isNotNull prepend="," property="transferLogDate" >
+	        transfer_log_date
+	      </isNotNull>
+	      <isNotNull prepend="," property="transferLogUid" >
+	        transfer_log_uid
+	      </isNotNull>
+	      <isNotNull prepend="," property="transferLogMemo" >
+	        transfer_log_memo
+	      </isNotNull>
+	      )
+	    </dynamic>
+	    values
+	    <dynamic prepend="(" >
+	      <isNotNull prepend="," property="orderId" >
+	        #orderId:BIGINT#
+	      </isNotNull>
+	      <isNotNull prepend="," property="applyRefundDate" >
+	        #applyRefundDate#
+	      </isNotNull>
+	      <isNotNull prepend="," property="applyRefundReason" >
+	        #applyRefundReason#
+	      </isNotNull>
+	      <isNotNull prepend="," property="approvedStatus" >
+	        #approvedStatus:INT#
+	      </isNotNull>
+	      <isNotNull prepend="," property="approvedDate" >
+	        #approvedDate#
+	      </isNotNull>
+	      <isNotNull prepend="," property="approvedUid" >
+	        #approvedUid:BIGINT#
+	      </isNotNull>
+	      <isNotNull prepend="," property="approvedReason" >
+	        #approvedReason#
+	      </isNotNull>
+	      <isNotNull prepend="," property="refundAmount" >
+	        #refundAmount:DOUBLE#
+	      </isNotNull>
+	      <isNotNull prepend="," property="refundMonth" >
+	        #refundMonth:INT#
+	      </isNotNull>
+	      <isNotNull prepend="," property="oldRightEnddate" >
+	        #oldRightEnddate#
+	      </isNotNull>
+	      <isNotNull prepend="," property="newRightEnddate" >
+	        #newRightEnddate#
+	      </isNotNull>
+	      <isNotNull prepend="," property="transferDate" >
+	        #transferDate#
+	      </isNotNull>
+	      <isNotNull prepend="," property="transferAmount" >
+	        #transferAmount:DOUBLE#
+	      </isNotNull>
+	      <isNotNull prepend="," property="transferLogDate" >
+	        #transferLogDate#
+	      </isNotNull>
+	      <isNotNull prepend="," property="transferLogUid" >
+	        #transferLogUid:BIGINT#
+	      </isNotNull>
+	      <isNotNull prepend="," property="transferLogMemo" >
+	        #transferLogMemo:VARCHAR#
+	      </isNotNull>
+	      )
+	    </dynamic>
+	    <selectKey keyProperty="id">
+		select last_insert_id() as id from order_refund_history limit 1
+		</selectKey>
+    </insert>
+    <select id="getOrderBySubStoreOrderNo" resultMap="paymentInfo">
+    select * from ipay_user_payment_log where STORE_ID=#storeId# and SUBSTORE_OID=#storeOid#
+    </select>
+    <update id="updateByKey" parameterClass="cn.vstore.appserver.model.PaymentInformation">
+    update ipay_user_payment_log
+    <dynamic prepend="set" >
+<!--       <isNotNull prepend="," property="ipayUserId" > -->
+<!--         IPAY_USER_ID = #ipayUserId:VARCHAR# -->
+<!--       </isNotNull> -->
+<!--       <isNotNull prepend="," property="userId" > -->
+<!--         USER_ID = #userId:VARCHAR# -->
+<!--       </isNotNull> -->
+<!--       <isNotNull prepend="," property="appId" > -->
+<!--         APP_ID = #appId:VARCHAR# -->
+<!--       </isNotNull> -->
+<!--       <isNotNull prepend="," property="versionId" > -->
+<!--         VERSION_ID = #versionId:INTEGER# -->
+<!--       </isNotNull> -->
+<!--       <isNotNull prepend="," property="paymentType" > -->
+<!--         PAYMENT_TYPE = #paymentType:INTEGER# -->
+<!--       </isNotNull> -->
+<!--       <isNotNull prepend="," property="payTime" > -->
+<!--         PAY_TIME = #payTime:TIMESTAMP# -->
+<!--       </isNotNull> -->
+<!--       <isNotNull prepend="," property="amount" > -->
+<!--         AMOUNT = #amount:DOUBLE# -->
+<!--       </isNotNull> -->
+<!--       <isNotNull prepend="," property="ipayToken" > -->
+<!--         IPAY_TOKEN = #ipayToken:VARCHAR# -->
+<!--       </isNotNull> -->
+<!--       <isNotNull prepend="," property="iccid" > -->
+<!--         ICCID = #iccid:VARCHAR# -->
+<!--       </isNotNull> -->
+<!--       <isNotNull prepend="," property="imei" > -->
+<!--         IMEI = #imei:VARCHAR# -->
+<!--       </isNotNull> -->
+      <isNotNull prepend="," property="status" >
+        STATUS = #status:INTEGER#
+      </isNotNull>
+<!--       <isNotNull prepend="," property="myPriceType" > -->
+<!--         MY_PRICE_TYPE = #myPriceType:VARCHAR# -->
+<!--       </isNotNull> -->
+<!--       <isNotNull prepend="," property="retCode" > -->
+<!--         RET_CODE = #retCode:VARCHAR# -->
+<!--       </isNotNull> -->
+      <isNotNull prepend="," property="rightStartDate" >
+        RIGHT_START_DATE = #rightStartDate:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="rightEndDate" >
+        RIGHT_END_DATE = #rightEndDate:TIMESTAMP#
+      </isNotNull>
+<!--       <isNotNull prepend="," property="lastVersionId" > -->
+<!--         LAST_VERSION_ID = #lastVersionId:INTEGER# -->
+<!--       </isNotNull> -->
+<!--       <isNotNull prepend="," property="serviceId" > -->
+<!--         SERVICE_ID = #serviceId:VARCHAR# -->
+<!--       </isNotNull> -->
+<!--       <isNotNull prepend="," property="cancelSrcType" > -->
+<!--         CANCEL_SRC_TYPE = #cancelSrcType:INTEGER# -->
+<!--       </isNotNull> -->
+<!--       <isNotNull prepend="," property="userUid" > -->
+<!--         USER_UID = #userUid:VARCHAR# -->
+<!--       </isNotNull> -->
+<!--       <isNotNull prepend="," property="downloadId" > -->
+<!--         DOWNLOAD_ID = #downloadId:BIGINT# -->
+<!--       </isNotNull> -->
+      <isNotNull prepend="," property="cancelTime" >
+        CANCEL_TIME = #cancelTime:TIMESTAMP#
+      </isNotNull>
+<!--       <isNotNull prepend="," property="paymentId" > -->
+<!--         PAYMENT_ID = #paymentId:VARCHAR# -->
+<!--       </isNotNull> -->
+<!--       <isNotNull prepend="," property="retCodeApiName" > -->
+<!--         RET_CODE_API_NAME = #retCodeApiName:VARCHAR# -->
+<!--       </isNotNull> -->
+<!--       <isNotNull prepend="," property="storeId" > -->
+<!--         STORE_ID = #storeId:BIGINT# -->
+<!--       </isNotNull> -->
+<!--       <isNotNull prepend="," property="substoreOid" > -->
+<!--         SUBSTORE_OID = #substoreOid:VARCHAR# -->
+<!--       </isNotNull> -->
+<!--       <isNotNull prepend="," property="orderNo" > -->
+<!--         ORDER_NO = #orderNo:VARCHAR# -->
+<!--       </isNotNull> -->
+<!--       <isNotNull prepend="," property="retMsg" > -->
+<!--         RET_MSG = #retMsg:LONGVARCHAR# -->
+<!--       </isNotNull> -->
+      <isNotNull prepend="," property="storeId" >
+        ORDER_REFUND_HISTORY_ID = #orderRefundHistoryId:BIGINT#
+      </isNotNull>
+    </dynamic>
+    where ID = #id:BIGINT#
+	</update>
+<!-- **********************取出付款資訊(有真假付費) ********************** -->
+
+<!-- Select IPAY_USER_PAYMENT_LOG : 取出付款資訊 -->
+<select id="getPaymentInformationList" resultMap="paymentInfo">
+<![CDATA[
+ select * 
+ from IPAY_USER_PAYMENT_LOG iupl
+ where 
+ iupl.STORE_ID=#storeID# 
+ and upper(iupl.USER_UID)=upper(#userUid:VARCHAR#)
+ and
+ ( 
+ (iupl.STATUS=2 and (MY_PRICE_TYPE=1 or MY_PRICE_TYPE=3))
+ or
+ (MY_PRICE_TYPE=2 and (iupl.STATUS=5 or iupl.STATUS=2) and (RIGHT_END_DATE is null or DATE_FORMAT(RIGHT_END_DATE,'%Y-%m-%d 00:00:00')>=DATE_FORMAT(now(),'%Y-%m-%d 00:00:00')))
+ )
+ and iupl.APP_ID
+]]>
+<isNotNull property="appList">
+    <iterate  prepend="in" property="appList" open="(" close=")" conjunction=",">
+ <![CDATA[#appList[]#]]>
+    </iterate>
+</isNotNull>
+<isNull property="appList">
+ <![CDATA[= '']]>
+</isNull>
+</select>
+
+<!-- Select IPAY_USER_PAYMENT_LOG : 取出假付款資訊 -->
+<select id="getPaymentInformationByTestList" resultMap="paymentInfo">
+<![CDATA[
+ select *
+ from IPAY_USER_PAYMENT_LOG iupl
+ where (((iupl.STATUS=2 or iupl.STATUS=6) and MY_PRICE_TYPE=2) or
+   ((iupl.STATUS=2 or iupl.STATUS=5 or iupl.STATUS=6) and
+   (MY_PRICE_TYPE=1 or MY_PRICE_TYPE=3) and IMEI=#imei:VARCHAR#) or
+   ((iupl.STATUS=5 or iupl.STATUS=7) and MY_PRICE_TYPE=2 and
+   DATE_FORMAT(RIGHT_END_DATE)>=DATE_FORMAT(now()))) and upper(iupl.USER_UID)=upper(#userUid:VARCHAR#)
+   and iupl.STORE_ID=#storeID#
+   and iupl.APP_ID
+]]>
+<isNotNull property="appList">
+    <iterate prepend="in" property="appList" open="(" close=")" conjunction=",">
+  <![CDATA[#appList[]#]]>
+    </iterate>
+</isNotNull>
+<isNull property="appList">
+  <![CDATA[= '']]>
+</isNull>
+</select>
+
+<!-- **********************取出成功付款資訊(有真假付費) ********************** -->
+
+<!-- Select IPAY_USER_PAYMENT_LOG : 取出付款資訊 -->
+<select id="getSuccessPaidInfo" resultMap="paymentInfo">
+<![CDATA[
+ select *
+ from IPAY_USER_PAYMENT_LOG
+ where APP_ID = #appId#  and MY_PRICE_TYPE = '2' and
+ STATUS = 2 and upper(USER_UID) = upper(#userUid#) ORDER BY id DESC
+]]>
+</select>
+
+<!-- Select IPAY_USER_PAYMENT_LOG : 取出假付款資訊 -->
+<select id="getSuccessPaidInfoByTest" resultMap="paymentInfo">
+<![CDATA[
+ select * 
+ from IPAY_USER_PAYMENT_LOG
+ where APP_ID = #appId:VARCHAR#  and MY_PRICE_TYPE = '2' and (STATUS = 2 or STATUS = 6) and
+ upper(USER_UID) = upper(#userUid:VARCHAR#) ORDER BY id DESC
+]]>
+</select>
+
+<!-- **********************取出付款資訊，條件apk/userUid********************** -->
+<select id="getPaymentInfoByApkAndUserUid" resultMap="paymentInfo">
+<![CDATA[
+ select * from (
+   select a.*,rownum r from (
+     select *
+     from IPAY_USER_PAYMENT_LOG
+     where upper(USER_UID)=upper(#userUid:VARCHAR#) and APP_ID=#appId:VARCHAR# order by ID desc
+   ) a
+ ) b where b.r<=1
+]]>
+    </select>
+    
+<!-- **********************Onetime********************** -->
+<!-- Select IPAY_USER_PAYMENT_LOG : 取出付款金額  (計次)-->
+<select id="getOnetimeAmount" resultClass="int">
+<![CDATA[
+ select sum(AMOUNT) amount
+ from IPAY_USER_PAYMENT_LOG
+ where USER_UID=#userUid# and (MY_PRICE_TYPE=1 or MY_PRICE_TYPE=3 or MY_PRICE_TYPE=4) and
+ (STATUS=2 or STATUS=5) and DATE_FORMAT(RIGHT_START_DATE,'MONTH')=DATE_FORMAT(now(),'MONTH')
+]]>
+</select>
+
+<!-- Select IPAY_USER_PAYMENT_LOG : 取出付款金額  (計次)(假)-->
+<select id="getOnetimeAmountByTestList" resultClass="int">
+<![CDATA[
+ select sum(AMOUNT) amount
+ from IPAY_USER_PAYMENT_LOG
+ where USER_UID=#userUid# and (MY_PRICE_TYPE=1 or MY_PRICE_TYPE=3 or MY_PRICE_TYPE=4) and
+ (STATUS=2 or STATUS=5 or STATUS=6) and DATE_FORMAT(RIGHT_START_DATE,'MONTH')=DATE_FORMAT(now(),'MONTH')
+]]>
+</select>
+
+<!-- **********************CC********************** -->
+
+<!-- Select IPAY_USER_PAYMENT_LOG : 取出付款金額 (信用卡)-->
+<select id="getCCAmount" resultClass="int">
+<![CDATA[
+ select sum(AMOUNT) a
+ from IPAY_USER_PAYMENT_LOG
+ where USER_UID=#userUid# and MY_PRICE_TYPE=2 and
+ (STATUS=2 or (STATUS=5 and RIGHT_END_DATE is not null and DATE_FORMAT(RIGHT_END_DATE,'MONTH')=DATE_FORMAT(DATE_ADD(NOW(),  INTERVAL 1 MONTH),'MONTH'))) and 
+ PAYMENT_TYPE=2
+]]>
+</select>
+
+<!-- Select IPAY_USER_PAYMENT_LOG : 取出付款金額 (信用卡)(假)-->
+<select id="getCCAmountByTestList" resultClass="int">
+<![CDATA[
+ select sum(AMOUNT) amount
+ from IPAY_USER_PAYMENT_LOG
+ where USER_UID=#userUid# and MY_PRICE_TYPE=2 and (STATUS=2 or STATUS=6 or ((STATUS=5 or STATUS=7) and
+ RIGHT_END_DATE is not null and DATE_FORMAT(RIGHT_END_DATE,'MONTH')=DATE_FORMAT(DATE_ADD(NOW(),  INTERVAL 1 MONTH),'MONTH'))) and
+ PAYMENT_TYPE=2
+]]>
+</select>
+
+<!-- **********************Bill********************** -->
+
+<!-- Select IPAY_USER_PAYMENT_LOG : 取出帳單付款金額  (帳單)-->
+<select id="getBillAmount" resultClass="int">
+<![CDATA[
+ select sum(AMOUNT) amount
+ from IPAY_USER_PAYMENT_LOG
+ where ID in (select max(ID) ID from IPAY_USER_PAYMENT_LOG where USER_UID=#userUid# and
+ MY_PRICE_TYPE=2 and (STATUS=2 or (STATUS=5 and RIGHT_END_DATE is not null and
+ DATE_FORMAT(RIGHT_END_DATE,'MONTH')=DATE_FORMAT(now(),'MONTH'))) and PAYMENT_TYPE=1 group by APP_ID)
+]]>
+</select>
+
+<!-- Select IPAY_USER_PAYMENT_LOG : 取出帳單付款金額 (帳單)(假)-->
+<select id="getBillAmountByTestList" resultClass="int">
+<![CDATA[
+ select sum(AMOUNT) amount
+ from IPAY_USER_PAYMENT_LOG
+ where ID in (select max(ID) ID from IPAY_USER_PAYMENT_LOG where USER_UID=#userUid# and MY_PRICE_TYPE=2 and
+ (STATUS=2 or STATUS=6 or ((STATUS=5 or STATUS=7) and RIGHT_END_DATE is not null and DATE_FORMAT(RIGHT_END_DATE,'MONTH')=DATE_FORMAT(now(),'MONTH'))) and PAYMENT_TYPE=1 group by APP_ID)
+]]>
+</select>
+
+<!-- **********************更新********************** -->
+
+<!-- Update IPAY_USER_PAYMENT_LOG -->
+<update id="updateIpayUserPaymentLog" parameterClass="paymentInformationO">
+<![CDATA[
+ update IPAY_USER_PAYMENT_LOG
+ set RET_CODE=#retCode#,
+ RET_MSG=#retMsg#,
+ RET_CODE_API_NAME=#apiName#,
+ STATUS=#status#
+ where ID = #id#
+]]>
+</update>
+<!-- Update IPAY_USER_PAYMENT_LOG orderNo by id-->
+<update id="updateIpayUserPaymentLogOrderNoById" parameterClass="paymentInformationO">
+<![CDATA[
+ update IPAY_USER_PAYMENT_LOG
+ set ORDER_NO=#orderNo#
+ where ID = #id#
+]]>
+</update>
+
+<update id="updateIpayUserPaymentLogNoStatus" parameterClass="paymentInformationO">
+<![CDATA[
+ update IPAY_USER_PAYMENT_LOG
+ set RET_CODE=#retCode#,
+ RET_MSG=#retMsg#,
+ RET_CODE_API_NAME=#apiName#
+ where ID = #id#
+]]>
+</update>
+
+<update id="updateSuccessIpayUserPaymentLog" parameterClass="paymentInformationO">
+<![CDATA[
+ update IPAY_USER_PAYMENT_LOG
+ set PAYMENT_TYPE=#paymentType#, AMOUNT=#amount#, STATUS=#status#, PAY_TIME=now() ,
+    RIGHT_START_DATE=now(),RET_MSG=#retMsg#,PAYMENT_ID=#paymentId#,RIGHT_END_DATE=#rightEndDate#,
+    TRANSACTION_TYPE_ID=#transactionTypeId#,TRANSACTION_DATA=#transactionData#
+ where ID =#id# and ( STATUS = 0 or STATUS = 1) 
+]]>
+</update>
+<update id="updateSuccessIpayUserPaymentLogByOrderNo" parameterClass="paymentInformationO">
+<![CDATA[
+ update IPAY_USER_PAYMENT_LOG
+ set PAYMENT_TYPE=#paymentType#, AMOUNT=#amount#, STATUS=#status#, PAY_TIME=now() ,
+    RIGHT_START_DATE=now(),RET_MSG=#retMsg#,PAYMENT_ID=#paymentId#,RIGHT_END_DATE=#rightEndDate#,
+    TRANSACTION_TYPE_ID=#transactionTypeId#,TRANSACTION_DATA=#transactionData#
+ where ORDER_NO =#orderNo# and ( STATUS = 0 or STATUS = 1) 
+]]>
+</update>
+
+<!-- **********************update IPAY_USER_PAYMENT_LOG 的 STATUS 設為失效(有真假付費) ********************** -->
+<update id="updateFailurePaidLog" parameterClass="paymentInformationO">
+<![CDATA[
+ update IPAY_USER_PAYMENT_LOG
+ set STATUS = #status#, RIGHT_END_DATE=#rightEndDate#,CANCEL_SRC_TYPE=1,CANCEL_TIME=now()
+ where upper(USER_UID)=upper(#userUid#) and APP_ID=#pkg# and status=2
+]]>
+</update>
+
+<update id="updateFailurePaidLogByTest" parameterClass="paymentInformationO">
+<![CDATA[
+ update IPAY_USER_PAYMENT_LOG
+ set STATUS = #status#, RIGHT_END_DATE=#rightEndDate#,CANCEL_SRC_TYPE=1,CANCEL_TIME=now()
+ where upper(USER_UID)=upper(#userUid#) and APP_ID=#pkg# and status=6
+]]>
+</update>
+
+<!-- **********************update IPAY_USER_PAYMENT_LOG 的 LAST_VERSION_ID(有真假付費) ********************** -->
+<update id="updateLastVersionId">
+<![CDATA[
+ update IPAY_USER_PAYMENT_LOG set LAST_VERSION_ID=#lastVersionId#
+ where (STATUS=2 or (STATUS=5 and (MY_PRICE_TYPE=1 or MY_PRICE_TYPE=3)) or
+   (STATUS=5 and MY_PRICE_TYPE=2 and DATE_FORMAT(RIGHT_END_DATE,'%Y-%m-%d 00:00:00')>=DATE_FORMAT(now(),'%Y-%m-%d 00:00:00')))
+   and APP_ID=#appId# and upper(USER_UID)=upper(#userUid#) and MY_PRICE_TYPE>=#priceType# and STORE_ID=#storeId#
+]]>
+</update>
+
+<update id="updateLastVersionIdByTest">
+<![CDATA[
+ update IPAY_USER_PAYMENT_LOG set LAST_VERSION_ID=#lastVersionId#
+ where (STATUS=2 or STATUS=6 or
+   (STATUS=5 and (MY_PRICE_TYPE=1 or MY_PRICE_TYPE=3)) or ((STATUS=5 or STATUS=7)
+   and MY_PRICE_TYPE=2 and DATE_FORMAT(RIGHT_END_DATE)>=DATE_FORMAT(now())))
+   and APP_ID=#appId# and upper(USER_UID)=upper(#userUid#) and MY_PRICE_TYPE>=#priceType# and STORE_ID=#storeId#
+]]>
+</update>
+
+<insert id="insertOrder" parameterClass="cn.vstore.appserver.model.PaymentInformation">
+<![CDATA[
+ insert into IPAY_USER_PAYMENT_LOG 
+ (
+ IPAY_USER_ID,
+ USER_ID,
+ APP_ID,
+ PAYMENT_TYPE,
+ PAY_TIME,
+ AMOUNT,
+ IPAY_TOKEN,
+ VERSION_ID,
+ STATUS,
+ MY_PRICE_TYPE,
+ USER_UID,
+ IMEI,
+ STORE_ID,
+ SUBSTORE_OID,
+ RIGHT_START_DATE,
+ RIGHT_END_DATE,
+ MONTHLY_CYCLE,
+ PAYEE_STORE_ID
+ ) values
+(#userId#,#userId#,#pkg#,#paymentType#,NOW(),#amount#,#token#,#versionId#,#status#,#myPriceType#,#userUid#,#imei#,#storeId#,#storeOid#
+,#rightStartDate#,#rightEndDate#,#monthlyCycle#,#payeeStoreId#
+)
+]]>
+<selectKey resultClass="int" keyProperty="id">
+select last_insert_id() as id from IPAY_USER_PAYMENT_LOG limit 1
+</selectKey>
+</insert>
+
+<select id="getId" resultClass="java.math.BigDecimal">
+<![CDATA[
+select ID from IPAY_USER_PAYMENT_LOG 
+where upper(USER_UID)=upper(#userUid#) and APP_ID=#pkg#
+and STATUS=1 and STORE_ID=#storeId#
+]]>
+</select>
+
+<select id="getRightStartDateWhereStatus6" resultClass="java.util.Date">
+<![CDATA[
+select iupl.RIGHT_START_DATE 
+from IPAY_USER_PAYMENT_LOG iupl
+where   upper(iupl.USER_UID)=upper(#userUid#) 
+        and iupl.APP_ID=#pkg#
+        and iupl.IMEI=#imei#
+        and iupl.MY_PRICE_TYPE='1' 
+        and (
+                iupl.STATUS=2 
+                or iupl.STATUS=5 
+                or iupl.STATUS=6
+            ) 
+        and store_id=#storeId#
+]]>
+</select>
+<select id="getRightStartDateWhereNoStatus6" resultClass="java.util.Date">
+<![CDATA[
+select iupl.RIGHT_START_DATE 
+from IPAY_USER_PAYMENT_LOG iupl 
+where   upper(iupl.USER_UID)=upper(#userUid#) 
+        and iupl.APP_ID=#pkg#
+        and iupl.IMEI=#imei#
+        and iupl.MY_PRICE_TYPE='1' 
+        and (
+        		iupl.STATUS=2 
+        		or iupl.STATUS=5
+        	) 
+        and store_id=#storeId#
+]]>
+</select>
+<!-- 檢查是否購買中，沒有確認狀態 -->
+<select id="getPaymentLogId" resultClass="java.math.BigDecimal">
+<![CDATA[
+select ID 
+from IPAY_USER_PAYMENT_LOG 
+where   upper(USER_UID)=upper(#userUid#) 
+        and APP_ID=#pkg#
+        and IMEI=#imei#
+        and STATUS=1 
+        and store_id=#storeId#
+]]>
+</select>
+
+<!-- 取得付款資訊status=2 -->
+<select id="getPaymentStatus" resultMap="paymentInfo">
+<![CDATA[
+ select *  
+ from IPAY_USER_PAYMENT_LOG
+ where APP_ID = #pkg#
+ and STATUS = 2 
+ and upper(USER_UID) = upper(#userUid#) 
+ ORDER BY id DESC
+]]>
+</select>
+
+</sqlMap>

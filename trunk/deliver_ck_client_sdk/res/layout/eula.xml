@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical">
+
+	<TextView style="@style/ActTitleText"
+		android:text="@string/title_eula" />
+
+	<RelativeLayout
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:layout_weight="1">
+		<ScrollView
+		    android:layout_width="fill_parent"
+		    android:layout_height="fill_parent"
+		    android:layout_weight="1">
+			<TextView
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:paddingTop="18dp"
+				android:paddingLeft="24dp"
+				android:paddingRight="24dp"
+				android:paddingBottom="18dp"
+				android:textSize="@dimen/text_size_medium"
+				android:text="@string/eula" />
+		</ScrollView>
+		<ImageView style="@style/TabBoxShadow" />
+		<ImageView style="@style/ButtonBoxShadow" />
+	</RelativeLayout>
+
+	<LinearLayout style="@style/ButtonBox">
+		<Button android:id="@id/submit"
+			style="@style/Button"
+			android:text="@string/agree" />
+		<Button android:id="@id/cancel"
+			style="@style/Button"
+			android:text="@string/refuse" />
+	</LinearLayout>
+
+</LinearLayout>

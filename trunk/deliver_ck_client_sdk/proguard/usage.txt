@@ -1,0 +1,576 @@
+cn.com.vapk.vstore.client.AbsAppsDisplayActivity:
+    protected static final java.lang.String PREF_KEY_APPS_TYPE
+cn.com.vapk.vstore.client.ActionController:
+    static final java.lang.String ACTION_CLOSE_SMART
+    static final java.lang.String ACTION_LOGOUT
+    static final java.lang.String ACTION_CHANGE_APP_FILTER
+    static final java.lang.String PERMISSION_CLOSE_CLIENT_RECEIVER
+    public static final java.lang.String LOGIN_EVENT_SUCCESS
+    public static final java.lang.String PERMISSION_LOGIN_EVENT_SUCCESS
+    public static final java.lang.String EXTRA_CATEGORY_ID
+    static final java.lang.String EXTRA_CATEGORY_TITLE
+    public static final java.lang.String EXTRA_PACKAGE_NAME
+    static final java.lang.String EXTRA_CONTENT_PROVIDER_ID
+    static final java.lang.String EXTRA_APP_ICON
+    static final java.lang.String EXTRA_SCREEN_SHOTS
+    static final java.lang.String EXTRA_SCREEN_SHOT_POSITION
+    static final java.lang.String EXTRA_APP_TITLE_INFO
+    static final java.lang.String EXTRA_MY_RATING_INFO
+    static final java.lang.String EXTRA_SEARCH_QUERY
+    static final java.lang.String EXTRA_SETTING_INFO
+    static final java.lang.String EXTRA_FORWARD_INTENT
+    456:457:public static final void payment(android.app.Activity,java.lang.String)
+cn.com.vapk.vstore.client.ActionController$AppTitleInfo:
+    private static final long serialVersionUID
+cn.com.vapk.vstore.client.ActionController$MyRatingInfo:
+    private static final long serialVersionUID
+cn.com.vapk.vstore.client.ActionController$SettingInfo:
+    private static final long serialVersionUID
+cn.com.vapk.vstore.client.ActionSession:
+    private static final java.lang.String PREF_NAME
+    private static final java.lang.String PREF_KEY_SUBSCRIBER_ID
+    private static final java.lang.String PREF_KEY_AUTO_LOGIN_ENABLE
+    private static final java.lang.String PREF_KEY_IP_LOGIN_ENABLE
+    private static final java.lang.String PREF_KEY_APP_FILTER_SETTING_ENABLE
+    94:94:static final boolean isIPLoginEnable(android.content.Context)
+cn.com.vapk.vstore.client.AppCommentsActivity$ViewHolder:
+    android.widget.RatingBar comment_rating
+    android.widget.TextView comment_header
+    android.widget.TextView comment_text
+cn.com.vapk.vstore.client.AppDetailActivity:
+    private static final int DIALOG_NOT_ALLOW_INSTALL_NON_MARKET_APPS
+    private static final int DIALOG_UNABLE_LAUNCH_APP
+    private static final int DIALOG_INSTALL_MSG
+    private static final int DIALOG_UNSUBSCRIBE_CONFIRM
+    private static final int DIALOG_UNINSTALL_CONFIRM
+cn.com.vapk.vstore.client.AppLicenseManager:
+    211:238:private void doAgreement()
+    241:249:private void checkAuth1()
+cn.com.vapk.vstore.client.AppLicenseManager$6
+cn.com.vapk.vstore.client.AppLicenseManager$7
+cn.com.vapk.vstore.client.CPAppsActivity:
+    private static final java.lang.String CAT_ID
+cn.com.vapk.vstore.client.CloseClientReceiver:
+    41:41:void previousWork()
+cn.com.vapk.vstore.client.DialogUtils:
+    public static final int DLG_NO_NETWORK
+    public static final int DLG_CONN_TO_SERVER_FAIL
+    public static final int DLG_API_RET_FAIL
+    public static final int DLG_API_RET_NEW_CLIENT
+cn.com.vapk.vstore.client.DialogUtils$ApiInvokerStopCancelListener:
+    258:262:DialogUtils$ApiInvokerStopCancelListener(tw.com.sti.store.api.ApiInvoker,android.app.Activity)
+cn.com.vapk.vstore.client.EulaActivity:
+    60:61:public static boolean isAgreeEula(android.content.Context)
+    66:68:public static void agreeEula(android.content.Context)
+cn.com.vapk.vstore.client.FeatureAppsActivity:
+    private static final java.lang.String CAT_ID
+cn.com.vapk.vstore.client.LoginActivity:
+    private static final java.lang.String PREF_KEY_AUTO_LOGIN_CHECKED
+    281:281:public static final boolean isLogin()
+cn.com.vapk.vstore.client.Manifest
+cn.com.vapk.vstore.client.Manifest$permission
+cn.com.vapk.vstore.client.MyDownloadActivity:
+    private static final java.lang.String CAT_ID
+cn.com.vapk.vstore.client.PageableAppsAdapter:
+    private static final int LOAD_POINT
+cn.com.vapk.vstore.client.R
+cn.com.vapk.vstore.client.R$array
+cn.com.vapk.vstore.client.R$attr
+cn.com.vapk.vstore.client.R$color
+cn.com.vapk.vstore.client.R$dimen
+cn.com.vapk.vstore.client.R$drawable
+cn.com.vapk.vstore.client.R$id
+cn.com.vapk.vstore.client.R$integer
+cn.com.vapk.vstore.client.R$layout
+cn.com.vapk.vstore.client.R$menu
+cn.com.vapk.vstore.client.R$raw
+cn.com.vapk.vstore.client.R$string
+cn.com.vapk.vstore.client.R$style
+cn.com.vapk.vstore.client.RateAppActivity:
+    private static final int DLG_LOADING
+cn.com.vapk.vstore.client.RegisterActivity:
+    private static final int DLG_LOADING
+    305:305:public static final boolean isLogin()
+    309:309:public static final boolean isAutoLogin(android.content.Context)
+    313:340:public static final java.lang.String autoLogin(android.content.Context)
+cn.com.vapk.vstore.client.ReportAppActivity:
+    private static final int DLG_LOADING
+cn.com.vapk.vstore.client.SearchResultActivity:
+    private static final java.lang.String CAT_ID
+cn.com.vapk.vstore.client.SettingActivity:
+    153:197:private void showFilterDialog()
+cn.com.vapk.vstore.client.UI:
+    96:103:static final void bindHTML(android.view.View,int,java.lang.String)
+cn.com.vapk.vstore.client.api.AppStatusReceiver:
+    private static final java.lang.String ACTION_APP_RATING
+    private static final java.lang.String ACTION_APP_PAY_STATUS
+    private static final java.lang.String EXTRA_PACKAGE_NAME
+    private static final java.lang.String EXTRA_APP_RATING_SCORE
+    private static final java.lang.String EXTRA_APP_PAY_STATUS
+    private static final java.lang.String EXTRA_APP_SUBSCRIBE_EXP_DATE
+    static final java.lang.String PERMISSION_APP_STATUS_RECEIVER
+    134:138:public static final void broadcastPayProcessing(android.content.Context,java.lang.String)
+cn.com.vapk.vstore.client.installapp.ActionController:
+    static final java.lang.String EXTRA_PACKAGE_NAME
+    static final java.lang.String EXTRA_CATEGORY_ID
+    static final java.lang.String EXTRA_APP_TITLE
+    static final java.lang.String EXTRA_APP_VERSION
+    static final java.lang.String EXTRA_V_LOG_ID
+    public static final java.lang.String CATEGORY_ID_SDK_UPGRADE_APP
+cn.com.vapk.vstore.client.installapp.AppInstallLog:
+    51:51:public int getReasonId()
+    55:56:public void setReasonId(int)
+    59:59:public java.lang.String getToken()
+    63:64:public void setToken(java.lang.String)
+    67:67:public int getVersion()
+    71:72:public void setVersion(int)
+    75:75:public java.lang.String getDownloadId()
+    79:80:public void setDownloadId(java.lang.String)
+    88:88:public java.lang.String getDownType()
+    97:97:public java.lang.String getIccid()
+    106:106:public int getInstallRet()
+    115:115:public java.util.Date getInstallTime()
+    124:124:public java.lang.String getPhoneNo()
+    133:133:public java.lang.String getPkgId()
+    142:142:public java.lang.String getUserId()
+    151:152:public void setDownType(java.lang.String)
+    160:161:public void setIccid(java.lang.String)
+    169:170:public void setInstallRet(int)
+    178:179:public void setInstallTime(java.util.Date)
+    187:188:public void setPhoneNo(java.lang.String)
+    196:197:public void setPkgId(java.lang.String)
+    205:206:public void setUserId(java.lang.String)
+    209:209:public int getFailCode()
+    213:214:public void setFailCode(int)
+cn.com.vapk.vstore.client.installapp.AppInstallReceiver:
+    private static final java.lang.String ACTION_DL_FINISH
+    private static final java.lang.String ACTION_DL_PCT
+    private static final java.lang.String ACTION_DL_FAIL
+cn.com.vapk.vstore.client.installapp.DownloadAppInfo:
+    private static final long serialVersionUID
+    private int fail
+    70:70:int getFail()
+    80:85:void cancel()
+cn.com.vapk.vstore.client.installapp.DownloadAppThread:
+    262:267:public void cancel()
+cn.com.vapk.vstore.client.installapp.DownloadStatus:
+    static final java.lang.String AUTHORITY
+    static final java.lang.String CONTENT_TYPE
+    static final java.lang.String CONTENT_ITEM_TYPE
+    static final java.lang.String DEFAULT_SORT_ORDER
+    static final java.lang.String COLUMN_ID
+    static final java.lang.String COLUMN_DOWNLOAD_ID
+    static final java.lang.String COLUMN_PKGNAME
+    static final java.lang.String COLUMN_DOWNLOAD_TIME
+cn.com.vapk.vstore.client.installapp.DownloadStatusProvider:
+    private static final java.lang.String DATABASE_NAME
+    private static final int DATABASE_VERSION
+    private static final java.lang.String TABLE_NAME
+cn.com.vapk.vstore.client.installapp.InstallLog:
+    static final java.lang.String AUTHORITY
+    static final java.lang.String CONTENT_TYPE
+    static final java.lang.String CONTENT_ITEM_TYPE
+    static final java.lang.String DEFAULT_SORT_ORDER
+    static final java.lang.String COLUMN_TOKEN
+    static final java.lang.String COLUMN_USER_ID
+    static final java.lang.String COLUMN_ICCID
+    static final java.lang.String COLUMN_PACKAGE
+    static final java.lang.String COLUMN_VERSION
+    static final java.lang.String COLUMN_VERSION_CHECK
+    static final java.lang.String COLUMN_PHONE_NUMBER
+    static final java.lang.String COLUMN_DOWNLOAD_ID
+    static final java.lang.String COLUMN_FAIL_CODE
+    static final java.lang.String COLUMN_REASON_ID
+    static final java.lang.String COLUMN_DONW_TYPE
+    static final java.lang.String COLUMN_EVENT_DATETIME
+    static final java.lang.String COLUMN_EVENT_TYPE
+    static final int FAIL_CODE_NETWORK
+    static final int FAIL_CODE_NETWORK_OR_FILE_WRITE
+    private static final java.lang.String VALUE_DONW_TYPE_MOBILE
+cn.com.vapk.vstore.client.installapp.InstallLogProvider:
+    private static final int INSTALL_LOG
+    private static final int INSTALL_LOG_ID
+    private static final java.lang.String DATABASE_NAME
+    private static final int DATABASE_VERSION
+    private static final int DATABASE_VERSION_FOR_VERSION_CHECK
+    private static final java.lang.String TABLE_NAME
+cn.com.vapk.vstore.client.installapp.InstallLogSenderService$LocalBinder:
+    26:26:cn.com.vapk.vstore.client.installapp.InstallLogSenderService getService()
+cn.com.vapk.vstore.client.payment.ActionController:
+    private static final java.lang.String ACTION_PAYMENT
+    17:17:public static final java.lang.String GET_ACTION_PAYMENT()
+    21:22:public static final void payment(android.app.Activity,java.lang.String)
+cn.com.vapk.vstore.client.payment.GPayActivity:
+    static final java.lang.String EXTRA_PKG_NAME
+    static final java.lang.String EXTRA_APP_TITLE
+    static final java.lang.String EXTRA_APP_PRICE
+    static final java.lang.String EXTRA_APP_PRICE_TYPE
+cn.com.vapk.vstore.client.receiver.LoginEventReceiver:
+    52:52:void previousWork()
+cn.com.vapk.vstore.client.search.SearchSuggestionProvider:
+    public static final java.lang.String AUTHORITY
+    public static final int MODE
+cn.com.vapk.vstore.client.update.ActionController:
+    static final java.lang.String ACTION_CHECK_CLIENT_VERSION
+    static final java.lang.String ACTION_CHECK_APPS_VERSION
+    public static final java.lang.String ACTION_CHECK_APPS_VERSION_OPEN_MYDOWNLOAD
+    static final java.lang.String EXTRA_NEW_CLIENT_ALERT_INFO
+    static final int NOTI_ID_CHECK_CLIENT_VERSION
+    static final int NOTI_CHECK_NEW_CLIENT_ID
+cn.com.vapk.vstore.client.update.ActionController$NewClientAlertInfo:
+    private static final long serialVersionUID
+cn.com.vapk.vstore.client.update.CheckAppsVersionReceiver:
+    private static final java.lang.String PREF_NAME
+    private static final java.lang.String PREF_KEY_CHECK_APP_VERSION_TIME
+cn.com.vapk.vstore.client.update.CheckClientVersionReceiver:
+    private static final java.lang.String PREF_NAME
+    private static final java.lang.String PREF_KEY_CHECK_TIME
+cn.com.vapk.vstore.client.usage.ActionController:
+    public static final java.lang.String ACTION_CLIENT_USAGE
+    public static final java.lang.String EXTRA_USER_ID
+    public static final java.lang.String EXTRA_USER_UID
+    public static final java.lang.String EXTRA_IS_FIRST_TIME
+cn.com.vapk.vstore.client.usage.ClientUsage:
+    private static final java.lang.String AUTHORITY
+    static final java.lang.String COLUMN_UID
+    static final java.lang.String COLUMN_USER_ID
+    static final java.lang.String COLUMN_ICCID
+    static final java.lang.String COLUMN_IMEI
+    static final java.lang.String COLUMN_IMSI
+    static final java.lang.String COLUMN_MSISDN
+    static final java.lang.String COLUMN_CLIENT_VERSION
+    static final java.lang.String COLUMN_TIME
+    static final java.lang.String COLUMN_DEVICE_MODEL_NAME
+    static final java.lang.String COLUMN_IS_FIRST_TIME
+cn.com.vapk.vstore.client.usage.ClientUsageProvider:
+    private static final java.lang.String DATABASE_NAME
+    private static final int DATABASE_VERSION
+    private static final java.lang.String TABLE_NAME
+    private static final int DATA_MAX_SIZE
+cn.com.vapk.vstore.client.util.AsyncTask:
+    private static final java.lang.String LOG_TAG
+    private static final int CORE_POOL_SIZE
+    private static final int MAXIMUM_POOL_SIZE
+    private static final int KEEP_ALIVE
+    private static final int MESSAGE_POST_RESULT
+    private static final int MESSAGE_POST_PROGRESS
+    private static final int MESSAGE_POST_CANCEL
+    243:243:public final java.lang.Object get()
+    268:268:public final java.lang.Object get(long,java.util.concurrent.TimeUnit)
+    323:325:protected final void publishProgress(java.lang.Object[])
+cn.com.vapk.vstore.client.util.BitmapUtils:
+    private static final int TIMEOUT_TIME
+    private static final boolean TIMEOUT
+cn.com.vapk.vstore.client.util.ConcurrentIntentService:
+    private boolean m_bRedelivery
+    protected abstract void onHandleIntent(android.content.Intent)
+    22:23:public void setIntentRedelivery(boolean)
+    26:31:public void cancel()
+    35:43:public void onStart(android.content.Intent,int)
+    47:48:public int onStartCommand(android.content.Intent,int,int)
+    53:53:public android.os.IBinder onBind(android.content.Intent)
+    15:15:static java.util.concurrent.ConcurrentHashMap access$0(cn.com.vapk.vstore.client.util.ConcurrentIntentService)
+cn.com.vapk.vstore.client.util.ConcurrentIntentService$MyMyAsyncTask
+cn.com.vapk.vstore.client.util.Constants
+cn.com.vapk.vstore.client.util.DebugUtils:
+    8:8:public static final java.lang.String flags(android.content.Intent)
+cn.com.vapk.vstore.client.util.ImageDownloader:
+    private static final int HARD_CACHE_CAPACITY
+    private static final int DELAY_BEFORE_PURGE
+    311:313:public final void setMode(cn.com.vapk.vstore.client.util.ImageDownloader$Mode)
+cn.com.vapk.vstore.client.util.ImageDownloader$1:
+    private static final long serialVersionUID
+cn.com.vapk.vstore.utils.NetworkUtilities:
+    34:34:public static org.apache.http.client.HttpClient getHttpClient()
+    38:52:public static org.apache.http.client.HttpClient getHttpClient(int)
+    60:63:public static final void checkNetworkOpen(android.app.Activity)
+    66:67:public static final void showNoNetworkAlertDialog(android.app.Activity)
+com.alipay.android.app.IAliPay
+com.alipay.android.app.IAliPay$Stub
+com.alipay.android.app.IAliPay$Stub$Proxy
+com.alipay.android.app.IAlixPay$Stub:
+    private static final java.lang.String DESCRIPTOR
+    static final int TRANSACTION_Pay
+    static final int TRANSACTION_test
+    static final int TRANSACTION_registerCallback
+    static final int TRANSACTION_unregisterCallback
+    39:39:public android.os.IBinder asBinder()
+com.alipay.android.app.IAlixPay$Stub$Proxy:
+    102:102:public java.lang.String getInterfaceDescriptor()
+com.alipay.android.app.IRemoteServiceCallback$Stub:
+    private static final java.lang.String DESCRIPTOR
+    static final int TRANSACTION_startActivity
+com.alipay.android.app.IRemoteServiceCallback$Stub$Proxy:
+    86:86:public java.lang.String getInterfaceDescriptor()
+com.unionpay.upomp.lthj.link.PluginLink
+com.unionpay.upomp.lthj.plugin.ui.test.BuildConfig
+com.unionpay.upomp.lthj.plugin.ui.test.Manifest
+com.unionpay.upomp.lthj.plugin.ui.test.Manifest$permission
+com.unionpay.upomp.lthj.plugin.ui.test.R
+com.unionpay.upomp.lthj.plugin.ui.test.R$array
+com.unionpay.upomp.lthj.plugin.ui.test.R$attr
+com.unionpay.upomp.lthj.plugin.ui.test.R$color
+com.unionpay.upomp.lthj.plugin.ui.test.R$dimen
+com.unionpay.upomp.lthj.plugin.ui.test.R$drawable
+com.unionpay.upomp.lthj.plugin.ui.test.R$id
+com.unionpay.upomp.lthj.plugin.ui.test.R$integer
+com.unionpay.upomp.lthj.plugin.ui.test.R$layout
+com.unionpay.upomp.lthj.plugin.ui.test.R$menu
+com.unionpay.upomp.lthj.plugin.ui.test.R$raw
+com.unionpay.upomp.lthj.plugin.ui.test.R$string
+com.unionpay.upomp.lthj.plugin.ui.test.R$style
+tw.com.sti.clientsdk.Base64Coder:
+    39:39:public static java.lang.String encodeString(java.lang.String)
+    53:53:public static char[] encode(byte[])
+    69:89:public static char[] encode(byte[],int)
+    104:104:public static java.lang.String decodeString(java.lang.String)
+tw.com.sti.clientsdk.LicenseManager:
+    private static final java.lang.String EXTRA_CALLER_PKG
+    private static final java.lang.String EXTRA_WIDGET_CALLBACK
+    protected static final int DIALOG_AQURING_DATA
+    protected static final int DIALOG_SERVICE_TERMINATION
+    protected static final int DIALOG_NETWORK_FAILED
+    protected static final int DIALOG_SUGGESTION_PAYSTATUS_UNKNOW
+    protected static final int DIALOG_APP_NOT_PUBLISH_YET
+    protected static final int ON_USE
+    403:404:public void setAppInfo(tw.com.sti.store.api.vo.SdkAppInfoRet$SdkApp)
+tw.com.sti.clientsdk.LicenseTool:
+    48:60:public static boolean hasLicense(android.content.Context,java.lang.String)
+tw.com.sti.clientsdk.LoginActivity:
+    23:23:public final tw.com.sti.clientsdk.LoginCallback getCallback()
+tw.com.sti.clientsdk.ShoppingCartActivity:
+    static final java.lang.String CMD_PAY_PLUGIN
+    static final java.lang.String CMD_USERS_PLUGIN
+    public static final java.lang.String RET_SUCCESS
+    public static final java.lang.String RET_CREATE_ORDER_FAIL
+    public static final java.lang.String RET_PROCESS_FAIL
+    public static final java.lang.String RET_PAY_FAIL
+    public static final java.lang.String TYPE_RSA
+    public static final java.lang.String TYPE_DSA
+    public static final java.lang.String TYPE_MD5
+    public static final int PAY_BY_GPAY
+    public static final int PAY_BY_UNIONPAY
+    public static final int PAY_BY_PEPAY
+tw.com.sti.clientsdk.gpay.AlixDefine
+tw.com.sti.clientsdk.gpay.AlixId
+tw.com.sti.clientsdk.gpay.Base64:
+    private static final int BASELENGTH
+    private static final int LOOKUPLENGTH
+    private static final int TWENTYFOURBITGROUP
+    private static final int EIGHTBIT
+    private static final int SIXTEENBIT
+    private static final int FOURBYTE
+    private static final int SIGN
+    private static final char PAD
+    private static final boolean fDebug
+tw.com.sti.clientsdk.gpay.Rsa:
+    private static final java.lang.String ALGORITHM
+    public static final java.lang.String SIGN_ALGORITHMS
+    33:37:private static java.security.PublicKey getPublicKeyFromX509(java.lang.String,java.lang.String)
+    44:60:public static java.lang.String encrypt(java.lang.String,java.lang.String)
+tw.com.sti.clientsdk.provider.AppSdkProvider:
+    private static final int LICENSE
+    private static final int APP_STRORE_LIST
+    private static final int APP_SDK_PROCESS
+    private static final int APP_PAYMENT_INFO
+    private static final int APP_SELF_PURCHASE_LICENSE
+    private static final int SUPPORT_APP_SELF_PURCHASE
+    private static final int SUPPORT_SERVER_PRODUCT_PURCHASE
+    private static final int USER_UID
+    private static final long DATABASE_MAX_SIZE
+    private static final int DATABASE_VERSION
+    private static final java.lang.String TABLE_NAME
+tw.com.sti.clientsdk.unionpay.Base64:
+    private static final int BASELENGTH
+    private static final int LOOKUPLENGTH
+    private static final int TWENTYFOURBITGROUP
+    private static final int EIGHTBIT
+    private static final int SIXTEENBIT
+    private static final int FOURBYTE
+    private static final int SIGN
+    private static final char PAD
+    private static final boolean fDebug
+    11:13:public static void main(java.lang.String[])
+    62:62:private static boolean isWhiteSpace(char)
+    66:66:private static boolean isPad(char)
+    70:70:private static boolean isData(char)
+    172:259:public static byte[] decode(java.lang.String)
+    269:281:private static int removeWhiteSpace(char[])
+tw.com.sti.clientsdk.unionpay.XmlDefinition:
+    16:59:public static java.lang.String SubmitOrder(boolean,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+    97:106:public static java.lang.String CreateOriginalSign7(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+    110:116:public static java.lang.String CreateOriginalSign3(java.lang.String,java.lang.String,java.lang.String)
+tw.com.sti.clientsdk.unionpay.XmlHttpConnection
+tw.com.sti.security.Dsa:
+    17:24:public static void makeDSAKey()
+    43:56:public static boolean verify(java.lang.String,java.lang.String,java.lang.String)
+    60:66:public static void main(java.lang.String[])
+tw.com.sti.security.util.Base64Coder:
+    104:104:public static java.lang.String decodeString(java.lang.String)
+tw.com.sti.store.api.ApiDataInvalidException:
+    private static final long serialVersionUID
+    private org.json.JSONObject json
+    private java.lang.Class clazz
+    15:17:public ApiDataInvalidException(org.json.JSONObject,java.lang.Class)
+    30:30:public org.json.JSONObject getJson()
+    34:34:public java.lang.Class getClazz()
+tw.com.sti.store.api.ApiDataParseException:
+    private static final long serialVersionUID
+tw.com.sti.store.api.ApiDataParseHandler$SAXApiDataParseHandler
+tw.com.sti.store.api.ApiInvoker:
+    private static final int STATUS_SUCCESS
+    private static final int STATUS_INVOKE_FAIL
+    private static final int STATUS_HTTP_RESPONSE_STATUS_CODE_NOT_200
+    private static final int STATUS_RET_DATA_INVALID
+    private static final int STATUS_INVOKE_STOP
+    300:301:public void setConfig(tw.com.sti.store.api.Configuration)
+tw.com.sti.store.api.ApiService:
+    private tw.com.sti.store.api.Configuration config
+    private tw.com.sti.store.api.ApiUrl apiUrl
+    private static tw.com.sti.store.api.ApiService service
+    22:25:private ApiService(tw.com.sti.store.api.Configuration)
+    27:30:public static synchronized tw.com.sti.store.api.ApiService getInstance(tw.com.sti.store.api.Configuration)
+    33:70:public java.util.List addRequestParams(java.util.List,tw.com.sti.store.api.CommonParameter,boolean,java.lang.String,java.lang.String)
+    73:87:public java.util.List addRequestParams(java.util.List,java.lang.String[],java.lang.String[])
+    90:93:public tw.com.sti.store.api.ApiInvoker login(tw.com.sti.store.api.CommonParameter,java.lang.String,java.lang.String)
+tw.com.sti.store.api.ApiUrl:
+    32:32:public java.lang.String getLicenseUrl()
+    83:83:public java.lang.String getOverPaymentQuotaUrl(java.lang.String)
+tw.com.sti.store.api.CommonParameter
+tw.com.sti.store.api.Configuration:
+    private java.lang.String unionPayPrivateKeyFileName
+    private java.lang.String unionPayAlias
+    private java.lang.String unionPayPassword
+    private java.lang.String unionPayMerchantId
+    private java.lang.String unionPayMerchantName
+    private java.lang.String unionPayTransTimeout
+    private java.lang.String unionPayBackEndUrl
+    private java.lang.String unionPayMerchant_public_cer
+    private java.lang.String unionPayCheckSignUrl
+    45:45:public java.lang.String getApiPayHttpsURL()
+    62:63:public void setApiHttpsPort(int)
+    92:93:public void setServerType(tw.com.sti.store.api.Configuration$RUNTIME_SERVER_TYPE)
+    107:107:public java.lang.String getUnionPayPrivateKeyFileName()
+    110:111:public void setUnionPayPrivateKeyFileName(java.lang.String)
+    113:113:public java.lang.String getUnionPayAlias()
+    116:117:public void setUnionPayAlias(java.lang.String)
+    119:119:public java.lang.String getUnionPayPassword()
+    122:123:public void setUnionPayPassword(java.lang.String)
+    125:125:public java.lang.String getUnionPayMerchantId()
+    128:129:public void setUnionPayMerchantId(java.lang.String)
+    131:131:public java.lang.String getUnionPayMerchantName()
+    134:135:public void setUnionPayMerchantName(java.lang.String)
+    138:138:public java.lang.String getUnionPayTransTimeout()
+    141:142:public void setUnionPayTransTimeout(java.lang.String)
+    144:144:public java.lang.String getUnionPayBackEndUrl()
+    147:148:public void setUnionPayBackEndUrl(java.lang.String)
+    150:150:public java.lang.String getUnionPayMerchant_public_cer()
+    153:154:public void setUnionPayMerchant_public_cer(java.lang.String)
+    156:156:public java.lang.String getUnionPayCheckSignUrl()
+    159:160:public void setUnionPayCheckSignUrl(java.lang.String)
+    168:168:public int getApiPayHttpsPort()
+    171:172:public void setApiPayHttpsPort(int)
+tw.com.sti.store.api.android.AndroidApiService:
+    private static final java.lang.String PREF_NAME
+    private static final java.lang.String PREF_KEY_TOKEN
+    private static final java.lang.String PREF_KEY_USER_ID
+    private static final java.lang.String PREF_KEY_UID
+    private static final java.lang.String PREF_KEY_SUBSCRIBER_ID
+    private static final java.lang.String PREF_KEY_SIM_SERIAL_NUMBER
+    private static final java.lang.String PREF_KEY_APP_FILTER
+    595:601:public tw.com.sti.store.api.ApiInvoker overPaymentQuota(java.lang.String)
+tw.com.sti.store.api.android.util.AppUtils:
+    19:29:public static final boolean hasNewVersion(android.content.Context,java.lang.String,int)
+tw.com.sti.store.api.android.util.Logger:
+    private static final java.lang.String DEFAULT_TAG
+    15:15:public static boolean isLogable()
+    44:46:public static final void logd(java.lang.Class,java.lang.String)
+    49:51:public static final void loge(java.lang.Class,java.lang.String,java.lang.Throwable)
+    54:56:public final void i(java.lang.String)
+    79:81:public final void w(java.lang.String,java.lang.Throwable)
+    95:97:public static final void i(java.lang.String,java.lang.Class)
+    100:102:public static final void i(java.lang.String,java.lang.Throwable,java.lang.Class)
+    105:107:public static final void d(java.lang.String,java.lang.Class)
+    110:112:public static final void d(java.lang.String,java.lang.Throwable,java.lang.Class)
+    115:117:public static final void w(java.lang.String,java.lang.Class)
+    120:122:public static final void w(java.lang.String,java.lang.Throwable,java.lang.Class)
+    125:127:public static final void e(java.lang.String,java.lang.Class)
+    130:132:public static final void e(java.lang.String,java.lang.Throwable,java.lang.Class)
+tw.com.sti.store.api.util.LangUtils:
+    24:26:public static final int parseInt(java.lang.String,int)
+    32:34:public static final float parseFloat(java.lang.String,float)
+    39:43:public static final java.util.Date parseDate(java.lang.String,java.lang.String)
+tw.com.sti.store.api.vo.AppConvert
+tw.com.sti.store.api.vo.AppInfo$Status:
+    public static final int TYPE_FREE
+    public static final int TYPE_ONE_TIME
+    public static final int TYPE_MONTHLY
+    public static final int TYPE_IN_APP_PURCHASE
+    public static final int TYPE_SERVER_PRODUCT_PURCHASE
+    public static final int INSTALLED
+    public static final int NEW_VERSION
+    public static final int PAID
+    public static final int SUBSCRIBE
+    public static final int UN_SUBSCRIBE_NOT_EXP
+tw.com.sti.store.api.vo.ApplicationRet$Application:
+    private static final long serialVersionUID
+    138:138:public int getApkBytes()
+tw.com.sti.store.api.vo.AppsRet$App:
+    private static final long serialVersionUID
+    91:105:public static tw.com.sti.store.api.vo.AppsRet$App getAppfromApplication(tw.com.sti.store.api.vo.ApplicationRet$Application)
+    128:128:public java.lang.String getProvider()
+tw.com.sti.store.api.vo.BaseRet:
+    45:45:public final java.lang.String getResult()
+    53:53:public final java.lang.String getSysMsg()
+tw.com.sti.store.api.vo.CategoryAppsRet:
+    28:28:public java.lang.String getCategoryId()
+tw.com.sti.store.api.vo.CheckAppStoreRet:
+    105:106:public void setStores(tw.com.sti.store.api.vo.CheckAppStoreRet$Store[])
+tw.com.sti.store.api.vo.CheckAppStoreRet$Store:
+    80:81:public void setId(java.lang.String)
+    88:89:public void setName(java.lang.String)
+    96:97:public void setDownloadUrl(java.lang.String)
+tw.com.sti.store.api.vo.CheckClientVersionRet$NewClient:
+    58:58:public int getVersion()
+tw.com.sti.store.api.vo.CommentsRet$Comment:
+    private static final long serialVersionUID
+    78:78:public java.lang.String getId()
+tw.com.sti.store.api.vo.IPLoginRet:
+    50:50:public boolean isIpLogin()
+tw.com.sti.store.api.vo.LicenseInfoRet$LicenseInfo:
+    60:61:public void setId(java.math.BigDecimal)
+    68:69:public void setPkg(java.lang.String)
+    76:77:public void setData(java.lang.String)
+    84:85:public void setSign(java.lang.String)
+tw.com.sti.store.api.vo.LicenseRet
+tw.com.sti.store.api.vo.LicenseRet$LicenseRetHandler
+tw.com.sti.store.api.vo.LicenseRet$SingleLicenseRetHandler
+tw.com.sti.store.api.vo.NewClientInfo:
+    33:33:public int getApkBytes()
+tw.com.sti.store.api.vo.OrderInfo:
+    62:62:public int getVersion()
+    70:70:public java.lang.String getIcon()
+    82:82:public byte getPriceType()
+    86:86:public int getPayStatus()
+    94:94:public java.lang.String getPriceText()
+    114:114:public int getPayType()
+tw.com.sti.store.api.vo.OverPaymentQuotaRet:
+    34:34:public boolean isOverQuota()
+    38:38:public java.lang.String getOverQuotaMsg()
+tw.com.sti.store.api.vo.PePayOrderRet:
+    36:36:public java.lang.String getOrderNo()
+tw.com.sti.store.api.vo.SdkAppInfoRet$SdkApp:
+    85:85:public boolean isPayProcessing()
+    116:116:public java.lang.String getPriceText()
+    132:132:public java.lang.String getRatingTimes()
+tw.com.sti.store.api.vo.UPayConfig:
+    34:35:public void setCheckSignUrl(java.lang.String)
+    40:41:public void setMerchantId(java.lang.String)
+    46:47:public void setMerchantName(java.lang.String)
+    52:53:public void setMerchantPublicCer(java.lang.String)
+    58:59:public void setPrivateKeyFileName(java.lang.String)
+    64:65:public void setPrivateKeyAlias(java.lang.String)
+    70:71:public void setPrivateKeyPassword(java.lang.String)
+    76:77:public void setTransTimeout(java.lang.String)
+    82:83:public void setBackEndUrl(java.lang.String)
+    88:89:public void setIsTest(java.lang.String)

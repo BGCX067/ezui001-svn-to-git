@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+    android:background="#a64200">
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+    <RelativeLayout
+		style="@style/iPay_HeaderLayout">
+    	<TextView
+    		style="@style/iPay_HeaderText" />
+    	<ImageView
+			style="@style/iPay_HeaderIcon" />
+    </RelativeLayout>
+    
+    <LinearLayout
+		style="@style/iPay_ContextLayout">
+    	<LinearLayout
+    		style="@style/iPay_TitleLayout">
+    		<ImageView
+    			style="@style/iPay_TitleIcon" />
+		    <TextView
+		    	style="@style/iPay_TitleText"
+		    	android:text="請再次輸入您的FETnet密碼, 以確保交易安全" />
+    	</LinearLayout>
+
+    	<ImageView
+			style="@style/iPay_TitleLine" />
+
+		<LinearLayout
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content">
+		    <TextView
+		    	android:layout_width="wrap_content"
+		    	android:layout_height="wrap_content"
+		    	android:text="帳號" />
+		    <EditText android:id="@+id/account"
+		    	android:layout_width="fill_parent"
+		    	android:layout_height="wrap_content"
+		    	android:layout_weight="1"
+		    	android:layout_marginLeft="20dp"
+		    	android:layout_marginBottom="@dimen/pay_login_txt_margin"
+		    	android:singleLine="true"
+		    	android:editable="false"
+		    	android:enabled="false" />
+		</LinearLayout>
+		<LinearLayout
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content">
+		    <TextView
+		    	android:layout_width="wrap_content"
+		    	android:layout_height="wrap_content"
+		    	android:text="密碼" />
+		    <EditText android:id="@+id/password"
+		    	android:layout_width="fill_parent"
+		    	android:layout_height="wrap_content"
+		    	android:layout_marginLeft="20dp"
+		    	android:layout_weight="1"
+		    	android:password="true"
+		    	android:singleLine="true" />
+		</LinearLayout>
+
+	    <TextView
+	    	style="@style/iPay_HighLightText"
+	    	android:text="i-pay是FETnet會員在使用S市集的付款工具" />
+
+	    <LinearLayout
+	    	style="@style/iPay_ButtonLayout">
+		    <Button android:id="@+id/submit"
+		    	style="@style/iPay_Button"
+		    	android:text="登入" />
+	    </LinearLayout>
+    </LinearLayout>
+    
+    <TextView style="@style/iPay_Copyright" />
+    
+</LinearLayout>
+</ScrollView>

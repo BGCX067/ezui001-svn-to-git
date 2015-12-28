@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+    android:background="#a64200">
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+    <RelativeLayout
+		style="@style/iPay_HeaderLayout">
+    	<TextView
+    		style="@style/iPay_HeaderText" />
+    	<ImageView
+			style="@style/iPay_HeaderIcon" />
+    </RelativeLayout>
+    
+    <LinearLayout
+		style="@style/iPay_ContextLayout">
+    	<LinearLayout
+    		style="@style/iPay_TitleLayout">
+    		<ImageView
+    			style="@style/iPay_TitleIcon" />
+		    <TextView
+		    	style="@style/iPay_TitleText"
+		    	android:text="付款" />
+<!-- 		    <Button android:id="@+id/pay_method_setup" -->
+<!-- 		    	android:layout_width="wrap_content" -->
+<!-- 		    	android:layout_height="wrap_content" -->
+<!-- 		    	android:background="@drawable/ipay_paymethod_setup" /> -->
+    	</LinearLayout>
+
+    	<ImageView style="@style/iPay_TitleLine" />
+
+	    <LinearLayout
+	    	android:layout_width="fill_parent"
+	    	android:layout_height="wrap_content">
+
+		<!--<Button android:id="@+id/pay_method_action"
+		    	android:layout_width="63px"
+		    	android:layout_height="34px"
+		    	android:layout_marginLeft="@dimen/len_5px" /> -->
+
+	        <RadioGroup
+	            android:id="@+id/payment_methods"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content" >
+
+	            <RadioButton
+	                android:id="@+id/g_pay"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="支付宝" />
+
+	            <RadioButton
+	                android:id="@+id/union_pay"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="银联" />
+	        </RadioGroup>
+
+	    </LinearLayout>
+	    <TextView android:id="@+id/pay_method_detail"
+	    	android:layout_width="fill_parent"
+	    	android:layout_height="wrap_content"
+	    	android:visibility="gone"
+	    	android:text="Pay Method Detail" />
+
+		<ImageView style="@style/iPay_Line" />
+
+	    <LinearLayout
+	    	android:layout_width="fill_parent"
+	    	android:layout_height="wrap_content">
+		    <TextView android:id="@+id/app_title"
+		    	android:layout_width="fill_parent"
+		    	android:layout_height="wrap_content"
+		    	android:layout_weight="1"
+		    	android:paddingRight="5dp" />
+		    <TextView android:id="@+id/app_price_type"
+		    	android:layout_width="wrap_content"
+		    	android:layout_height="wrap_content" />
+		    <TextView android:id="@+id/app_price"
+		    	android:layout_width="wrap_content"
+		    	android:layout_height="wrap_content" />
+	    </LinearLayout>
+	    
+	    <LinearLayout
+	    	style="@style/iPay_ButtonLayout">
+		    <Button android:id="@+id/submit"
+		    	style="@style/iPay_Button"
+				android:text="確定" />
+		    <Button android:id="@+id/cancel"
+		    	style="@style/iPay_Button"
+				android:text="取消" />
+	    </LinearLayout>
+    </LinearLayout>
+    
+    <TextView style="@style/iPay_Copyright" />
+    
+</LinearLayout>
+</ScrollView>

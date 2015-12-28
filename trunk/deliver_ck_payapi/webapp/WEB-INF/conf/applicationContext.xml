@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id$ -->
+
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:mvc="http://www.springframework.org/schema/mvc" 
+    xmlns:tx="http://www.springframework.org/schema/tx" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+
+    <!-- 設定JNDI -->
+    <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName" value="java:/comp/env/vstoreck/apds" />
+    </bean>
+
+    <!-- 設定ibatis的dataSource到sqlMapClient -->
+    <bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+        <property name="configLocation" value="classpath:sql-map-config.xml" />
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <!-- 設定ibatis的sqlMapClient到sqlMapClientTemplate -->
+    <bean id="sqlMapClientTemplate" class="org.springframework.orm.ibatis.SqlMapClientTemplate">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean> 
+    <!-- Vendor-specific JTA Transaction Manager Auto-Detection -->
+<!--     <tx:jta-transaction-manager /> -->
+
+    <!-- Enables interpretation of the @Transactional annotation for declerative transaction managment
+         using the specified JtaTransactionManager -->
+    <tx:annotation-driven />
+
+    <!-- 設定ResourceBundleMessageSource -->
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource"> 
+        <property name="basenames"> 
+             <list>
+                <value>applicationMessage</value>
+            </list>
+        </property> 
+    </bean>
+    <bean id="configurationMessageSource" class="org.springframework.context.support.ResourceBundleMessageSource"> 
+        <qualifier value="configurationMessageSource"/>
+        <property name="basename"> 
+            <value>configuration</value> 
+        </property> 
+    </bean>
+
+    <!-- 設定註釋注册到Spring容器 -->
+    <context:annotation-config />
+
+    <!-- 在base-package下尋找有@Component和@Configuration的target Class予註冊為bean -->
+    <context:component-scan base-package="cn.vstore.appserver.service" />
+    <context:component-scan base-package="cn.vstore.appserver.api" />
+    <context:component-scan base-package="cn.vstore.appserver.conf" />
+    <context:component-scan base-package="cn.vstore.appserver.util" />
+    <context:component-scan base-package="cn.vstore.appserver.apilog" />
+    <context:component-scan base-package="cn.vstore.appserver.web.api" />
+
+    <!-- 設定mvc:interceptors -->
+    <mvc:interceptors>
+        <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" />
+    </mvc:interceptors>
+
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/api/login/**"/>
+            <mvc:mapping path="/api/iplogin/**"/>
+            <mvc:mapping path="/api/vpadlogin/**"/>
+            <mvc:mapping path="/api/register/**"/>
+            <mvc:mapping path="/api/client/usage"/>
+            <mvc:mapping path="/api/payment/**"/>
+            <mvc:mapping path="/api/my/appversions/**"/>
+
+            <bean class="cn.vstore.appserver.interceptor.VerifyCommonParameters" />
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <!-- 收藏 -->
+            <mvc:mapping path="/api/apps/collect"/>
+            <mvc:mapping path="/api/apps/delCollect"/>
+            <mvc:mapping path="/api/apps/isCollect"/>
+            <mvc:mapping path="/api/apps/collectAppList"/>
+            <mvc:mapping path="/api/apps/commentsAppList"/>
+            
+            <bean class="cn.vstore.appserver.interceptor.VerifySignature" />
+        </mvc:interceptor>
+        <mvc:interceptor>
+			<mvc:mapping path="/api/payment/**"/>
+			<mvc:mapping path="/api/ck/logs"/>
+            <mvc:mapping path="/api/ck/info/order/**"/>
+            <mvc:mapping path="/api/ck/order/user/cancel"/>
+            <bean class="cn.vstore.appserver.interceptor.VerifyAuthentication" />
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
+        <property name="prefix" value="/content/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
+
+    <mvc:annotation-driven />
+
+</beans>

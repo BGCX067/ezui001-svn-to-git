@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="userParas">
+
+	<typeAlias alias="paras" type="cn.vstore.appserver.model.UserParameter"/>
+	<typeAlias alias="behavior" type="cn.vstore.appserver.model.UserFeedbackBehavior"/>
+	<typeAlias alias="downloadtimes" type="cn.vstore.appserver.model.UserDownloadTimes"/>
+	<typeAlias alias="searchwords" type="cn.vstore.appserver.model.UserSearchwords"/>
+	<typeAlias alias="menufeed" type="cn.vstore.appserver.model.UserMenuFeed"/>
+	<typeAlias alias="feedapps" type="cn.vstore.appserver.model.UserFeedApp"/>
+	<typeAlias alias="categorys" type="cn.vstore.appserver.model.UserFeedCategory"/>
+	<typeAlias alias="fspaces" type="cn.vstore.appserver.model.UserFeedSpace"/>
+
+  <resultMap id="userParameters" class="paras">
+    <result column="id" jdbcType="Long" property="id" />
+    <result column="store" jdbcType="VARCHAR" property="store" />
+    <result column="aver" jdbcType="VARCHAR" property="aver" />
+    <result column="arel" jdbcType="VARCHAR" property="arel" />
+    <result column="model" jdbcType="VARCHAR" property="model" />
+    <result column="cpu" jdbcType="VARCHAR" property="cpu" />
+    <result column="brand" jdbcType="VARCHAR" property="brand" />
+    <result column="cver" jdbcType="VARCHAR" property="cver" />
+    <result column="lang" jdbcType="VARCHAR" property="lang" />
+    <result column="tzid" jdbcType="VARCHAR" property="tzid" />
+    <result column="tzrawoffset" jdbcType="VARCHAR" property="tzrawoffset" />
+    <result column="imei" jdbcType="VARCHAR" property="imei" />
+    <result column="mac" jdbcType="VARCHAR" property="mac" />
+    <result column="imsi" jdbcType="VARCHAR" property="imsi" />
+    <result column="iccid" jdbcType="VARCHAR" property="iccid" />
+    <result column="dvc" jdbcType="VARCHAR" property="dvc" />
+    <result column="wpx" jdbcType="VARCHAR" property="wpx" />
+    <result column="hpx" jdbcType="VARCHAR" property="hpx" />
+    <result column="appfilter" jdbcType="VARCHAR" property="appfilter" />
+    <result column="key_id" jdbcType="Long" property="keyId" />
+    <result column="snum" jdbcType="VARCHAR" property="snum" />
+  </resultMap>
+  
+  <resultMap id="behaviorResult" class="behavior" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="para_id" property="paraId" jdbcType="BIGINT" />
+    <result column="action_id" property="actionId" jdbcType="BIGINT" />
+    <result column="times" property="times" jdbcType="INTEGER" />
+    <result column="b_time" property="bTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  
+  <resultMap id="downloadtime" class="downloadtimes" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="pkgName" property="pkgname" jdbcType="VARCHAR" />
+    <result column="d_time" property="dTime" jdbcType="TIMESTAMP" />
+    <result column="para_id" property="paraId" jdbcType="BIGINT" />
+  </resultMap>
+  
+  <resultMap id="searchWordsResultMap" class="searchwords" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="keywords" property="keywords" jdbcType="VARCHAR" />
+    <result column="descr" property="descr" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="times" property="times" jdbcType="INTEGER" />
+    <result column="s_time" property="sTime" jdbcType="TIMESTAMP" />
+    <result column="para_id" property="paraId" jdbcType="BIGINT" />
+  </resultMap>
+  
+  <resultMap id="menufeedResultMap" class="menufeed" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="menu_id" property="menuId" jdbcType="BIGINT" />
+    <result column="para_id" property="paraId" jdbcType="BIGINT" />
+    <result column="m_time" property="mTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  
+  
+  <!-- 参数表 -->
+  <insert id="insertPara" parameterClass="paras">
+    insert into v_user_parameter (store, aver, arel, model, cpu,
+      brand, cver, lang, tzid, tzrawoffset, imei, mac, imsi, iccid, dvc, wpx, hpx, appfilter,
+      key_id,type,asktime,snum)
+    values (#store:VARCHAR#, #aver:VARCHAR#,
+      #arel:VARCHAR#, #model:VARCHAR#, #cpu:VARCHAR#, #brand:VARCHAR#, #cver:VARCHAR#,
+      #lang:VARCHAR#, #tzid:VARCHAR#, #tzrawoffset:VARCHAR#, #imei:VARCHAR#, #mac:VARCHAR#,
+      #imsi:VARCHAR#, #iccid:VARCHAR#, #dvc:VARCHAR#, #wpx:VARCHAR#, #hpx:VARCHAR#,
+      #appfilter:VARCHAR#, #keyId:BIGINT#, #type:VARCHAR#,#askTime:TIMESTAMP#,#snum:VARCHAR#)
+    <selectKey keyProperty="id" resultClass="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+  </insert>
+  <insert id="insertParaSelective" parameterClass="paras">
+    insert into v_user_parameter
+    <dynamic prepend="(">
+      <isNotNull prepend="," property="store">
+        store
+      </isNotNull>
+      <isNotNull prepend="," property="aver">
+        aver
+      </isNotNull>
+      <isNotNull prepend="," property="arel">
+        arel
+      </isNotNull>
+      <isNotNull prepend="," property="model">
+        model
+      </isNotNull>
+      <isNotNull prepend="," property="cpu">
+        cpu
+      </isNotNull>
+      <isNotNull prepend="," property="brand">
+        brand
+      </isNotNull>
+      <isNotNull prepend="," property="cver">
+        cver
+      </isNotNull>
+      <isNotNull prepend="," property="lang">
+        lang
+      </isNotNull>
+      <isNotNull prepend="," property="tzid">
+        tzid
+      </isNotNull>
+      <isNotNull prepend="," property="tzrawoffset">
+        tzrawoffset
+      </isNotNull>
+      <isNotNull prepend="," property="imei">
+        imei
+      </isNotNull>
+      <isNotNull prepend="," property="mac">
+        mac
+      </isNotNull>
+      <isNotNull prepend="," property="imsi">
+        imsi
+      </isNotNull>
+      <isNotNull prepend="," property="iccid">
+        iccid
+      </isNotNull>
+      <isNotNull prepend="," property="dvc">
+        dvc
+      </isNotNull>
+      <isNotNull prepend="," property="wpx">
+        wpx
+      </isNotNull>
+      <isNotNull prepend="," property="hpx">
+        hpx
+      </isNotNull>
+      <isNotNull prepend="," property="appfilter">
+        appfilter
+      </isNotNull>
+      <isNotNull prepend="," property="keyId">
+        key_id
+      </isNotNull>
+      <isNotNull prepend="," property="type">
+        type
+      </isNotNull>
+      <isNotNull prepend="," property="askTime">
+        asktime
+      </isNotNull>
+      <isNotNull prepend="," property="snum">
+        snum
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(">
+      <isNotNull prepend="," property="store">
+        #store:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="aver">
+        #aver:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="arel">
+        #arel:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="model">
+        #model:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="cpu">
+        #cpu:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="brand">
+        #brand:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="cver">
+        #cver:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="lang">
+        #lang:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="tzid">
+        #tzid:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="tzrawoffset">
+        #tzrawoffset:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="imei">
+        #imei:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="mac">
+        #mac:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="imsi">
+        #imsi:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="iccid">
+        #iccid:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="dvc">
+        #dvc:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="wpx">
+        #wpx:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="hpx">
+        #hpx:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="appfilter">
+        #appfilter:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="keyId">
+        #keyId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="type">
+        #type:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="askTime">
+        #askTime:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="snum">
+        #snum:VARCHAR#
+      </isNotNull>
+      )
+    </dynamic>
+    <selectKey keyProperty="id" resultClass="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+  </insert>
+  
+  <select id="getMaxId" resultClass="int">
+  		SELECT id FROM v_user_parameter ORDER BY id desc LIMIT 0,1
+  </select>
+  
+  <!-- 行为表 -->
+  <insert id="behavior_insert" parameterClass="behavior" >
+    insert into v_user_feedback_behavior (para_id, action_id, times, b_time)
+    values (#paraId:BIGINT#, #actionId:BIGINT#, #times:INTEGER#, #bTime:TIMESTAMP#)
+    <selectKey resultClass="java.lang.Long" keyProperty="id" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+  </insert>
+  <insert id="insertBehaviorSelective" parameterClass="behavior" >
+    insert into v_user_feedback_behavior
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="paraId" >
+        para_id
+      </isNotNull>
+      <isNotNull prepend="," property="actionId" >
+        action_id
+      </isNotNull>
+      <isNotNull prepend="," property="times" >
+        times
+      </isNotNull>
+      <isNotNull prepend="," property="bTime" >
+        b_time
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="paraId" >
+        #paraId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="actionId" >
+        #actionId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="times" >
+        #times:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="bTime" >
+        #bTime:TIMESTAMP#
+      </isNotNull>
+      )
+    </dynamic>
+    <selectKey resultClass="java.lang.Long" keyProperty="id" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+  </insert>
+  
+  <!-- 下载次数表 -->
+  <insert id="downloadtimes_insert" parameterClass="downloadtimes" >
+    insert into v_user_download_times (pkgName, d_time, para_id)
+    values (#pkgname:VARCHAR#, #dTime:TIMESTAMP#, #paraId:BIGINT#)
+    <selectKey resultClass="java.lang.Long" keyProperty="id" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+  </insert>
+  
+  <insert id="insertDownTimesSelective" parameterClass="downloadtimes" >
+    insert into v_user_download_times
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="pkgname" >
+        pkgName
+      </isNotNull>
+      <isNotNull prepend="," property="dTime" >
+        d_time
+      </isNotNull>
+      <isNotNull prepend="," property="paraId" >
+        para_id
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="pkgname" >
+        #pkgname:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="dTime" >
+        #dTime:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="paraId" >
+        #paraId:BIGINT#
+      </isNotNull>
+      )
+    </dynamic>
+    <selectKey resultClass="java.lang.Long" keyProperty="id" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+  </insert>
+  
+  <!-- 搜索关键字 -->
+  <insert id="searchwords_insert" parameterClass="searchwords" >
+    insert into v_user_searchwords (keywords, descr, remarks, times, s_time, para_id)
+    values (#keywords:VARCHAR#, #descr:VARCHAR#, #remarks:VARCHAR#, #times:INTEGER#,
+      #sTime:TIMESTAMP#, #paraId:BIGINT#)
+    <selectKey resultClass="java.lang.Long" keyProperty="id" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+  </insert>
+  <insert id="insertSearchWordsSelective" parameterClass="searchwords" >
+    insert into v_user_searchwords
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="keywords" >
+        keywords
+      </isNotNull>
+      <isNotNull prepend="," property="descr" >
+        descr
+      </isNotNull>
+      <isNotNull prepend="," property="remarks" >
+        remarks
+      </isNotNull>
+      <isNotNull prepend="," property="times" >
+        times
+      </isNotNull>
+      <isNotNull prepend="," property="sTime" >
+        s_time
+      </isNotNull>
+      <isNotNull prepend="," property="paraId" >
+        para_id
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="keywords" >
+        #keywords:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="descr" >
+        #descr:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="remarks" >
+        #remarks:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="times" >
+        #times:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="sTime" >
+        #sTime:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="paraId" >
+        #paraId:BIGINT#
+      </isNotNull>
+      )
+    </dynamic>
+    <selectKey resultClass="java.lang.Long" keyProperty="id" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+  </insert>
+  
+  <select id="selectCountByWords" parameterClass="java.lang.String" resultClass="java.lang.Integer" >
+    select count(*) from v_user_searchwords where keywords = #keywords:VARCHAR#
+  </select>
+  
+  	<update id="updateTimesByWords" parameterClass="java.util.HashMap">
+	<![CDATA[
+ 		update v_user_searchwords set times=#times# where keywords=#keywords# 
+	]]>
+	</update>
+	
+	<select id="selectSearchWordsByWords" parameterClass="java.lang.String" resultClass="searchwords" >
+    select * from v_user_searchwords where keywords = #keywords:VARCHAR#
+  </select>
+  
+  <!-- 菜单反馈 -->
+  <insert id="menufeed_insert" parameterClass="menufeed" >
+    insert into v_user_menu_feed (menu_id, para_id, m_time)
+    values (#menuId:BIGINT#, #paraId:BIGINT#, #mTime:TIMESTAMP#)
+    <selectKey resultClass="java.lang.Long" keyProperty="id" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+  </insert>
+  <insert id="insertMenufeedSelective" parameterClass="menufeed" >
+    insert into v_user_menu_feed
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="menuId" >
+        menu_id
+      </isNotNull>
+      <isNotNull prepend="," property="paraId" >
+        para_id
+      </isNotNull>
+      <isNotNull prepend="," property="mTime" >
+        m_time
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="menuId" >
+        #menuId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="paraId" >
+        #paraId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="mTime" >
+        #mTime:TIMESTAMP#
+      </isNotNull>
+      )
+    </dynamic>
+    <selectKey resultClass="java.lang.Long" keyProperty="id" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+  </insert>
+  
+  <!-- APP记录反馈表 -->
+  <insert id="feedapps_insert" parameterClass="feedapps" >
+    insert into v_user_feed_app (pkgName, pg_time, para_id)
+    values (#pkgname:VARCHAR#, #pgTime:TIMESTAMP#, #paraId:BIGINT#)
+    <selectKey resultClass="java.lang.Long" keyProperty="id" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+  </insert>
+  <insert id="insertFeedappsSelective" parameterClass="feedapps" >
+    insert into v_user_feed_app
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="pkgname" >
+        pkgName
+      </isNotNull>
+      <isNotNull prepend="," property="pgTime" >
+        pg_time
+      </isNotNull>
+      <isNotNull prepend="," property="paraId" >
+        para_id
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="pkgname" >
+        #pkgname:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="pgTime" >
+        #pgTime:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="paraId" >
+        #paraId:BIGINT#
+      </isNotNull>
+      )
+    </dynamic>
+    <selectKey resultClass="java.lang.Long" keyProperty="id" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+  </insert>
+  
+  <!-- 分类反馈 -->
+  <insert id="categorys_insert" parameterClass="categorys" >
+    insert into v_user_feed_category (category_id, cat_time, para_id)
+    values (#categoryId:BIGINT#, #catTime:TIMESTAMP#, #paraId:BIGINT#)
+    <selectKey resultClass="java.lang.Long" keyProperty="id" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+  </insert>
+  <insert id="insertCategorysSelective" parameterClass="categorys" >
+    insert into v_user_feed_category
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="categoryId" >
+        category_id
+      </isNotNull>
+      <isNotNull prepend="," property="catTime" >
+        cat_time
+      </isNotNull>
+      <isNotNull prepend="," property="paraId" >
+        para_id
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="categoryId" >
+        #categoryId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="catTime" >
+        #catTime:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="paraId" >
+        #paraId:BIGINT#
+      </isNotNull>
+      )
+    </dynamic>
+    <selectKey resultClass="java.lang.Long" keyProperty="id" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+  </insert>
+  
+  <!-- 专区反馈 -->
+  <insert id="spaces_insert" parameterClass="fspaces" >
+    insert into v_user_feed_space (space_id, sp_time, para_id)
+    values (#spaceId:BIGINT#, #spTime:TIMESTAMP#, #paraId:BIGINT#)
+    <selectKey resultClass="java.lang.Long" keyProperty="id" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+  </insert>
+  <insert id="insertSpacesSelective" parameterClass="fspaces" >
+    insert into v_user_feed_space
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="spaceId" >
+        space_id
+      </isNotNull>
+      <isNotNull prepend="," property="spTime" >
+        sp_time
+      </isNotNull>
+      <isNotNull prepend="," property="paraId" >
+        para_id
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="spaceId" >
+        #spaceId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="spTime" >
+        #spTime:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="paraId" >
+        #paraId:BIGINT#
+      </isNotNull>
+      )
+    </dynamic>
+    <selectKey resultClass="java.lang.Long" keyProperty="id" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+  </insert>
+</sqlMap>

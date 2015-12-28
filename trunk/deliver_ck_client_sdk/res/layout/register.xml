@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+   	android:layout_width="fill_parent"
+   	android:layout_height="fill_parent"
+   	android:orientation="vertical">
+
+	<RelativeLayout
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:layout_weight="1">
+
+	<ScrollView
+	    android:layout_width="fill_parent"
+	    android:layout_height="450dp">
+	    <LinearLayout
+	    	android:layout_width="fill_parent"
+	    	android:layout_height="fill_parent"
+	    	android:orientation="vertical"
+	    	android:gravity="top">
+	    	
+	    	<TextView style="@style/ActTitleText"
+	    		android:text="@string/title_login" />
+	
+		    <LinearLayout
+		    	android:layout_width="fill_parent"
+		    	android:layout_height="wrap_content"
+				android:layout_marginTop="18dp"
+		    	android:gravity="center">
+		    	<TextView style="@style/EditUniqueTextLabel"
+					android:text="@string/unique" />
+					
+				<TextView style="@style/EditTextLabel"
+					android:text="@string/register_account" />
+				<EditText android:id="@id/account"
+					android:layout_width="200dp"
+					android:layout_height="wrap_content"
+					android:singleLine="true" />
+		    </LinearLayout>
+	
+		    <LinearLayout
+		    	android:layout_width="fill_parent"
+		    	android:layout_height="wrap_content"
+				android:layout_marginTop="10dp"
+		    	android:gravity="center">
+		    	<TextView style="@style/EditUniqueTextLabel"
+					android:text="@string/unique" />
+					
+				<TextView style="@style/EditTextLabel"
+					android:text="@string/register_password" />
+				<EditText android:id="@id/password"
+					android:layout_width="200dp"
+					android:layout_height="wrap_content"
+					android:password="true"
+					android:singleLine="true" />
+		    </LinearLayout>
+	
+			<LinearLayout
+		    	android:layout_width="fill_parent"
+		    	android:layout_height="wrap_content"
+				android:layout_marginTop="10dp"
+		    	android:gravity="center">
+		    	<TextView style="@style/EditUniqueTextLabel"
+					android:text="@string/unique" />
+					
+				<TextView style="@style/EditTextLabel"
+					android:text="@string/password_confirm" />
+				<EditText android:id="@+id/password_confirm"
+					android:layout_width="200dp"
+					android:layout_height="wrap_content"
+					android:password="true"
+					android:singleLine="true" />
+		    </LinearLayout>
+	
+			<LinearLayout
+		    	android:layout_width="fill_parent"
+		    	android:layout_height="wrap_content"
+				android:layout_marginTop="10dp"
+		    	android:gravity="center">
+		    	<TextView style="@style/EditUniqueTextLabel"
+					android:text="@string/unique" />
+					
+				<TextView style="@style/EditTextLabel"
+					android:text="@string/nickname" />
+				<EditText android:id="@+id/nickname"
+					android:layout_width="200dp"
+					android:layout_height="wrap_content"
+					android:singleLine="true" />
+		    </LinearLayout>
+		    
+		    <LinearLayout
+		    	android:layout_width="fill_parent"
+		    	android:layout_height="wrap_content"
+				android:layout_marginTop="10dp"
+		    	android:gravity="center">
+					
+				<TextView style="@style/EditTextLabel"
+					android:text="@string/signature" />
+				<EditText android:id="@+id/signature"
+					android:layout_width="200dp"
+					android:layout_height="wrap_content"
+					android:singleLine="true" />
+		    </LinearLayout>
+		    
+<!--		    <TextView-->
+<!--		    	android:gravity="center"-->
+<!--		    	android:textSize="@dimen/text_size_medium"-->
+<!--		    	android:textColor="#FF7800"-->
+<!--		    	android:layout_width="fill_parent"-->
+<!--				android:layout_height="wrap_content"-->
+<!--	    		android:text="@string/unique_text" />-->
+<!--	    		-->
+<!--			<View style="@style/Line"-->
+<!--				android:layout_marginTop="30dp"-->
+<!--			 />-->
+			 
+<!--			<TextView style="@style/ActTitleText"-->
+<!--	    		android:text="@string/register_text" />-->
+			 
+<!--			<RelativeLayout-->
+<!--				android:layout_width="fill_parent"-->
+<!--				android:layout_height="wrap_content"-->
+<!--				android:layout_weight="1">-->
+<!--				-->
+<!--				<ScrollView-->
+<!--				    android:layout_width="fill_parent"-->
+<!--				    android:layout_height="fill_parent"-->
+<!--				    android:layout_weight="1">-->
+<!--					<TextView-->
+<!--							android:layout_width="fill_parent"-->
+<!--							android:layout_height="wrap_content"-->
+<!--							android:background="#E0E0E0"-->
+<!--							android:paddingTop="18dp"-->
+<!--							android:paddingLeft="24dp"-->
+<!--							android:paddingRight="24dp"-->
+<!--							android:paddingBottom="18dp"-->
+<!--							android:textColor="#FF7800"-->
+<!--							android:textSize="@dimen/text_size_medium"-->
+<!--							android:text="@string/register_eula" />-->
+<!--				</ScrollView>-->
+<!--				<ImageView style="@style/TabBoxShadow" />-->
+<!--			</RelativeLayout>-->
+			
+<!--			 <LinearLayout-->
+<!--		    	android:layout_width="fill_parent"-->
+<!--		    	android:layout_height="fill_parent"-->
+<!--		    	android:orientation="horizontal"-->
+<!--		    	android:gravity="center">-->
+<!--				<CheckBox android:id="@+id/register_agreement"-->
+<!--					android:layout_width="wrap_content"-->
+<!--					android:layout_height="wrap_content"-->
+<!--					android:layout_marginTop="5dp"-->
+<!--					android:checked="true"-->
+<!--					android:text="@string/register_agreement" />-->
+<!--			</LinearLayout>-->
+<!--			<ImageView style="@style/ButtonBoxShadow" />-->
+	<LinearLayout
+		    	android:layout_width="fill_parent"
+		    	android:layout_height="wrap_content"
+				android:layout_marginTop="20dp"
+		    	android:gravity="center">
+		<Button android:id="@+id/submit"
+		 android:text="@string/register"
+		 style="@style/Button" />
+	</LinearLayout>
+				
+	    </LinearLayout>
+	</ScrollView>
+	</RelativeLayout>
+	
+</LinearLayout>

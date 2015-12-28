@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  $Id: APPLICATION_SqlMap.xml 6898 2012-06-18 15:10:52Z Raymond $
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+
+<sqlMap namespace="space">
+	<typeAlias alias="spaces" type="cn.vstore.appserver.model.Space"/>
+	<typeAlias alias="FeatureApplication" type="cn.vstore.appserver.model.FeatureApplication"/>
+	
+	 <resultMap id="spaces" class="spaces">
+	 	<result column="ID" jdbcType="DECIMAL" property="id" />
+        <result column="TITLE" jdbcType="VARCHAR" property="title" />
+        <result column="RANK" jdbcType="DECIMAL" property="rank" />
+        <result column="CREATETIME" jdbcType="DATE" property="createTime" />
+        <result column="URL" jdbcType="VARCHAR" property="url" />
+        <result column="INTRO" jdbcType="VARCHAR" property="intro" />
+        <result column="MICON" jdbcType="VARCHAR" property="micon" />
+        <result column="WICON" jdbcType="VARCHAR" property="wicon" />
+        <result column="LONGTITLE" jdbcType="VARCHAR" property="longTitle" />
+        <result column="REMARKS" jdbcType="VARCHAR" property="remarks" />
+        <result column="TYPE" jdbcType="DECIMAL" property="type" />
+    </resultMap>
+    
+    <resultMap id="appofspace" class="FeatureApplication">
+	 	<result column="APP_ID" jdbcType="VARCHAR" property="pkg" />
+        <result column="VERSION_ID" jdbcType="DECIMAL" property="version" />
+        <result column="APP_TITLE" jdbcType="VARCHAR" property="title" />
+        <result column="PHONE_ICON_PIC" jdbcType="VARCHAR" property="icon" />
+        <result column="TOTAL_RANK" jdbcType="DECIMAL" property="totalRank" />
+        <result column="TOTAL_RANK_TIMES" jdbcType="DECIMAL" property="rankTimes" />
+        <result column="PRICE" jdbcType="DECIMAL" property="price" />
+        <result column="PRICE_TYPE" jdbcType="VARCHAR" property="priceType" />
+        <result column="F_SORT" jdbcType="DECIMAL" property="fSort" />
+        <result column="MIN_SUPPORT_VERSION_ID" jdbcType="VARCHAR" property="supportSDK" />
+        <result column="SUPPORT_DPI" jdbcType="VARCHAR" property="supportScreen" />
+        <result column="FILE_SIZE" jdbcType="DECIMAL" property="fileSize" />
+        <result column="FILE_PATH" jdbcType="VARCHAR" property="filePath" />
+        <result column="TOTAL_DOWNLOAD_TIMES" jdbcType="DECIMAL" property="totalDownloadTimes" />
+        <result column="APP_VERSION" jdbcType="VARCHAR" property="versionName" />
+    </resultMap>
+    
+    <!-- 查询专区的sql -->
+<select id="getSpaces" resultMap="spaces">
+select
+vs.id, 
+vs.rank,
+vs.title,
+vs.createTime,
+vs.longTitle,
+vs.intro,
+vs.micon,
+vs.wicon,
+vs.url,
+vs.remarks,
+vs.type
+from 
+v_space vs,
+v_store_space_mapping vssm
+where 
+isUsable= 1
+and isJoint = 'Y'
+and vs.type = #spaceType:INTEGER#
+and vs.id = vssm.spaceId
+and vssm.storeId = #storeID# 
+order by vs.rank desc
+</select>
+
+    <!-- 查询专区详细的sql -->
+<select id="getSpaceDetail" resultMap="spaces">
+select
+vs.id, 
+vs.rank,
+vs.title,
+vs.createTime,
+vs.longTitle,
+vs.intro,
+vs.micon,
+vs.wicon,
+vs.url,
+vs.remarks,
+vs.type
+from 
+v_space vs,
+v_store_space_mapping vssm
+where 
+isUsable= 1
+and isJoint = 'Y'
+and vs.id = #spaceID#
+and vs.id = vssm.spaceId
+and vssm.storeId = #storeID#
+</select>
+
+    <!-- 查询专区内app的sql -->
+<select id="getAppOfSpace" resultMap="appofspace">
+select 
+apv.APP_ID,
+apv.FILE_SIZE,
+apv.FILE_PATH,
+apv.APP_VERSION,
+sa.TOTAL_DOWNLOAD_TIMES,
+apv.PRICE,
+apv.PHONE_ICON_PIC,
+apv.PRICE_TYPE,
+apv.VERSION_ID,
+apv.MIN_SUPPORT_VERSION_ID,
+apv.SUPPORT_DPI,
+sa.F_SORT, 
+sa.TOTAL_RANK,
+sa.TOTAL_RANK_TIMES,
+sa.STORE_ID,
+sa.APP_TITLE APP_TITLE
+from 
+STORE_APPLICATION sa,
+APPLICATION_VERSIONS apv,
+v_space_app_mapping vsam
+where sa.ON_USE=1 
+and vsam.appId = sa.ID
+and vsam.spaceId = #spaceID#
+and vsam.storeId = #storeID#
+and sa.STORE_ID = #storeID#
+and sa.APP_VER_ID = apv.ID
+ORDER BY sa.LAST_UPDATE_DATE
+</select>
+	
+</sqlMap>

@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- Theme Styles -->
+	<style name="Widget.Button" parent="android:style/Widget.Button">
+        <item name="android:textSize">@dimen/text_size_medium</item>
+		<item name="android:background">@drawable/btn_default</item>
+		<item name="android:layout_marginLeft">4dp</item>
+		<item name="android:layout_marginRight">4dp</item>
+	</style>
+    <style name="Widget.ListView.White" parent="android:style/Widget.ListView.White">
+        <item name="android:listSelector">@drawable/list_selector_background</item>
+        <item name="android:divider">@drawable/divider_horizontal_bright_opaque</item>
+    </style>
+	<!-- RatingBar -->
+	<style name="Widget.RatingBar" parent="android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/ratingbar_full</item>
+        <item name="android:indeterminateDrawable">@drawable/ratingbar_full</item>
+	</style>
+	<!-- 
+	<style name="Widget.RatingBarIndicator" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/ratingbar</item>
+        <item name="android:indeterminateDrawable">@drawable/ratingbar</item>
+	</style> -->
+	<style name="Widget.RatingBar.Small">
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/ratingbar_small</item>
+        <item name="android:indeterminateDrawable">@drawable/ratingbar_small</item>
+        <item name="android:minHeight">14dip</item>
+        <item name="android:maxHeight">14dip</item>
+        <item name="android:thumb">@null</item>
+        <item name="android:isIndicator">true</item>
+	</style>
+
+	<!-- Common Styles -->
+	<style name="ActTitleBox">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">@dimen/title_bar_height</item>
+		<item name="android:background">@drawable/act_title</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+	</style>
+	<style name="ActTitleText" parent="ActTitleBox">
+        <item name="android:id">@id/act_title_text</item>
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+	</style>
+	<style name="EditTextLabel">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:textSize">@dimen/text_size_medium</item>
+	</style>
+	<style name="EditUniqueTextLabel">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:textColor">#F00000</item>
+        <item name="android:textSize">@dimen/text_size_medium</item>
+	</style>
+	<style name="Button" parent="Widget.Button">
+		<item name="android:layout_width">132dp</item>
+		<item name="android:layout_height">30dp</item>
+	</style>
+	<style name="Line">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">1px</item>
+		<item name="android:background">#494949</item>
+	</style>
+	<style name="DividerLine">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">1px</item>
+		<item name="android:background">@drawable/divider_horizontal_bright</item>
+	</style>
+	<style name="ButtonBox">
+		<item name="android:id">@id/button_box</item>
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">@dimen/btn_box_height</item>
+		<item name="android:gravity">center</item>
+		<item name="android:background">@color/bg_btn_box</item>
+	</style>
+
+	<!-- Tab Styles -->
+	<style name="TabBox">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">@dimen/tab_box_height</item>
+	</style>
+	<style name="TabItem">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">@dimen/tab_box_height</item>
+		<item name="android:layout_weight">1</item>
+		<item name="android:paddingTop">3dp</item>
+		<item name="android:orientation">vertical</item>
+		<item name="android:gravity">center_horizontal</item>
+	</style>
+	<style name="TabItem.Selected">
+		<item name="android:background">@drawable/tab_selected</item>
+	</style>
+	<style name="TabItem.Unselect">
+		<item name="android:background">@drawable/tab_unselect</item>
+		<item name="android:clickable">true</item>
+		<item name="android:focusable">true</item>
+	</style>
+	<style name="TabItemSeparator">
+		<item name="android:layout_width">2px</item>
+		<item name="android:layout_height">@dimen/tab_box_height</item>
+		<item name="android:background">@drawable/tab_separator</item>
+	</style>
+	<style name="TabBorderBox" parent="TabBox">
+		<item name="android:layout_height">@dimen/tab_border_box_height</item>
+	</style>
+	<style name="TabBorderItem" parent="TabItem">
+		<item name="android:layout_height">@dimen/tab_border_box_height</item>
+		<item name="android:paddingBottom">2dp</item>
+	</style>
+	<style name="TabBorderItem.Selected">
+		<item name="android:background">@drawable/tab_border_selected</item>
+	</style>
+	<style name="TabBorderItem.Unselect">
+		<item name="android:background">@drawable/tab_border_unselect</item>
+		<item name="android:clickable">true</item>
+		<item name="android:focusable">true</item>
+	</style>
+	<style name="TabBorderItemSeparator">
+		<item name="android:layout_width">2px</item>
+		<item name="android:layout_height">@dimen/tab_border_box_height</item>
+		<item name="android:background">@drawable/tab_border_separator</item>
+	</style>
+	<style name="TabItemTitle">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:gravity">center_horizontal</item>
+		<item name="android:textSize">@dimen/text_size_small</item>
+	</style>
+	<style name="TabItemTitle.Selected">
+		<item name="android:textColor">@color/text_color_highlight</item>
+	</style>
+	<style name="TabItemTitle.Unselect">
+		<item name="android:textColor">@color/text_color_info</item>
+	</style>
+	<style name="TabItemIcon">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:layout_weight">1</item>
+	</style>
+	<style name="TabBoxShadow">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">10dp</item>
+		<item name="android:scaleType">fitXY</item>
+		<item name="android:src">@drawable/tab_box_shadow</item>
+	</style>
+	<style name="ButtonBoxShadow">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">8dp</item>
+		<item name="android:layout_alignParentBottom">true</item>
+		<item name="android:scaleType">fitXY</item>
+		<item name="android:src">@drawable/btn_box_shadow</item>
+	</style>
+
+	<!-- List Styles -->
+	<style name="CategoryItemBox">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">@dimen/list_item_height</item>
+		<item name="android:minHeight">@dimen/list_item_height</item>
+		<item name="android:padding">5dp</item>
+	</style>
+	<style name="ListAppItemBox" parent="CategoryItemBox">
+	</style>
+
+	<!-- Category Styles -->
+	<style name="CategoryIcon">
+		<item name="android:id">@id/icon</item>
+		<item name="android:layout_width">60dp</item>
+		<item name="android:layout_height">60dp</item>
+		<item name="android:padding">6dp</item>
+		<item name="android:background">@drawable/app_icon_bg</item>
+	</style>
+	<style name="CategoryTitle">
+		<item name="android:id">@id/title</item>
+		<item name="android:singleLine">true</item>
+		<item name="android:textSize">@dimen/text_size_medium</item>
+		<item name="android:textStyle">bold</item>
+	</style>
+
+	<!-- Applcation Styles -->
+	<style name="AppIcon" parent="CategoryIcon">
+		<item name="android:id">@id/app_icon</item>
+	</style>
+	<style name="AppRating" parent="Widget.RatingBar.Small">
+		<item name="android:id">@id/app_rating</item>
+		<item name="android:max">5</item>
+		<item name="android:stepSize">0.5</item>
+	</style>
+	<style name="AppTitle" parent="CategoryTitle">
+		<item name="android:id">@id/app_title</item>
+	</style>
+	<style name="AppInfo">
+		<item name="android:singleLine">true</item>
+		<item name="android:textSize">@dimen/text_size_small</item>
+		<item name="android:textColor">@color/text_color_info</item>
+	</style>
+	<style name="AppProvider" parent="AppInfo">
+		<item name="android:id">@id/app_provider</item>
+	</style>
+	<style name="AppStatus" parent="AppInfo">
+		<item name="android:id">@id/app_status</item>
+	</style>
+
+	<!-- Applcation Detail Styles -->
+	<style name="ActDetailTitleText" parent="ActTitleText">
+		<item name="android:layout_height">@dimen/app_detail_info_title_height</item>
+	</style>
+	<style name="AppDetailInfoText">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:textSize">@dimen/text_size_small</item>
+		<item name="android:textColor">@color/text_color_info</item>
+        <item name="android:paddingLeft">@dimen/app_detail_padding</item>
+        <item name="android:paddingRight">@dimen/app_detail_padding</item>
+	</style>
+	<style name="AppDetailLinkBox">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">48dp</item>
+        <item name="android:paddingLeft">@dimen/app_detail_padding</item>
+        <item name="android:paddingRight">@dimen/app_detail_padding</item>
+		<item name="android:gravity">center_vertical</item>
+		<item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:background">@drawable/list_selector_background</item>
+	</style>
+	<style name="AppDetailLinkText">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:layout_weight">1</item>
+		<item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:textColor">@color/text_color_highlight</item>
+	</style>
+
+	<!-- iPay -->
+	<style name="iPayTheme" parent="android:style/Theme.Light">
+        <item name="android:textViewStyle">@style/iPay_TextView</item>
+        <item name="android:buttonStyle">@style/iPay_Button</item>
+        <item name="android:radioButtonStyle">@style/iPay_RadioButton</item>
+        <item name="android:windowTitleStyle">@style/iPay_WindowTitle</item>
+	</style>
+	<style name="iPay_WindowTitle" parent="android:style/TextAppearance.WindowTitle">
+        <item name="android:singleLine">true</item>
+        <item name="android:shadowColor">#BB000000</item>
+        <item name="android:shadowRadius">2.75</item>
+	</style>
+	<style name="iPay_TextView">
+        <item name="android:textSize">18sp</item>
+	</style>
+	<style name="iPay_Button" parent="@android:style/Widget.Button">
+        <item name="android:layout_width">143dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">18sp</item>
+	</style>
+	<style name="iPay_RadioButton" parent="@android:style/Widget.CompoundButton.RadioButton">
+        <item name="android:textSize">18sp</item>
+	</style>
+	<style name="iPay_ButtonLayout">
+	    <item name="android:layout_width">fill_parent</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:gravity">center_horizontal</item>
+        <item name="android:layout_marginTop">25dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+	</style>
+	<style name="iPay_Copyright">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">49dp</item>
+        <item name="android:background">@drawable/ipay_bg_license</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#FFF</item>
+        <item name="android:text">VSTORE版权所有</item>
+	</style>
+	<style name="iPay_HeaderLayout">
+    	<item name="android:layout_width">fill_parent</item>
+    	<item name="android:layout_height">46dp</item>
+    	<item name="android:background">@drawable/ipay_bg_header</item>
+	</style>
+	<style name="iPay_HeaderText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#FFF</item>
+        <item name="android:text">@string/ipay_title</item>
+	</style>
+	<style name="iPay_HeaderIcon">
+   		<item name="android:layout_width">wrap_content</item>
+   		<item name="android:layout_height">wrap_content</item>
+   		<item name="android:layout_alignParentRight">true</item>
+   		<item name="android:src">@drawable/ipay_pack</item>
+	</style>
+	<style name="iPay_ContextLayout">
+    	<item name="android:layout_width">fill_parent</item>
+    	<item name="android:layout_height">fill_parent</item>
+		<item name="android:background">#ebebeb</item>
+    	<item name="android:orientation">vertical</item>
+    	<item name="android:paddingRight">18dp</item>
+    	<item name="android:paddingLeft">18dp</item>
+	</style>
+	<style name="iPay_TitleLayout">
+    	<item name="android:layout_width">fill_parent</item>
+    	<item name="android:layout_height">48dp</item>
+    	<item name="android:gravity">center_vertical</item>
+	</style>
+	<style name="iPay_TitleIcon">
+    	<item name="android:layout_width">wrap_content</item>
+    	<item name="android:layout_height">wrap_content</item>
+    	<item name="android:layout_marginRight">5dp</item>
+    	<item name="android:src">@drawable/ipay_dot</item>
+	</style>
+	<style name="iPay_TitleText">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:layout_weight">1</item>
+	</style>
+	<style name="iPay_TitleLine">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">2px</item>
+		<item name="android:scaleType">fitXY</item>
+		<item name="android:src">@drawable/ipay_line</item>
+		<item name="android:layout_marginBottom">19dp</item>
+	</style>
+	<style name="iPay_Line">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">1px</item>
+		<item name="android:scaleType">fitXY</item>
+		<item name="android:src">@drawable/ipay_line2</item>
+		<item name="android:layout_marginTop">10dp</item>
+		<item name="android:layout_marginBottom">10dp</item>
+	</style>
+	<style name="iPay_HighLightText">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:layout_marginTop">15dp</item>
+		<item name="android:padding">5dp</item>
+		<item name="android:background">#c8c8c8</item>
+		<item name="android:textColor">#444</item>
+		<item name="android:textSize">16sp</item>
+	</style>
+</resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+	<!-- 下載進度 -->
+	<TextView style="@style/ActDetailTitleText"
+		android:text="@string/donwload_progress" />
+	<ProgressBar android:id="@+id/download_progress"
+		style="?android:attr/progressBarStyleHorizontal" 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10dp"
+		android:layout_marginLeft="@dimen/app_detail_padding"
+		android:layout_marginRight="@dimen/app_detail_padding"
+		android:indeterminate="false"
+		android:max="100" />
+    <TextView android:id="@+id/download_progress_pct"
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+		android:layout_marginBottom="10dp"
+		android:layout_marginLeft="@dimen/app_detail_padding"
+		android:layout_marginRight="@dimen/app_detail_padding" />
+</LinearLayout>

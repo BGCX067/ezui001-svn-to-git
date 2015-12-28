@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="userCollect" >
+
+	<typeAlias alias="collectParas" type="cn.vstore.appserver.model.UserCollect"/>
+  	<typeAlias alias="featureAppsVO" type="cn.vstore.appserver.model.FeatureApplication"/>
+  	<typeAlias alias="commentAppsVO" type="cn.vstore.appserver.model.CommentsApp"/>
+  	
+  <resultMap id="userCollectParas" class="collectParas" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="userid" property="userid" jdbcType="VARCHAR" />
+    <result column="appid" property="appid" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  
+    <resultMap id="featureApps" class="featureAppsVO">
+        <result column="APP_ID" jdbcType="VARCHAR" property="pkg" />
+        <result column="VERSION_ID" jdbcType="DECIMAL" property="version" />
+        <result column="APP_TITLE" jdbcType="VARCHAR" property="title" />
+        <result column="PHONE_ICON_PIC" jdbcType="VARCHAR" property="icon" />
+        <result column="TOTAL_RANK" jdbcType="DECIMAL" property="totalRank" />
+        <result column="TOTAL_RANK_TIMES" jdbcType="DECIMAL" property="rankTimes" />
+        <result column="PRICE" jdbcType="DECIMAL" property="price" />
+        <result column="PRICE_TYPE" jdbcType="VARCHAR" property="priceType" />
+        <result column="MIN_SUPPORT_VERSION_ID" jdbcType="VARCHAR" property="supportSDK" />
+        <result column="SUPPORT_DPI" jdbcType="VARCHAR" property="supportScreen" />
+        <result column="FILE_SIZE" jdbcType="DECIMAL" property="fileSize" />
+        <result column="FILE_PATH" jdbcType="VARCHAR" property="filePath" />
+        <result column="TOTAL_DOWNLOAD_TIMES" jdbcType="DECIMAL" property="totalDownloadTimes" />
+        <result column="APP_VERSION" jdbcType="VARCHAR" property="versionName" />
+    </resultMap>
+    
+    <resultMap id="commentApps" class="commentAppsVO">
+        <result column="APP_ID" jdbcType="VARCHAR" property="pkg" />
+        <result column="APP_TITLE" jdbcType="VARCHAR" property="title" />
+        <result column="USER_RANK" jdbcType="DECIMAL" property="userrank" />
+        <result column="PHONE_ICON_PIC" jdbcType="VARCHAR" property="icon" />
+        <result column="TOTAL_RANK" jdbcType="DECIMAL" property="totalRank" />
+        <result column="TOTAL_RANK_TIMES" jdbcType="DECIMAL" property="rankTimes" />
+        <result column="PRICE" jdbcType="DECIMAL" property="price" />
+        <result column="PRICE_TYPE" jdbcType="VARCHAR" property="priceType" />
+        <result column="FILE_SIZE" jdbcType="DECIMAL" property="fileSize" />
+        <result column="FILE_PATH" jdbcType="VARCHAR" property="filePath" />
+        <result column="TOTAL_DOWNLOAD_TIMES" jdbcType="DECIMAL" property="totalDownloadTimes" />
+        <result column="APP_VERSION" jdbcType="VARCHAR" property="versionName" />
+        <result column="APP_COMMENT" jdbcType="VARCHAR" property="comments" />
+    </resultMap>
+  
+  <delete id="deleteByUserIdAndAppId">
+    delete from v_user_collect
+    where userid = #userid:VARCHAR# and appid = #appid:VARCHAR#
+  </delete>
+  
+  <select id="selectCollectByUseridAndPkg" resultMap="userCollectParas">
+  	select * from v_user_collect where userid=#userid:VARCHAR# and appid=#appid:VARCHAR#
+  </select>
+  
+  <insert id="insertCollect" parameterClass="collectParas" >
+    insert into v_user_collect (userid, appid, create_time)
+    values (#userid:VARCHAR#, #appid:VARCHAR#, #createTime:TIMESTAMP#)
+    <selectKey resultClass="java.lang.Long" keyProperty="id" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+  </insert>
+  
+  <insert id="insertCollectSelective" parameterClass="collectParas" >
+    insert into v_user_collect
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="userid" >
+        userid
+      </isNotNull>
+      <isNotNull prepend="," property="appid" >
+        appid
+      </isNotNull>
+      <isNotNull prepend="," property="createTime" >
+        create_time
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="userid" >
+        #userid:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="appid" >
+        #appid:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="createTime" >
+        #createTime:TIMESTAMP#
+      </isNotNull>
+      )
+    </dynamic>
+    <selectKey resultClass="java.lang.Long" keyProperty="id" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+  </insert>
+  
+  <select id="selectCollectAppList" resultMap="featureApps">
+	select 
+	DISTINCT(temp1.APP_ID),
+	temp1.APP_VERSION,
+	temp1.FILE_PATH,
+	temp1.FILE_SIZE,
+	temp1.PRICE,
+	temp1.PHONE_ICON_PIC,
+	temp1.PRICE_TYPE,
+	temp1.VERSION_ID,
+	temp1.MIN_SUPPORT_VERSION_ID,
+	temp1.SUPPORT_DPI, 
+	temp2.TOTAL_DOWNLOAD_TIMES,
+	temp2.TOTAL_RANK, 
+	temp2.TOTAL_RANK_TIMES,
+	temp2.STORE_ID,
+	temp2.APP_TITLE
+	from 
+	(SELECT av.APP_ID,
+	av.APP_VERSION,
+	av.FILE_PATH,
+	av.FILE_SIZE,
+	av.PRICE,
+	av.PHONE_ICON_PIC,
+	av.PRICE_TYPE,
+	av.VERSION_ID,
+	av.MIN_SUPPORT_VERSION_ID,
+	av.SUPPORT_DPI, 
+	av.id,
+	vu.create_time 
+	FROM v_user_collect vu,application_versions av where vu.appid = av.app_id AND vu.userid=#userId#) as temp1,
+	(SELECT 
+	sa.TOTAL_DOWNLOAD_TIMES,
+	sa.TOTAL_RANK,
+	sa.TOTAL_RANK_TIMES,
+	sa.STORE_ID,
+	sa.APP_TITLE,
+	sa.app_ver_id 
+	from store_application sa 
+	WHERE sa.STORE_ID=#storeId# AND sa.on_use = 1) as temp2 where temp2.app_ver_id = temp1.id ORDER BY temp1.create_time DESC;
+  </select>
+  
+  <select id="selectUserCommentApps" resultMap="commentApps">
+  	SELECT MAX(urlg.USER_RANK_UID) as cmid,
+  	urlg.APP_ID,
+  	urlg.USER_RANK,
+  	urlg.APP_COMMENT,
+  	av.PHONE_ICON_PIC,
+  	av.FILE_PATH,
+  	av.FILE_SIZE, 
+  	av.APP_VERSION, 
+  	av.PRICE,
+	av.PRICE_TYPE,
+  	sa.TOTAL_DOWNLOAD_TIMES,
+	sa.TOTAL_RANK, 
+	sa.TOTAL_RANK_TIMES,
+	sa.STORE_ID,
+	sa.APP_TITLE 
+	FROM user_rank_log urlg,application_versions av,store_application sa  
+	WHERE urlg.APP_ID = av.APP_ID AND sa.APP_VER_ID = av.ID AND urlg.USER_ID = #userId# AND sa.STORE_ID = #storeId# AND urlg.APP_COMMENT<![CDATA[<>]]>'' AND urlg.APP_COMMENT is not NULL GROUP BY urlg.APP_ID
+  </select>
+</sqlMap>

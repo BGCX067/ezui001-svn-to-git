@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+	<include layout="@layout/pricetype_bar" />
+	<FrameLayout 
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:layout_weight="1">
+	    <ListView android:id="@+id/free_apps_list"
+	        android:layout_width="fill_parent"
+	        android:layout_height="fill_parent"
+	        android:visibility="gone" />
+	    <ListView android:id="@+id/paid_apps_list"
+	        android:layout_width="fill_parent"
+	        android:layout_height="fill_parent"
+	        android:visibility="gone" />
+	    <ListView android:id="@+id/all_apps_list"
+	        android:layout_width="fill_parent"
+	        android:layout_height="fill_parent"
+	        android:visibility="gone" />
+		<include layout="@layout/progressing" />
+	    <TextView android:id="@+id/apps_empty"
+	    	android:layout_width="fill_parent"
+	    	android:layout_height="fill_parent"
+	    	android:gravity="center"
+	    	android:textSize="@dimen/text_size_medium"
+	    	android:text="@string/apps_empty"
+	    	android:visibility="gone" />
+		<ImageView style="@style/TabBoxShadow" />
+	</FrameLayout>
+</merge>

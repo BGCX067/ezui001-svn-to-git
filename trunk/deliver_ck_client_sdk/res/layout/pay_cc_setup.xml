@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+    android:background="#a64200">
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+    <RelativeLayout
+		style="@style/iPay_HeaderLayout">
+    	<TextView
+    		style="@style/iPay_HeaderText" />
+    	<ImageView
+			style="@style/iPay_HeaderIcon" />
+    </RelativeLayout>
+    
+    <LinearLayout
+		style="@style/iPay_ContextLayout">
+    	<LinearLayout
+    		style="@style/iPay_TitleLayout">
+    		<ImageView
+    			style="@style/iPay_TitleIcon" />
+		    <TextView
+		    	style="@style/iPay_TitleText"
+		    	android:text="設定iPay信用卡" />
+    	</LinearLayout>
+
+    	<ImageView style="@style/iPay_TitleLine" />
+
+	    <TextView
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:textAppearance="?android:attr/textAppearanceLarge"
+	    	android:text="信用卡號" />
+	    <LinearLayout
+	    	android:layout_width="fill_parent"
+	    	android:layout_height="wrap_content">
+		    <EditText android:id="@+id/cc_num_1"
+		    	android:layout_width="@dimen/pay_cc_num_width"
+		    	android:layout_height="wrap_content"
+		    	android:inputType="number"
+		    	android:maxLength="4" />
+		    <TextView
+		    	android:layout_width="wrap_content"
+		    	android:layout_height="wrap_content"
+		    	android:textAppearance="?android:attr/textAppearanceLarge"
+		    	android:text="-" />
+		    <EditText android:id="@+id/cc_num_2"
+		    	android:layout_width="@dimen/pay_cc_num_width"
+		    	android:layout_height="wrap_content"
+		    	android:inputType="number"
+		    	android:maxLength="4" />
+		    <TextView
+		    	android:layout_width="wrap_content"
+		    	android:layout_height="wrap_content"
+		    	android:textAppearance="?android:attr/textAppearanceLarge"
+		    	android:text="-" />
+		    <EditText android:id="@+id/cc_num_3"
+		    	android:layout_width="@dimen/pay_cc_num_width"
+		    	android:layout_height="wrap_content"
+		    	android:inputType="number"
+		    	android:maxLength="4" />
+		    <TextView
+		    	android:layout_width="wrap_content"
+		    	android:layout_height="wrap_content"
+		    	android:textAppearance="?android:attr/textAppearanceLarge"
+		    	android:text="-" />
+		    <EditText android:id="@+id/cc_num_4"
+		    	android:layout_width="@dimen/pay_cc_num_width"
+		    	android:layout_height="wrap_content"
+		    	android:inputType="number"
+		    	android:maxLength="4" />	
+	    </LinearLayout>
+		<ImageView style="@style/iPay_Line" />
+	    <TextView
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:text="有效月年" />
+	    <LinearLayout
+	    	android:layout_width="fill_parent"
+	    	android:layout_height="wrap_content">
+		    <Spinner android:id="@+id/cc_exp_month"
+		    	android:layout_width="wrap_content"
+		    	android:layout_height="wrap_content"
+				android:entries="@array/month_items" />
+		    <Spinner android:id="@+id/cc_exp_year"
+		    	android:layout_width="wrap_content"
+		    	android:layout_height="wrap_content" />
+	    </LinearLayout>
+		<ImageView style="@style/iPay_Line" />
+	    <TextView
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:text="驗證碼" />
+	    <EditText android:id="@+id/cc_security_code"
+	    	android:layout_width="60dp"
+	    	android:layout_height="wrap_content"
+	    	android:inputType="number"
+	    	android:password="true"
+	    	android:singleLine="true"
+	    	android:maxLength="3"
+	    	android:text="" />
+	    
+	    <TextView
+	    	style="@style/iPay_HighLightText"
+	    	android:text="當您按下確定，我們會進行首次驗證（您可能會收到銀行的簡訊通知）。這張卡片將成為您用於S市集支付的預設信用卡。" />
+
+	    <LinearLayout
+	    	style="@style/iPay_ButtonLayout">
+		    <Button android:id="@+id/submit"
+		    	style="@style/iPay_Button"
+		    	android:text="確定" />
+		    <Button android:id="@+id/cancel"
+		    	style="@style/iPay_Button"
+		    	android:text="取消" />
+	    </LinearLayout>
+    </LinearLayout>
+    
+    <TextView style="@style/iPay_Copyright" />
+    
+</LinearLayout>
+</ScrollView>

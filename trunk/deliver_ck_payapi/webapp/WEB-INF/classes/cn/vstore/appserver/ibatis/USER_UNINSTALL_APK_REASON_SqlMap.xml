@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  $Id: CATEGORY_SqlMap.xml 6719 2010-12-16 05:51:33Z yhwang $
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+
+<sqlMap namespace="user_uninstall_apk_reason">
+
+    <typeAlias alias="userUninstallApkReason" type="cn.vstore.appserver.model.UserUninstallApkReason"/>
+    
+    <resultMap id="userUninstallApkReason" class="userUninstallApkReason">
+        <result column="ID" jdbcType="BIGINT" property="id" />
+		<result column="USER_ID" jdbcType="VARCHAR" property="userId" />
+		<result column="IMEI" jdbcType="VARCHAR" property="imei" />
+		<result column="ICCID" jdbcType="VARCHAR" property="iccid" />
+		<result column="APP_ID" jdbcType="VARCHAR" property="appId" />
+		<result column="VERSION_ID" jdbcType="INTEGER" property="versionId" />
+		<result column="REASON_ID" jdbcType="DOUBLE" property="reasonId" />
+		<result column="REPORT_TIME" jdbcType="TIMESTAMP" property="reportTime" />
+		<result column="DOWNLOAD_ID" jdbcType="BIGINT" property="downloadId" />
+		<result column="USER_UID" jdbcType="VARCHAR" property="userUid"/>
+		<result column="STORE_ID" jdbcType="BIGINT" property="storeId" /> 
+    </resultMap>
+    
+	<insert id="insert" parameterClass="userUninstallApkReason" >
+		INSERT INTO USER_UNINSTALL_APK_REASON(USER_ID,IMEI,ICCID,APP_ID,VERSION_ID,REASON_ID,REPORT_TIME,DOWNLOAD_ID,USER_UID,STORE_ID)
+		 values(#userId:VARCHAR#,#imei:VARCHAR#,#iccid:VARCHAR#,#appId:VARCHAR#,#versionId:INTEGER#,#reasonId:DOUBLE#,#reportTime:TIMESTAMP#,#downloadId:BIGINT#,#userUid:VARCHAR#,#storeId:BIGINT#)
+		<selectKey resultClass="java.lang.Long" keyProperty="id" >
+	      SELECT LAST_INSERT_ID()
+	    </selectKey>
+	</insert>
+  
+    
+</sqlMap>

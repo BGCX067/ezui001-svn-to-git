@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  $Id: HOME_ADVERTISEMENT_SqlMap.xml 2012-06-07 0:52:43 Raymond $ 
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+
+<sqlMap namespace="HomeAdvertisement">
+    
+    <typeAlias alias="homeAdvertisementVO" type="cn.vstore.appserver.model.HomeAdvertisement"/>
+    
+    <resultMap id="homeAdvertisements" class="homeAdvertisementVO">
+        <result column="APP_ID" jdbcType="VARCHAR" property="pkg" />
+        <result column="PICTUREPATH" jdbcType="VARCHAR" property="picturePath" />
+        <result column="SPACEID" jdbcType="VARCHAR" property="spaceID" />
+        <result column="TYPE" jdbcType="DECIMAL" property="type" />
+    </resultMap>
+    
+    <!-- Select APPLICATION/CONTENT_PROVIDER/APPLICATION_VERSIONS : 找出1-30的排名 -->
+	<select id="getHomeAdvertisement" resultMap="homeAdvertisements">
+		select 
+		ca.APP_ID,
+		ca.PICTUREPATH,
+		ca.SPACEID,
+		ca.TYPE
+		from 
+		v_client_advertisement ca
+		where ca.STORE = #storeId#
+		order by ca.orders
+		limit 5
+	</select>
+</sqlMap>

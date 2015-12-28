@@ -1,0 +1,50 @@
+1. isfinishing(); 10-26 18:26:15.258: ERROR/AndroidRuntime(21116): android.view.WindowManager$BadTokenException: Unable to add window -- token android.os.BinderProxy@437eed38 is not valid; is your activity running?
+2. download file path
+x3. reportable bug
+4. 開啟 NewClientAlertDialogActivity 離開後 再點從"最近使用程式中" 進入s mart 會是開啟 NewClientAlertDialogActivity 而不是首頁
+5. 正式上架後 新增截圖到developer guide
+
+1108
+1. appdetail install: ViewStub
+-2. 取消訂閱 status
+x3. 評分後 title bar的星星
+x4. screen shot 
+5. uninstall STIMON
+11-08 17:08:15.619: ERROR/AndroidRuntime(457): java.util.concurrent.RejectedExecutionException
+11-08 17:08:15.619: ERROR/AndroidRuntime(457):     at java.util.concurrent.ThreadPoolExecutor$AbortPolicy.rejectedExecution(ThreadPoolExecutor.java:1464)
+11-08 17:08:15.619: ERROR/AndroidRuntime(457):     at java.util.concurrent.ThreadPoolExecutor.reject(ThreadPoolExecutor.java:381)
+11-08 17:08:15.619: ERROR/AndroidRuntime(457):     at java.util.concurrent.ThreadPoolExecutor.execute(ThreadPoolExecutor.java:865)
+11-08 17:08:15.619: ERROR/AndroidRuntime(457):     at android.os.AsyncTask.execute(AsyncTask.java:394)
+11-08 17:08:15.619: ERROR/AndroidRuntime(457):     at cn.com.vapk.vstore.client.util.ImageDownloader.forceDownload(ImageDownloader.java:130)
+11-08 17:08:15.619: ERROR/AndroidRuntime(457):     at cn.com.vapk.vstore.client.util.ImageDownloader.download(ImageDownloader.java:84)
+11-08 17:08:15.619: ERROR/AndroidRuntime(457):     at cn.com.vapk.vstore.client.AppsAdapter.getView(AppsAdapter.java:106)
+11-08 17:08:15.619: ERROR/AndroidRuntime(457):     at cn.com.vapk.vstore.client.PageableAppsAdapter.getView(PageableAppsAdapter.java:37)
+11-08 17:08:15.619: ERROR/AndroidRuntime(457):     at android.widget.HeaderViewListAdapter.getView(HeaderViewListAdapter.java:191)
+11-08 17:08:15.619: ERROR/AndroidRuntime(457):     at android.widget.AbsListView.obtainView(AbsListView.java:1254)
+11-08 17:08:15.619: ERROR/AndroidRuntime(457):     at android.widget.ListView.makeAndAddView(ListView.java:1648)
+11-08 17:08:15.619: ERROR/AndroidRuntime(457):     at android.widget.ListView.fillDown(ListView.java:632)
+11-08 17:08:15.619: ERROR/AndroidRuntime(457):     at android.widget.ListView.fillSpecific(ListView.java:1219)
+11-08 17:08:15.619: ERROR/AndroidRuntime(457):     at android.widget.ListView.layoutChildren(ListView.java:1484)
+11-08 17:08:15.619: ERROR/AndroidRuntime(457):     at android.widget.AbsListView.onLayout(AbsListView.java:1116)
+11-08 17:08:15.619: ERROR/AndroidRuntime(457):     at android.view.View.layout(View.java:6133)
+11-08 17:08:15.619: ERROR/AndroidRuntime(457):     at android.widget.FrameLayout.onLayout(FrameLayout.java:333)
+11-08 17:08:15.619: ERROR/AndroidRuntime(457):     at android.view.View.layout(View.java:6133)
+11-08 17:08:15.619: ERROR/AndroidRuntime(457):     at android.widget.LinearLayout.setChildFrame(LinearLayout.java:1119)
+11-08 17:08:15.619: ERROR/AndroidRuntime(457):     at android.widget.LinearLayout.layoutVertical(LinearLayout.java:998)
+11-08 17:08:15.619: ERROR/AndroidRuntime(457):     at android.widget.LinearLayout.onLayout(LinearLayout.java:918)
+11-08 17:08:15.619: ERROR/AndroidRuntime(457):     at android.view.View.layout(View.java:6133)
+11-08 17:08:15.619: ERROR/AndroidRuntime(457):     at android.widget.FrameLayout.onLayout(FrameLayout.java:333)
+11-08 17:08:15.619: ERROR/AndroidRuntime(457):     at android.view.View.layout(View.java:6133)
+11-08 17:08:15.619: ERROR/AndroidRuntime(457):     at android.widget.FrameLayout.onLayout(FrameLayout.java:333)
+11-08 17:08:15.619: ERROR/AndroidRuntime(457):     at android.view.View.layout(View.java:6133)
+11-08 17:08:15.619: ERROR/AndroidRuntime(457):     at android.view.ViewRoot.performTraversals(ViewRoot.java:944)
+11-08 17:08:15.619: ERROR/AndroidRuntime(457):     at android.view.ViewRoot.handleMessage(ViewRoot.java:1504)
+11-08 17:08:15.619: ERROR/AndroidRuntime(457):     at android.os.Handler.dispatchMessage(Handler.java:99)
+11-08 17:08:15.619: ERROR/AndroidRuntime(457):     at android.os.Looper.loop(Looper.java:123)
+11-08 17:08:15.619: ERROR/AndroidRuntime(457):     at android.app.ActivityThread.main(ActivityThread.java:3948)
+11-08 17:08:15.619: ERROR/AndroidRuntime(457):     at java.lang.reflect.Method.invokeNative(Native Method)
+11-08 17:08:15.619: ERROR/AndroidRuntime(457):     at java.lang.reflect.Method.invoke(Method.java:521)
+11-08 17:08:15.619: ERROR/AndroidRuntime(457):     at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:782)
+11-08 17:08:15.619: ERROR/AndroidRuntime(457):     at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:540)
+11-08 17:08:15.619: ERROR/AndroidRuntime(457):     at dalvik.system.NativeStart.main(Native Method)
+

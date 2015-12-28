@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/CategoryItemBox"
+    android:gravity="center_vertical">
+
+	<ImageView style="@style/CategoryIcon" />
+
+	<TextView style="@style/CategoryTitle"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:layout_marginLeft="5dp"
+		android:layout_marginRight="5dp" />
+
+	<TextView android:id="@+id/new_app_count"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginRight="5dp"
+		android:visibility="gone"
+		android:textSize="@dimen/text_size_medium"
+		android:textColor="@color/text_color_info" />
+
+	<ImageView android:id="@+id/has_new_app"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginRight="5dp"
+		android:visibility="gone"
+		android:paddingTop="3dp"
+		android:src="@drawable/has_new_app" />
+</LinearLayout>

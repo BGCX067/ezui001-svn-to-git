@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  $Id: CONTENT_PROVIDER_SqlMap.xml 6758 2010-12-20 06:38:39Z yhwang $
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+
+<sqlMap namespace="ContentProvider">
+
+<!-- Select CONTENT_PROVIDER : 取出CP_TITLE資料 -->
+<select id="getProviderTitle" resultClass="java.lang.String">
+select CP_TITLE from CONTENT_PROVIDER where CP_ID = #cpId# 
+</select>
+
+</sqlMap>

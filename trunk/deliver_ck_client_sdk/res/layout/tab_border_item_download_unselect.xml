@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@id/tab_item_download"
+	style="@style/TabBorderItem.Unselect">
+	<ImageView style="@style/TabItemIcon"
+		android:src="@drawable/tab_icon_download_unselect" />
+	<ImageView style="@style/TabItemIcon"
+		android:src="@drawable/w4_2" />		
+<!--	<TextView style="@style/TabItemTitle.Unselect"-->
+<!--		android:text="@string/tab_item_title_download" />-->
+</LinearLayout>

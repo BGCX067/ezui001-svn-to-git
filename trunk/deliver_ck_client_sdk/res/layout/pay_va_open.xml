@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#393939" >
+    
+    <TextView
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:textAppearance="?android:attr/textAppearanceLarge"
+    	android:text="開啟i-pay 虛擬帳戶" />
+    <TextView
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:textAppearance="?android:attr/textAppearanceLarge"
+    	android:text="點選同意開啟，便代表您已經同意i-pay 虛擬帳戶使用規範" />
+    <TextView
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:textAppearance="?android:attr/textAppearanceLarge"
+    	android:text="1. " />
+    <TextView
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:textAppearance="?android:attr/textAppearanceLarge"
+    	android:text="2. " />
+    <TextView
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:textAppearance="?android:attr/textAppearanceLarge"
+    	android:text="3. " />
+    <LinearLayout
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content">
+	    <Button android:id="@+id/cancel"
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:textAppearance="?android:attr/textAppearanceLarge"
+			android:text="取消" />
+	    <Button android:id="@+id/submit"
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:textAppearance="?android:attr/textAppearanceLarge"
+			android:text="同意開啟" />
+    </LinearLayout>
+</LinearLayout>

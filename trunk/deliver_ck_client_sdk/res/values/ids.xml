@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="button_box" />
+    <item type="id" name="act_title_text" />
+    <item type="id" name="account" />
+    <item type="id" name="password" />
+    <item type="id" name="submit" />
+    <item type="id" name="cancel" />
+    <item type="id" name="tab_item_feature" />
+    <item type="id" name="tab_item_class" />
+    <item type="id" name="tab_item_search" />
+    <item type="id" name="tab_item_download" />
+    <item type="id" name="icon" />
+    <item type="id" name="title" />
+    <item type="id" name="app_icon" />
+    <item type="id" name="app_title" />
+    <item type="id" name="app_provider" />
+    <item type="id" name="app_status" />
+    <item type="id" name="app_rating" />
+</resources>

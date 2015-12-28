@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical"
+	android:background="#FFFFFF">
+	
+	<ListView android:id="@android:id/list"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:paddingLeft="@dimen/list_item_padding"/>
+	
+	<View  
+    	android:layout_width="fill_parent"  
+    	android:layout_height="1px"  
+    	android:background="@drawable/divider_horizontal_bright" />
+		
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:gravity="bottom"
+		android:paddingLeft="@dimen/list_item_padding">
+		<TextView android:id="@+id/line_text"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textSize="@dimen/text_size_small"
+			android:text="@string/filter_text" />	
+		<TextView android:id="@+id/os_text"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textSize="@dimen/text_size_small"
+			android:text="@string/filter_os" />	
+		<TextView android:id="@+id/matrix_text"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textSize="@dimen/text_size_small"
+			android:text="@string/filter_matrix" />	
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textSize="@dimen/text_size_small"
+			android:text="@string/filter_note" />	
+	</LinearLayout>
+</LinearLayout>

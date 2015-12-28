@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  $Id: USER_APK_BEHAVIOR_SqlMap.xml 6776 2010-12-21 02:06:33Z yhwang $
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+
+<sqlMap namespace="UserApkBehavior">
+
+<!-- Select CATEGORY : 取得UserApkBehavior總筆數，以USER_UID和APP_ID為條件 -->
+<select id="getUserApkBehaviorCount" resultClass="int">
+<![CDATA[
+ select Count(ID) from USER_APK_BEHAVIOR where upper(USER_UID)=upper(#userUid#) and APP_ID=#appId# and STORE_ID=#storeId#
+]]>
+</select>
+
+<!-- Update USER_APK_BEHAVIOR : 更新UserApkBehavior資訊 -->
+<update id="updateUserApkBehavior">
+<![CDATA[
+ update USER_APK_BEHAVIOR
+ set LAST_PAYMENT_METHOD=#lastPaymentMethod#,USER_ID=#userId#
+ where upper(USER_UID)=upper(#userUid#) and APP_ID=#appId#
+]]>
+</update>
+
+<!-- Update USER_APK_BEHAVIOR : 更新使用者使用APK資訊的LAST_DOWNLOAD_ID/USER_ID資訊 -->
+<update id="updateUserApkBehaviorWithDownLoadIdAndUserId">
+<![CDATA[
+ update USER_APK_BEHAVIOR set LAST_DOWNLOAD_ID=#downloadId#, USER_ID=#userId#
+ where APP_ID=#appId# and upper(USER_UID)=upper(#userUid#) and STORE_ID=#storeId#
+]]>
+</update>
+
+<!-- Insert USER_APK_BEHAVIOR : 儲存使用者使用APK資訊 -->
+<insert id="insertUserApkBehavior">  
+<![CDATA[
+ insert into USER_APK_BEHAVIOR (LAST_DOWNLOAD_ID,APP_ID,USER_ID,USER_UID, STORE_ID)
+ values(#downloadId#,#appId#,#userId#,#userUid#, #storeId#)
+]]>
+</insert>
+    
+</sqlMap>

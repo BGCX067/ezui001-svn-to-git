@@ -1,0 +1,2453 @@
+cn.com.vapk.vstore.client.ASC -> cn.com.vapk.vstore.client.ASC:
+    tw.com.sti.store.api.android.util.Logger L -> a
+    java.lang.String[] items -> b
+    void onCreate(android.os.Bundle) -> onCreate
+    void onListItemClick(android.widget.ListView,android.view.View,int,long) -> onListItemClick
+    boolean onSearchRequested() -> onSearchRequested
+cn.com.vapk.vstore.client.AbsAppsDisplayActivity -> cn.com.vapk.vstore.client.l:
+    tw.com.sti.store.api.android.util.Logger L -> a
+    cn.com.vapk.vstore.client.AbsAppsDisplayActivity$Mode mode -> b
+    android.view.View freeAppsBtn -> c
+    android.view.View paidAppsBtn -> d
+    android.view.View allAppsBtn -> e
+    cn.com.vapk.vstore.client.AbsAppsDisplayActivity$Displyer freeAppsDisplyer -> f
+    cn.com.vapk.vstore.client.AbsAppsDisplayActivity$Displyer paidAppsDisplyer -> g
+    cn.com.vapk.vstore.client.AbsAppsDisplayActivity$Displyer allAppsDisplyer -> h
+    tw.com.sti.store.api.ApiService$AppsType display -> i
+    cn.com.vapk.vstore.client.util.ImageDownloader imageDownloader -> j
+    android.view.View appsEmpty -> k
+    cn.com.vapk.vstore.client.installapp.AppInstallReceiver appInstallReceiver -> l
+    cn.com.vapk.vstore.client.api.AppStatusReceiver appStatusReceiver -> m
+    cn.com.vapk.vstore.client.CloseClientReceiver closeClientReceiver -> n
+    boolean showDonwloadProgress -> o
+    int[] $SWITCH_TABLE$tw$com$sti$store$api$ApiService$AppsType -> p
+    void onDestroy() -> onDestroy
+    void reloadApps() -> a
+    void initAppsDisplay(cn.com.vapk.vstore.client.AbsAppsDisplayActivity$Mode) -> a
+    void initAppsDisplay() -> b
+    void displayApps(tw.com.sti.store.api.ApiService$AppsType) -> a
+    void showDonwloadProgress() -> c
+    tw.com.sti.store.api.ApiInvoker appsRetInvoker(tw.com.sti.store.api.ApiService$AppsType,java.lang.Integer,int,java.lang.Integer) -> a
+    boolean postAppsRetInvoker(tw.com.sti.store.api.ApiInvoker) -> a
+    android.app.Dialog onCreateDialog(int) -> onCreateDialog
+    void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+    void onAppItemClick(tw.com.sti.store.api.vo.AppsRet$App) -> a
+    boolean onSearchRequested() -> onSearchRequested
+    tw.com.sti.store.api.android.util.Logger access$0() -> d
+    android.view.View access$1(cn.com.vapk.vstore.client.AbsAppsDisplayActivity) -> a
+    tw.com.sti.store.api.ApiService$AppsType access$2(cn.com.vapk.vstore.client.AbsAppsDisplayActivity) -> b
+    cn.com.vapk.vstore.client.AbsAppsDisplayActivity$Mode access$3(cn.com.vapk.vstore.client.AbsAppsDisplayActivity) -> c
+    cn.com.vapk.vstore.client.util.ImageDownloader access$4(cn.com.vapk.vstore.client.AbsAppsDisplayActivity) -> d
+    void access$5(cn.com.vapk.vstore.client.AbsAppsDisplayActivity,tw.com.sti.store.api.ApiService$AppsType) -> a
+    void access$6(cn.com.vapk.vstore.client.AbsAppsDisplayActivity,android.view.View) -> a
+    boolean access$7(cn.com.vapk.vstore.client.AbsAppsDisplayActivity) -> e
+    cn.com.vapk.vstore.client.AbsAppsDisplayActivity$Displyer access$8(cn.com.vapk.vstore.client.AbsAppsDisplayActivity) -> f
+    cn.com.vapk.vstore.client.AbsAppsDisplayActivity$Displyer access$9(cn.com.vapk.vstore.client.AbsAppsDisplayActivity) -> g
+    cn.com.vapk.vstore.client.AbsAppsDisplayActivity$Displyer access$10(cn.com.vapk.vstore.client.AbsAppsDisplayActivity) -> h
+    int[] $SWITCH_TABLE$tw$com$sti$store$api$ApiService$AppsType() -> e
+cn.com.vapk.vstore.client.AbsAppsDisplayActivity$1 -> cn.com.vapk.vstore.client.aj:
+    cn.com.vapk.vstore.client.AbsAppsDisplayActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+cn.com.vapk.vstore.client.AbsAppsDisplayActivity$2 -> cn.com.vapk.vstore.client.am:
+    cn.com.vapk.vstore.client.AbsAppsDisplayActivity this$0 -> a
+    void remove$5ffc00fd(java.lang.String) -> a
+    void install$5ffc00fd(java.lang.String) -> b
+    void replace$5ffc00fd(java.lang.String) -> c
+    void downloadFail(java.lang.String) -> d
+    void downloadFinish(java.lang.String) -> e
+    void downloadPercent(java.lang.String,int) -> a
+    void notifyAppInstalled(java.lang.String) -> f
+    void setDownloadProgress(java.lang.String,int) -> b
+cn.com.vapk.vstore.client.AbsAppsDisplayActivity$3 -> cn.com.vapk.vstore.client.ak:
+    cn.com.vapk.vstore.client.AbsAppsDisplayActivity this$0 -> a
+    tw.com.sti.store.api.vo.AppsRet$App[] getApps() -> a
+    void addAppToList(java.util.List,tw.com.sti.store.api.vo.AppsRet$App[]) -> a
+    void updated(java.lang.String) -> a
+cn.com.vapk.vstore.client.AbsAppsDisplayActivity$Displyer -> cn.com.vapk.vstore.client.s:
+    android.widget.ListView appsListView -> b
+    tw.com.sti.store.api.ApiService$AppsType appsType -> c
+    cn.com.vapk.vstore.client.PageableAppsAdapter adapter -> d
+    android.view.View appsBtn -> e
+    android.view.View footer -> f
+    cn.com.vapk.vstore.client.util.AsyncTask task -> g
+    cn.com.vapk.vstore.client.AbsAppsDisplayActivity this$0 -> a
+    int[] $SWITCH_TABLE$cn$com$vapk$vstore$client$util$AsyncTask$Status -> h
+    void loading() -> b
+    void loaded() -> c
+    void display() -> a
+    tw.com.sti.store.api.ApiService$AppsType access$0(cn.com.vapk.vstore.client.AbsAppsDisplayActivity$Displyer) -> a
+    void access$1$5f85e5ac(cn.com.vapk.vstore.client.AbsAppsDisplayActivity$Displyer) -> b
+    void access$2(cn.com.vapk.vstore.client.AbsAppsDisplayActivity$Displyer,android.view.View) -> a
+    android.widget.ListView access$3(cn.com.vapk.vstore.client.AbsAppsDisplayActivity$Displyer) -> c
+    android.view.View access$4(cn.com.vapk.vstore.client.AbsAppsDisplayActivity$Displyer) -> d
+    void access$5(cn.com.vapk.vstore.client.AbsAppsDisplayActivity$Displyer,cn.com.vapk.vstore.client.PageableAppsAdapter) -> a
+    cn.com.vapk.vstore.client.PageableAppsAdapter access$6(cn.com.vapk.vstore.client.AbsAppsDisplayActivity$Displyer) -> e
+    void access$7(cn.com.vapk.vstore.client.AbsAppsDisplayActivity$Displyer) -> f
+    int[] $SWITCH_TABLE$cn$com$vapk$vstore$client$util$AsyncTask$Status() -> d
+    void access$9(cn.com.vapk.vstore.client.AbsAppsDisplayActivity$Displyer,java.lang.String) -> a
+    void access$10(cn.com.vapk.vstore.client.AbsAppsDisplayActivity$Displyer,java.lang.String) -> b
+    void access$11(cn.com.vapk.vstore.client.AbsAppsDisplayActivity$Displyer,java.lang.String,int) -> a
+    tw.com.sti.store.api.vo.AppsRet$App[] access$12(cn.com.vapk.vstore.client.AbsAppsDisplayActivity$Displyer) -> g
+    void access$13(cn.com.vapk.vstore.client.AbsAppsDisplayActivity$Displyer,java.lang.String) -> c
+    void access$14(cn.com.vapk.vstore.client.AbsAppsDisplayActivity$Displyer) -> h
+cn.com.vapk.vstore.client.AbsAppsDisplayActivity$Displyer$1 -> cn.com.vapk.vstore.client.bc:
+    cn.com.vapk.vstore.client.AbsAppsDisplayActivity$Displyer this$1 -> a
+    java.lang.Integer val$appFilter -> b
+    java.lang.Integer val$pSize -> c
+    void onPostExecute(java.lang.Object) -> a
+    java.lang.Object doInBackground(java.lang.Object[]) -> a
+cn.com.vapk.vstore.client.AbsAppsDisplayActivity$Displyer$1$1 -> cn.com.vapk.vstore.client.x:
+    tw.com.sti.store.api.ApiInvoker apiInvoker -> a
+    cn.com.vapk.vstore.client.AbsAppsDisplayActivity$Displyer$1 this$2 -> b
+    java.lang.Integer val$appFilter -> c
+    java.lang.Integer val$pSize -> d
+    tw.com.sti.store.api.vo.AppsRet loadAppsRet(int) -> a
+    void postLoadAppsRet$2f330e76(tw.com.sti.store.api.vo.AppsRet) -> a
+cn.com.vapk.vstore.client.AbsAppsDisplayActivity$Mode -> cn.com.vapk.vstore.client.aa:
+    cn.com.vapk.vstore.client.AbsAppsDisplayActivity$Mode NORMAL -> a
+    cn.com.vapk.vstore.client.AbsAppsDisplayActivity$Mode MY_DOWNLOAD -> b
+    cn.com.vapk.vstore.client.AbsAppsDisplayActivity$Mode[] ENUM$VALUES -> c
+    cn.com.vapk.vstore.client.AbsAppsDisplayActivity$Mode[] values() -> values
+    cn.com.vapk.vstore.client.AbsAppsDisplayActivity$Mode valueOf(java.lang.String) -> valueOf
+cn.com.vapk.vstore.client.ActionController -> cn.com.vapk.vstore.client.bl:
+    tw.com.sti.store.api.android.util.Logger L -> b
+    boolean loginFlag -> a
+    boolean isLoginNeededForVtion(android.app.Activity) -> a
+    void closeSMart(android.app.Activity) -> b
+    void index(android.app.Activity) -> c
+    void login(android.app.Activity) -> q
+    void ipLogin(android.app.Activity) -> d
+    void ipLoginFail(android.app.Activity) -> e
+    void autoLogin(android.app.Activity) -> f
+    void autoLoginFail(android.app.Activity) -> g
+    void formLogin(android.app.Activity) -> h
+    void logout(android.app.Activity) -> i
+    void loginSuccess(boolean,boolean,android.content.Context) -> a
+    void passLoginEvent(android.app.Activity,android.content.Intent) -> b
+    void loginSuccess(android.app.Activity,boolean,boolean) -> a
+    boolean eula(android.app.Activity) -> j
+    void agreeEula(android.app.Activity) -> k
+    void featureApps(android.app.Activity) -> l
+    void categories(android.app.Activity) -> m
+    void categoryApps(android.app.Activity,java.lang.String,java.lang.String) -> a
+    void myDownload(android.app.Activity) -> n
+    void search(android.app.Activity) -> o
+    void searchResult(android.app.Activity,java.lang.String) -> a
+    void appDetail(android.app.Activity,java.lang.String,java.lang.String) -> b
+    void appComments(android.app.Activity,cn.com.vapk.vstore.client.ActionController$AppTitleInfo) -> a
+    void reportApp(android.app.Activity,cn.com.vapk.vstore.client.ActionController$AppTitleInfo) -> b
+    void uninstallReasonApp(android.app.Activity,cn.com.vapk.vstore.client.ActionController$AppTitleInfo) -> c
+    void rateApp(android.app.Activity,cn.com.vapk.vstore.client.ActionController$MyRatingInfo) -> a
+    void cpApps(android.app.Activity,java.lang.String,java.lang.String) -> c
+    void screenShot(android.app.Activity,java.lang.String[],int) -> a
+    void setting(android.app.Activity) -> p
+    void changeAppFilter(android.app.Activity,int) -> a
+    boolean sendMail(android.app.Activity,java.lang.String) -> b
+    boolean openWeb(android.app.Activity,java.lang.String) -> c
+    boolean launchApp(android.app.Activity,java.lang.String) -> d
+    void payment(android.app.Activity,java.lang.String,android.os.Bundle) -> a
+    boolean smartUri(android.app.Activity,android.net.Uri) -> a
+    boolean httpUri(android.app.Activity,android.net.Uri) -> b
+    boolean forward(android.app.Activity) -> r
+    void forward(android.app.Activity,android.content.Intent) -> a
+    void passForwardIntent(android.app.Activity,android.content.Intent) -> c
+cn.com.vapk.vstore.client.ActionController$AppTitleInfo -> cn.com.vapk.vstore.client.bu:
+    java.lang.String icon -> d
+    java.lang.String pkg -> e
+    java.lang.String title -> f
+    java.lang.String provider -> g
+    float rating -> h
+cn.com.vapk.vstore.client.ActionController$Intents -> cn.com.vapk.vstore.client.ap:
+    android.content.Intent featureApps(android.content.Context) -> a
+    android.content.Intent addDetail(android.content.Context,java.lang.String,java.lang.String) -> a
+    android.content.Intent categoryApps(android.content.Context,java.lang.String) -> a
+    android.content.Intent searchResult(android.content.Context,java.lang.String) -> b
+    android.content.Intent myDownload(android.content.Context) -> b
+cn.com.vapk.vstore.client.ActionController$MyRatingInfo -> cn.com.vapk.vstore.client.an:
+    java.lang.String comment -> a
+    int rating -> b
+    boolean ratingable -> c
+    boolean commentable -> i
+cn.com.vapk.vstore.client.ActionController$SettingInfo -> cn.com.vapk.vstore.client.bf:
+    boolean appFilterSettingEnable -> a
+    int appFilter -> b
+cn.com.vapk.vstore.client.ActionSession -> cn.com.vapk.vstore.client.bm:
+    tw.com.sti.store.api.android.util.Logger L -> a
+    cn.com.vapk.vstore.client.ActionSession instance -> b
+    boolean ipLoginEnable -> c
+    boolean autoLoginEnable -> d
+    boolean appFilterSettingEnable -> e
+    java.lang.String toString() -> toString
+    cn.com.vapk.vstore.client.ActionSession getSession(android.content.Context) -> h
+    boolean isAutoLoginEnable(android.content.Context) -> a
+    void disableAutoLogin(android.content.Context) -> b
+    void enableAutoLogin(android.content.Context) -> c
+    void setAutoLogin(android.content.Context,boolean) -> a
+    void disableIPLogin(android.content.Context) -> d
+    boolean isAppFilterSettingEnable(android.content.Context) -> e
+    void disableAppFilterSetting(android.content.Context) -> f
+    void enableAppFilterSetting(android.content.Context) -> g
+    void setAppFilterSettingEnable(android.content.Context,boolean) -> b
+    boolean isAgreeEula(android.content.Context,java.lang.String) -> a
+    void agreeEula(android.content.Context,java.lang.String) -> b
+    java.lang.String getAgreeEulaKey(java.lang.String) -> a
+cn.com.vapk.vstore.client.ApiInvokerBaseRetTask -> cn.com.vapk.vstore.client.e:
+    void success(tw.com.sti.store.api.vo.BaseRet) -> a
+    void handleRet(android.app.Activity,java.lang.Object) -> a
+cn.com.vapk.vstore.client.ApiInvokerTask -> cn.com.vapk.vstore.client.j:
+    java.lang.ref.WeakReference atyRef -> a
+    tw.com.sti.store.api.ApiInvoker apiInvoker -> b
+    android.app.ProgressDialog dialog -> c
+    java.lang.String progressMsg -> d
+    cn.com.vapk.vstore.client.ApiInvokerTask setProgressMsg(java.lang.String) -> a
+    void onPreExecute() -> a
+    void handleRet(android.app.Activity,java.lang.Object) -> a
+    void onPostExecute(java.lang.Object) -> a
+    java.lang.Object doInBackground(java.lang.Object[]) -> a
+    tw.com.sti.store.api.ApiInvoker access$2(cn.com.vapk.vstore.client.ApiInvokerTask) -> a
+cn.com.vapk.vstore.client.ApiInvokerTask$1 -> cn.com.vapk.vstore.client.ah:
+    cn.com.vapk.vstore.client.ApiInvokerTask this$0 -> a
+    void onCancel(android.content.DialogInterface) -> onCancel
+cn.com.vapk.vstore.client.AppCommentsActivity -> cn.com.vapk.vstore.client.AppCommentsActivity:
+    tw.com.sti.store.api.android.util.Logger L -> a
+    tw.com.sti.store.api.ApiInvoker apiInvoker -> b
+    java.lang.String packageName -> c
+    int pageNumber -> d
+    cn.com.vapk.vstore.client.AppCommentsActivity$CommentAdapter commentAdapter -> e
+    cn.com.vapk.vstore.client.CloseClientReceiver closeClientReceiver -> f
+    boolean pageEnd -> g
+    boolean loading -> h
+    android.view.View footProgress -> i
+    void onCreate(android.os.Bundle) -> onCreate
+    void onDestroy() -> onDestroy
+    void requestAppComments$64a1e71e() -> a
+    void nextPage() -> b
+    android.app.Dialog onCreateDialog(int) -> onCreateDialog
+    boolean onSearchRequested() -> onSearchRequested
+    void onClick(android.view.View) -> onClick
+    boolean access$0(cn.com.vapk.vstore.client.AppCommentsActivity) -> a
+    void access$1(cn.com.vapk.vstore.client.AppCommentsActivity) -> b
+    java.lang.String access$2(cn.com.vapk.vstore.client.AppCommentsActivity) -> c
+    int access$3(cn.com.vapk.vstore.client.AppCommentsActivity) -> d
+    void access$4(cn.com.vapk.vstore.client.AppCommentsActivity,tw.com.sti.store.api.ApiInvoker) -> a
+    tw.com.sti.store.api.ApiInvoker access$5(cn.com.vapk.vstore.client.AppCommentsActivity) -> e
+    void access$6(cn.com.vapk.vstore.client.AppCommentsActivity) -> f
+    void access$7$5b85a02b(cn.com.vapk.vstore.client.AppCommentsActivity) -> g
+cn.com.vapk.vstore.client.AppCommentsActivity$1 -> cn.com.vapk.vstore.client.bo:
+    android.graphics.Bitmap icon -> a
+    cn.com.vapk.vstore.client.AppCommentsActivity this$0 -> b
+    cn.com.vapk.vstore.client.ActionController$AppTitleInfo val$ati -> c
+    void onPostExecute(java.lang.Object) -> a
+    java.lang.Object doInBackground(java.lang.Object[]) -> a
+cn.com.vapk.vstore.client.AppCommentsActivity$2 -> cn.com.vapk.vstore.client.bp:
+    cn.com.vapk.vstore.client.AppCommentsActivity this$0 -> a
+    tw.com.sti.store.api.android.AndroidApiService val$apiService -> b
+    java.lang.Integer val$pSize -> c
+    void onPostExecute(java.lang.Object) -> a
+    java.lang.Object doInBackground(java.lang.Object[]) -> a
+cn.com.vapk.vstore.client.AppCommentsActivity$CommentAdapter -> cn.com.vapk.vstore.client.a:
+    java.util.ArrayList commentList -> a
+    android.view.LayoutInflater mInflater -> b
+    cn.com.vapk.vstore.client.AppCommentsActivity this$0 -> c
+    void addItem(tw.com.sti.store.api.vo.CommentsRet$Comment[]) -> a
+    int getCount() -> getCount
+    java.lang.Object getItem(int) -> getItem
+    long getItemId(int) -> getItemId
+    android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+cn.com.vapk.vstore.client.AppCommentsActivity$ViewHolder -> cn.com.vapk.vstore.client.av:
+cn.com.vapk.vstore.client.AppDetailActivity -> cn.com.vapk.vstore.client.AppDetailActivity:
+    tw.com.sti.store.api.android.util.Logger L -> b
+    java.lang.String categoryId -> c
+    java.lang.String pkg -> d
+    tw.com.sti.store.api.vo.ApplicationRet$Application app -> e
+    android.widget.ImageButton screenShot -> f
+    android.view.ViewGroup screenShotDots -> g
+    int screenShotPosition -> h
+    java.lang.String[] screenShotImgUrls -> i
+    cn.com.vapk.vstore.client.util.ImageDownloader imageDownloader -> j
+    cn.com.vapk.vstore.client.installapp.AppInstallReceiver appInstallReceiver -> k
+    android.widget.Button[] buttons -> l
+    android.view.View screenShotNext -> m
+    android.view.View screenShotPrevious -> n
+    cn.com.vapk.vstore.client.util.AsyncTask task -> o
+    cn.com.vapk.vstore.client.CloseClientReceiver closeClientReceiver -> p
+    cn.com.vapk.vstore.client.receiver.LoginEventReceiver loginEventReceiver -> q
+    android.view.View downloadBox -> r
+    android.view.View buttonBox -> s
+    android.widget.ProgressBar donwloadPregorss -> t
+    android.widget.TextView donwloadPregorssPct -> u
+    boolean needLogin -> a
+    int[] $SWITCH_TABLE$tw$com$sti$store$api$vo$ApplicationRet$Application$Action -> v
+    void onCreate(android.os.Bundle) -> onCreate
+    void onResume() -> onResume
+    void onDestroy() -> onDestroy
+    boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
+    boolean onMenuItemSelected(int,android.view.MenuItem) -> onMenuItemSelected
+    void changeScreenShot(int) -> a
+    void displayComments(tw.com.sti.store.api.vo.CommentsRet$Comment[]) -> a
+    void diaplayDownloadPregress(int) -> b
+    void displayActionButton() -> b
+    void onClick(android.view.View) -> onClick
+    void onAction(tw.com.sti.store.api.vo.ApplicationRet$Application$Action) -> a
+    void install() -> c
+    void uninstall() -> d
+    void checkPaymentQuota() -> e
+    void unsubscribe() -> f
+    android.app.Dialog onCreateDialog(int) -> onCreateDialog
+    boolean onSearchRequested() -> onSearchRequested
+    void onLogin(cn.com.vapk.vstore.client.receiver.listener.LoginEvent) -> a
+    tw.com.sti.store.api.android.util.Logger access$0() -> a
+    java.lang.String access$1(cn.com.vapk.vstore.client.AppDetailActivity) -> a
+    void access$2(cn.com.vapk.vstore.client.AppDetailActivity,tw.com.sti.store.api.ApiInvoker) -> a
+    tw.com.sti.store.api.vo.ApplicationRet$Application access$3(cn.com.vapk.vstore.client.AppDetailActivity) -> b
+    android.view.View access$4(cn.com.vapk.vstore.client.AppDetailActivity) -> c
+    android.view.View access$5(cn.com.vapk.vstore.client.AppDetailActivity) -> d
+    void access$6(cn.com.vapk.vstore.client.AppDetailActivity,int) -> a
+    void access$7(cn.com.vapk.vstore.client.AppDetailActivity) -> e
+    int[] $SWITCH_TABLE$tw$com$sti$store$api$vo$ApplicationRet$Application$Action() -> g
+    void access$9(cn.com.vapk.vstore.client.AppDetailActivity,tw.com.sti.store.api.ApiInvoker) -> b
+    void access$10(cn.com.vapk.vstore.client.AppDetailActivity,tw.com.sti.store.api.vo.OrderInfo) -> a
+    void access$11(cn.com.vapk.vstore.client.AppDetailActivity,tw.com.sti.store.api.ApiInvoker) -> c
+    void access$12(cn.com.vapk.vstore.client.AppDetailActivity) -> f
+    void access$13(cn.com.vapk.vstore.client.AppDetailActivity,tw.com.sti.store.api.vo.CheckPayStatusRet) -> a
+    void access$14(cn.com.vapk.vstore.client.AppDetailActivity) -> g
+    void access$15(cn.com.vapk.vstore.client.AppDetailActivity) -> h
+    void access$16(cn.com.vapk.vstore.client.AppDetailActivity) -> i
+cn.com.vapk.vstore.client.AppDetailActivity$1 -> cn.com.vapk.vstore.client.bq:
+    tw.com.sti.store.api.ApiInvoker apiInvoker -> a
+    cn.com.vapk.vstore.client.AppDetailActivity this$0 -> b
+    void onCancelled() -> c
+    void onPostExecute(java.lang.Object) -> a
+    java.lang.Object doInBackground(java.lang.Object[]) -> a
+cn.com.vapk.vstore.client.AppDetailActivity$10 -> cn.com.vapk.vstore.client.r:
+    cn.com.vapk.vstore.client.AppDetailActivity this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+cn.com.vapk.vstore.client.AppDetailActivity$11 -> cn.com.vapk.vstore.client.u:
+    cn.com.vapk.vstore.client.AppDetailActivity this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+cn.com.vapk.vstore.client.AppDetailActivity$12 -> cn.com.vapk.vstore.client.t:
+    cn.com.vapk.vstore.client.AppDetailActivity this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+cn.com.vapk.vstore.client.AppDetailActivity$13 -> cn.com.vapk.vstore.client.v:
+    cn.com.vapk.vstore.client.AppDetailActivity this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+cn.com.vapk.vstore.client.AppDetailActivity$2 -> cn.com.vapk.vstore.client.by:
+    java.lang.String pkg -> a
+    cn.com.vapk.vstore.client.AppDetailActivity this$0 -> b
+    void downloadFail(java.lang.String) -> d
+    void downloadFinish(java.lang.String) -> e
+    void downloadPercent(java.lang.String,int) -> a
+    void install$5ffc00fd(java.lang.String) -> b
+    void replace$5ffc00fd(java.lang.String) -> c
+    void remove$5ffc00fd(java.lang.String) -> a
+cn.com.vapk.vstore.client.AppDetailActivity$3 -> cn.com.vapk.vstore.client.bx:
+    tw.com.sti.store.api.ApiInvoker apiInvoker -> a
+    cn.com.vapk.vstore.client.AppDetailActivity this$0 -> b
+    void onCancelled() -> c
+    void onPostExecute(java.lang.Object) -> a
+    java.lang.Object doInBackground(java.lang.Object[]) -> a
+cn.com.vapk.vstore.client.AppDetailActivity$4 -> cn.com.vapk.vstore.client.ca:
+    cn.com.vapk.vstore.client.AppDetailActivity this$0 -> a
+    tw.com.sti.store.api.vo.OrderInfo val$order -> b
+    void onClick(android.content.DialogInterface,int) -> onClick
+cn.com.vapk.vstore.client.AppDetailActivity$5 -> cn.com.vapk.vstore.client.bz:
+    tw.com.sti.store.api.ApiInvoker apiInvoker -> a
+    cn.com.vapk.vstore.client.AppDetailActivity this$0 -> b
+    tw.com.sti.store.api.vo.OrderInfo val$order -> c
+    void onCancelled() -> c
+    void onPostExecute(java.lang.Object) -> a
+    java.lang.Object doInBackground(java.lang.Object[]) -> a
+cn.com.vapk.vstore.client.AppDetailActivity$6 -> cn.com.vapk.vstore.client.bt:
+    cn.com.vapk.vstore.client.AppDetailActivity this$0 -> a
+    void success(tw.com.sti.store.api.vo.BaseRet) -> a
+cn.com.vapk.vstore.client.AppDetailActivity$7 -> cn.com.vapk.vstore.client.bs:
+    cn.com.vapk.vstore.client.AppDetailActivity this$0 -> a
+    tw.com.sti.store.api.vo.CheckPayStatusRet val$checkPayStatusRet -> b
+    void handleRet(android.app.Activity,java.lang.Object) -> a
+cn.com.vapk.vstore.client.AppDetailActivity$8 -> cn.com.vapk.vstore.client.bw:
+    cn.com.vapk.vstore.client.AppDetailActivity this$0 -> a
+    void success(tw.com.sti.store.api.vo.BaseRet) -> a
+cn.com.vapk.vstore.client.AppDetailActivity$9 -> cn.com.vapk.vstore.client.bv:
+    cn.com.vapk.vstore.client.AppDetailActivity this$0 -> a
+    void success(tw.com.sti.store.api.vo.BaseRet) -> a
+cn.com.vapk.vstore.client.AppLicenseManager -> cn.com.vapk.vstore.client.AppLicenseManager:
+    tw.com.sti.store.api.android.util.Logger L -> a
+    android.app.AlertDialog loginDialog -> b
+    tw.com.sti.store.api.android.AndroidApiService apiService -> c
+    void initView$79e5e33f() -> a
+    void showLoginErrMsg(java.lang.String) -> a
+    void loginByUI() -> i
+    void checkLoginStatusOrShowLoginUI(tw.com.sti.clientsdk.LoginCallback) -> a
+    void downloadNewVersionApp(tw.com.sti.store.api.vo.SdkAppInfoRet$SdkApp) -> a
+    tw.com.sti.store.api.Configuration getConfiguration() -> b
+    void showPaymentUI() -> c
+    void access$0(cn.com.vapk.vstore.client.AppLicenseManager) -> a
+    tw.com.sti.store.api.android.AndroidApiService access$1(cn.com.vapk.vstore.client.AppLicenseManager) -> b
+    tw.com.sti.store.api.android.util.Logger access$2() -> d
+    void access$3$28af3f3(cn.com.vapk.vstore.client.AppLicenseManager) -> c
+    void access$4(cn.com.vapk.vstore.client.AppLicenseManager,java.lang.String) -> a
+    android.app.AlertDialog access$5(cn.com.vapk.vstore.client.AppLicenseManager) -> d
+    void access$6(cn.com.vapk.vstore.client.AppLicenseManager,java.lang.String,java.lang.String,boolean) -> a
+cn.com.vapk.vstore.client.AppLicenseManager$1 -> cn.com.vapk.vstore.client.ab:
+    cn.com.vapk.vstore.client.AppLicenseManager this$0 -> a
+    void onCancel(android.content.DialogInterface) -> onCancel
+cn.com.vapk.vstore.client.AppLicenseManager$2 -> cn.com.vapk.vstore.client.ae:
+    cn.com.vapk.vstore.client.AppLicenseManager this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+cn.com.vapk.vstore.client.AppLicenseManager$3 -> cn.com.vapk.vstore.client.af:
+    cn.com.vapk.vstore.client.AppLicenseManager this$0 -> a
+    java.lang.String val$userId -> b
+    java.lang.String val$password -> c
+    boolean val$autoLogin -> d
+    void onPostExecute(java.lang.Object) -> a
+    java.lang.Object doInBackground(java.lang.Object[]) -> a
+cn.com.vapk.vstore.client.AppLicenseManager$4 -> cn.com.vapk.vstore.client.ac:
+    cn.com.vapk.vstore.client.AppLicenseManager this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+cn.com.vapk.vstore.client.AppLicenseManager$5 -> cn.com.vapk.vstore.client.ad:
+    cn.com.vapk.vstore.client.AppLicenseManager this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+cn.com.vapk.vstore.client.AppLicenseManager$8 -> cn.com.vapk.vstore.client.y:
+    cn.com.vapk.vstore.client.AppLicenseManager this$0 -> a
+    tw.com.sti.clientsdk.LoginCallback val$callback -> b
+    void handleMessage(android.os.Message) -> handleMessage
+cn.com.vapk.vstore.client.AppLicenseManager$9 -> cn.com.vapk.vstore.client.z:
+    cn.com.vapk.vstore.client.AppLicenseManager this$0 -> a
+    android.os.Handler val$handler -> b
+    void run() -> run
+cn.com.vapk.vstore.client.AppsAdapter -> cn.com.vapk.vstore.client.cb:
+    android.content.Context context -> a
+    java.util.ArrayList apps -> b
+    android.view.LayoutInflater layoutInflater -> c
+    int evenColor -> d
+    int oddColor -> e
+    cn.com.vapk.vstore.client.util.ImageDownloader imageDownloader -> f
+    java.util.HashMap downloadProgressDatas -> g
+    void setDownloadProgress(java.lang.String,int) -> a
+    void notifyAppInstalled(java.lang.String) -> a
+    void notifyAppUninstalled(java.lang.String) -> b
+    void notifyAppStatusChange(java.lang.String) -> c
+    void addApps(tw.com.sti.store.api.vo.AppsRet$App[]) -> a
+    tw.com.sti.store.api.vo.AppsRet$App[] getApps() -> a
+    int getCount() -> getCount
+    java.lang.Object getItem(int) -> getItem
+    long getItemId(int) -> getItemId
+    android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+cn.com.vapk.vstore.client.AppsAdapter$ViewHolder -> cn.com.vapk.vstore.client.h:
+    android.widget.TextView appTitle -> a
+    android.widget.TextView appStatus -> b
+    android.widget.RatingBar appRating -> c
+    android.widget.ImageView appIcon -> d
+    android.widget.ProgressBar pgsBar -> e
+    cn.com.vapk.vstore.client.AppsAdapter this$0 -> f
+cn.com.vapk.vstore.client.AppsListAdapter -> cn.com.vapk.vstore.client.q:
+    void addApps(tw.com.sti.store.api.vo.AppsRet$App[]) -> a
+    tw.com.sti.store.api.vo.AppsRet$App[] getApps() -> a
+    void setDownloadProgress(java.lang.String,int) -> a
+    void notifyDataSetChanged() -> notifyDataSetChanged
+    void notifyAppInstalled(java.lang.String) -> a
+    void notifyAppUninstalled(java.lang.String) -> b
+    void notifyAppStatusChange(java.lang.String) -> c
+cn.com.vapk.vstore.client.AutoLoginActivity -> cn.com.vapk.vstore.client.AutoLoginActivity:
+    tw.com.sti.store.api.android.util.Logger L -> a
+    int DLG_LOGIN_FAIL -> b
+    tw.com.sti.store.api.ApiInvoker apiInvoker -> c
+    java.lang.String retMsg -> d
+    java.lang.String userId -> e
+    void onCreate(android.os.Bundle) -> onCreate
+    void onDestroy() -> onDestroy
+    void autoLoginFail() -> a
+    android.app.Dialog onCreateDialog(int) -> onCreateDialog
+    boolean onSearchRequested() -> onSearchRequested
+    void access$0(cn.com.vapk.vstore.client.AutoLoginActivity,tw.com.sti.store.api.ApiInvoker) -> a
+    tw.com.sti.store.api.ApiInvoker access$1(cn.com.vapk.vstore.client.AutoLoginActivity) -> a
+    void access$2(cn.com.vapk.vstore.client.AutoLoginActivity) -> b
+    void access$3(cn.com.vapk.vstore.client.AutoLoginActivity) -> c
+cn.com.vapk.vstore.client.AutoLoginActivity$1 -> cn.com.vapk.vstore.client.bd:
+    cn.com.vapk.vstore.client.AutoLoginActivity this$0 -> a
+    void onPostExecute(java.lang.Object) -> a
+    java.lang.Object doInBackground(java.lang.Object[]) -> a
+cn.com.vapk.vstore.client.AutoLoginActivity$2 -> cn.com.vapk.vstore.client.aq:
+    cn.com.vapk.vstore.client.AutoLoginActivity this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+cn.com.vapk.vstore.client.AutoLoginActivity$3 -> cn.com.vapk.vstore.client.ar:
+    cn.com.vapk.vstore.client.AutoLoginActivity this$0 -> a
+    void onCancel(android.content.DialogInterface) -> onCancel
+cn.com.vapk.vstore.client.CPAppsActivity -> cn.com.vapk.vstore.client.CPAppsActivity:
+    java.lang.String cpId -> a
+    android.widget.TextView titleView -> b
+    void onCreate(android.os.Bundle) -> onCreate
+    boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
+    boolean onMenuItemSelected(int,android.view.MenuItem) -> onMenuItemSelected
+    void onAppItemClick(tw.com.sti.store.api.vo.AppsRet$App) -> a
+    tw.com.sti.store.api.ApiInvoker appsRetInvoker(tw.com.sti.store.api.ApiService$AppsType,java.lang.Integer,int,java.lang.Integer) -> a
+    boolean postAppsRetInvoker(tw.com.sti.store.api.ApiInvoker) -> a
+    boolean onSearchRequested() -> onSearchRequested
+    void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+cn.com.vapk.vstore.client.CategoriesActivity -> cn.com.vapk.vstore.client.CategoriesActivity:
+    tw.com.sti.store.api.android.util.Logger L -> a
+    tw.com.sti.store.api.ApiInvoker apiInvoker -> b
+    cn.com.vapk.vstore.client.CloseClientReceiver closeClientReceiver -> c
+    void onCreate(android.os.Bundle) -> onCreate
+    void onClick(android.view.View) -> onClick
+    void onDestroy() -> onDestroy
+    void onListItemClick(android.widget.ListView,android.view.View,int,long) -> onListItemClick
+    boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
+    boolean onMenuItemSelected(int,android.view.MenuItem) -> onMenuItemSelected
+    android.app.Dialog onCreateDialog(int) -> onCreateDialog
+    boolean onSearchRequested() -> onSearchRequested
+    void access$0(cn.com.vapk.vstore.client.CategoriesActivity,tw.com.sti.store.api.ApiInvoker) -> a
+    tw.com.sti.store.api.ApiInvoker access$1(cn.com.vapk.vstore.client.CategoriesActivity) -> a
+    void access$2(cn.com.vapk.vstore.client.CategoriesActivity) -> b
+cn.com.vapk.vstore.client.CategoriesActivity$1 -> cn.com.vapk.vstore.client.p:
+    cn.com.vapk.vstore.client.CategoriesActivity this$0 -> a
+    void onPostExecute(java.lang.Object) -> a
+    java.lang.Object doInBackground(java.lang.Object[]) -> a
+cn.com.vapk.vstore.client.CategoriesActivity$CategoriesAdapter -> cn.com.vapk.vstore.client.w:
+    java.util.ArrayList categories -> a
+    android.view.LayoutInflater layoutInflater -> b
+    int evenColor -> c
+    int oddColor -> d
+    cn.com.vapk.vstore.client.util.ImageDownloader imageDownloader -> e
+    cn.com.vapk.vstore.client.CategoriesActivity this$0 -> f
+    void addCategories(tw.com.sti.store.api.vo.CategoriesRet$Category[]) -> a
+    int getCount() -> getCount
+    java.lang.Object getItem(int) -> getItem
+    long getItemId(int) -> getItemId
+    android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+cn.com.vapk.vstore.client.CategoriesActivity$CategoriesAdapter$ViewHolder -> cn.com.vapk.vstore.client.at:
+    android.widget.ImageView icon -> a
+    android.widget.TextView title -> b
+    android.widget.TextView newAppCount -> c
+    android.widget.ImageView hasNewApp -> d
+    cn.com.vapk.vstore.client.CategoriesActivity$CategoriesAdapter this$1 -> e
+cn.com.vapk.vstore.client.CategoryAppsActivity -> cn.com.vapk.vstore.client.CategoryAppsActivity:
+    java.lang.String categoryId -> a
+    void onCreate(android.os.Bundle) -> onCreate
+    void onClick(android.view.View) -> onClick
+    boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
+    boolean onMenuItemSelected(int,android.view.MenuItem) -> onMenuItemSelected
+    void onAppItemClick(tw.com.sti.store.api.vo.AppsRet$App) -> a
+    tw.com.sti.store.api.ApiInvoker appsRetInvoker(tw.com.sti.store.api.ApiService$AppsType,java.lang.Integer,int,java.lang.Integer) -> a
+    boolean postAppsRetInvoker(tw.com.sti.store.api.ApiInvoker) -> a
+    boolean onSearchRequested() -> onSearchRequested
+    void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+cn.com.vapk.vstore.client.CloseClientReceiver -> cn.com.vapk.vstore.client.CloseClientReceiver:
+    tw.com.sti.store.api.android.util.Logger L -> a
+    android.app.Activity aty -> b
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    void register() -> a
+    void unregister() -> b
+cn.com.vapk.vstore.client.CreateShortcutActivity -> cn.com.vapk.vstore.client.CreateShortcutActivity:
+    void onCreate(android.os.Bundle) -> onCreate
+cn.com.vapk.vstore.client.DialogUtils -> cn.com.vapk.vstore.client.ao:
+    boolean handleApiInvokeDialog(android.app.Activity,tw.com.sti.store.api.ApiInvoker) -> a
+    android.app.AlertDialog createReLoginAlertDialog(android.app.Activity,java.lang.String) -> a
+    android.app.AlertDialog createNewClientAlertDialog(android.app.Activity,tw.com.sti.store.api.vo.NewClientInfo) -> a
+    android.app.AlertDialog createNoNetworkAlertDialog(android.app.Activity) -> a
+    android.app.AlertDialog createNoNetworkAlertDialog$5052678(android.app.Activity) -> b
+    android.app.AlertDialog createConnectionToServerFailAlertDialog(android.app.Activity) -> c
+    android.app.AlertDialog createAlertDialog(android.app.Activity,int) -> a
+    android.app.AlertDialog createFinishActivityAlertDialog(android.app.Activity,int,boolean) -> a
+    android.app.AlertDialog createFinishActivityAlertDialog(android.app.Activity,java.lang.String,boolean) -> a
+cn.com.vapk.vstore.client.DialogUtils$1 -> cn.com.vapk.vstore.client.k:
+    android.app.Activity val$aty -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+cn.com.vapk.vstore.client.DialogUtils$2 -> cn.com.vapk.vstore.client.o:
+    android.app.Activity val$aty -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+cn.com.vapk.vstore.client.DialogUtils$3 -> cn.com.vapk.vstore.client.n:
+    android.app.Activity val$aty -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+cn.com.vapk.vstore.client.DialogUtils$4 -> cn.com.vapk.vstore.client.m:
+    android.app.Activity val$aty -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+cn.com.vapk.vstore.client.DialogUtils$ActivityFinishClickListener -> cn.com.vapk.vstore.client.i:
+    android.app.Activity a -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+cn.com.vapk.vstore.client.DialogUtils$ApiInvokerStopCancelListener -> cn.com.vapk.vstore.client.aw:
+    tw.com.sti.store.api.ApiInvoker apiInvoker -> a
+    android.app.Activity finishActivity -> b
+    int cancelMsgResourceId -> c
+    android.content.Context ctx -> d
+    cn.com.vapk.vstore.client.DialogUtils$ApiInvokerStopCancelListener setCancelMessage$320413(android.content.Context) -> a
+    void onCancel(android.content.DialogInterface) -> onCancel
+cn.com.vapk.vstore.client.DialogUtils$FinishActivityCancelListener -> cn.com.vapk.vstore.client.al:
+    android.app.Activity finishActivity -> a
+    void onCancel(android.content.DialogInterface) -> onCancel
+cn.com.vapk.vstore.client.DialogUtils$ViewFocusClickListener -> cn.com.vapk.vstore.client.br:
+    android.view.View v -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+cn.com.vapk.vstore.client.EulaActivity -> cn.com.vapk.vstore.client.EulaActivity:
+    cn.com.vapk.vstore.client.CloseClientReceiver closeClientReceiver -> a
+    void onCreate(android.os.Bundle) -> onCreate
+    void onDestroy() -> onDestroy
+    void onClick(android.view.View) -> onClick
+    boolean onSearchRequested() -> onSearchRequested
+cn.com.vapk.vstore.client.FeatureAppsActivity -> cn.com.vapk.vstore.client.FeatureAppsActivity:
+    boolean loginFlag -> a
+    tw.com.sti.store.api.android.util.Logger L -> b
+    tw.com.sti.store.api.ApiInvoker apiInvoker -> c
+    cn.com.vapk.vstore.client.installapp.PkgInstallReceiver pkgInstallReceiver -> d
+    cn.com.vapk.vstore.client.api.AppStatusReceiver appStatusReceiver -> e
+    cn.com.vapk.vstore.client.CloseClientReceiver closeClientReceiver -> f
+    void onCreate(android.os.Bundle) -> onCreate
+    void onClick(android.view.View) -> onClick
+    void onDestroy() -> onDestroy
+    boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
+    boolean onMenuItemSelected(int,android.view.MenuItem) -> onMenuItemSelected
+    void onListItemClick(android.widget.ListView,android.view.View,int,long) -> onListItemClick
+    boolean onSearchRequested() -> onSearchRequested
+    android.app.Dialog onCreateDialog(int) -> onCreateDialog
+    boolean isLoginFlag() -> a
+    void setLoginFlag(boolean) -> a
+    void access$0(cn.com.vapk.vstore.client.FeatureAppsActivity,tw.com.sti.store.api.ApiInvoker) -> a
+    tw.com.sti.store.api.ApiInvoker access$1(cn.com.vapk.vstore.client.FeatureAppsActivity) -> a
+    void access$2(cn.com.vapk.vstore.client.FeatureAppsActivity) -> b
+cn.com.vapk.vstore.client.FeatureAppsActivity$1 -> cn.com.vapk.vstore.client.g:
+    cn.com.vapk.vstore.client.FeatureAppsActivity this$0 -> a
+    java.lang.Integer val$appFilter -> b
+    void onPostExecute(java.lang.Object) -> a
+    java.lang.Object doInBackground(java.lang.Object[]) -> a
+cn.com.vapk.vstore.client.FeatureAppsActivity$2 -> cn.com.vapk.vstore.client.c:
+    cn.com.vapk.vstore.client.FeatureAppsActivity this$0 -> a
+    cn.com.vapk.vstore.client.AppsAdapter val$adapter -> b
+    void remove$5ffc00fd(java.lang.String) -> a
+    void install$5ffc00fd(java.lang.String) -> b
+    void replace$5ffc00fd(java.lang.String) -> c
+cn.com.vapk.vstore.client.FeatureAppsActivity$3 -> cn.com.vapk.vstore.client.d:
+    cn.com.vapk.vstore.client.FeatureAppsActivity this$0 -> a
+    cn.com.vapk.vstore.client.AppsAdapter val$adapter -> b
+    tw.com.sti.store.api.vo.AppsRet$App[] getApps() -> a
+    void updated(java.lang.String) -> a
+cn.com.vapk.vstore.client.IPLoginActivity -> cn.com.vapk.vstore.client.IPLoginActivity:
+    tw.com.sti.store.api.android.util.Logger L -> a
+    tw.com.sti.store.api.ApiInvoker apiInvoker -> b
+    java.lang.String ip -> c
+    void onCreate(android.os.Bundle) -> onCreate
+    void onDestroy() -> onDestroy
+    java.lang.String getIP() -> a
+    android.app.Dialog onCreateDialog(int) -> onCreateDialog
+    boolean onSearchRequested() -> onSearchRequested
+    java.lang.String access$0(cn.com.vapk.vstore.client.IPLoginActivity) -> a
+    void access$1(cn.com.vapk.vstore.client.IPLoginActivity,tw.com.sti.store.api.ApiInvoker) -> a
+    tw.com.sti.store.api.ApiInvoker access$2(cn.com.vapk.vstore.client.IPLoginActivity) -> b
+    void access$3(cn.com.vapk.vstore.client.IPLoginActivity) -> c
+cn.com.vapk.vstore.client.IPLoginActivity$1 -> cn.com.vapk.vstore.client.bh:
+    cn.com.vapk.vstore.client.IPLoginActivity this$0 -> a
+    void onPostExecute(java.lang.Object) -> a
+    java.lang.Object doInBackground(java.lang.Object[]) -> a
+cn.com.vapk.vstore.client.LoginActivity -> cn.com.vapk.vstore.client.LoginActivity:
+    tw.com.sti.store.api.android.util.Logger L -> a
+    int DLG_INVALID_ACCOUNT -> b
+    int DLG_INVALID_PASSWORD -> c
+    int DLG_LOGINNING -> d
+    int DLG_LOGIN_REQUEST_FAIL -> e
+    android.widget.CheckBox mAutoLogin -> f
+    android.widget.TextView mAccount -> g
+    android.widget.TextView mPassword -> h
+    java.lang.String account -> i
+    tw.com.sti.store.api.ApiInvoker apiInvoker -> j
+    java.lang.String retMsg -> k
+    cn.com.vapk.vstore.client.CloseClientReceiver closeClientReceiver -> l
+    void onCreate(android.os.Bundle) -> onCreate
+    void onDestroy() -> onDestroy
+    void onClick(android.view.View) -> onClick
+    void onLoginClick() -> a
+    boolean onKeyUp(int,android.view.KeyEvent) -> onKeyUp
+    android.app.Dialog onCreateDialog(int) -> onCreateDialog
+    boolean onSearchRequested() -> onSearchRequested
+    boolean isAutoLogin(android.content.Context) -> a
+    java.lang.String autoLogin(android.content.Context) -> b
+    void access$0(cn.com.vapk.vstore.client.LoginActivity,tw.com.sti.store.api.ApiInvoker) -> a
+    tw.com.sti.store.api.ApiInvoker access$1(cn.com.vapk.vstore.client.LoginActivity) -> a
+    void access$2(cn.com.vapk.vstore.client.LoginActivity) -> b
+cn.com.vapk.vstore.client.LoginActivity$1 -> cn.com.vapk.vstore.client.as:
+    cn.com.vapk.vstore.client.LoginActivity this$0 -> a
+    java.lang.String val$account -> b
+    java.lang.String val$password -> c
+    void onPostExecute(java.lang.Object) -> a
+    java.lang.Object doInBackground(java.lang.Object[]) -> a
+cn.com.vapk.vstore.client.MyDownloadActivity -> cn.com.vapk.vstore.client.MyDownloadActivity:
+    tw.com.sti.store.api.android.util.Logger L -> a
+    void onCreate(android.os.Bundle) -> onCreate
+    void onNewIntent(android.content.Intent) -> onNewIntent
+    void onClick(android.view.View) -> onClick
+    boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
+    boolean onMenuItemSelected(int,android.view.MenuItem) -> onMenuItemSelected
+    void onAppItemClick(tw.com.sti.store.api.vo.AppsRet$App) -> a
+    tw.com.sti.store.api.ApiInvoker appsRetInvoker(tw.com.sti.store.api.ApiService$AppsType,java.lang.Integer,int,java.lang.Integer) -> a
+    boolean onSearchRequested() -> onSearchRequested
+    void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+cn.com.vapk.vstore.client.MyDownloadAppsAdapter -> cn.com.vapk.vstore.client.ai:
+    android.content.Context context -> a
+    java.util.HashMap apps -> b
+    java.util.ArrayList myApps -> c
+    java.util.ArrayList dlApps -> d
+    java.util.ArrayList playApps -> e
+    android.view.LayoutInflater layoutInflater -> f
+    int evenColor -> g
+    int oddColor -> h
+    cn.com.vapk.vstore.client.util.ImageDownloader imageDownloader -> i
+    java.util.HashMap downloadProgressDatas -> j
+    void addApps(tw.com.sti.store.api.vo.AppsRet$App[]) -> a
+    tw.com.sti.store.api.vo.AppsRet$App[] getApps() -> a
+    void setDownloadProgress(java.lang.String,int) -> a
+    void notifyAppInstalled(java.lang.String) -> a
+    void notifyAppUninstalled(java.lang.String) -> b
+    void notifyAppStatusChange(java.lang.String) -> c
+    void notifyDataSetChanged() -> notifyDataSetChanged
+    int getCount() -> getCount
+    java.lang.Object getItem(int) -> getItem
+    long getItemId(int) -> getItemId
+    android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+cn.com.vapk.vstore.client.MyDownloadAppsAdapter$ViewHolder -> cn.com.vapk.vstore.client.b:
+    android.widget.TextView appTitle -> a
+    android.widget.TextView appStatus -> b
+    android.widget.RatingBar appRating -> c
+    android.widget.ImageView appIcon -> d
+    android.widget.ProgressBar pgsBar -> e
+    cn.com.vapk.vstore.client.MyDownloadAppsAdapter this$0 -> f
+cn.com.vapk.vstore.client.PageableAppsAdapter -> cn.com.vapk.vstore.client.ax:
+    cn.com.vapk.vstore.client.AppsListAdapter appsListAdapter -> a
+    boolean loading -> b
+    boolean pageEnd -> c
+    int page -> d
+    int loadPage -> e
+    android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    void nextPage() -> b
+    tw.com.sti.store.api.vo.AppsRet loadAppsRet(int) -> a
+    void postLoadAppsRet$2f330e76(tw.com.sti.store.api.vo.AppsRet) -> a
+    boolean areAllItemsEnabled() -> areAllItemsEnabled
+    boolean isEnabled(int) -> isEnabled
+    void registerDataSetObserver(android.database.DataSetObserver) -> registerDataSetObserver
+    void unregisterDataSetObserver(android.database.DataSetObserver) -> unregisterDataSetObserver
+    int getCount() -> getCount
+    java.lang.Object getItem(int) -> getItem
+    long getItemId(int) -> getItemId
+    boolean hasStableIds() -> hasStableIds
+    int getItemViewType(int) -> getItemViewType
+    int getViewTypeCount() -> getViewTypeCount
+    boolean isEmpty() -> isEmpty
+    void addApps(tw.com.sti.store.api.vo.AppsRet$App[]) -> a
+    tw.com.sti.store.api.vo.AppsRet$App[] getApps() -> a
+    void setDownloadProgress(java.lang.String,int) -> a
+    void notifyDataSetChanged() -> notifyDataSetChanged
+    void notifyAppInstalled(java.lang.String) -> a
+    void notifyAppUninstalled(java.lang.String) -> b
+    void notifyAppStatusChange(java.lang.String) -> c
+    int access$0(cn.com.vapk.vstore.client.PageableAppsAdapter) -> a
+    void access$1$22ed653b(cn.com.vapk.vstore.client.PageableAppsAdapter) -> b
+    void access$2(cn.com.vapk.vstore.client.PageableAppsAdapter,boolean) -> a
+    void access$3(cn.com.vapk.vstore.client.PageableAppsAdapter,int) -> a
+    cn.com.vapk.vstore.client.AppsListAdapter access$4(cn.com.vapk.vstore.client.PageableAppsAdapter) -> c
+cn.com.vapk.vstore.client.PageableAppsAdapter$1 -> cn.com.vapk.vstore.client.bk:
+    cn.com.vapk.vstore.client.PageableAppsAdapter this$0 -> a
+    void onPreExecute() -> a
+    void onPostExecute(java.lang.Object) -> a
+    java.lang.Object doInBackground(java.lang.Object[]) -> a
+cn.com.vapk.vstore.client.RateAppActivity -> cn.com.vapk.vstore.client.RateAppActivity:
+    tw.com.sti.store.api.android.util.Logger L -> a
+    java.lang.String packageName -> b
+    java.lang.String commentText -> c
+    float rating -> d
+    android.widget.RatingBar ratingBar -> e
+    android.widget.EditText commentEditText -> f
+    tw.com.sti.store.api.ApiInvoker apiInvoker -> g
+    cn.com.vapk.vstore.client.CloseClientReceiver closeClientReceiver -> h
+    void onCreate(android.os.Bundle) -> onCreate
+    void onDestroy() -> onDestroy
+    void onClick(android.view.View) -> onClick
+    android.app.Dialog onCreateDialog(int) -> onCreateDialog
+    boolean onSearchRequested() -> onSearchRequested
+    tw.com.sti.store.api.ApiInvoker access$0(cn.com.vapk.vstore.client.RateAppActivity) -> a
+    void access$1(cn.com.vapk.vstore.client.RateAppActivity) -> b
+cn.com.vapk.vstore.client.RateAppActivity$1 -> cn.com.vapk.vstore.client.bj:
+    android.graphics.Bitmap icon -> a
+    cn.com.vapk.vstore.client.RateAppActivity this$0 -> b
+    cn.com.vapk.vstore.client.ActionController$AppTitleInfo val$ati -> c
+    void onPostExecute(java.lang.Object) -> a
+    java.lang.Object doInBackground(java.lang.Object[]) -> a
+cn.com.vapk.vstore.client.RateAppActivity$2 -> cn.com.vapk.vstore.client.bi:
+    cn.com.vapk.vstore.client.RateAppActivity this$0 -> a
+    void onPostExecute(java.lang.Object) -> a
+    java.lang.Object doInBackground(java.lang.Object[]) -> a
+cn.com.vapk.vstore.client.RegisterActivity -> cn.com.vapk.vstore.client.RegisterActivity:
+    tw.com.sti.store.api.android.util.Logger L -> a
+    int DLG_INVALID_ACCOUNT -> b
+    int DLG_INVALID_PASSWORD -> c
+    int DLG_LOGIN_REQUEST_FAIL -> d
+    int DLG_INVALID_CONFIRM_PASSWORD -> e
+    int DLG_INVALID_NICKNAME -> f
+    int DLG_USER_ALREADY_EXIST -> g
+    int DLG_INVALID_SIGNATURE -> h
+    int DLG_INVALID_ACCOUNT_LENGTH -> i
+    int DLG_INVALID_CPASSWORD -> j
+    android.widget.TextView mAccount -> k
+    android.widget.TextView mPassword -> l
+    android.widget.TextView cPassword -> m
+    android.widget.TextView mNickname -> n
+    android.widget.TextView signature -> o
+    java.lang.String account -> p
+    tw.com.sti.store.api.ApiInvoker apiInvoker -> q
+    cn.com.vapk.vstore.client.CloseClientReceiver closeClientReceiver -> r
+    void onCreate(android.os.Bundle) -> onCreate
+    void onDestroy() -> onDestroy
+    void onClick(android.view.View) -> onClick
+    void onRegisterClick() -> a
+    boolean onKeyUp(int,android.view.KeyEvent) -> onKeyUp
+    android.app.Dialog onCreateDialog(int) -> onCreateDialog
+    boolean onSearchRequested() -> onSearchRequested
+    tw.com.sti.store.api.ApiInvoker access$0(cn.com.vapk.vstore.client.RegisterActivity) -> a
+    void access$1(cn.com.vapk.vstore.client.RegisterActivity) -> b
+cn.com.vapk.vstore.client.RegisterActivity$1 -> cn.com.vapk.vstore.client.au:
+    cn.com.vapk.vstore.client.RegisterActivity this$0 -> a
+    void onPostExecute(java.lang.Object) -> a
+    java.lang.Object doInBackground(java.lang.Object[]) -> a
+cn.com.vapk.vstore.client.ReportAppActivity -> cn.com.vapk.vstore.client.ReportAppActivity:
+    tw.com.sti.store.api.android.util.Logger L -> a
+    int checkedItem -> b
+    java.lang.String packageName -> c
+    tw.com.sti.store.api.ApiInvoker apiInvoker -> d
+    cn.com.vapk.vstore.client.CloseClientReceiver closeClientReceiver -> e
+    android.widget.RadioButton option_01 -> f
+    android.widget.RadioButton option_02 -> g
+    android.widget.RadioButton option_03 -> h
+    android.widget.RadioButton option_04 -> i
+    void onCreate(android.os.Bundle) -> onCreate
+    void onDestroy() -> onDestroy
+    void onClick(android.view.View) -> onClick
+    android.app.Dialog onCreateDialog(int) -> onCreateDialog
+    boolean onSearchRequested() -> onSearchRequested
+    android.widget.RadioButton access$0(cn.com.vapk.vstore.client.ReportAppActivity) -> a
+    void access$1(cn.com.vapk.vstore.client.ReportAppActivity,int) -> a
+    android.widget.RadioButton access$2(cn.com.vapk.vstore.client.ReportAppActivity) -> b
+    android.widget.RadioButton access$3(cn.com.vapk.vstore.client.ReportAppActivity) -> c
+    android.widget.RadioButton access$4(cn.com.vapk.vstore.client.ReportAppActivity) -> d
+    tw.com.sti.store.api.android.util.Logger access$5() -> a
+    int access$6(cn.com.vapk.vstore.client.ReportAppActivity) -> e
+    tw.com.sti.store.api.ApiInvoker access$7(cn.com.vapk.vstore.client.ReportAppActivity) -> f
+    void access$8(cn.com.vapk.vstore.client.ReportAppActivity) -> g
+cn.com.vapk.vstore.client.ReportAppActivity$1 -> cn.com.vapk.vstore.client.bb:
+    android.graphics.Bitmap icon -> a
+    cn.com.vapk.vstore.client.ReportAppActivity this$0 -> b
+    cn.com.vapk.vstore.client.ActionController$AppTitleInfo val$ati -> c
+    void onPostExecute(java.lang.Object) -> a
+    java.lang.Object doInBackground(java.lang.Object[]) -> a
+cn.com.vapk.vstore.client.ReportAppActivity$2 -> cn.com.vapk.vstore.client.ba:
+    cn.com.vapk.vstore.client.ReportAppActivity this$0 -> a
+    void onCheckedChanged(android.widget.RadioGroup,int) -> onCheckedChanged
+cn.com.vapk.vstore.client.ReportAppActivity$3 -> cn.com.vapk.vstore.client.az:
+    cn.com.vapk.vstore.client.ReportAppActivity this$0 -> a
+    void onPostExecute(java.lang.Object) -> a
+    java.lang.Object doInBackground(java.lang.Object[]) -> a
+cn.com.vapk.vstore.client.ScreenShotActivity -> cn.com.vapk.vstore.client.ScreenShotActivity:
+    tw.com.sti.store.api.android.util.Logger L -> a
+    android.widget.ImageView pictureView -> b
+    android.widget.ImageView yesDot -> c
+    android.widget.ImageView previousBtn -> d
+    android.widget.ImageView nextBtn -> e
+    android.widget.LinearLayout dotLayout -> f
+    android.view.View buttonsView -> g
+    int picSize -> h
+    int pageId -> i
+    java.util.HashMap pictures -> j
+    java.lang.String[] imageURL -> k
+    boolean displayNow -> l
+    cn.com.vapk.vstore.client.CloseClientReceiver closeClientReceiver -> m
+    void onCreate(android.os.Bundle) -> onCreate
+    void onDestroy() -> onDestroy
+    void loadPicture() -> b
+    void displayImage() -> c
+    void drawDot() -> d
+    void onClick(android.view.View) -> onClick
+    void setBtnVisibilty() -> e
+    boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+    boolean onSearchRequested() -> onSearchRequested
+    int access$0(cn.com.vapk.vstore.client.ScreenShotActivity) -> a
+    java.util.HashMap access$1(cn.com.vapk.vstore.client.ScreenShotActivity) -> b
+    int access$2(cn.com.vapk.vstore.client.ScreenShotActivity) -> c
+    boolean access$3(cn.com.vapk.vstore.client.ScreenShotActivity) -> d
+    void access$4$6175853c(cn.com.vapk.vstore.client.ScreenShotActivity) -> e
+    java.lang.String[] access$5(cn.com.vapk.vstore.client.ScreenShotActivity) -> f
+    tw.com.sti.store.api.android.util.Logger access$6() -> a
+    void access$7(cn.com.vapk.vstore.client.ScreenShotActivity) -> g
+    void access$8(cn.com.vapk.vstore.client.ScreenShotActivity) -> h
+cn.com.vapk.vstore.client.ScreenShotActivity$1 -> cn.com.vapk.vstore.client.ag:
+    android.graphics.Bitmap icon -> a
+    int loadPage -> b
+    cn.com.vapk.vstore.client.ScreenShotActivity this$0 -> c
+    void onPostExecute(java.lang.Object) -> a
+    java.lang.Object doInBackground(java.lang.Object[]) -> a
+cn.com.vapk.vstore.client.SearchActivity -> cn.com.vapk.vstore.client.SearchActivity:
+    tw.com.sti.store.api.android.util.Logger L -> a
+    android.widget.EditText searchText -> b
+    java.lang.String searchStr -> c
+    android.provider.SearchRecentSuggestions suggestions -> d
+    android.net.Uri uri -> e
+    android.database.Cursor resultCursor -> f
+    android.widget.SimpleCursorAdapter adapter -> g
+    cn.com.vapk.vstore.client.CloseClientReceiver closeClientReceiver -> h
+    int VOICE_RECOGNITION_REQUEST_CODE -> i
+    void onCreate(android.os.Bundle) -> onCreate
+    void onDestroy() -> onDestroy
+    void onClick(android.view.View) -> onClick
+    void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    boolean onKeyUp(int,android.view.KeyEvent) -> onKeyUp
+    void afterTextChanged(android.text.Editable) -> afterTextChanged
+    void storeData() -> a
+    void doSuggestion() -> b
+    void onListItemClick(android.widget.ListView,android.view.View,int,long) -> onListItemClick
+    void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
+    void onTextChanged(java.lang.CharSequence,int,int,int) -> onTextChanged
+    boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
+    boolean onMenuItemSelected(int,android.view.MenuItem) -> onMenuItemSelected
+    boolean onSearchRequested() -> onSearchRequested
+cn.com.vapk.vstore.client.SearchResultActivity -> cn.com.vapk.vstore.client.SearchResultActivity:
+    java.lang.String query -> a
+    void onCreate(android.os.Bundle) -> onCreate
+    void onClick(android.view.View) -> onClick
+    boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
+    boolean onMenuItemSelected(int,android.view.MenuItem) -> onMenuItemSelected
+    void onAppItemClick(tw.com.sti.store.api.vo.AppsRet$App) -> a
+    tw.com.sti.store.api.ApiInvoker appsRetInvoker(tw.com.sti.store.api.ApiService$AppsType,java.lang.Integer,int,java.lang.Integer) -> a
+    boolean onSearchRequested() -> onSearchRequested
+    void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+cn.com.vapk.vstore.client.SettingActivity -> cn.com.vapk.vstore.client.SettingActivity:
+    tw.com.sti.store.api.android.util.Logger L -> a
+    boolean appFilterSettingEnable -> b
+    int appFilter -> c
+    int userFilter -> d
+    cn.com.vapk.vstore.client.CloseClientReceiver closeClientReceiver -> e
+    android.app.AlertDialog alertDialog -> f
+    android.app.AlertDialog$Builder aboutBuilder -> g
+    android.app.AlertDialog$Builder filterBuilder -> h
+    android.view.LayoutInflater mInflater -> i
+    android.view.View dialogView -> j
+    void onCreate(android.os.Bundle) -> onCreate
+    void onDestroy() -> onDestroy
+    void onListItemClick(android.widget.ListView,android.view.View,int,long) -> onListItemClick
+    void showAboutDialog() -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+    boolean onSearchRequested() -> onSearchRequested
+cn.com.vapk.vstore.client.Splash -> cn.com.vapk.vstore.client.Splash:
+    int tick -> a
+    android.os.Handler mHandler -> b
+    void onCreate(android.os.Bundle) -> onCreate
+    void onConfigurationChanged(android.content.res.Configuration) -> onConfigurationChanged
+    android.os.Handler access$0(cn.com.vapk.vstore.client.Splash) -> a
+cn.com.vapk.vstore.client.Splash$1 -> cn.com.vapk.vstore.client.bn:
+    java.lang.Boolean opened -> a
+    cn.com.vapk.vstore.client.Splash this$0 -> b
+    void handleMessage(android.os.Message) -> handleMessage
+cn.com.vapk.vstore.client.Splash$MyTask -> cn.com.vapk.vstore.client.ay:
+    cn.com.vapk.vstore.client.Splash this$0 -> a
+    void run() -> run
+cn.com.vapk.vstore.client.UI -> cn.com.vapk.vstore.client.f:
+    void stopProgressing(android.app.Activity) -> a
+    void startProgressing(android.app.Activity) -> b
+    boolean handleMenuOnSelectEvent(android.app.Activity,android.view.MenuItem) -> a
+    boolean handleTabOnClickEvent(android.app.Activity,android.view.View) -> a
+    void bindTabOnClickListener(android.app.Activity,android.view.View$OnClickListener) -> a
+    void bindText(android.view.View,int,java.lang.String) -> a
+    void bindText(android.app.Activity,int,java.lang.String) -> a
+    void bindHTML$20ba1e5a(android.app.Activity,java.lang.String) -> a
+    void bindRating(android.app.Activity,int,float) -> a
+    void invisibleView$3ef636dc(android.app.Activity) -> c
+    void toast(android.content.Context,int) -> a
+cn.com.vapk.vstore.client.UninstallReasonActivity -> cn.com.vapk.vstore.client.UninstallReasonActivity:
+    tw.com.sti.store.api.android.util.Logger L -> a
+    int checkedItem -> b
+    java.lang.String packageName -> c
+    cn.com.vapk.vstore.client.CloseClientReceiver closeClientReceiver -> d
+    android.widget.RadioButton option_01 -> e
+    android.widget.RadioButton option_02 -> f
+    android.widget.RadioButton option_03 -> g
+    android.widget.RadioButton option_04 -> h
+    void onCreate(android.os.Bundle) -> onCreate
+    void onStop() -> onStop
+    void onDestroy() -> onDestroy
+    void onClick(android.view.View) -> onClick
+    boolean onSearchRequested() -> onSearchRequested
+    android.widget.RadioButton access$0(cn.com.vapk.vstore.client.UninstallReasonActivity) -> a
+    void access$1(cn.com.vapk.vstore.client.UninstallReasonActivity,int) -> a
+    android.widget.RadioButton access$2(cn.com.vapk.vstore.client.UninstallReasonActivity) -> b
+    android.widget.RadioButton access$3(cn.com.vapk.vstore.client.UninstallReasonActivity) -> c
+    android.widget.RadioButton access$4(cn.com.vapk.vstore.client.UninstallReasonActivity) -> d
+    tw.com.sti.store.api.android.util.Logger access$5() -> a
+    int access$6(cn.com.vapk.vstore.client.UninstallReasonActivity) -> e
+cn.com.vapk.vstore.client.UninstallReasonActivity$1 -> cn.com.vapk.vstore.client.bg:
+    android.graphics.Bitmap icon -> a
+    cn.com.vapk.vstore.client.UninstallReasonActivity this$0 -> b
+    cn.com.vapk.vstore.client.ActionController$AppTitleInfo val$ati -> c
+    void onPostExecute(java.lang.Object) -> a
+    java.lang.Object doInBackground(java.lang.Object[]) -> a
+cn.com.vapk.vstore.client.UninstallReasonActivity$2 -> cn.com.vapk.vstore.client.be:
+    cn.com.vapk.vstore.client.UninstallReasonActivity this$0 -> a
+    void onCheckedChanged(android.widget.RadioGroup,int) -> onCheckedChanged
+cn.com.vapk.vstore.client.api.ApiParametersValidator -> cn.com.vapk.vstore.client.api.b:
+cn.com.vapk.vstore.client.api.ApiParametersValidator$Login -> cn.com.vapk.vstore.client.api.a:
+    boolean account(java.lang.String) -> a
+    boolean password(java.lang.String) -> b
+cn.com.vapk.vstore.client.api.AppStatusReceiver -> cn.com.vapk.vstore.client.api.AppStatusReceiver:
+    tw.com.sti.store.api.android.util.Logger L -> a
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    void updateAppsPayStatus(java.lang.String,tw.com.sti.store.api.vo.AppInfo$PayStatus,java.lang.String) -> a
+    tw.com.sti.store.api.vo.AppsRet$App[] getApps() -> a
+    void updated(java.lang.String) -> a
+    void broadcastPaid(android.content.Context,java.lang.String) -> a
+    void broadcastUnsubscribe(android.content.Context,java.lang.String,java.lang.String) -> a
+    void boardcastRating(android.content.Context,java.lang.String,float) -> a
+    void register(android.content.Context) -> a
+    void unregister(android.content.Context) -> b
+cn.com.vapk.vstore.client.installapp.ActionController -> cn.com.vapk.vstore.client.installapp.f:
+    tw.com.sti.store.api.android.util.Logger L -> a
+    void installApp(android.content.Context,java.lang.String,java.lang.String,java.lang.String,int) -> a
+    void installApp(android.content.Context,java.lang.String,java.lang.String,java.lang.String,int,java.lang.String) -> a
+    void sendInstallLog(android.content.Context) -> a
+cn.com.vapk.vstore.client.installapp.AppInstallLog -> cn.com.vapk.vstore.client.installapp.o:
+    tw.com.sti.store.api.android.util.Logger L -> a
+    java.lang.String downType -> b
+    java.lang.String iccid -> c
+    int installRet -> d
+    java.util.Date installTime -> e
+    java.lang.String phoneNo -> f
+    java.lang.String pkgId -> g
+    java.lang.String userId -> h
+    java.lang.String token -> i
+    int version -> j
+    java.lang.String downloadId -> k
+    int failCode -> l
+    int reasonId -> m
+    java.lang.String versionCheck -> n
+    java.lang.String versionCheckDB -> o
+    java.lang.String toXML() -> a
+cn.com.vapk.vstore.client.installapp.AppInstallLogReceiver -> cn.com.vapk.vstore.client.installapp.AppInstallLogReceiver:
+    tw.com.sti.store.api.android.util.Logger L -> b
+    java.util.HashMap INSTALL_PKG_NAMES_AND_FILE_PATH -> c
+    java.util.Map UNINSTALL_REASON_ID -> a
+    int[] $SWITCH_TABLE$cn$com$vapk$vstore$client$installapp$InstallLog$EventTypeValue -> d
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    void putInstallApk(java.lang.String,java.io.File) -> a
+    int[] $SWITCH_TABLE$cn$com$vapk$vstore$client$installapp$InstallLog$EventTypeValue() -> a
+cn.com.vapk.vstore.client.installapp.AppInstallReceiver -> cn.com.vapk.vstore.client.installapp.AppInstallReceiver:
+    java.util.Set DL_PKG_NAMES -> a
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    void downloadFail(java.lang.String) -> d
+    void downloadFinish(java.lang.String) -> e
+    void downloadPercent(java.lang.String,int) -> a
+    void sendDownloadPct(android.content.Context,java.lang.String,int) -> a
+    void sendDownloadFail(android.content.Context,java.lang.String) -> a
+    void sendDownloadFinish(android.content.Context,java.lang.String) -> b
+    void register(android.content.Context) -> a
+cn.com.vapk.vstore.client.installapp.DownloadAppInfo -> cn.com.vapk.vstore.client.installapp.a:
+    int addDownloadedBytesTimes -> k
+    cn.com.vapk.vstore.client.installapp.DownloadAppObserver observer -> a
+    int id -> b
+    java.lang.String pkg -> c
+    java.lang.String categoryId -> d
+    java.lang.String appTitle -> e
+    java.lang.String vlogId -> f
+    cn.com.vapk.vstore.client.installapp.DownloadAppInfo$Status status -> l
+    cn.com.vapk.vstore.client.installapp.DownloadAppInfo$Result result -> m
+    int apkBytes -> n
+    int downloadedBytes -> o
+    java.lang.String downloadId -> g
+    java.io.File apk -> h
+    java.lang.String contentType -> i
+    int version -> j
+    cn.com.vapk.vstore.client.installapp.DownloadAppInfo$Status getStatus() -> a
+    cn.com.vapk.vstore.client.installapp.DownloadAppInfo$Result getResult() -> b
+    void ready() -> c
+    void success() -> d
+    void fail(cn.com.vapk.vstore.client.installapp.DownloadAppInfo$Result) -> a
+    void setApkBytes(int) -> a
+    void addDownloadedBytes(int) -> b
+    int getDownloadedPercent() -> e
+    java.lang.Integer getLocalAppVersion(android.content.Context) -> a
+    void notifyObserver() -> f
+    boolean modifiable() -> g
+cn.com.vapk.vstore.client.installapp.DownloadAppInfo$Result -> cn.com.vapk.vstore.client.installapp.l:
+    cn.com.vapk.vstore.client.installapp.DownloadAppInfo$Result SUCCESS -> a
+    cn.com.vapk.vstore.client.installapp.DownloadAppInfo$Result CANCEL -> b
+    cn.com.vapk.vstore.client.installapp.DownloadAppInfo$Result FAIL_DEVICE_UPSUPPORT -> c
+    cn.com.vapk.vstore.client.installapp.DownloadAppInfo$Result FAIL_CONNECT_TO_SERVER -> d
+    cn.com.vapk.vstore.client.installapp.DownloadAppInfo$Result FAIL_SD_UNMOUNT -> e
+    cn.com.vapk.vstore.client.installapp.DownloadAppInfo$Result FAIL_FILE_WRITE -> f
+    cn.com.vapk.vstore.client.installapp.DownloadAppInfo$Result FAIL_FILE_WRITE_OR_SERVER_CONNECT -> g
+    cn.com.vapk.vstore.client.installapp.DownloadAppInfo$Result[] ENUM$VALUES -> h
+    cn.com.vapk.vstore.client.installapp.DownloadAppInfo$Result[] values() -> values
+    cn.com.vapk.vstore.client.installapp.DownloadAppInfo$Result valueOf(java.lang.String) -> valueOf
+cn.com.vapk.vstore.client.installapp.DownloadAppInfo$Status -> cn.com.vapk.vstore.client.installapp.m:
+    cn.com.vapk.vstore.client.installapp.DownloadAppInfo$Status PENDING -> a
+    cn.com.vapk.vstore.client.installapp.DownloadAppInfo$Status RUNNING -> b
+    cn.com.vapk.vstore.client.installapp.DownloadAppInfo$Status FINISHED -> c
+    cn.com.vapk.vstore.client.installapp.DownloadAppInfo$Status[] ENUM$VALUES -> d
+    cn.com.vapk.vstore.client.installapp.DownloadAppInfo$Status[] values() -> values
+    cn.com.vapk.vstore.client.installapp.DownloadAppInfo$Status valueOf(java.lang.String) -> valueOf
+cn.com.vapk.vstore.client.installapp.DownloadAppNotifier -> cn.com.vapk.vstore.client.installapp.p:
+    int NOTI_ID_BASE -> a
+    android.content.Context ctx -> b
+    android.app.NotificationManager notiMgr -> c
+    int[] $SWITCH_TABLE$cn$com$vapk$vstore$client$installapp$DownloadAppInfo$Status -> d
+    int[] $SWITCH_TABLE$cn$com$vapk$vstore$client$installapp$DownloadAppInfo$Result -> e
+    void notify(cn.com.vapk.vstore.client.installapp.DownloadAppInfo) -> a
+    void notifyDownloadFail(cn.com.vapk.vstore.client.installapp.DownloadAppInfo,java.lang.String) -> a
+    void cancelNotification(cn.com.vapk.vstore.client.installapp.DownloadAppInfo) -> b
+    int[] $SWITCH_TABLE$cn$com$vapk$vstore$client$installapp$DownloadAppInfo$Status() -> a
+    int[] $SWITCH_TABLE$cn$com$vapk$vstore$client$installapp$DownloadAppInfo$Result() -> b
+cn.com.vapk.vstore.client.installapp.DownloadAppObserver -> cn.com.vapk.vstore.client.installapp.k:
+    void updateInBackground(cn.com.vapk.vstore.client.installapp.DownloadAppInfo) -> a
+cn.com.vapk.vstore.client.installapp.DownloadAppService -> cn.com.vapk.vstore.client.installapp.DownloadAppService:
+    tw.com.sti.store.api.android.util.Logger L -> a
+    int THREAD_MAX_SIZE -> b
+    cn.com.vapk.vstore.client.installapp.DownloadAppNotifier downloadAppNotifier -> c
+    java.util.Map dlAppThreadMap -> d
+    java.util.Map daiMap -> e
+    cn.com.vapk.vstore.client.installapp.DownloadAppObserver dlAppObserver -> f
+    int[] $SWITCH_TABLE$cn$com$vapk$vstore$client$installapp$DownloadAppInfo$Result -> g
+    android.os.IBinder onBind(android.content.Intent) -> onBind
+    boolean isInDownload(java.lang.String) -> a
+    void onCreate() -> onCreate
+    void onStart(android.content.Intent,int) -> onStart
+    void onDestroy() -> onDestroy
+    void download() -> a
+    void access$0(cn.com.vapk.vstore.client.installapp.DownloadAppService,cn.com.vapk.vstore.client.installapp.DownloadAppInfo) -> a
+    int[] $SWITCH_TABLE$cn$com$vapk$vstore$client$installapp$DownloadAppInfo$Result() -> b
+cn.com.vapk.vstore.client.installapp.DownloadAppService$1 -> cn.com.vapk.vstore.client.installapp.b:
+    cn.com.vapk.vstore.client.installapp.DownloadAppService this$0 -> a
+    void updateInBackground(cn.com.vapk.vstore.client.installapp.DownloadAppInfo) -> a
+cn.com.vapk.vstore.client.installapp.DownloadAppThread -> cn.com.vapk.vstore.client.installapp.n:
+    tw.com.sti.store.api.android.util.Logger L -> b
+    android.content.Context ctx -> c
+    cn.com.vapk.vstore.client.installapp.DownloadAppInfo dai -> a
+    org.apache.http.client.methods.HttpRequestBase request -> d
+    void run() -> run
+    java.io.File createFile(java.lang.String) -> a
+cn.com.vapk.vstore.client.installapp.DownloadStatus -> cn.com.vapk.vstore.client.installapp.e:
+    android.net.Uri CONTENT_URI -> a
+    java.lang.String getDownloadId(android.content.Context,java.lang.String) -> a
+    void insertOrUpdateDownloadId(android.content.Context,java.lang.String,java.lang.String) -> a
+cn.com.vapk.vstore.client.installapp.DownloadStatusProvider -> cn.com.vapk.vstore.client.installapp.DownloadStatusProvider:
+    tw.com.sti.store.api.android.util.Logger L -> a
+    cn.com.vapk.vstore.client.installapp.DownloadStatusProvider$DatabaseHelper mOpenHelper -> b
+    boolean onCreate() -> onCreate
+    java.lang.String getType(android.net.Uri) -> getType
+    android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String) -> query
+    android.net.Uri insert(android.net.Uri,android.content.ContentValues) -> insert
+    int update(android.net.Uri,android.content.ContentValues,java.lang.String,java.lang.String[]) -> update
+    int delete(android.net.Uri,java.lang.String,java.lang.String[]) -> delete
+    tw.com.sti.store.api.android.util.Logger access$0() -> a
+cn.com.vapk.vstore.client.installapp.DownloadStatusProvider$DatabaseHelper -> cn.com.vapk.vstore.client.installapp.g:
+    android.database.sqlite.SQLiteDatabase getWritableDatabase() -> getWritableDatabase
+    void onCreate(android.database.sqlite.SQLiteDatabase) -> onCreate
+    void onUpgrade(android.database.sqlite.SQLiteDatabase,int,int) -> onUpgrade
+cn.com.vapk.vstore.client.installapp.InstallLog -> cn.com.vapk.vstore.client.installapp.i:
+    android.net.Uri CONTENT_URI -> a
+    android.content.ContentValues createContentValue(android.content.Context,java.lang.String,java.lang.String,cn.com.vapk.vstore.client.installapp.InstallLog$EventTypeValue,java.lang.String,int,int) -> a
+    android.net.Uri insertInstallLog$24c8102f(android.content.Context,java.lang.String,java.lang.String,cn.com.vapk.vstore.client.installapp.InstallLog$EventTypeValue,java.lang.String,int) -> a
+cn.com.vapk.vstore.client.installapp.InstallLog$EventTypeValue -> cn.com.vapk.vstore.client.installapp.h:
+    cn.com.vapk.vstore.client.installapp.InstallLog$EventTypeValue DOWN_FAIL -> a
+    cn.com.vapk.vstore.client.installapp.InstallLog$EventTypeValue INSTALL_SUCCESS -> b
+    cn.com.vapk.vstore.client.installapp.InstallLog$EventTypeValue UNINSTALL_SUCCESS -> c
+    int[] $SWITCH_TABLE$cn$com$vapk$vstore$client$installapp$InstallLog$EventTypeValue -> d
+    cn.com.vapk.vstore.client.installapp.InstallLog$EventTypeValue[] ENUM$VALUES -> e
+    int getTypeValue() -> a
+    cn.com.vapk.vstore.client.installapp.InstallLog$EventTypeValue[] values() -> values
+    cn.com.vapk.vstore.client.installapp.InstallLog$EventTypeValue valueOf(java.lang.String) -> valueOf
+    int[] $SWITCH_TABLE$cn$com$vapk$vstore$client$installapp$InstallLog$EventTypeValue() -> b
+cn.com.vapk.vstore.client.installapp.InstallLogProvider -> cn.com.vapk.vstore.client.installapp.InstallLogProvider:
+    tw.com.sti.store.api.android.util.Logger L -> a
+    java.util.HashMap sProjectionMap -> b
+    android.content.UriMatcher sUriMatcher -> c
+    cn.com.vapk.vstore.client.installapp.InstallLogProvider$DatabaseHelper mOpenHelper -> d
+    boolean onCreate() -> onCreate
+    java.lang.String getType(android.net.Uri) -> getType
+    android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String) -> query
+    android.net.Uri insert(android.net.Uri,android.content.ContentValues) -> insert
+    int delete(android.net.Uri,java.lang.String,java.lang.String[]) -> delete
+    int update(android.net.Uri,android.content.ContentValues,java.lang.String,java.lang.String[]) -> update
+    cn.com.vapk.vstore.client.installapp.AppInstallLog getInstallLogMessage(android.database.Cursor) -> a
+    tw.com.sti.store.api.android.util.Logger access$0() -> a
+cn.com.vapk.vstore.client.installapp.InstallLogProvider$DatabaseHelper -> cn.com.vapk.vstore.client.installapp.j:
+    android.database.sqlite.SQLiteDatabase getWritableDatabase() -> getWritableDatabase
+    void onCreate(android.database.sqlite.SQLiteDatabase) -> onCreate
+    void onUpgrade(android.database.sqlite.SQLiteDatabase,int,int) -> onUpgrade
+cn.com.vapk.vstore.client.installapp.InstallLogSenderService -> cn.com.vapk.vstore.client.installapp.InstallLogSenderService:
+    tw.com.sti.store.api.android.util.Logger L -> a
+    int RETRIEVELIMIT -> b
+    java.lang.Thread sendLogAfterLoginThread -> c
+    android.os.IBinder mBinder -> d
+    void onDestroy() -> onDestroy
+    void onCreate() -> onCreate
+    void onStart(android.content.Intent,int) -> onStart
+    android.os.IBinder onBind(android.content.Intent) -> onBind
+    java.lang.String getInString(java.util.List) -> a
+    void access$0(cn.com.vapk.vstore.client.installapp.InstallLogSenderService) -> a
+cn.com.vapk.vstore.client.installapp.InstallLogSenderService$LocalBinder -> cn.com.vapk.vstore.client.installapp.c:
+    cn.com.vapk.vstore.client.installapp.InstallLogSenderService this$0 -> a
+cn.com.vapk.vstore.client.installapp.InstallLogSenderService$MyTask -> cn.com.vapk.vstore.client.installapp.d:
+    cn.com.vapk.vstore.client.installapp.InstallLogSenderService this$0 -> a
+    void run() -> run
+cn.com.vapk.vstore.client.installapp.PkgInstallReceiver -> cn.com.vapk.vstore.client.installapp.PkgInstallReceiver:
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    java.lang.String parsePkg(android.net.Uri) -> a
+    void replace$5ffc00fd(java.lang.String) -> c
+    void install$5ffc00fd(java.lang.String) -> b
+    void remove$5ffc00fd(java.lang.String) -> a
+    void register(android.content.Context) -> a
+cn.com.vapk.vstore.client.payment.ActionController -> cn.com.vapk.vstore.client.payment.a:
+    tw.com.sti.store.api.android.util.Logger L -> a
+    void payment(android.app.Activity,java.lang.String,android.os.Bundle) -> a
+    void pePayment(android.app.Activity,java.lang.String,android.os.Bundle) -> b
+cn.com.vapk.vstore.client.payment.GPayActivity -> cn.com.vapk.vstore.client.payment.GPayActivity:
+    tw.com.sti.store.api.android.util.Logger L -> a
+    java.lang.String pkg -> b
+    java.lang.String appTitle -> c
+    float appPrice -> d
+    int payType -> e
+    android.view.View mSubmit -> f
+    java.lang.String pePayOrderUrl -> g
+    java.lang.String pePayBaseUrl -> h
+    java.util.Map params -> i
+    int paymentType -> j
+    void onCreate(android.os.Bundle) -> onCreate
+    void initUI() -> d
+    tw.com.sti.store.api.Configuration getConfiguration() -> a
+    void payResult(android.content.Context,java.lang.String,java.lang.String) -> a
+    void showLogin() -> b
+    int access$0(cn.com.vapk.vstore.client.payment.GPayActivity) -> a
+    java.lang.String access$1(cn.com.vapk.vstore.client.payment.GPayActivity) -> b
+    void access$2$2afad390(cn.com.vapk.vstore.client.payment.GPayActivity,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
+    void access$3$3336e062(cn.com.vapk.vstore.client.payment.GPayActivity,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
+    void access$4(cn.com.vapk.vstore.client.payment.GPayActivity,int) -> a
+    android.view.View access$5(cn.com.vapk.vstore.client.payment.GPayActivity) -> c
+cn.com.vapk.vstore.client.payment.GPayActivity$1 -> cn.com.vapk.vstore.client.payment.c:
+    cn.com.vapk.vstore.client.payment.GPayActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+cn.com.vapk.vstore.client.payment.GPayActivity$2 -> cn.com.vapk.vstore.client.payment.d:
+    cn.com.vapk.vstore.client.payment.GPayActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+cn.com.vapk.vstore.client.payment.GPayActivity$3 -> cn.com.vapk.vstore.client.payment.e:
+    cn.com.vapk.vstore.client.payment.GPayActivity this$0 -> a
+    android.widget.RadioButton val$mRadioGPay -> b
+    android.widget.RadioButton val$mRadioUnionPay -> c
+    void onCheckedChanged(android.widget.RadioGroup,int) -> onCheckedChanged
+cn.com.vapk.vstore.client.payment.GPayActivity$4 -> cn.com.vapk.vstore.client.payment.b:
+    cn.com.vapk.vstore.client.payment.GPayActivity this$0 -> a
+    java.lang.String val$retCode -> b
+    android.content.Context val$ctx -> c
+    void onClick(android.content.DialogInterface,int) -> onClick
+cn.com.vapk.vstore.client.receiver.LoginEventReceiver -> cn.com.vapk.vstore.client.receiver.LoginEventReceiver:
+    tw.com.sti.store.api.android.util.Logger L -> a
+    android.app.Activity aty -> b
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    void register() -> a
+    void unregister() -> b
+cn.com.vapk.vstore.client.receiver.listener.LoginEvent -> cn.com.vapk.vstore.client.receiver.a.b:
+    java.lang.String DOWNLOAD -> a
+    java.lang.String PAY -> b
+    java.lang.String eventType -> c
+    java.lang.String getEventType() -> a
+    void setEventType(java.lang.String) -> a
+cn.com.vapk.vstore.client.receiver.listener.LoginEventListener -> cn.com.vapk.vstore.client.receiver.a.a:
+    void onLogin(cn.com.vapk.vstore.client.receiver.listener.LoginEvent) -> a
+cn.com.vapk.vstore.client.sdk.StoreProvider -> cn.com.vapk.vstore.client.sdk.StoreProvider:
+    tw.com.sti.store.api.Configuration getConfiguration() -> a
+cn.com.vapk.vstore.client.search.SearchSuggestionProvider -> cn.com.vapk.vstore.client.search.SearchSuggestionProvider:
+    android.net.Uri CONTENT_URI -> a
+cn.com.vapk.vstore.client.ui.LoginAccountTextInputFilter -> cn.com.vapk.vstore.client.a.c:
+    java.lang.CharSequence filter(java.lang.CharSequence,int,int,android.text.Spanned,int,int) -> filter
+cn.com.vapk.vstore.client.ui.LoginPasswordTextInputFilter -> cn.com.vapk.vstore.client.a.b:
+    java.lang.CharSequence filter(java.lang.CharSequence,int,int,android.text.Spanned,int,int) -> filter
+cn.com.vapk.vstore.client.ui.TextInputFilterFactory -> cn.com.vapk.vstore.client.a.a:
+    android.text.InputFilter[] loginAccount() -> a
+    android.text.InputFilter[] loginPassword() -> b
+cn.com.vapk.vstore.client.update.ActionController -> cn.com.vapk.vstore.client.update.a:
+    tw.com.sti.store.api.android.util.Logger L -> a
+    void checkClientVersion(android.app.Activity) -> a
+    void checkAppsVersion(android.app.Activity) -> b
+    void alarmCheckClientVersion(android.content.Context,long) -> a
+    void alarmCheckAppVersion(android.content.Context,long) -> b
+    void notifyNewClient(android.content.Context,tw.com.sti.store.api.vo.CheckClientVersionRet$NewClient) -> a
+    void notifyNewClient(android.content.Context,cn.com.vapk.vstore.client.update.ActionController$NewClientAlertInfo) -> a
+    void notifyNewApps(android.content.Context,int) -> a
+    void notifyUpdateClientError(android.content.Context,java.lang.String,cn.com.vapk.vstore.client.update.ActionController$NewClientAlertInfo) -> a
+    void downloadClient(android.content.Context,cn.com.vapk.vstore.client.update.ActionController$NewClientAlertInfo) -> b
+    void downloadClient(android.content.Context) -> a
+cn.com.vapk.vstore.client.update.ActionController$NewClientAlertInfo -> cn.com.vapk.vstore.client.update.c:
+    int apkBytes -> a
+    java.lang.String downloadToken -> b
+    java.lang.String dialogMsg -> c
+    java.lang.String title -> d
+    java.lang.String ticker -> e
+    java.lang.String notification -> f
+cn.com.vapk.vstore.client.update.CheckAppsVersionReceiver -> cn.com.vapk.vstore.client.update.CheckAppsVersionReceiver:
+    tw.com.sti.store.api.android.util.Logger L -> a
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    int getCheckAppsTime(android.content.Context) -> a
+cn.com.vapk.vstore.client.update.CheckAppsVersionService -> cn.com.vapk.vstore.client.update.CheckAppsVersionService:
+    tw.com.sti.store.api.android.util.Logger L -> a
+    void onHandleIntent(android.content.Intent) -> onHandleIntent
+    void requestApps(int,int) -> a
+cn.com.vapk.vstore.client.update.CheckClientVersionReceiver -> cn.com.vapk.vstore.client.update.CheckClientVersionReceiver:
+    tw.com.sti.store.api.android.util.Logger L -> a
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    int getCheckTime(android.content.Context) -> a
+    int initCheckTime(android.content.Context) -> b
+    long getAlarmTime(int) -> a
+cn.com.vapk.vstore.client.update.CheckClientVersionService -> cn.com.vapk.vstore.client.update.CheckClientVersionService:
+    tw.com.sti.store.api.android.util.Logger L -> a
+    android.os.IBinder onBind(android.content.Intent) -> onBind
+    void onHandleIntent(android.content.Intent) -> onHandleIntent
+cn.com.vapk.vstore.client.update.DownloadClientService -> cn.com.vapk.vstore.client.update.DownloadClientService:
+    tw.com.sti.store.api.android.util.Logger L -> a
+    android.app.NotificationManager notiMgr -> b
+    cn.com.vapk.vstore.client.update.DownloadClientService$DownloadTask downloadTask -> c
+    android.content.Intent progressIntent -> d
+    android.os.IBinder onBind(android.content.Intent) -> onBind
+    void onCreate() -> onCreate
+    void onStart(android.content.Intent,int) -> onStart
+    tw.com.sti.store.api.android.util.Logger access$0(cn.com.vapk.vstore.client.update.DownloadClientService) -> a
+    void access$2(cn.com.vapk.vstore.client.update.DownloadClientService,int) -> a
+    android.app.NotificationManager access$3(cn.com.vapk.vstore.client.update.DownloadClientService) -> b
+    void access$4(cn.com.vapk.vstore.client.update.DownloadClientService,java.io.File,java.lang.String) -> a
+cn.com.vapk.vstore.client.update.DownloadClientService$DownloadTask -> cn.com.vapk.vstore.client.update.b:
+    cn.com.vapk.vstore.client.update.ActionController$NewClientAlertInfo ncai -> a
+    int downloadedBytes -> b
+    int apkBytes -> c
+    java.io.File apk -> d
+    java.lang.String contentType -> e
+    java.lang.String errNoti -> f
+    int downloadedBytesTimes -> g
+    cn.com.vapk.vstore.client.update.DownloadClientService this$0 -> h
+    java.lang.Void doInBackground$10299ca() -> g
+    void onPostExecute(java.lang.Object) -> a
+    java.lang.Object doInBackground(java.lang.Object[]) -> a
+cn.com.vapk.vstore.client.update.NewClientAlertDialogActivity -> cn.com.vapk.vstore.client.update.NewClientAlertDialogActivity:
+    tw.com.sti.store.api.android.util.Logger L -> a
+    android.widget.TextView errorMsg -> b
+    cn.com.vapk.vstore.client.update.ActionController$NewClientAlertInfo ncai -> c
+    void onCreate(android.os.Bundle) -> onCreate
+    void onDestroy() -> onDestroy
+    void onClick(android.view.View) -> onClick
+    boolean checkError() -> a
+    boolean onSearchRequested() -> onSearchRequested
+cn.com.vapk.vstore.client.usage.ActionController -> cn.com.vapk.vstore.client.usage.c:
+    tw.com.sti.store.api.android.util.Logger L -> a
+    void broadcastClientUsage(android.app.Activity) -> a
+cn.com.vapk.vstore.client.usage.ClientUsage -> cn.com.vapk.vstore.client.usage.b:
+    tw.com.sti.store.api.android.util.Logger L -> m
+    android.net.Uri CONTENT_URI -> a
+    long id -> b
+    java.lang.String uid -> c
+    java.lang.String userId -> d
+    java.lang.String iccid -> e
+    java.lang.String imei -> f
+    java.lang.String imsi -> g
+    java.lang.String msisdn -> h
+    java.lang.String version -> i
+    java.lang.String dvc -> j
+    java.lang.String isFirstTime -> k
+    long time -> l
+    cn.com.vapk.vstore.client.usage.ClientUsage query(android.content.Context) -> a
+    boolean insert(android.content.Context,java.lang.String,java.lang.String,java.lang.String) -> a
+    boolean delete(android.content.Context,long) -> a
+cn.com.vapk.vstore.client.usage.ClientUsageProvider -> cn.com.vapk.vstore.client.usage.ClientUsageProvider:
+    tw.com.sti.store.api.android.util.Logger L -> a
+    cn.com.vapk.vstore.client.usage.ClientUsageProvider$DatabaseHelper mOpenHelper -> b
+    boolean onCreate() -> onCreate
+    int delete(android.net.Uri,java.lang.String,java.lang.String[]) -> delete
+    java.lang.String getType(android.net.Uri) -> getType
+    android.net.Uri insert(android.net.Uri,android.content.ContentValues) -> insert
+    android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String) -> query
+    int update(android.net.Uri,android.content.ContentValues,java.lang.String,java.lang.String[]) -> update
+    tw.com.sti.store.api.android.util.Logger access$0() -> a
+cn.com.vapk.vstore.client.usage.ClientUsageProvider$DatabaseHelper -> cn.com.vapk.vstore.client.usage.a:
+    android.database.sqlite.SQLiteDatabase getWritableDatabase() -> getWritableDatabase
+    void onCreate(android.database.sqlite.SQLiteDatabase) -> onCreate
+    void onUpgrade(android.database.sqlite.SQLiteDatabase,int,int) -> onUpgrade
+cn.com.vapk.vstore.client.usage.ClientUsageReceiver -> cn.com.vapk.vstore.client.usage.ClientUsageReceiver:
+    tw.com.sti.store.api.android.util.Logger L -> a
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    void startSendLogService(android.content.Context) -> a
+cn.com.vapk.vstore.client.usage.ClientUsageService -> cn.com.vapk.vstore.client.usage.ClientUsageService:
+    tw.com.sti.store.api.android.util.Logger L -> a
+    boolean running -> b
+    android.os.IBinder onBind(android.content.Intent) -> onBind
+    void onStart(android.content.Intent,int) -> onStart
+    void setAlarm() -> a
+cn.com.vapk.vstore.client.util.AsyncTask -> cn.com.vapk.vstore.client.util.q:
+    java.util.concurrent.BlockingQueue sWorkQueue -> a
+    java.util.concurrent.ThreadFactory sThreadFactory -> b
+    java.util.concurrent.ThreadPoolExecutor sExecutor -> c
+    cn.com.vapk.vstore.client.util.AsyncTask$InternalHandler sHandler -> d
+    cn.com.vapk.vstore.client.util.AsyncTask$WorkerRunnable mWorker -> e
+    java.util.concurrent.FutureTask mFuture -> f
+    cn.com.vapk.vstore.client.util.AsyncTask$Status mStatus -> g
+    int[] $SWITCH_TABLE$cn$com$vapk$vstore$client$util$AsyncTask$Status -> h
+    cn.com.vapk.vstore.client.util.AsyncTask$Status getStatus() -> b
+    java.lang.Object doInBackground(java.lang.Object[]) -> a
+    void onPreExecute() -> a
+    void onPostExecute(java.lang.Object) -> a
+    void onCancelled() -> c
+    boolean isCancelled() -> d
+    boolean cancel$138603() -> e
+    cn.com.vapk.vstore.client.util.AsyncTask execute(java.lang.Object[]) -> b
+    void access$0(cn.com.vapk.vstore.client.util.AsyncTask,java.lang.Object) -> a
+    cn.com.vapk.vstore.client.util.AsyncTask$InternalHandler access$1() -> f
+    int[] $SWITCH_TABLE$cn$com$vapk$vstore$client$util$AsyncTask$Status() -> g
+cn.com.vapk.vstore.client.util.AsyncTask$1 -> cn.com.vapk.vstore.client.util.i:
+    java.util.concurrent.atomic.AtomicInteger mCount -> a
+    java.lang.Thread newThread(java.lang.Runnable) -> newThread
+cn.com.vapk.vstore.client.util.AsyncTask$2 -> cn.com.vapk.vstore.client.util.j:
+    cn.com.vapk.vstore.client.util.AsyncTask this$0 -> b
+    java.lang.Object call() -> call
+cn.com.vapk.vstore.client.util.AsyncTask$3 -> cn.com.vapk.vstore.client.util.k:
+    cn.com.vapk.vstore.client.util.AsyncTask this$0 -> a
+    void done() -> done
+cn.com.vapk.vstore.client.util.AsyncTask$InternalHandler -> cn.com.vapk.vstore.client.util.d:
+    void handleMessage(android.os.Message) -> handleMessage
+cn.com.vapk.vstore.client.util.AsyncTask$MyAsyncTaskResult -> cn.com.vapk.vstore.client.util.l:
+    cn.com.vapk.vstore.client.util.AsyncTask mTask -> a
+    java.lang.Object[] mData -> b
+cn.com.vapk.vstore.client.util.AsyncTask$Status -> cn.com.vapk.vstore.client.util.m:
+    cn.com.vapk.vstore.client.util.AsyncTask$Status PENDING -> a
+    cn.com.vapk.vstore.client.util.AsyncTask$Status RUNNING -> b
+    cn.com.vapk.vstore.client.util.AsyncTask$Status FINISHED -> c
+    cn.com.vapk.vstore.client.util.AsyncTask$Status[] ENUM$VALUES -> d
+    cn.com.vapk.vstore.client.util.AsyncTask$Status[] values() -> values
+    cn.com.vapk.vstore.client.util.AsyncTask$Status valueOf(java.lang.String) -> valueOf
+cn.com.vapk.vstore.client.util.AsyncTask$WorkerRunnable -> cn.com.vapk.vstore.client.util.a:
+    java.lang.Object[] mParams -> a
+cn.com.vapk.vstore.client.util.BitmapUtils -> cn.com.vapk.vstore.client.util.p:
+    tw.com.sti.store.api.android.util.Logger L -> a
+    android.graphics.Bitmap downloadBitmap(java.lang.String) -> a
+cn.com.vapk.vstore.client.util.BitmapUtils$BitmapDownloaderTask -> cn.com.vapk.vstore.client.util.r:
+    java.lang.ref.WeakReference imageViewReference -> a
+    void onPostExecute(java.lang.Object) -> a
+    java.lang.Object doInBackground(java.lang.Object[]) -> a
+cn.com.vapk.vstore.client.util.BitmapUtils$FlushedInputStream -> cn.com.vapk.vstore.client.util.g:
+    long skip(long) -> skip
+cn.com.vapk.vstore.client.util.ConcurrentIntentService -> cn.com.vapk.vstore.client.util.ConcurrentIntentService:
+    java.util.concurrent.ConcurrentHashMap m_mapIntent2MyAsyncTask -> a
+cn.com.vapk.vstore.client.util.ConfigurationFactory -> cn.com.vapk.vstore.client.util.n:
+    tw.com.sti.store.api.Configuration config -> a
+    java.lang.String apiPrivkey -> b
+    java.lang.String apiRootPath -> c
+    java.lang.String apiPayRootPath -> d
+    java.lang.String apiPayHostname -> e
+    java.lang.String apiHostname -> f
+    int apiHttpPort -> g
+    int apiPayHttpPort -> h
+    tw.com.sti.store.api.Configuration getInstance() -> a
+cn.com.vapk.vstore.client.util.ImageDownloader -> cn.com.vapk.vstore.client.util.b:
+    tw.com.sti.store.api.android.util.Logger L -> b
+    cn.com.vapk.vstore.client.util.ImageDownloader$Mode mode -> c
+    android.graphics.Bitmap defalutImage -> a
+    java.util.HashMap sHardBitmapCache -> d
+    java.util.concurrent.ConcurrentHashMap sSoftBitmapCache -> e
+    android.os.Handler purgeHandler -> f
+    java.lang.Runnable purger -> g
+    int[] $SWITCH_TABLE$cn$com$vapk$vstore$client$util$ImageDownloader$Mode -> h
+    void download(java.lang.String,android.widget.ImageView) -> a
+    boolean cancelPotentialDownload(java.lang.String,android.widget.ImageView) -> b
+    cn.com.vapk.vstore.client.util.ImageDownloader$BitmapDownloaderTask getBitmapDownloaderTask(android.widget.ImageView) -> b
+    android.graphics.Bitmap downloadBitmap(java.lang.String) -> a
+    void addBitmapToCache(java.lang.String,android.graphics.Bitmap) -> a
+    android.graphics.Bitmap getBitmapFromCache(java.lang.String) -> b
+    void clearCache() -> a
+    java.util.concurrent.ConcurrentHashMap access$0() -> b
+    void access$1(cn.com.vapk.vstore.client.util.ImageDownloader,java.lang.String,android.graphics.Bitmap) -> a
+    cn.com.vapk.vstore.client.util.ImageDownloader$BitmapDownloaderTask access$2(android.widget.ImageView) -> a
+    cn.com.vapk.vstore.client.util.ImageDownloader$Mode access$3(cn.com.vapk.vstore.client.util.ImageDownloader) -> a
+    int[] $SWITCH_TABLE$cn$com$vapk$vstore$client$util$ImageDownloader$Mode() -> c
+cn.com.vapk.vstore.client.util.ImageDownloader$1 -> cn.com.vapk.vstore.client.util.f:
+    cn.com.vapk.vstore.client.util.ImageDownloader this$0 -> a
+    boolean removeEldestEntry(java.util.Map$Entry) -> removeEldestEntry
+cn.com.vapk.vstore.client.util.ImageDownloader$2 -> cn.com.vapk.vstore.client.util.e:
+    cn.com.vapk.vstore.client.util.ImageDownloader this$0 -> a
+    void run() -> run
+cn.com.vapk.vstore.client.util.ImageDownloader$BitmapDownloaderTask -> cn.com.vapk.vstore.client.util.c:
+    java.lang.String url -> a
+    java.lang.ref.WeakReference imageViewReference -> b
+    cn.com.vapk.vstore.client.util.ImageDownloader this$0 -> c
+    void onPostExecute(java.lang.Object) -> a
+    java.lang.Object doInBackground(java.lang.Object[]) -> a
+    java.lang.String access$2(cn.com.vapk.vstore.client.util.ImageDownloader$BitmapDownloaderTask) -> a
+cn.com.vapk.vstore.client.util.ImageDownloader$DownloadedDrawable -> cn.com.vapk.vstore.client.util.s:
+    java.lang.ref.WeakReference bitmapDownloaderTaskReference -> a
+    cn.com.vapk.vstore.client.util.ImageDownloader$BitmapDownloaderTask getBitmapDownloaderTask() -> a
+cn.com.vapk.vstore.client.util.ImageDownloader$Mode -> cn.com.vapk.vstore.client.util.h:
+    cn.com.vapk.vstore.client.util.ImageDownloader$Mode NO_ASYNC_TASK -> a
+    cn.com.vapk.vstore.client.util.ImageDownloader$Mode NO_DOWNLOADED_DRAWABLE -> b
+    cn.com.vapk.vstore.client.util.ImageDownloader$Mode CORRECT -> c
+    cn.com.vapk.vstore.client.util.ImageDownloader$Mode[] ENUM$VALUES -> d
+    cn.com.vapk.vstore.client.util.ImageDownloader$Mode[] values() -> values
+    cn.com.vapk.vstore.client.util.ImageDownloader$Mode valueOf(java.lang.String) -> valueOf
+cn.com.vapk.vstore.client.util.NetworkUtils -> cn.com.vapk.vstore.client.util.o:
+    boolean isNetworkOpen(android.content.Context) -> a
+cn.com.vapk.vstore.utils.NetworkUtilities -> cn.com.vapk.vstore.a.b:
+    void showNoNetworkAlertDialog$3ef676ad(android.app.Activity) -> a
+cn.com.vapk.vstore.utils.NetworkUtilities$1 -> cn.com.vapk.vstore.a.a:
+    boolean val$closeIfCancle -> a
+    android.app.Activity val$activity -> b
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.alipay.android.app.IAlixPay -> a.a.a.a.f:
+    java.lang.String Pay(java.lang.String) -> a
+    java.lang.String test() -> a
+    void registerCallback(com.alipay.android.app.IRemoteServiceCallback) -> a
+    void unregisterCallback(com.alipay.android.app.IRemoteServiceCallback) -> b
+com.alipay.android.app.IAlixPay$Stub -> a.a.a.a.c:
+    com.alipay.android.app.IAlixPay asInterface(android.os.IBinder) -> a
+    boolean onTransact(int,android.os.Parcel,android.os.Parcel,int) -> onTransact
+com.alipay.android.app.IAlixPay$Stub$Proxy -> a.a.a.a.e:
+    android.os.IBinder mRemote -> a
+    android.os.IBinder asBinder() -> asBinder
+    java.lang.String Pay(java.lang.String) -> a
+    java.lang.String test() -> a
+    void registerCallback(com.alipay.android.app.IRemoteServiceCallback) -> a
+    void unregisterCallback(com.alipay.android.app.IRemoteServiceCallback) -> b
+com.alipay.android.app.IRemoteServiceCallback -> a.a.a.a.d:
+    void startActivity(java.lang.String,java.lang.String,int,android.os.Bundle) -> a
+com.alipay.android.app.IRemoteServiceCallback$Stub -> a.a.a.a.b:
+    com.alipay.android.app.IRemoteServiceCallback asInterface(android.os.IBinder) -> a
+    android.os.IBinder asBinder() -> asBinder
+    boolean onTransact(int,android.os.Parcel,android.os.Parcel,int) -> onTransact
+com.alipay.android.app.IRemoteServiceCallback$Stub$Proxy -> a.a.a.a.a:
+    android.os.IBinder mRemote -> a
+    android.os.IBinder asBinder() -> asBinder
+    void startActivity(java.lang.String,java.lang.String,int,android.os.Bundle) -> a
+tw.com.sti.clientsdk.Base64Coder -> tw.com.sti.clientsdk.m:
+    char[] map1 -> a
+    byte[] map2 -> b
+    byte[] decode(java.lang.String) -> a
+tw.com.sti.clientsdk.LicenseManager -> tw.com.sti.clientsdk.LicenseManager:
+    tw.com.sti.store.api.android.util.Logger L -> a
+    java.lang.String callerPackage -> b
+    int callerVersion -> c
+    java.lang.String appName -> d
+    java.lang.String message -> e
+    tw.com.sti.store.api.vo.SdkAppInfoRet$SdkApp appInfo -> f
+    java.util.ResourceBundle resources -> g
+    tw.com.sti.clientsdk.LoginCallback callback -> h
+    tw.com.sti.store.api.ApiInvoker apiInvoker -> i
+    tw.com.sti.store.api.ApiInvoker licenseInvoker -> j
+    void onCreate(android.os.Bundle) -> onCreate
+    void requestLicense(java.lang.String,int) -> a
+    void canceled() -> d
+    android.app.Dialog onCreateDialog(int) -> onCreateDialog
+    void onDestroy() -> onDestroy
+    void safeDismissDialog$13462e() -> e
+    java.lang.String getCallerPackage() -> f
+    tw.com.sti.clientsdk.LoginCallback getCallback() -> g
+    void initView$79e5e33f() -> a
+    tw.com.sti.store.api.Configuration getConfiguration() -> b
+    void downloadNewVersionApp(tw.com.sti.store.api.vo.SdkAppInfoRet$SdkApp) -> a
+    void checkLoginStatusOrShowLoginUI(tw.com.sti.clientsdk.LoginCallback) -> a
+    void showPaymentUI() -> c
+    tw.com.sti.store.api.vo.SdkAppInfoRet$SdkApp getAppInfo() -> h
+    void access$0(tw.com.sti.clientsdk.LicenseManager) -> a
+    void access$1(tw.com.sti.clientsdk.LicenseManager) -> b
+    java.lang.String access$2(tw.com.sti.clientsdk.LicenseManager) -> c
+    int access$3(tw.com.sti.clientsdk.LicenseManager) -> d
+    void access$4(tw.com.sti.clientsdk.LicenseManager,tw.com.sti.store.api.ApiInvoker) -> a
+    tw.com.sti.store.api.ApiInvoker access$5(tw.com.sti.clientsdk.LicenseManager) -> e
+    void access$6(tw.com.sti.clientsdk.LicenseManager) -> f
+    void access$7(tw.com.sti.clientsdk.LicenseManager,tw.com.sti.store.api.ApiInvoker) -> b
+    tw.com.sti.store.api.ApiInvoker access$8(tw.com.sti.clientsdk.LicenseManager) -> g
+    void access$9(tw.com.sti.clientsdk.LicenseManager) -> h
+    void access$10(tw.com.sti.clientsdk.LicenseManager) -> i
+tw.com.sti.clientsdk.LicenseManager$1 -> tw.com.sti.clientsdk.b:
+    tw.com.sti.clientsdk.LicenseManager this$0 -> a
+    void success(tw.com.sti.store.api.vo.Credential) -> a
+    void cancel() -> a
+tw.com.sti.clientsdk.LicenseManager$10 -> tw.com.sti.clientsdk.j:
+    tw.com.sti.clientsdk.LicenseManager this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+tw.com.sti.clientsdk.LicenseManager$11 -> tw.com.sti.clientsdk.i:
+    tw.com.sti.clientsdk.LicenseManager this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+tw.com.sti.clientsdk.LicenseManager$12 -> tw.com.sti.clientsdk.h:
+    tw.com.sti.clientsdk.LicenseManager this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+tw.com.sti.clientsdk.LicenseManager$2 -> tw.com.sti.clientsdk.a:
+    tw.com.sti.clientsdk.LicenseManager this$0 -> a
+    void onPostExecute(java.lang.Object) -> onPostExecute
+    java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
+tw.com.sti.clientsdk.LicenseManager$3 -> tw.com.sti.clientsdk.d:
+    tw.com.sti.clientsdk.LicenseManager this$0 -> a
+    java.lang.String val$pkgName -> b
+    int val$version -> c
+    void onPostExecute(java.lang.Object) -> onPostExecute
+    java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
+tw.com.sti.clientsdk.LicenseManager$4 -> tw.com.sti.clientsdk.c:
+    tw.com.sti.clientsdk.LicenseManager this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+tw.com.sti.clientsdk.LicenseManager$5 -> tw.com.sti.clientsdk.f:
+    tw.com.sti.clientsdk.LicenseManager this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+tw.com.sti.clientsdk.LicenseManager$6 -> tw.com.sti.clientsdk.e:
+    tw.com.sti.clientsdk.LicenseManager this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+tw.com.sti.clientsdk.LicenseManager$7 -> tw.com.sti.clientsdk.s:
+    tw.com.sti.clientsdk.LicenseManager this$0 -> a
+    tw.com.sti.store.api.vo.SdkAppInfoRet$SdkApp val$apk -> b
+    void onClick(android.content.DialogInterface,int) -> onClick
+tw.com.sti.clientsdk.LicenseManager$8 -> tw.com.sti.clientsdk.r:
+    tw.com.sti.clientsdk.LicenseManager this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+tw.com.sti.clientsdk.LicenseManager$9 -> tw.com.sti.clientsdk.t:
+    tw.com.sti.clientsdk.LicenseManager this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+tw.com.sti.clientsdk.LicenseTool -> tw.com.sti.clientsdk.k:
+    java.util.HashMap WIDGET_BROADCAST -> a
+    void addWidgetBroadcast(java.lang.String,java.lang.String) -> a
+    android.net.Uri insertLicense(android.content.Context,java.lang.String,long,byte[],byte[]) -> a
+    int deleteAllLicense(android.content.Context,java.lang.String) -> a
+tw.com.sti.clientsdk.LoginActivity -> tw.com.sti.clientsdk.LoginActivity:
+    tw.com.sti.clientsdk.LoginCallback callback -> a
+    tw.com.sti.store.api.Configuration getConfiguration() -> a
+tw.com.sti.clientsdk.LoginActivity$1 -> tw.com.sti.clientsdk.g:
+    tw.com.sti.clientsdk.LoginActivity this$0 -> a
+    void success(tw.com.sti.store.api.vo.Credential) -> a
+    void cancel() -> a
+tw.com.sti.clientsdk.LoginCallback -> tw.com.sti.clientsdk.o:
+    void success(tw.com.sti.store.api.vo.Credential) -> a
+    void cancel() -> a
+tw.com.sti.clientsdk.ResourceFactory -> tw.com.sti.clientsdk.l:
+    java.util.ResourceBundle getResourceBundle() -> a
+tw.com.sti.clientsdk.ShoppingCartActivity -> tw.com.sti.clientsdk.ShoppingCartActivity:
+    tw.com.sti.store.api.android.util.Logger L -> a
+    android.app.ProgressDialog mProgress -> b
+    java.lang.String partner -> c
+    java.lang.String seller -> d
+    java.lang.String signType -> e
+    java.lang.String key -> f
+    java.lang.String storeOid -> g
+    int paymentType -> h
+    java.util.ResourceBundle resources -> i
+    tw.com.sti.store.api.vo.UPayConfig uPayConfig -> j
+    android.os.Handler mHandler -> k
+    void payByGPAY$61ac76cf(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
+    void payByUnionPay$163b55e3(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
+    void closeProgress() -> d
+    void onNewIntent(android.content.Intent) -> onNewIntent
+    void doResult(java.lang.String,java.lang.String) -> a
+    tw.com.sti.store.api.Configuration getConfiguration() -> a
+    void payResult(android.content.Context,java.lang.String,java.lang.String) -> a
+    void showLogin() -> b
+    java.io.InputStream getFromAssets(java.lang.String) -> a
+    tw.com.sti.store.api.android.util.Logger access$0() -> c
+    void access$1(tw.com.sti.clientsdk.ShoppingCartActivity) -> a
+    void access$2(tw.com.sti.clientsdk.ShoppingCartActivity,java.lang.String,java.lang.String) -> a
+    void access$3(tw.com.sti.clientsdk.ShoppingCartActivity,tw.com.sti.store.api.ApiInvoker) -> a
+    tw.com.sti.store.api.vo.UPayConfig access$4(tw.com.sti.clientsdk.ShoppingCartActivity) -> b
+tw.com.sti.clientsdk.ShoppingCartActivity$1 -> tw.com.sti.clientsdk.n:
+    tw.com.sti.clientsdk.ShoppingCartActivity this$0 -> a
+    void handleMessage(android.os.Message) -> handleMessage
+tw.com.sti.clientsdk.ShoppingCartActivity$2 -> tw.com.sti.clientsdk.q:
+    tw.com.sti.store.api.ApiInvoker apiInvoker -> a
+    tw.com.sti.clientsdk.ShoppingCartActivity this$0 -> b
+    java.lang.String val$pkg -> c
+    java.lang.String val$storeOid -> d
+    java.lang.String val$payeeInfo -> e
+    void onCancelled() -> onCancelled
+    void onPostExecute(java.lang.Object) -> onPostExecute
+    java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
+tw.com.sti.clientsdk.ShoppingCartActivity$3 -> tw.com.sti.clientsdk.p:
+    tw.com.sti.store.api.ApiInvoker apiInvoker -> a
+    tw.com.sti.clientsdk.ShoppingCartActivity this$0 -> b
+    java.lang.String val$pkg -> c
+    java.lang.String val$storeOid -> d
+    java.lang.String val$payeeInfo -> e
+    void onCancelled() -> onCancelled
+    void onPostExecute(java.lang.Object) -> onPostExecute
+    java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
+tw.com.sti.clientsdk.gpay.Base64 -> tw.com.sti.clientsdk.a.h:
+    byte[] base64Alphabet -> a
+    char[] lookUpBase64Alphabet -> b
+    boolean isPad(char) -> a
+    boolean isData(char) -> b
+    java.lang.String encode(byte[]) -> a
+    byte[] decode(java.lang.String) -> a
+tw.com.sti.clientsdk.gpay.BaseHelper -> tw.com.sti.clientsdk.a.i:
+    java.lang.String convertStreamToString(java.io.InputStream) -> a
+    void showDialog(android.app.Activity,java.lang.String,java.lang.String,java.lang.String) -> a
+    android.app.ProgressDialog showProgress$6a98ea39$d74a8f7(android.content.Context,java.lang.CharSequence) -> a
+    org.json.JSONObject string2JSON(java.lang.String,java.lang.String) -> a
+tw.com.sti.clientsdk.gpay.MobileSecurePayHelper -> tw.com.sti.clientsdk.a.l:
+    tw.com.sti.store.api.android.util.Logger L -> b
+    java.util.ResourceBundle resources -> c
+    android.app.ProgressDialog mProgress -> d
+    android.content.Context mContext -> a
+    android.os.Handler mHandler -> e
+    boolean detectMobile_sp() -> a
+    void showInstallConfirmDialog(android.content.Context,java.lang.String) -> a
+    boolean retrieveApkFromAssets(android.content.Context,java.lang.String,java.lang.String) -> a
+    android.content.pm.PackageInfo getApkInfo(android.content.Context,java.lang.String) -> b
+    java.lang.String checkNewUpdate(android.content.pm.PackageInfo) -> a
+    org.json.JSONObject sendCheckNewUpdate(java.lang.String) -> a
+    org.json.JSONObject sendRequest(java.lang.String) -> b
+    boolean retrieveApkFromNet$62dc3a75(java.lang.String,java.lang.String) -> a
+    void closeProgress() -> b
+    tw.com.sti.store.api.android.util.Logger access$0() -> c
+    android.os.Handler access$1(tw.com.sti.clientsdk.gpay.MobileSecurePayHelper) -> a
+tw.com.sti.clientsdk.gpay.MobileSecurePayHelper$1 -> tw.com.sti.clientsdk.a.g:
+    tw.com.sti.clientsdk.gpay.MobileSecurePayHelper this$0 -> a
+    void handleMessage(android.os.Message) -> handleMessage
+tw.com.sti.clientsdk.gpay.MobileSecurePayHelper$2 -> tw.com.sti.clientsdk.a.f:
+    tw.com.sti.clientsdk.gpay.MobileSecurePayHelper this$0 -> a
+    java.lang.String val$cachePath -> b
+    void run() -> run
+tw.com.sti.clientsdk.gpay.MobileSecurePayHelper$3 -> tw.com.sti.clientsdk.a.e:
+    tw.com.sti.clientsdk.gpay.MobileSecurePayHelper this$0 -> a
+    java.lang.String val$cachePath -> b
+    android.content.Context val$context -> c
+    void onClick(android.content.DialogInterface,int) -> onClick
+tw.com.sti.clientsdk.gpay.MobileSecurePayHelper$4 -> tw.com.sti.clientsdk.a.a:
+    tw.com.sti.clientsdk.gpay.MobileSecurePayHelper this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+tw.com.sti.clientsdk.gpay.MobileSecurePayer -> tw.com.sti.clientsdk.a.j:
+    tw.com.sti.store.api.android.util.Logger L -> e
+    java.lang.Integer lock -> a
+    com.alipay.android.app.IAlixPay mAlixPay -> b
+    boolean mbPaying -> c
+    android.app.Activity mActivity -> d
+    android.content.ServiceConnection mAlixPayConnection -> f
+    com.alipay.android.app.IRemoteServiceCallback mCallback -> g
+    boolean pay$679d958a(java.lang.String,android.os.Handler,android.app.Activity) -> a
+    tw.com.sti.store.api.android.util.Logger access$0() -> a
+    com.alipay.android.app.IRemoteServiceCallback access$1(tw.com.sti.clientsdk.gpay.MobileSecurePayer) -> a
+    android.content.ServiceConnection access$2(tw.com.sti.clientsdk.gpay.MobileSecurePayer) -> b
+tw.com.sti.clientsdk.gpay.MobileSecurePayer$1 -> tw.com.sti.clientsdk.a.b:
+    tw.com.sti.clientsdk.gpay.MobileSecurePayer this$0 -> a
+    void onServiceConnected(android.content.ComponentName,android.os.IBinder) -> onServiceConnected
+    void onServiceDisconnected(android.content.ComponentName) -> onServiceDisconnected
+tw.com.sti.clientsdk.gpay.MobileSecurePayer$2 -> tw.com.sti.clientsdk.a.c:
+    tw.com.sti.clientsdk.gpay.MobileSecurePayer this$0 -> a
+    void startActivity(java.lang.String,java.lang.String,int,android.os.Bundle) -> a
+tw.com.sti.clientsdk.gpay.MobileSecurePayer$3 -> tw.com.sti.clientsdk.a.d:
+    tw.com.sti.clientsdk.gpay.MobileSecurePayer this$0 -> a
+    java.lang.String val$strOrderInfo -> b
+    int val$myWhat -> c
+    android.os.Handler val$callback -> d
+    void run() -> run
+tw.com.sti.clientsdk.gpay.NetworkManager -> tw.com.sti.clientsdk.a.o:
+    tw.com.sti.store.api.android.util.Logger L -> a
+    int connectTimeout -> b
+    int readTimeout -> c
+    java.net.Proxy mProxy -> d
+    android.content.Context mContext -> e
+    void detectProxy() -> a
+    java.lang.String SendAndWaitResponse(java.lang.String,java.lang.String) -> a
+    boolean urlDownloadToFile$62dc3a75(java.lang.String,java.lang.String) -> b
+tw.com.sti.clientsdk.gpay.NetworkManager$1 -> tw.com.sti.clientsdk.a.n:
+    tw.com.sti.clientsdk.gpay.NetworkManager this$0 -> a
+    boolean verify(java.lang.String,javax.net.ssl.SSLSession) -> verify
+tw.com.sti.clientsdk.gpay.ResultChecker -> tw.com.sti.clientsdk.a.m:
+    java.lang.String mContent -> a
+    java.lang.String getSuccess() -> b
+    boolean checkSign() -> c
+    boolean isPayOk() -> a
+tw.com.sti.clientsdk.gpay.Rsa -> tw.com.sti.clientsdk.a.k:
+    java.lang.String sign(java.lang.String,java.lang.String) -> a
+    boolean doCheck(java.lang.String,java.lang.String,java.lang.String) -> a
+tw.com.sti.clientsdk.provider.AppSdkProvider -> tw.com.sti.clientsdk.provider.AppSdkProvider:
+    tw.com.sti.store.api.android.util.Logger L -> a
+    android.content.UriMatcher sUriMatcher -> b
+    java.lang.String authority -> c
+    tw.com.sti.clientsdk.provider.AppSdkProvider$DatabaseHelper licenseDbHelper -> d
+    java.util.HashSet SDK_CANCEL -> e
+    tw.com.sti.store.api.Configuration getConfiguration() -> a
+    int delete(android.net.Uri,java.lang.String,java.lang.String[]) -> delete
+    java.lang.String getType(android.net.Uri) -> getType
+    android.net.Uri insert(android.net.Uri,android.content.ContentValues) -> insert
+    int update(android.net.Uri,android.content.ContentValues,java.lang.String,java.lang.String[]) -> update
+    boolean onCreate() -> onCreate
+    android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String) -> query
+    android.database.Cursor checkAppStore$5eb44419(java.lang.String[]) -> a
+    void addSdkCancel(java.lang.String) -> a
+    android.database.Cursor getAppPaymentInfo$5eb44419(java.lang.String[]) -> b
+    android.database.Cursor getUserUid$5eb44419() -> b
+tw.com.sti.clientsdk.provider.AppSdkProvider$DatabaseHelper -> tw.com.sti.clientsdk.provider.a:
+    android.database.sqlite.SQLiteDatabase getWritableDatabase() -> getWritableDatabase
+    void onCreate(android.database.sqlite.SQLiteDatabase) -> onCreate
+    void onUpgrade(android.database.sqlite.SQLiteDatabase,int,int) -> onUpgrade
+tw.com.sti.clientsdk.unionpay.Base64 -> tw.com.sti.clientsdk.b.b:
+    byte[] base64Alphabet -> a
+    char[] lookUpBase64Alphabet -> b
+    java.lang.String encode(byte[]) -> a
+tw.com.sti.clientsdk.unionpay.SignBy -> tw.com.sti.clientsdk.b.a:
+    java.lang.String createSign(java.lang.String,java.lang.String,java.lang.String,java.io.InputStream) -> a
+    byte[] MD5(java.lang.String) -> a
+    byte[] rsaEncode(byte[],java.lang.String,java.lang.String,java.io.InputStream) -> a
+tw.com.sti.security.Dsa -> tw.com.sti.b.a:
+    java.lang.String sign(java.lang.String,java.lang.String) -> a
+tw.com.sti.security.util.Base64Coder -> tw.com.sti.b.a.a:
+    char[] map1 -> a
+    byte[] map2 -> b
+    java.lang.String encodeString(java.lang.String) -> a
+    char[] encode(byte[]) -> a
+    byte[] decode(java.lang.String) -> b
+    byte[] decode(char[]) -> a
+tw.com.sti.store.api.ApiDataInvalidException -> tw.com.sti.a.a.v:
+tw.com.sti.store.api.ApiDataParseException -> tw.com.sti.a.a.ac:
+tw.com.sti.store.api.ApiDataParseHandler -> tw.com.sti.a.a.z:
+    tw.com.sti.store.api.ApiDataParseHandler LOGIN_RET_PARSE_HANDLER -> a
+    tw.com.sti.store.api.ApiDataParseHandler IP_LOGIN_RET_PARSE_HANDLER -> b
+    tw.com.sti.store.api.ApiDataParseHandler APPS_RET_PARSE_HANDLER -> c
+    tw.com.sti.store.api.ApiDataParseHandler CATEGORY_APPS_RET_PARSE_HANDLER -> d
+    tw.com.sti.store.api.ApiDataParseHandler CP_APPS_RET_PARSE_HANDLER -> e
+    tw.com.sti.store.api.ApiDataParseHandler CATEGORIES_PARSE_HANDLER -> f
+    tw.com.sti.store.api.ApiDataParseHandler APPLICATION_PARSE_HANDLER -> g
+    tw.com.sti.store.api.ApiDataParseHandler COMMENTS_RET_PARSE_HANDLER -> h
+    tw.com.sti.store.api.ApiDataParseHandler COMMON_RET_PARSE_HANDLER -> i
+    tw.com.sti.store.api.ApiDataParseHandler CHECK_CLIENT_VERSION_HANDLER -> j
+    tw.com.sti.store.api.ApiDataParseHandler OVER_PAYMENT_QUOTA_RET_PARSE_HANDLER -> s
+    tw.com.sti.store.api.ApiDataParseHandler CHECK_PAY_STATUS_RET_PARSE_HANDLER -> k
+    tw.com.sti.store.api.ApiDataParseHandler UNSUBSCRIBE_RET_PARSE_HANDLER -> l
+    tw.com.sti.store.api.ApiDataParseHandler MY_APP_VERSIONS_PARSE_HANDLER -> m
+    tw.com.sti.store.api.ApiDataParseHandler G_PAYMENT_RET_PARSE_HANDLER -> n
+    tw.com.sti.store.api.ApiDataParseHandler APP_STORE_PARSE_HANDLER -> o
+    tw.com.sti.store.api.ApiDataParseHandler LICENSE_RET_PARSE_HANDLER -> p
+    tw.com.sti.store.api.ApiDataParseHandler SDK_APP_INFO_PARSE_HANDLER -> q
+    tw.com.sti.store.api.ApiDataParseHandler PEPAYORDER_RET_PARSE_HANDLER -> r
+    java.lang.Object parseRet(java.lang.String) -> a
+tw.com.sti.store.api.ApiDataParseHandler$1 -> tw.com.sti.a.a.m:
+    java.lang.Object parseRet(org.json.JSONObject) -> a
+tw.com.sti.store.api.ApiDataParseHandler$10 -> tw.com.sti.a.a.a:
+    java.lang.Object parseRet(org.json.JSONObject) -> a
+tw.com.sti.store.api.ApiDataParseHandler$11 -> tw.com.sti.a.a.b:
+    java.lang.Object parseRet(org.json.JSONObject) -> a
+tw.com.sti.store.api.ApiDataParseHandler$12 -> tw.com.sti.a.a.c:
+    java.lang.Object parseRet(org.json.JSONObject) -> a
+tw.com.sti.store.api.ApiDataParseHandler$13 -> tw.com.sti.a.a.d:
+    java.lang.Object parseRet(org.json.JSONObject) -> a
+tw.com.sti.store.api.ApiDataParseHandler$14 -> tw.com.sti.a.a.f:
+    java.lang.Object parseRet(org.json.JSONObject) -> a
+tw.com.sti.store.api.ApiDataParseHandler$15 -> tw.com.sti.a.a.e:
+    java.lang.Object parseRet(org.json.JSONObject) -> a
+tw.com.sti.store.api.ApiDataParseHandler$16 -> tw.com.sti.a.a.h:
+    java.lang.Object parseRet(org.json.JSONObject) -> a
+tw.com.sti.store.api.ApiDataParseHandler$17 -> tw.com.sti.a.a.g:
+    java.lang.Object parseRet(org.json.JSONObject) -> a
+tw.com.sti.store.api.ApiDataParseHandler$18 -> tw.com.sti.a.a.j:
+    java.lang.Object parseRet(org.json.JSONObject) -> a
+tw.com.sti.store.api.ApiDataParseHandler$19 -> tw.com.sti.a.a.i:
+    java.lang.Object parseRet(org.json.JSONObject) -> a
+tw.com.sti.store.api.ApiDataParseHandler$2 -> tw.com.sti.a.a.n:
+    java.lang.Object parseRet(org.json.JSONObject) -> a
+tw.com.sti.store.api.ApiDataParseHandler$3 -> tw.com.sti.a.a.o:
+    java.lang.Object parseRet(org.json.JSONObject) -> a
+tw.com.sti.store.api.ApiDataParseHandler$4 -> tw.com.sti.a.a.p:
+    java.lang.Object parseRet(org.json.JSONObject) -> a
+tw.com.sti.store.api.ApiDataParseHandler$5 -> tw.com.sti.a.a.q:
+    java.lang.Object parseRet(org.json.JSONObject) -> a
+tw.com.sti.store.api.ApiDataParseHandler$6 -> tw.com.sti.a.a.r:
+    java.lang.Object parseRet(org.json.JSONObject) -> a
+tw.com.sti.store.api.ApiDataParseHandler$7 -> tw.com.sti.a.a.s:
+    java.lang.Object parseRet(org.json.JSONObject) -> a
+tw.com.sti.store.api.ApiDataParseHandler$8 -> tw.com.sti.a.a.t:
+    java.lang.Object parseRet(org.json.JSONObject) -> a
+tw.com.sti.store.api.ApiDataParseHandler$9 -> tw.com.sti.a.a.u:
+    java.lang.Object parseRet(org.json.JSONObject) -> a
+tw.com.sti.store.api.ApiDataParseHandler$JSONApiDataParseHandler -> tw.com.sti.a.a.ab:
+    java.lang.Object parseRet(java.lang.String) -> a
+    java.lang.Object parseRet(org.json.JSONObject) -> a
+tw.com.sti.store.api.ApiInvoker -> tw.com.sti.a.a.aa:
+    int status -> a
+    boolean invoking -> b
+    boolean connecting -> c
+    boolean stop -> d
+    tw.com.sti.store.api.ApiDataParseHandler parser -> e
+    java.lang.Object t -> f
+    java.lang.String url -> g
+    java.util.List nvps -> h
+    org.apache.http.client.methods.HttpPost post -> i
+    tw.com.sti.store.api.Configuration config -> j
+    tw.com.sti.store.api.android.util.Logger L -> k
+    boolean isFail() -> a
+    boolean isSuccess() -> b
+    void invoke() -> c
+    boolean stop() -> d
+    boolean isStop() -> e
+    java.lang.Object getRet() -> f
+    tw.com.sti.store.api.Configuration getConfig() -> g
+tw.com.sti.store.api.ApiService -> tw.com.sti.a.a.y:
+tw.com.sti.store.api.ApiService$AppsType -> tw.com.sti.a.a.l:
+    tw.com.sti.store.api.ApiService$AppsType FREE -> a
+    tw.com.sti.store.api.ApiService$AppsType PAID -> b
+    tw.com.sti.store.api.ApiService$AppsType ALL -> c
+    tw.com.sti.store.api.ApiService$AppsType[] ENUM$VALUES -> d
+    tw.com.sti.store.api.ApiService$AppsType[] values() -> values
+    tw.com.sti.store.api.ApiService$AppsType valueOf(java.lang.String) -> valueOf
+tw.com.sti.store.api.ApiUrl -> tw.com.sti.a.a.x:
+    tw.com.sti.store.api.Configuration config -> a
+    int[] $SWITCH_TABLE$tw$com$sti$store$api$ApiService$AppsType -> b
+    java.lang.String getRegisterUrl() -> a
+    java.lang.String getLoginUrl() -> b
+    java.lang.String getAutoLoginUrl() -> c
+    java.lang.String getIPLoginUrl() -> d
+    java.lang.String getFeatureAppsUrl() -> e
+    java.lang.String getCategoryUrl() -> f
+    java.lang.String getClientUsageUrl() -> g
+    java.lang.String getLicenseUrl(java.lang.String) -> a
+    java.lang.String getCheckNewClientUrl() -> h
+    java.lang.String getDownloadClientUrl() -> i
+    java.lang.String getCategoryAppsUrl(java.lang.String,tw.com.sti.store.api.ApiService$AppsType,int) -> a
+    java.lang.String getPaymentOrderNumtUrl(java.lang.String) -> b
+    java.lang.String getApplicationDetailUrl(java.lang.String) -> c
+    java.lang.String getApplicationCommentsUrl(java.lang.String,int) -> a
+    java.lang.String getApplicationReportUrl(java.lang.String) -> d
+    java.lang.String getApplicationRateUrl(java.lang.String) -> e
+    java.lang.String getCPAppsUrl(java.lang.String,tw.com.sti.store.api.ApiService$AppsType,int) -> b
+    java.lang.String getSearchAppsUrl(tw.com.sti.store.api.ApiService$AppsType,int) -> a
+    java.lang.String getMyDownloadAppsUrl(tw.com.sti.store.api.ApiService$AppsType,int) -> b
+    java.lang.String getCheckPayStatusUrl(java.lang.String) -> f
+    java.lang.String getUnsubscribeUrl(java.lang.String) -> g
+    java.lang.String getMyAppsVersionUrl(int) -> a
+    java.lang.String getDownloadAppUrl(java.lang.String) -> h
+    java.lang.String getCheckAppStoreListUrl(java.lang.String) -> i
+    java.lang.String getGPaymentReceiverUrl() -> j
+    java.lang.String getUnionPaymentReceiverUrl() -> k
+    java.lang.String getSdkAppInfoUrl(java.lang.String) -> j
+    java.lang.String getSendLogUrl() -> l
+    java.lang.String getOrderStatusUrl(java.lang.String) -> k
+    java.lang.String getOrderRefundUrl() -> m
+    java.lang.String getPePayOrderUrl(java.lang.String) -> l
+    java.lang.String convertApplicationListTypeToUrl(tw.com.sti.store.api.ApiService$AppsType) -> a
+    int[] $SWITCH_TABLE$tw$com$sti$store$api$ApiService$AppsType() -> n
+tw.com.sti.store.api.Configuration -> tw.com.sti.a.a.w:
+    tw.com.sti.store.api.Configuration$RUNTIME_SERVER_TYPE serverType -> a
+    int apiHttpPort -> b
+    int apiHttpsPort -> c
+    boolean supportSSL -> d
+    java.lang.String apiRootPath -> e
+    java.lang.String apiHostname -> f
+    int apiTimeout -> g
+    java.lang.String apiPrivkey -> h
+    java.lang.String snum -> i
+    int apiPayHttpPort -> j
+    int apiPayHttpsPort -> k
+    java.lang.String apiPayRootPath -> l
+    java.lang.String apiPayHostname -> m
+    java.lang.String getApiHttpURL() -> a
+    java.lang.String getApiHttpsURL() -> b
+    java.lang.String getApiPayHttpURL() -> c
+    int getApiHttpPort() -> d
+    void setApiHttpPort(int) -> a
+    int getApiHttpsPort() -> e
+    void setSupportSSL$1385ff() -> f
+    java.lang.String getApiRootPath() -> g
+    void setApiRootPath(java.lang.String) -> a
+    java.lang.String getApiHostname() -> h
+    void setApiHostname(java.lang.String) -> b
+    int getApiTimeout() -> i
+    void setApiTimeout$13462e() -> j
+    tw.com.sti.store.api.Configuration$RUNTIME_SERVER_TYPE getServerType() -> k
+    java.lang.String getApiPrivkey() -> l
+    void setApiPrivkey(java.lang.String) -> c
+    java.lang.String getSnum() -> m
+    void setSnum(java.lang.String) -> d
+    void setApiPayHttpPort(int) -> b
+    void setApiPayRootPath(java.lang.String) -> e
+    void setApiPayHostname(java.lang.String) -> f
+tw.com.sti.store.api.Configuration$RUNTIME_SERVER_TYPE -> tw.com.sti.a.a.k:
+    tw.com.sti.store.api.Configuration$RUNTIME_SERVER_TYPE PRODUCT -> a
+    tw.com.sti.store.api.Configuration$RUNTIME_SERVER_TYPE TEST_PRODUCT -> c
+    tw.com.sti.store.api.Configuration$RUNTIME_SERVER_TYPE STAGING -> b
+    tw.com.sti.store.api.Configuration$RUNTIME_SERVER_TYPE DEVELOPER -> d
+    tw.com.sti.store.api.Configuration$RUNTIME_SERVER_TYPE[] ENUM$VALUES -> e
+    tw.com.sti.store.api.Configuration$RUNTIME_SERVER_TYPE[] values() -> values
+    tw.com.sti.store.api.Configuration$RUNTIME_SERVER_TYPE valueOf(java.lang.String) -> valueOf
+tw.com.sti.store.api.android.AndroidApiService -> tw.com.sti.a.a.b.a:
+    tw.com.sti.store.api.Configuration config -> a
+    tw.com.sti.store.api.ApiUrl apiUrl -> b
+    tw.com.sti.store.api.android.util.Logger L -> c
+    boolean isLogin -> d
+    tw.com.sti.store.api.android.AndroidApiService service -> e
+    java.lang.String storeId -> f
+    java.lang.String sdkVer -> g
+    java.lang.String sdkRel -> h
+    java.lang.String clientVer -> i
+    java.lang.String deviceId -> j
+    java.lang.String macAddress -> k
+    java.lang.String subscriberId -> l
+    java.lang.String simSerialNumber -> m
+    java.lang.String wpx -> n
+    java.lang.String hpx -> o
+    int appFilter -> p
+    tw.com.sti.store.api.vo.Credential credential -> q
+    tw.com.sti.store.api.android.AndroidApiService getInstance(android.content.Context,tw.com.sti.store.api.Configuration) -> a
+    int getAppFilter() -> a
+    tw.com.sti.store.api.vo.Credential getCredential(android.content.Context) -> a
+    void saveAppFilter(android.content.Context,int) -> a
+    void saveCredential(android.content.Context,tw.com.sti.store.api.vo.Credential) -> a
+    void cleanCredential(android.content.Context) -> b
+    java.util.List createRequestParams(java.lang.String[],java.lang.String[],boolean) -> a
+    java.util.List createRequestParams(java.lang.String[],java.lang.String[],boolean,java.lang.Integer) -> a
+    java.util.List createRequestParams(java.lang.String[],java.lang.String[],boolean,java.lang.Integer,java.lang.String,java.lang.String) -> a
+    tw.com.sti.store.api.ApiInvoker login(java.lang.String,java.lang.String) -> a
+    tw.com.sti.store.api.ApiInvoker register(java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
+    tw.com.sti.store.api.ApiInvoker autoLogin() -> b
+    tw.com.sti.store.api.ApiInvoker IPLogin(java.lang.String) -> a
+    tw.com.sti.store.api.ApiInvoker featureApps(java.lang.Integer) -> a
+    tw.com.sti.store.api.ApiInvoker categories$116e3d54() -> c
+    tw.com.sti.store.api.ApiInvoker categoryApps(java.lang.String,tw.com.sti.store.api.ApiService$AppsType,java.lang.Integer,int,java.lang.Integer) -> a
+    tw.com.sti.store.api.ApiInvoker application(java.lang.String) -> b
+    tw.com.sti.store.api.ApiInvoker appComments(java.lang.String,int,java.lang.Integer) -> a
+    tw.com.sti.store.api.ApiInvoker reportApp(java.lang.String,java.lang.Integer,int) -> a
+    tw.com.sti.store.api.ApiInvoker rateApp(java.lang.String,java.lang.Integer,int,java.lang.String) -> a
+    tw.com.sti.store.api.ApiInvoker searchApps(java.lang.String,tw.com.sti.store.api.ApiService$AppsType,java.lang.Integer,int,java.lang.Integer) -> b
+    tw.com.sti.store.api.ApiInvoker cpApps(java.lang.String,tw.com.sti.store.api.ApiService$AppsType,java.lang.Integer,int,java.lang.Integer) -> c
+    tw.com.sti.store.api.ApiInvoker myDownloadApps(tw.com.sti.store.api.ApiService$AppsType,int) -> a
+    tw.com.sti.store.api.ApiInvoker clientUsage(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,long,java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
+    tw.com.sti.store.api.ApiInvoker checkPayStatus$68a43ec5(java.lang.String) -> c
+    tw.com.sti.store.api.ApiInvoker unsubscribe(java.lang.String) -> d
+    tw.com.sti.store.api.ApiInvoker checkClientVersion(java.lang.String) -> e
+    org.apache.http.client.methods.HttpRequestBase downloadClient(java.lang.String) -> f
+    tw.com.sti.store.api.ApiInvoker myAppVersions(java.lang.String,int) -> a
+    org.apache.http.client.methods.HttpRequestBase downloadApp(java.lang.String,java.lang.String,java.lang.Integer,java.lang.String) -> a
+    tw.com.sti.store.api.ApiInvoker getLicense(java.lang.String,java.lang.Integer) -> a
+    tw.com.sti.store.api.ApiInvoker getNewOrder(java.lang.String,java.lang.String,java.lang.String) -> a
+    tw.com.sti.store.api.ApiInvoker getNewOrder(java.lang.String,java.lang.String,java.lang.String,tw.com.sti.store.api.vo.UPayConfig) -> a
+    tw.com.sti.store.api.ApiInvoker checkAppStoreList(java.lang.String,int) -> b
+    tw.com.sti.store.api.ApiInvoker getSdkAppInfo(java.lang.String,int,java.lang.String,java.lang.String) -> a
+    tw.com.sti.store.api.ApiInvoker sendLogs(java.util.List) -> a
+    tw.com.sti.store.api.ApiInvoker getOrderStatus(java.lang.String) -> g
+    tw.com.sti.store.api.ApiInvoker orderRefund(java.lang.String,java.lang.String) -> b
+    tw.com.sti.store.api.ApiInvoker getPePayOrderUrl(java.lang.String) -> h
+    boolean isLogin() -> d
+tw.com.sti.store.api.android.util.AppUtils -> tw.com.sti.a.a.b.a.a:
+    boolean isInstall(java.lang.String,android.content.Context) -> a
+    java.lang.String getStatusText(tw.com.sti.store.api.vo.AppsRet$App,android.content.Context) -> a
+    boolean isMyDownloadApp(tw.com.sti.store.api.vo.AppsRet$App,android.content.Context) -> b
+    int updateAppsSize(android.content.Context,tw.com.sti.store.api.vo.AppVersionsRet$AppVersion[]) -> a
+    java.lang.Integer getLocalVersionCode(android.content.Context,java.lang.String) -> a
+    tw.com.sti.store.api.vo.ApplicationRet$Application$Action[] getActions(android.content.Context,tw.com.sti.store.api.vo.ApplicationRet$Application) -> a
+tw.com.sti.store.api.android.util.Logger -> tw.com.sti.a.a.b.a.c:
+    boolean logable -> e
+    boolean DEBUG -> a
+    boolean INFO -> b
+    boolean WARN -> c
+    boolean ERROR -> d
+    java.lang.String clazz -> f
+    java.lang.String tag -> g
+    void setLogable$1385ff() -> a
+    tw.com.sti.store.api.android.util.Logger getLogger(java.lang.Class) -> a
+    java.lang.String headString(java.lang.String) -> d
+    void i(java.lang.String,java.lang.Throwable) -> a
+    void d(java.lang.String) -> a
+    void d(java.lang.String,java.lang.Throwable) -> b
+    void w(java.lang.String) -> b
+    void e(java.lang.String) -> c
+    void e(java.lang.String,java.lang.Throwable) -> c
+tw.com.sti.store.api.android.util.NetworkUtils -> tw.com.sti.a.a.b.a.b:
+    boolean isNetworkOpen(android.content.Context) -> a
+    java.lang.String getDeviceMacAddress(android.content.Context) -> b
+    java.lang.String getEthernetMacAddress() -> a
+    java.lang.String getWifiMacAddress(android.content.Context) -> c
+tw.com.sti.store.api.util.EasySSLSocketFactory -> tw.com.sti.a.a.c.b:
+    javax.net.ssl.SSLContext sslcontext -> a
+    javax.net.ssl.SSLContext createEasySSLContext() -> a
+    javax.net.ssl.SSLContext getSSLContext() -> b
+    java.net.Socket connectSocket(java.net.Socket,java.lang.String,int,java.net.InetAddress,int,org.apache.http.params.HttpParams) -> connectSocket
+    java.net.Socket createSocket() -> createSocket
+    boolean isSecure(java.net.Socket) -> isSecure
+    java.net.Socket createSocket(java.net.Socket,java.lang.String,int,boolean) -> createSocket
+    boolean equals(java.lang.Object) -> equals
+    int hashCode() -> hashCode
+tw.com.sti.store.api.util.EasyX509TrustManager -> tw.com.sti.a.a.c.a:
+    javax.net.ssl.X509TrustManager standardTrustManager -> a
+    void checkClientTrusted(java.security.cert.X509Certificate[],java.lang.String) -> checkClientTrusted
+    void checkServerTrusted(java.security.cert.X509Certificate[],java.lang.String) -> checkServerTrusted
+    java.security.cert.X509Certificate[] getAcceptedIssuers() -> getAcceptedIssuers
+tw.com.sti.store.api.util.LangUtils -> tw.com.sti.a.a.c.c:
+    int isBlankAny(java.lang.String[]) -> a
+    boolean isBlank(java.lang.String) -> a
+    java.lang.String formatDate(java.util.Date,java.lang.String) -> a
+    java.lang.String formatDate(long,java.lang.String) -> a
+tw.com.sti.store.api.vo.AppInfo -> tw.com.sti.a.a.a.f:
+tw.com.sti.store.api.vo.AppInfo$AppPaidType -> tw.com.sti.a.a.a.y:
+    tw.com.sti.store.api.vo.AppInfo$AppPaidType FREE_OR_PAID -> c
+    tw.com.sti.store.api.vo.AppInfo$AppPaidType PAY_PROCESSING -> a
+    tw.com.sti.store.api.vo.AppInfo$AppPaidType NEED_PAY -> b
+    int[] $SWITCH_TABLE$tw$com$sti$store$api$vo$AppInfo$PayStatus -> d
+    tw.com.sti.store.api.vo.AppInfo$AppPaidType[] ENUM$VALUES -> e
+    tw.com.sti.store.api.vo.AppInfo$AppPaidType getPaymentRequired(tw.com.sti.store.api.vo.AppInfo$PriceType,tw.com.sti.store.api.vo.AppInfo$PayStatus,tw.com.sti.store.api.vo.AppInfo$PriceType) -> a
+    tw.com.sti.store.api.vo.AppInfo$AppPaidType[] values() -> values
+    tw.com.sti.store.api.vo.AppInfo$AppPaidType valueOf(java.lang.String) -> valueOf
+    int[] $SWITCH_TABLE$tw$com$sti$store$api$vo$AppInfo$PayStatus() -> a
+tw.com.sti.store.api.vo.AppInfo$PayStatus -> tw.com.sti.a.a.a.j:
+    tw.com.sti.store.api.vo.AppInfo$PayStatus NO_PAID -> a
+    tw.com.sti.store.api.vo.AppInfo$PayStatus PAY_PROCESSING -> b
+    tw.com.sti.store.api.vo.AppInfo$PayStatus PAID -> c
+    tw.com.sti.store.api.vo.AppInfo$PayStatus UN_SUBSCRIBE -> d
+    tw.com.sti.store.api.vo.AppInfo$PayStatus[] ENUM$VALUES -> e
+    tw.com.sti.store.api.vo.AppInfo$PayStatus parse(int) -> a
+    tw.com.sti.store.api.vo.AppInfo$PayStatus[] values() -> values
+    tw.com.sti.store.api.vo.AppInfo$PayStatus valueOf(java.lang.String) -> valueOf
+tw.com.sti.store.api.vo.AppInfo$PriceType -> tw.com.sti.a.a.a.c:
+    tw.com.sti.store.api.vo.AppInfo$PriceType FREE -> a
+    tw.com.sti.store.api.vo.AppInfo$PriceType ONE_TIME -> b
+    tw.com.sti.store.api.vo.AppInfo$PriceType MONTHLY -> c
+    tw.com.sti.store.api.vo.AppInfo$PriceType IN_APP_PURCHASE -> d
+    tw.com.sti.store.api.vo.AppInfo$PriceType SERVER_PRODUCT_PURCHASE -> e
+    tw.com.sti.store.api.vo.AppInfo$PriceType[] ENUM$VALUES -> f
+    tw.com.sti.store.api.vo.AppInfo$PriceType parse(int) -> a
+    tw.com.sti.store.api.vo.AppInfo$PriceType[] values() -> values
+    tw.com.sti.store.api.vo.AppInfo$PriceType valueOf(java.lang.String) -> valueOf
+tw.com.sti.store.api.vo.AppInfo$Status -> tw.com.sti.a.a.a.n:
+    int[] $SWITCH_TABLE$tw$com$sti$store$api$vo$AppInfo$PriceType -> a
+    int getStatus(tw.com.sti.store.api.vo.AppInfo$PriceType,boolean,boolean,boolean,boolean) -> a
+    int[] $SWITCH_TABLE$tw$com$sti$store$api$vo$AppInfo$PriceType() -> a
+tw.com.sti.store.api.vo.AppVersionsRet -> tw.com.sti.a.a.a.h:
+    boolean pageEnd -> a
+    tw.com.sti.store.api.vo.AppVersionsRet$AppVersion[] appVersions -> b
+    boolean isPageEnd() -> a
+    tw.com.sti.store.api.vo.AppVersionsRet$AppVersion[] getApps() -> b
+tw.com.sti.store.api.vo.AppVersionsRet$AppVersion -> tw.com.sti.a.a.a.ae:
+    java.lang.String pkg -> a
+    int version -> b
+    tw.com.sti.store.api.vo.AppVersionsRet$AppVersion parseApp(org.json.JSONObject) -> a
+    java.lang.String getPkg() -> a
+    int getVersion() -> b
+    int hashCode() -> hashCode
+tw.com.sti.store.api.vo.ApplicationRet -> tw.com.sti.a.a.a.t:
+    tw.com.sti.store.api.vo.ApplicationRet$Application application -> a
+    tw.com.sti.store.api.vo.ApplicationRet$Application getApplication() -> a
+tw.com.sti.store.api.vo.ApplicationRet$Application -> tw.com.sti.a.a.a.g:
+    java.lang.String pkg -> a
+    int version -> b
+    int apkBytes -> c
+    java.lang.String title -> d
+    java.lang.String icon -> e
+    java.lang.String provider -> f
+    float rating -> g
+    float price -> h
+    java.lang.String priceText -> i
+    tw.com.sti.store.api.vo.AppInfo$PriceType priceType -> j
+    tw.com.sti.store.api.vo.AppInfo$PayStatus payStatus -> k
+    java.lang.String subscribeExpDate -> l
+    java.lang.String downloadTimes -> m
+    java.lang.String ratingTimes -> n
+    java.lang.String introduction -> o
+    java.lang.String[] screenShots -> p
+    tw.com.sti.store.api.vo.CommentsRet$Comment[] comments -> q
+    java.lang.Integer myRating -> r
+    java.lang.String myComment -> s
+    java.lang.String about -> t
+    java.lang.String providerID -> u
+    java.lang.String providerSite -> v
+    java.lang.String providerEmail -> w
+    boolean reportable -> x
+    boolean commentable -> y
+    boolean ratingable -> z
+    java.lang.String alertInstallMsg -> A
+    java.lang.String alertUnsubscribeMsg -> B
+    java.lang.String alertUninstallMsg -> C
+    tw.com.sti.store.api.vo.ApplicationRet$Application parseApplication(org.json.JSONObject) -> a
+    java.lang.String getPkg() -> a
+    int getVersion() -> b
+    java.lang.String getTitle() -> c
+    java.lang.String getIcon() -> d
+    java.lang.String getProvider() -> e
+    float getRating() -> f
+    float getPrice() -> g
+    tw.com.sti.store.api.vo.AppInfo$PriceType getPriceType() -> h
+    java.lang.String getPriceText() -> i
+    tw.com.sti.store.api.vo.AppInfo$PayStatus getPayStatus() -> j
+    boolean isPayProcessing() -> k
+    java.lang.String getDownloadTimes() -> l
+    java.lang.String getRatingTimes() -> m
+    java.lang.String getIntroduction() -> n
+    java.lang.String[] getScreenShots() -> o
+    tw.com.sti.store.api.vo.CommentsRet$Comment[] getComments() -> p
+    java.lang.Integer getMyRating() -> q
+    java.lang.String getMyComment() -> r
+    java.lang.String getAbout() -> s
+    java.lang.String getProviderID() -> t
+    java.lang.String getProviderSite() -> u
+    java.lang.String getProviderEmail() -> v
+    boolean isReportable() -> w
+    boolean isCommentable() -> x
+    boolean isRatingable() -> y
+    java.lang.String getAlertInstallMsg() -> z
+    java.lang.String getAlertUnsubscribeMsg() -> A
+    java.lang.String getAlertUninstallMsg() -> B
+    java.lang.String getSubscribeExpDate() -> C
+tw.com.sti.store.api.vo.ApplicationRet$Application$Action -> tw.com.sti.a.a.a.b:
+    tw.com.sti.store.api.vo.ApplicationRet$Application$Action INSTALL -> a
+    tw.com.sti.store.api.vo.ApplicationRet$Application$Action OPEN -> b
+    tw.com.sti.store.api.vo.ApplicationRet$Application$Action UNINSTALL -> c
+    tw.com.sti.store.api.vo.ApplicationRet$Application$Action UPDATE -> d
+    tw.com.sti.store.api.vo.ApplicationRet$Application$Action BUY -> e
+    tw.com.sti.store.api.vo.ApplicationRet$Application$Action SUBSCRIBE -> f
+    tw.com.sti.store.api.vo.ApplicationRet$Application$Action UN_SUBSCRIBE -> g
+    tw.com.sti.store.api.vo.ApplicationRet$Application$Action CANCEL -> h
+    tw.com.sti.store.api.vo.ApplicationRet$Application$Action[] ENUM$VALUES -> i
+    tw.com.sti.store.api.vo.ApplicationRet$Application$Action[] values() -> values
+    tw.com.sti.store.api.vo.ApplicationRet$Application$Action valueOf(java.lang.String) -> valueOf
+tw.com.sti.store.api.vo.AppsRet -> tw.com.sti.a.a.a.a:
+    boolean pageEnd -> a
+    tw.com.sti.store.api.vo.AppsRet$App[] apps -> b
+    boolean isPageEnd() -> a
+    tw.com.sti.store.api.vo.AppsRet$App[] getApps() -> b
+tw.com.sti.store.api.vo.AppsRet$App -> tw.com.sti.a.a.a.af:
+    java.lang.String pkg -> a
+    int version -> b
+    java.lang.String title -> c
+    java.lang.String icon -> d
+    java.lang.String provider -> e
+    float rating -> f
+    tw.com.sti.store.api.vo.AppInfo$PriceType priceType -> g
+    java.lang.String priceText -> h
+    tw.com.sti.store.api.vo.AppInfo$PayStatus payStatus -> i
+    java.lang.String subscribeExpDate -> j
+    tw.com.sti.store.api.vo.AppsRet$App parseApp(org.json.JSONObject) -> a
+    java.lang.String getPkg() -> a
+    int getVersion() -> b
+    java.lang.String getTitle() -> c
+    java.lang.String getIcon() -> d
+    float getRating() -> e
+    void setRating(float) -> a
+    tw.com.sti.store.api.vo.AppInfo$PayStatus getPayStatus() -> f
+    void setPayStatus(tw.com.sti.store.api.vo.AppInfo$PayStatus) -> a
+    void setSubscribeExpDate(java.lang.String) -> a
+    tw.com.sti.store.api.vo.AppInfo$PriceType getPriceType() -> g
+    java.lang.String getPriceText() -> h
+    java.lang.String getSubscribeExpDate() -> i
+    int hashCode() -> hashCode
+tw.com.sti.store.api.vo.BaseRet -> tw.com.sti.a.a.a.s:
+    java.lang.String result -> a
+    java.lang.String retMsg -> b
+    java.lang.String sysMsg -> c
+    tw.com.sti.store.api.vo.NewClientInfo newClientRet -> d
+    boolean isSuccess() -> d
+    boolean isReLogin() -> e
+    boolean isFail() -> f
+    java.lang.String getRetMsg() -> g
+    boolean isHasNewClient() -> h
+    tw.com.sti.store.api.vo.NewClientInfo getNewClientInfo() -> i
+tw.com.sti.store.api.vo.CPAppsRet -> tw.com.sti.a.a.a.aj:
+    java.lang.String provider -> a
+    java.lang.String getProvider() -> c
+tw.com.sti.store.api.vo.CategoriesRet -> tw.com.sti.a.a.a.ai:
+    tw.com.sti.store.api.vo.CategoriesRet$Category[] categories -> a
+    tw.com.sti.store.api.vo.CategoriesRet$Category[] getCategories() -> a
+tw.com.sti.store.api.vo.CategoriesRet$Category -> tw.com.sti.a.a.a.ad:
+    java.lang.String id -> a
+    java.lang.String title -> b
+    java.lang.String icon -> c
+    boolean hasNewApp -> d
+    int newAppCount -> e
+    tw.com.sti.store.api.vo.CategoriesRet$Category parseCategory(org.json.JSONObject) -> a
+    java.lang.String getId() -> a
+    java.lang.String getTitle() -> b
+    java.lang.String getIcon() -> c
+    boolean isHasNewApp() -> d
+    int getNewAppCount() -> e
+tw.com.sti.store.api.vo.CategoryAppsRet -> tw.com.sti.a.a.a.m:
+    java.lang.String categoryId -> a
+    java.lang.String categoryTitle -> b
+    java.lang.String getCategoryTitle() -> c
+tw.com.sti.store.api.vo.CheckAppStoreRet -> tw.com.sti.a.a.a.ag:
+    tw.com.sti.store.api.vo.CheckAppStoreRet$Store[] stores -> a
+    tw.com.sti.store.api.vo.CheckAppStoreRet$Store[] getStores() -> a
+tw.com.sti.store.api.vo.CheckAppStoreRet$Store -> tw.com.sti.a.a.a.ab:
+    java.lang.String id -> a
+    java.lang.String name -> b
+    java.lang.String downloadUrl -> c
+    tw.com.sti.store.api.vo.CheckAppStoreRet$Store[] parseStores(org.json.JSONArray) -> a
+    tw.com.sti.store.api.vo.CheckAppStoreRet$Store parseStore(org.json.JSONObject) -> a
+    java.lang.String getId() -> a
+    java.lang.String getName() -> b
+    java.lang.String getDownloadUrl() -> c
+tw.com.sti.store.api.vo.CheckClientVersionRet -> tw.com.sti.a.a.a.w:
+    tw.com.sti.store.api.vo.CheckClientVersionRet$NewClient newClient -> a
+    tw.com.sti.store.api.vo.CheckClientVersionRet$NewClient getNewClient() -> a
+tw.com.sti.store.api.vo.CheckClientVersionRet$NewClient -> tw.com.sti.a.a.a.ac:
+    int version -> a
+    int apkBytes -> b
+    java.lang.String msg -> c
+    java.lang.String title -> d
+    java.lang.String notification -> e
+    java.lang.String ticker -> f
+    java.lang.String dltoken -> g
+    tw.com.sti.store.api.vo.CheckClientVersionRet$NewClient parseNewClient(org.json.JSONObject) -> a
+    int getApkBytes() -> a
+    java.lang.String getMsg() -> b
+    java.lang.String getTitle() -> c
+    java.lang.String getNotification() -> d
+    java.lang.String getTicker() -> e
+    java.lang.String getDownloadToken() -> f
+tw.com.sti.store.api.vo.CheckPayStatusRet -> tw.com.sti.a.a.a.o:
+    tw.com.sti.store.api.vo.AppInfo$PayStatus payStatus -> a
+    java.lang.String statusMsg -> b
+    boolean isPaid() -> a
+    boolean isNoPaid() -> b
+    java.lang.String getStatusMsg() -> c
+tw.com.sti.store.api.vo.CommentsRet -> tw.com.sti.a.a.a.l:
+    boolean pageEnd -> a
+    tw.com.sti.store.api.vo.CommentsRet$Comment[] comments -> b
+    boolean isPageEnd() -> a
+    tw.com.sti.store.api.vo.CommentsRet$Comment[] getComments() -> b
+tw.com.sti.store.api.vo.CommentsRet$Comment -> tw.com.sti.a.a.a.al:
+    java.lang.String id -> a
+    java.lang.String poster -> b
+    java.lang.String date -> c
+    float rating -> d
+    java.lang.String content -> e
+    tw.com.sti.store.api.vo.CommentsRet$Comment[] parseComments(org.json.JSONArray) -> a
+    tw.com.sti.store.api.vo.CommentsRet$Comment parseComment(org.json.JSONObject) -> a
+    java.lang.String getPoster() -> a
+    java.lang.String getDate() -> b
+    float getRating() -> c
+    java.lang.String getContent() -> d
+tw.com.sti.store.api.vo.CommonRet -> tw.com.sti.a.a.a.aa:
+tw.com.sti.store.api.vo.Credential -> tw.com.sti.a.a.a.e:
+    java.lang.String token -> a
+    java.lang.String uid -> b
+    java.lang.String userId -> c
+    java.lang.String getToken() -> a
+    java.lang.String getUid() -> b
+    java.lang.String getUserId() -> c
+tw.com.sti.store.api.vo.IPLoginRet -> tw.com.sti.a.a.a.p:
+    boolean ipLogin -> a
+    java.lang.String account -> b
+    java.lang.String uid -> c
+    java.lang.String token -> d
+    boolean appFilterSettingEnable -> e
+    boolean isAppFilterSettingEnable() -> a
+    tw.com.sti.store.api.vo.Credential getCredential() -> b
+tw.com.sti.store.api.vo.LicenseInfoRet -> tw.com.sti.a.a.a.x:
+    java.util.List application -> a
+    java.util.List getApplication() -> a
+tw.com.sti.store.api.vo.LicenseInfoRet$LicenseInfo -> tw.com.sti.a.a.a.am:
+    java.math.BigDecimal id -> a
+    java.lang.String pkg -> b
+    java.lang.String data -> c
+    java.lang.String sign -> d
+    java.util.List parseApplication(org.json.JSONArray) -> a
+    java.math.BigDecimal getId() -> a
+    java.lang.String getPkg() -> b
+    java.lang.String getData() -> c
+    java.lang.String getSign() -> d
+tw.com.sti.store.api.vo.LogMessage -> tw.com.sti.a.a.a.z:
+    java.lang.String toXML() -> a
+tw.com.sti.store.api.vo.LoginRet -> tw.com.sti.a.a.a.d:
+    java.lang.String uid -> a
+    java.lang.String token -> b
+    boolean appFilterSettingEnable -> c
+    boolean isAppFilterSettingEnable() -> a
+    tw.com.sti.store.api.vo.Credential getCredential(java.lang.String) -> a
+tw.com.sti.store.api.vo.NewClientInfo -> tw.com.sti.a.a.a.u:
+    java.lang.String msg -> a
+    int apkBytes -> b
+    tw.com.sti.store.api.vo.NewClientInfo createInstance(org.json.JSONObject) -> a
+    java.lang.String getMsg() -> a
+tw.com.sti.store.api.vo.OrderInfo -> tw.com.sti.a.a.a.r:
+    java.lang.String pkg -> a
+    int version -> b
+    java.lang.String title -> c
+    java.lang.String icon -> d
+    java.lang.String provider -> e
+    float price -> f
+    byte priceType -> g
+    int payStatus -> h
+    long orderId -> i
+    java.lang.String priceText -> j
+    java.lang.String orderNo -> k
+    java.util.Date orderTime -> l
+    java.util.Date rightStartDate -> m
+    java.util.Date rightEndDate -> n
+    int payType -> o
+    tw.com.sti.store.api.vo.OrderInfo createInstance(org.json.JSONObject) -> a
+    java.lang.String getPkg() -> a
+    java.lang.String getTitle() -> b
+    java.lang.String getProvider() -> c
+    float getPrice() -> d
+    long getOrderId() -> e
+    java.lang.String getOrderNo() -> f
+    java.util.Date getOrderTime() -> g
+    java.util.Date getRightStartDate() -> h
+    java.util.Date getRightEndDate() -> i
+tw.com.sti.store.api.vo.OrderRet -> tw.com.sti.a.a.a.v:
+    tw.com.sti.store.api.vo.OrderInfo order -> a
+    tw.com.sti.store.api.vo.OrderInfo getOrder() -> a
+tw.com.sti.store.api.vo.OverPaymentQuotaRet -> tw.com.sti.a.a.a.q:
+    boolean overQuota -> a
+    java.lang.String overQuotaMsg -> b
+tw.com.sti.store.api.vo.PePayOrderRet -> tw.com.sti.a.a.a.k:
+    java.lang.String orderNo -> a
+    java.lang.String pePayOrderUrl -> b
+    java.lang.String pePayBaseUrl -> c
+    java.util.Map params -> d
+    java.lang.String getPePayOrderUrl() -> a
+    java.lang.String getPePayBaseUrl() -> b
+    java.util.Map getParams() -> c
+tw.com.sti.store.api.vo.SdkAppInfoRet -> tw.com.sti.a.a.a.ak:
+    tw.com.sti.store.api.vo.SdkAppInfoRet$SdkApp application -> a
+    tw.com.sti.store.api.vo.SdkAppInfoRet$SdkApp getApplication() -> a
+tw.com.sti.store.api.vo.SdkAppInfoRet$SdkApp -> tw.com.sti.a.a.a.an:
+    java.lang.String pkg -> a
+    int version -> b
+    java.lang.String title -> c
+    java.lang.String icon -> d
+    java.lang.String provider -> e
+    float rating -> f
+    float price -> g
+    java.lang.String priceText -> h
+    tw.com.sti.store.api.vo.AppInfo$PriceType priceType -> i
+    int appPriceType -> j
+    tw.com.sti.store.api.vo.AppInfo$PayStatus payStatus -> k
+    int paymentStatus -> l
+    java.lang.String subscribeExpDate -> m
+    java.lang.String ratingTimes -> n
+    int onUse -> o
+    long logId -> p
+    tw.com.sti.store.api.vo.SdkAppInfoRet$SdkApp parseApplication(org.json.JSONObject) -> a
+    java.lang.String getPkg() -> a
+    int getVersion() -> b
+    java.lang.String getTitle() -> c
+    java.lang.String getIcon() -> d
+    java.lang.String getProvider() -> e
+    float getRating() -> f
+    float getPrice() -> g
+    tw.com.sti.store.api.vo.AppInfo$PriceType getPriceType() -> h
+    tw.com.sti.store.api.vo.AppInfo$PayStatus getPayStatus() -> i
+    java.lang.String getSubscribeExpDate() -> j
+    long getLogId() -> k
+    int getPaymentStatus() -> l
+    int getAppPriceType() -> m
+    int getOnUse() -> n
+tw.com.sti.store.api.vo.UPayConfig -> tw.com.sti.a.a.a.i:
+    java.lang.String isTest -> a
+    java.lang.String checkSignUrl -> b
+    java.lang.String merchantId -> c
+    java.lang.String merchantName -> d
+    java.lang.String merchantPublicCer -> e
+    java.lang.String privateKeyFileName -> f
+    java.lang.String privateKeyAlias -> g
+    java.lang.String privateKeyPassword -> h
+    java.lang.String transTimeout -> i
+    java.lang.String backEndUrl -> j
+    java.lang.String getCheckSignUrl() -> a
+    java.lang.String getMerchantId() -> b
+    java.lang.String getMerchantName() -> c
+    java.lang.String getMerchantPublicCer() -> d
+    java.lang.String getPrivateKeyFileName() -> e
+    java.lang.String getPrivateKeyAlias() -> f
+    java.lang.String getPrivateKeyPassword() -> g
+    java.lang.String getTransTimeout() -> h
+    java.lang.String getBackEndUrl() -> i
+    java.lang.String getIsTest() -> j
+tw.com.sti.store.api.vo.UnsubscribeRet -> tw.com.sti.a.a.a.ah:
+    int status -> a
+    java.lang.String statusMsg -> b
+    java.lang.String subscribeExpDate -> c
+    boolean isUnsubscribeSuccess() -> a
+    boolean isNonsubscribe() -> b
+    java.lang.String getUnsubscribeMsg() -> c
+    java.lang.String getSubscribeExpDate() -> j

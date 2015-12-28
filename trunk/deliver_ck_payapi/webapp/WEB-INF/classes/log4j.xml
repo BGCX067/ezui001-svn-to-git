@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  $Id$
+-->
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration>
+
+    <appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
+        <param name="Target" value="System.out" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d %p %t [%C.%M] - %m%n" />
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="TRACE" />
+			<param name="LevelMax" value="FATAL" />
+        </filter>
+    </appender>
+    
+    <appender name="STDERR" class="org.apache.log4j.ConsoleAppender">
+        <param name="Target" value="System.err"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d %p %t [%C.%M] - %m%n"/>
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="ERROR" />
+			<param name="LevelMax" value="FATAL" />
+        </filter>
+    </appender>
+
+    <appender name="FILE-ROOT" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="/home/vtion/logs/log4j/vstoreck-prod/appserver.log" />
+        <param name="DatePattern" value=".yyyy-MM-dd" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d %p %t [%C.%M] - %m%n" />
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="TRACE" />
+			<param name="LevelMax" value="FATAL" />
+        </filter>
+    </appender>
+
+    <logger name="org.springframework">
+        <level value="INFO" />
+    </logger>
+
+    <logger name="cn.vstore">
+        <level value="INFO" />
+    </logger>
+
+    <logger name="com.ibatis">
+        <level value="INFO" />
+    </logger>
+    
+    <!--<logger name="org.apache.commons.httpclient">
+        <level value="INFO" />
+    </logger>-->
+    
+    <!--<logger name="java.sql" additivity="true">
+        <level value ="DEBUG" />
+    </logger>-->
+
+    <!--<logger name="java.sql.Connection" additivity="true">
+        <level value="DEBUG" />
+    </logger>-->
+
+    <!--<logger name="java.sql.Statement" additivity="true">
+        <level value="DEBUG" />
+    </logger>-->
+
+    <!--<logger name="java.sql.PreparedStatement" additivity="true">
+        <level value="DEBUG" />
+    </logger>-->
+
+    <!--<logger name="java.sql.ResultSet" additivity="true">
+        <level value="DEBUG" />
+    </logger>-->
+
+    <root>
+        <level value="DEBUG" />
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="STDERR" />
+		<appender-ref ref="FILE-ROOT" />
+    </root>
+
+</log4j:configuration>

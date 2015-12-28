@@ -1,0 +1,74 @@
+tw.com.sti.store.api.vo.ApplicationRet$Application$Action: tw.com.sti.store.api.vo.ApplicationRet$Application$Action[] values()
+tw.com.sti.store.api.vo.ApplicationRet$Application$Action: tw.com.sti.store.api.vo.ApplicationRet$Application$Action valueOf(java.lang.String)
+tw.com.sti.store.api.vo.AppInfo$PriceType: tw.com.sti.store.api.vo.AppInfo$PriceType[] values()
+tw.com.sti.store.api.vo.AppInfo$PriceType: tw.com.sti.store.api.vo.AppInfo$PriceType valueOf(java.lang.String)
+tw.com.sti.store.api.Configuration$RUNTIME_SERVER_TYPE: tw.com.sti.store.api.Configuration$RUNTIME_SERVER_TYPE[] values()
+tw.com.sti.store.api.Configuration$RUNTIME_SERVER_TYPE: tw.com.sti.store.api.Configuration$RUNTIME_SERVER_TYPE valueOf(java.lang.String)
+tw.com.sti.store.api.ApiService$AppsType: tw.com.sti.store.api.ApiService$AppsType[] values()
+tw.com.sti.store.api.ApiService$AppsType: tw.com.sti.store.api.ApiService$AppsType valueOf(java.lang.String)
+tw.com.sti.store.api.vo.AppInfo$PayStatus: tw.com.sti.store.api.vo.AppInfo$PayStatus[] values()
+tw.com.sti.store.api.vo.AppInfo$PayStatus: tw.com.sti.store.api.vo.AppInfo$PayStatus valueOf(java.lang.String)
+cn.com.vapk.vstore.client.AbsAppsDisplayActivity$Mode: cn.com.vapk.vstore.client.AbsAppsDisplayActivity$Mode[] values()
+cn.com.vapk.vstore.client.AbsAppsDisplayActivity$Mode: cn.com.vapk.vstore.client.AbsAppsDisplayActivity$Mode valueOf(java.lang.String)
+cn.com.vapk.vstore.client.util.ImageDownloader$Mode: cn.com.vapk.vstore.client.util.ImageDownloader$Mode[] values()
+cn.com.vapk.vstore.client.util.ImageDownloader$Mode: cn.com.vapk.vstore.client.util.ImageDownloader$Mode valueOf(java.lang.String)
+cn.com.vapk.vstore.client.installapp.InstallLog$EventTypeValue: cn.com.vapk.vstore.client.installapp.InstallLog$EventTypeValue[] values()
+cn.com.vapk.vstore.client.installapp.InstallLog$EventTypeValue: cn.com.vapk.vstore.client.installapp.InstallLog$EventTypeValue valueOf(java.lang.String)
+tw.com.sti.store.api.vo.AppInfo$AppPaidType: tw.com.sti.store.api.vo.AppInfo$AppPaidType[] values()
+tw.com.sti.store.api.vo.AppInfo$AppPaidType: tw.com.sti.store.api.vo.AppInfo$AppPaidType valueOf(java.lang.String)
+cn.com.vapk.vstore.client.util.AsyncTask$Status: cn.com.vapk.vstore.client.util.AsyncTask$Status[] values()
+cn.com.vapk.vstore.client.util.AsyncTask$Status: cn.com.vapk.vstore.client.util.AsyncTask$Status valueOf(java.lang.String)
+cn.com.vapk.vstore.client.installapp.DownloadAppInfo$Result: cn.com.vapk.vstore.client.installapp.DownloadAppInfo$Result[] values()
+cn.com.vapk.vstore.client.installapp.DownloadAppInfo$Result: cn.com.vapk.vstore.client.installapp.DownloadAppInfo$Result valueOf(java.lang.String)
+cn.com.vapk.vstore.client.installapp.DownloadAppInfo$Status: cn.com.vapk.vstore.client.installapp.DownloadAppInfo$Status[] values()
+cn.com.vapk.vstore.client.installapp.DownloadAppInfo$Status: cn.com.vapk.vstore.client.installapp.DownloadAppInfo$Status valueOf(java.lang.String)
+cn.com.vapk.vstore.client.AutoLoginActivity
+tw.com.sti.clientsdk.LicenseManager
+cn.com.vapk.vstore.client.AppLicenseManager
+cn.com.vapk.vstore.client.UninstallReasonActivity
+cn.com.vapk.vstore.client.ScreenShotActivity
+cn.com.vapk.vstore.client.CPAppsActivity
+cn.com.vapk.vstore.client.SearchResultActivity
+cn.com.vapk.vstore.client.CategoryAppsActivity
+cn.com.vapk.vstore.client.MyDownloadActivity
+cn.com.vapk.vstore.client.AppDetailActivity
+cn.com.vapk.vstore.client.CreateShortcutActivity
+cn.com.vapk.vstore.client.LoginActivity
+cn.com.vapk.vstore.client.EulaActivity
+cn.com.vapk.vstore.client.IPLoginActivity
+tw.com.sti.clientsdk.ShoppingCartActivity
+cn.com.vapk.vstore.client.payment.GPayActivity
+cn.com.vapk.vstore.client.RateAppActivity
+cn.com.vapk.vstore.client.ReportAppActivity
+cn.com.vapk.vstore.client.Splash
+cn.com.vapk.vstore.client.RegisterActivity
+tw.com.sti.clientsdk.LoginActivity
+cn.com.vapk.vstore.client.update.NewClientAlertDialogActivity
+cn.com.vapk.vstore.client.SettingActivity
+cn.com.vapk.vstore.client.ASC
+cn.com.vapk.vstore.client.SearchActivity
+cn.com.vapk.vstore.client.AppCommentsActivity
+cn.com.vapk.vstore.client.CategoriesActivity
+cn.com.vapk.vstore.client.FeatureAppsActivity
+cn.com.vapk.vstore.client.installapp.DownloadAppService
+cn.com.vapk.vstore.client.usage.ClientUsageService
+cn.com.vapk.vstore.client.installapp.InstallLogSenderService
+cn.com.vapk.vstore.client.util.ConcurrentIntentService
+cn.com.vapk.vstore.client.update.DownloadClientService
+cn.com.vapk.vstore.client.update.CheckClientVersionService
+cn.com.vapk.vstore.client.update.CheckAppsVersionService
+cn.com.vapk.vstore.client.api.AppStatusReceiver
+cn.com.vapk.vstore.client.update.CheckAppsVersionReceiver
+cn.com.vapk.vstore.client.CloseClientReceiver
+cn.com.vapk.vstore.client.receiver.LoginEventReceiver
+cn.com.vapk.vstore.client.installapp.AppInstallLogReceiver
+cn.com.vapk.vstore.client.usage.ClientUsageReceiver
+cn.com.vapk.vstore.client.update.CheckClientVersionReceiver
+cn.com.vapk.vstore.client.installapp.PkgInstallReceiver
+cn.com.vapk.vstore.client.installapp.AppInstallReceiver
+cn.com.vapk.vstore.client.usage.ClientUsageProvider
+tw.com.sti.clientsdk.provider.AppSdkProvider
+cn.com.vapk.vstore.client.sdk.StoreProvider
+cn.com.vapk.vstore.client.installapp.InstallLogProvider
+cn.com.vapk.vstore.client.installapp.DownloadStatusProvider
+cn.com.vapk.vstore.client.search.SearchSuggestionProvider
